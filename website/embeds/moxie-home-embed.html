@@ -1,0 +1,531 @@
+<!--
+  MOXIE MORTGAGE · HOMEPAGE (/)
+  Paste this whole file into ONE Lofty "Custom Code / Embed" block. See README.md for setup.
+  Images load from github.com/rlucido15/moxie-email-assets via jsDelivr (pinned commit 7c56298).
+-->
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-400-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:500;font-display:swap;src:url(https://cdn.chime.me/doc/fs/upload/2024124/14/c202c01f-272d-4423-9fd7-72c91e452881/Barlow-Medium.ttf) format('truetype'),url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-600-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-600-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.chime.me/doc/fs/upload/2024124/14/05cdcc97-1e84-4a7f-ad8a-f81dbe379c1e/Barlow-Bold.ttf) format('truetype'),url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-700-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:800;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-800-normal.woff2) format('woff2')}.mxp{--navy:#0E2A47;--blue:#1C97AE;--bt:#127C8F;--orange:#F46744;--muted:#4A5868;--line:#DCE6EB;--soft:#F4F8FA;
+  font-family:MoxieBarlow,Barlow,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-align:left;box-sizing:border-box;width:100%}
+.mxp *,.mxp *::before,.mxp *::after{box-sizing:border-box}
+.mxp h1,.mxp h2,.mxp h3,.mxp p,.mxp ul,.mxp ol,.mxp figure,.mxp blockquote{margin:0;padding:0;font-family:inherit;text-transform:none;letter-spacing:normal}
+.mxp h1,.mxp h2,.mxp h3{color:inherit;text-wrap:balance}
+.mxp p{text-wrap:pretty}
+.mxp ul,.mxp ol{list-style:none !important;padding:0 !important;margin:0}
+.mxp.mxp li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;text-indent:0 !important}
+.mxp li::before{content:none !important;display:none !important}
+.mxp.mxp .mx-ans li{list-style:disc !important;margin:0 0 4px 22px !important}
+.mxp.mxp .mx-ans ol li,.mxp.mxp .mx-box ol li{list-style:decimal !important;margin-left:22px !important}
+.mxp [hidden]{display:none !important}
+.mxp img{max-width:100%;height:auto;display:block}
+.mxp a{color:var(--bt);text-decoration:none}
+.mxp a:hover{color:#0F5F6E}
+.mxp a:focus-visible,.mxp button:focus-visible,.mxp summary:focus-visible,.mxp input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mx-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.mx-sec{padding:88px 0}
+.mx-soft{background:var(--soft)}
+.mx-eyebrow{font-weight:700;letter-spacing:.14em !important;text-transform:uppercase !important;font-size:14px;color:var(--bt);margin-bottom:12px !important}
+.mx-h1{font-size:clamp(38px,5vw,60px);line-height:1.05;font-weight:800;letter-spacing:-.02em !important}
+.mx-h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.015em !important}
+.mx-lede{font-size:20px;color:var(--muted);max-width:580px;margin-top:20px !important}
+.mx-muted{color:var(--muted)}
+.mx-dag{font-weight:400;font-size:.5em;vertical-align:super;line-height:0;margin-left:1px}
+.mx-h1 .mx-dag{font-size:16px;vertical-align:top;position:relative;top:.5em;margin-left:2px}
+.mx-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.mxp .mx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;border-radius:12px;font-weight:700;font-size:17px;line-height:1.2;transition:background .15s,color .15s;border:2px solid transparent;cursor:pointer;text-align:center}
+.mxp .mx-btn-p{background:var(--orange);color:var(--navy)}
+.mxp .mx-btn-p:hover{background:#ff7a59;color:var(--navy)}
+.mxp .mx-btn-o{border-color:var(--navy);color:var(--navy)}
+.mxp .mx-btn-o:hover{background:var(--navy);color:#fff}
+.mxp .mx-btn-w{border-color:#fff;color:#fff}
+.mxp .mx-btn-w:hover{background:#fff;color:var(--navy)}
+.mx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.mx-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;transition:transform .15s,border-color .15s;display:flex;flex-direction:column;gap:10px}
+.mx-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.mx-card h3{font-size:22px;line-height:1.2;font-weight:700}
+.mx-card p{color:var(--muted);font-size:16px}
+.mx-ico{width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mx-ico svg{width:26px;height:26px}
+.mx-more{margin-top:auto !important;font-weight:700}
+.mx-head{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
+.mx-head>p{max-width:440px}
+.mx-dark{background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 42%,#0E2A47 100%);color:#fff}
+.mx-dark .mx-eyebrow{color:#7FDCEC}
+.mx-dark p{color:#D3E3EC}
+.mx-hero{padding:56px 0 64px}
+.mx-hero .mx-wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.mx-hero-copy{flex:1 1 470px;min-width:0}
+.mx-hero-media{flex:1 1 420px;min-width:0;position:relative}
+.mx-photo{border-radius:28px;padding:14px;background:linear-gradient(135deg,#1C97AE 0%,#0E2A47 100%)}
+.mx-photo img{width:100%;aspect-ratio:14/9;object-fit:cover;border-radius:18px}
+.mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
+.mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:16px 48px;margin-top:36px !important}
+@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,auto);gap:16px 32px}}
+
+.mx-stats strong{display:block;font-size:28px;line-height:1.1;font-weight:800}
+.mx-stats li>span{display:block;margin-top:4px;font-size:14px;color:var(--muted);white-space:nowrap}
+.mx-checks{display:flex;flex-direction:column;gap:12px;margin-top:28px !important}
+.mx-checks li{display:flex;gap:12px;align-items:center}
+.mx-ck{width:28px;height:28px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-faq{display:flex;flex-direction:column;gap:12px}
+.mx-faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 24px}
+.mx-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 0;min-height:60px}
+.mx-faq summary::-webkit-details-marker{display:none}
+.mx-faq summary h3{font-size:19px;line-height:1.35;font-weight:700}
+.mx-pm{flex:none;width:32px;height:32px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;font-size:22px;line-height:1;transition:transform .15s}
+.mx-faq details[open] .mx-pm{transform:rotate(45deg);background:var(--navy);color:#fff}
+.mx-ans{padding:0 0 20px;color:#344455;font-size:16px;display:flex;flex-direction:column;gap:8px}
+.mx-ans ul,.mx-ans ol{padding-left:22px !important;display:flex;flex-direction:column;gap:4px}
+.mx-ans ul{list-style:disc}.mx-ans ol{list-style:decimal}
+.mx-cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between}
+.mx-cta p{color:#C9D6DF;margin-top:14px !important}
+.mx-cta .mx-btns{margin-top:0}
+.mx-fine{font-size:13px;line-height:1.6;color:var(--muted)}
+.mx-rise{animation:mxRise .5s ease-out both}
+.mx-d2{animation-delay:.12s}
+.mx-fade{animation:mxFade .6s .1s ease-out both}
+@keyframes mxRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes mxFade{from{opacity:0}to{opacity:1}}
+@media (max-width:640px){.mx-sec{padding:64px 0}.mx-cta{padding:36px 24px}.mx-badge{left:8px;bottom:16px}.mx-hero{padding:32px 0 48px}}
+@media (prefers-reduced-motion:reduce){.mxp *,.mxp *::before,.mxp *::after{animation:none !important;transition:none !important}}</style>
+<div class="mxp" id="mx-home">
+
+<style>.mx-uba h3{font-size:20px !important;letter-spacing:-.005em !important}
+.mx-uba h3 .mx-line1{white-space:nowrap}
+.mx-time ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px !important}
+.mxp.mxp .mx-time li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:28px 28px 30px !important;display:flex;flex-direction:column;gap:10px}
+.mx-time h3{margin:0 !important}
+.mxp.mxp .mx-time li.mx-last{background:#fff;color:var(--navy);border-color:#fff}
+.mx-time li.mx-last p{color:var(--muted)}
+.mx-step{font-weight:700;font-size:14px;letter-spacing:.12em !important;color:#7FDCEC;text-transform:uppercase !important}
+.mx-time li.mx-last .mx-step{color:var(--bt)}
+.mx-time h3{font-size:24px;line-height:1.2;font-weight:700}
+.mx-track{height:3px;border-radius:3px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:44px}
+.mx-track span{display:block;height:100%;background:var(--blue);transform-origin:left;transform:scaleX(0);transition:transform 1.6s ease-out}
+.mx-track.is-in span{transform:scaleX(1)}
+.mx-soon{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.mx-tabs{display:flex;flex-wrap:wrap;gap:8px;background:var(--soft);padding:6px;border-radius:14px}
+.mxp .mx-tab{flex:1 1 160px;min-height:46px;border:0;border-radius:10px;background:transparent;color:var(--navy);font-family:inherit;font-weight:700;font-size:16px;line-height:1.2;cursor:pointer;padding:10px 16px}
+.mxp .mx-tab[aria-selected="true"]{background:var(--navy);color:#fff}
+.mx-panel{margin-top:18px;border:1px solid var(--line);border-radius:20px;padding:32px}
+.mx-panel h3{font-size:26px;font-weight:700;margin-bottom:8px !important}
+.mx-panel p{color:var(--muted);margin-bottom:22px !important}
+.mx-card-dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.mx-card-dark p{color:#C9D6DF}
+.mx-card-dark .mx-tag,.mx-card-dark .mx-more{color:#7FDCEC}
+.mx-tag{font-weight:700;font-size:13px;letter-spacing:.12em !important;color:var(--bt);text-transform:uppercase !important}
+a.mx-card{color:var(--navy)}
+a.mx-card.mx-card-dark{color:#fff}
+.mx-rating{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px 20px}
+.mx-rating img{height:32px;width:32px}
+.mx-rating-n{font-size:40px;font-weight:800;line-height:1}
+.mx-revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:28px}
+.mxp.mxp .mx-rev{border:1px solid var(--line);border-radius:20px;padding:32px 32px 28px !important;margin:0 !important;background:#fff;display:flex;flex-direction:column;gap:14px}
+.mx-rev-top{display:flex;justify-content:space-between;align-items:center}
+.mx-stars{color:var(--orange);letter-spacing:3px;font-size:18px}
+.mx-rev-src{font-size:13px;color:var(--muted);display:inline-flex;align-items:center}
+.mx-rev-src img{height:20px;width:20px;display:block}
+.mxp.mxp .mx-rev blockquote{margin:0 !important;padding:0 !important;border:0 !important;font-style:normal !important;quotes:none}
+.mx-rev blockquote{font-size:18px;line-height:1.5}
+.mx-rev figcaption{margin-top:auto;display:flex;gap:12px;align-items:center;font-weight:700}
+.mx-sav{display:flex;flex-wrap:wrap;gap:48px 96px;align-items:stretch}
+.mx-sav-in{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.mx-sav-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}
+.mx-sav-row label{font-weight:700;font-size:17px}
+.mx-sav-row output{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;color:#fff}
+.mxp .mx-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--blue) var(--p,35.7%),rgba(255,255,255,.25) var(--p,35.7%));cursor:pointer;margin:12px 0 6px}
+.mx-range::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 8px rgba(14,42,71,.25)}
+.mx-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 8px rgba(14,42,71,.25)}
+.mx-sav-ends{display:flex;justify-content:space-between;font-size:14px;color:#C9D6DF}
+.mx-sav-act{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.mx-sav-chart{flex:1 1 500px;min-width:0;background:#fff;color:var(--navy);border-radius:24px;padding:32px 36px 24px;box-shadow:0 30px 60px rgba(2,10,30,.3);display:flex;flex-direction:column;gap:18px}
+.mx-sav-chart p{color:var(--navy)}
+.mx-bars{height:260px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:end;border-bottom:2px solid var(--line)}
+.mx-bars>div{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:10px}
+.mx-bars strong{font-size:20px;font-variant-numeric:tabular-nums}
+.mx-bars i{display:block;width:70%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#1C97AE,#0E2A47);transition:height .25s ease-out}
+.mx-bar-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:center;font-size:15px;color:var(--muted);font-weight:600}
+.mx-sav-chart .mx-sav-note{font-size:12px;line-height:1.5;color:var(--muted)}
+@media (max-width:640px){.mx-sav-chart{padding:24px 18px 18px}.mx-bars{height:200px;gap:10px}.mx-bars strong{font-size:15px}.mx-bar-l{gap:10px;font-size:13px}}
+.mx-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:none;overflow:hidden}
+.mx-av.has-photo{background:#E3F5F9}
+.mx-av img{width:100%;height:100%;object-fit:cover;display:block}.mx-sr{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mxh-hero{padding:56px 0 40px}
+.mxh-hero .mx-h1{font-size:clamp(40px,5vw,62px);line-height:1.04}
+.mxh-trust{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;margin-top:30px;font-size:15px;color:var(--muted)}
+.mxh-trust>span{display:inline-flex;align-items:center;gap:8px}
+.mxh-trust strong{color:var(--navy)}
+.mxh-trust .mx-stars{font-size:15px;letter-spacing:1px}
+.mxh-paths{padding:24px 0 88px}
+.mxp a.mxh-path{background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:28px;color:var(--navy);display:flex;gap:18px;align-items:center;transition:transform .15s,border-color .15s}
+.mxp a.mxh-path:hover{border-color:var(--blue);transform:translateY(-2px);color:var(--navy)}
+.mxh-path .mx-ico{width:56px;height:56px;border-radius:16px;margin:0;flex:none}
+.mxh-path .mx-ico svg{width:28px;height:28px}
+.mxh-path strong{display:block;font-size:21px;line-height:1.25}
+.mxh-path span span{font-size:15px;color:var(--muted)}
+.mxh-ws{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+.mxh-ws>div{flex:1 1 460px;min-width:0}
+.mxh-ws .mx-intro{margin-top:18px !important;font-size:19px}
+.mxh-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
+.mxh-cmp>div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.mxh-cmp>div.mxh-us{background:var(--navy);border-color:var(--navy);color:#fff}
+.mxh-cmp .mxh-cmp-h{font-weight:700;color:var(--muted);margin-bottom:12px !important}
+.mxh-cmp .mxh-us .mxh-cmp-h{color:#7FDCEC}
+.mxh-cmp li{display:flex;gap:10px;align-items:baseline}
+.mxp.mxp .mxh-cmp li+li{margin-top:6px !important}
+.mx-x{color:#D93025;font-weight:700}
+.mx-ok{font-weight:700}
+.mxh-ws .mx-faq summary h3{font-size:18px}
+.mxh-steps ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.mxp.mxp .mxh-steps li{display:flex !important;flex-direction:column;gap:10px}
+.mxh-num{font-weight:700;font-size:56px;line-height:1;color:var(--blue)}
+.mxh-steps h3{font-size:22px;line-height:1.25;font-weight:700}
+.mxh-steps p{color:var(--muted);font-size:16px}
+.mxh-steps .mx-dag{font-size:.6em}
+.mxp .mx-rating.mxh-grad{border:3px solid transparent;border-radius:18px;padding:12px 20px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#1C97AE 0%,#0E2A47 100%) border-box}
+.mxh-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.mxh-tools .mx-card{padding:26px;gap:8px}
+.mxh-tools .mx-card h3{font-size:21px}
+.mxh-tools .mx-card-dark img{margin-bottom:6px}
+.mxh-tools .mx-card-dark h3{color:#fff}
+.mxh-final{padding:0 0 72px}
+.mxh-notes{margin-top:40px}
+.mxp.mxp .mxh-notes p+p{margin-top:10px !important}</style>
+<section class="mx-hero mxh-hero" aria-labelledby="mxh-h1">
+  <div class="mx-wrap">
+    <div class="mx-hero-copy">
+      <p class="mx-eyebrow mx-rise" data-mx="eyebrow" hidden></p>
+      <h1 id="mxh-h1" class="mx-h1 mx-rise"><span data-mx="h1">Buy your dream home and save $1,000s on your mortgage.</span><span data-mx="dag"><span class="mx-dag">†</span></span></h1>
+      <p class="mx-lede mx-rise mx-d2" data-mx="sub">Skip the retail markup. Keep more of your money and reach your home goals faster.</p>
+      <div class="mx-btns mx-rise mx-d2">
+        <a class="mx-btn mx-btn-p" data-mx="cta" href="https://apply.moxiemortgage.com/?src=hero_purchase">Save on my home loan</a>
+        <a class="mx-btn mx-btn-o" data-mx="cta2" href="tel:+18088185618" hidden>Call 808.818.5618</a>
+      </div>
+      <div class="mxh-trust mx-rise mx-d2">
+        <span><img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@39110a3/google_logo.png" alt="Google" width="20" height="20" style="width:20px;height:20px"><strong data-rv="rating">5.0</strong><span class="mx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span data-rv="count2">173 reviews</span></span>
+        <span><picture><source type="image/webp" srcset="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.webp"><img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.png" alt="Scotsman Guide Top Originators badge" width="32" height="32" loading="lazy" decoding="async" style="width:32px;height:32px"></picture>Scotsman Guide Top Originator</span>
+      </div>
+    </div>
+    <div class="mx-hero-media mx-fade">
+      <div class="mx-photo"><img data-mx="img" src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/buy-hero-1400.webp" srcset="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/buy-hero-800.webp 800w, https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/buy-hero-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 560px" width="1400" height="900" alt="Homebuyers shaking hands with their Moxie loan officer after approval" fetchpriority="high" decoding="async"></div>
+      <div class="mx-badge"><span class="mx-badge-i"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><span><strong style="display:block;font-size:16px">Wholesale pricing</strong><span style="font-size:13px;color:var(--muted)">No retail markup</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mxh-paths" aria-labelledby="mxh-paths">
+  <div class="mx-wrap">
+    <h2 id="mxh-paths" class="mx-sr">What would you like to do?</h2>
+    <div class="mx-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <a class="mxh-path" href="/buy"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><span><strong>Buy a home</strong><span>Same-day approval, close in 21 days or less†</span></span></a>
+      <a class="mxh-path" href="/refinance"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><span><strong>Refinance</strong><span>Lower your payment or take cash out</span></span></a>
+      <a class="mxh-path" href="/heloc"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg></span><span><strong>Tap your equity</strong><span>HELOC funding in as little as 5 days</span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mx-soft" aria-labelledby="mxh-ws">
+  <div class="mx-wrap mxh-ws">
+    <div>
+      <p class="mx-eyebrow">The Costco of home loans</p>
+      <h2 id="mxh-ws" class="mx-h2">What is a wholesale mortgage?</h2>
+      <p class="mx-intro mx-speak"><strong>A wholesale mortgage is like an insider price for your home loan.</strong> Big banks and retail lenders add markups to pay for offices, managers, and ads. Moxie skips the retail markup, finds the best deal for you, and puts those savings back in your pocket.</p>
+      <div class="mxh-cmp">
+        <div><p class="mxh-cmp-h">Retail lender</p><ul><li><span class="mx-x" aria-hidden="true">✕</span><span>Branch and office overhead</span></li><li><span class="mx-x" aria-hidden="true">✕</span><span>Advertising markups</span></li><li><span class="mx-x" aria-hidden="true">✕</span><span>Only their own products</span></li></ul></div>
+        <div class="mxh-us"><p class="mxh-cmp-h">Moxie</p><ul><li><span class="mx-ok" aria-hidden="true">✓</span><span>No retail markup</span></li><li><span class="mx-ok" aria-hidden="true">✓</span><span>300+ lender options</span></li><li><span class="mx-ok" aria-hidden="true">✓</span><span>Savings go back to you</span></li></ul></div>
+      </div>
+    </div>
+    <div><div class="mx-faq"><details open><summary><h3>How much can you save with a wholesale lender?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">You can save on both closing costs and your monthly payment. Retail lenders often charge 4.5% to 6% for your loan, and Moxie charges a fraction of that. On a $500,000 mortgage, a 3% difference in margin could mean $15,000 in closing costs, or a lower rate that saves $10,000s over the life of the loan.</p></div></details><details><summary><h3>Is it faster to get a mortgage through a wholesale lender?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">Yes. Wholesale lenders like Moxie skip the red tape and long turn times of large retail banks.</p></div></details><details><summary><h3>Do wholesale lenders have more loan options than big banks?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">Yes. A retail bank limits you to its own products and pricing. Moxie borrowers get access to 300+ lenders that compete for your business, so you get the best product at the best market price.</p></div></details><details><summary><h3>What is a correspondent lender?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">A correspondent lender funds its own mortgage loans and partners with large wholesale investors who assume the loan after closing. It gives Moxie clients the full range of loan options under one roof, with a streamlined approval process.</p></div></details></div></div>
+  </div>
+</section>
+
+<section class="mx-sec mx-dark" aria-labelledby="mxh-sav" id="mxh-savings">
+  <div class="mx-wrap mx-sav">
+    <div class="mx-sav-in">
+      <p class="mx-eyebrow" style="margin:0 !important">Savings estimator</p>
+      <h2 id="mxh-sav" class="mx-h2">Watch your savings add up</h2>
+      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.559% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
+      <div>
+        <div class="mx-sav-row"><label for="mxh-amt">Loan amount</label><output id="mxh-amt-out" for="mxh-amt">$600,000</output></div>
+        <input class="mx-range" id="mxh-amt" type="range" min="100000" max="1500000" step="10000" value="600000" aria-valuetext="$600,000">
+        <div class="mx-sav-ends"><span>$100K</span><span>$1.5M</span></div>
+      </div>
+      <div class="mx-sav-act">
+        <a class="mx-btn mx-btn-p" id="mxh-sav-cta" href="https://apply.moxiemortgage.com/?src=home_savings&amp;loan_amount=600000">See how much I can save</a>
+        <span style="color:#D3E3EC"><strong style="color:#fff" id="mxh-sav-m">$220</strong> a month</span>
+      </div>
+    </div>
+    <div class="mx-sav-chart" aria-live="polite">
+      <p style="font-weight:700;font-size:17px">Your estimated savings with Moxie</p>
+      <div class="mx-bars">
+        <div><strong data-y="1">$2,643</strong><i data-yb="1" style="height:4%"></i></div>
+        <div><strong data-y="5">$13,217</strong><i data-yb="5" style="height:16.7%"></i></div>
+        <div><strong data-y="10">$26,433</strong><i data-yb="10" style="height:33.3%"></i></div>
+        <div><strong data-y="30">$79,300</strong><i data-yb="30" style="height:100%"></i></div>
+      </div>
+      <div class="mx-bar-l" aria-hidden="true"><span>Year 1</span><span>Year 5</span><span>Year 10</span><span>Year 30</span></div>
+      <p class="mx-sav-note">Estimate only, not a commitment to lend or a promise of savings. Principal and interest on a 30-year fixed loan. Rate and savings vary and depend on borrower's qualification, property specifics, and market conditions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mxh-steps" aria-labelledby="mxh-steps">
+  <div class="mx-wrap">
+    <div class="mx-head">
+      <div><p class="mx-eyebrow">How it works</p><h2 id="mxh-steps" class="mx-h2">Your 3 steps to homeownership</h2></div>
+      <p class="mx-muted">A simpler path from application to keys in hand.</p>
+    </div>
+    <ol>
+      <li><span class="mxh-num" aria-hidden="true">1</span><h3>Get pre-approved<br>in minutes<span class="mx-dag">§</span></h3><p>Answer a few questions online and know exactly what you can afford, with no office visit required.</p></li>
+      <li><span class="mxh-num" aria-hidden="true">2</span><h3>Get matched with the best product and rate</h3><p>We shop 300+ investors to pair you with the right loan at the right price, not a one-size-fits-all box.</p></li>
+      <li><span class="mxh-num" aria-hidden="true">3</span><h3>Close fast and<br>move in sooner</h3><p>Clear to close in 21 days or less from your executed purchase contract,† so you start your next chapter sooner.</p></li>
+    </ol>
+    <div class="mx-btns" style="margin-top:36px"><a class="mx-btn mx-btn-p" href="https://apply.moxiemortgage.com/?src=home_steps">Get pre-approved today</a></div>
+  </div>
+</section>
+
+<section class="mx-sec mx-soft" aria-labelledby="mxh-rev" id="mxh-reviews">
+  <div class="mx-wrap">
+    <div class="mx-head" style="margin-bottom:0">
+      <h2 id="mxh-rev" class="mx-h2" style="max-width:640px;font-size:clamp(30px,3.2vw,40px)">Buying a home can be stressful. We're with you every step.</h2>
+      <div class="mx-rating mxh-grad">
+        <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@39110a3/google_logo.png" alt="Google" width="32" height="32" loading="lazy">
+        <span class="mx-rating-n" data-rv="rating">5.0</span>
+        <span><span class="mx-stars" role="img" aria-label="Rated 5 stars on Google">★★★★★</span><span style="display:block;font-size:14px;color:var(--muted)" data-rv="count">173 reviews on Google</span></span>
+      </div>
+    </div>
+    <div class="mx-revs" data-rv="list">
+      <figure class="mx-rev"><div class="mx-rev-top"><span class="mx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mx-rev-src" data-glogo>Google</span></div><blockquote>“Robert and his team provided a speedy and FLAWLESS execution in our loan process. We cannot be more grateful for being referred to Robert and look forward to working with the Moxie team again in the future! Mahalo!”</blockquote><figcaption><span class="mx-av" aria-hidden="true">P</span><span>Pomaika`ilani Tolentino</span></figcaption></figure><figure class="mx-rev"><div class="mx-rev-top"><span class="mx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mx-rev-src" data-glogo>Google</span></div><blockquote>“Working with Calvin and the team at Moxie Mortgage was an absolute pleasure from start to finish. Calvin made what is usually a stressful process completely seamless.”</blockquote><figcaption><span class="mx-av" aria-hidden="true">A</span><span>Arpit P</span></figcaption></figure><figure class="mx-rev"><div class="mx-rev-top"><span class="mx-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><span class="mx-rev-src" data-glogo>Google</span></div><blockquote>“We recently closed on a HELOC with Moxie Mortgage and could not have been happier with the entire experience!! Our loan officer, Alex, went above and beyond to ensure a smooth and seamless process from start to finish.”</blockquote><figcaption><span class="mx-av" aria-hidden="true">J</span><span>Julia Santini</span></figcaption></figure>
+    </div>
+    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700">Read all reviews on Google →</a></p>
+  </div>
+</section>
+
+<section class="mx-sec" aria-labelledby="mxh-res">
+  <div class="mx-wrap">
+    <p class="mx-eyebrow">Moxie comes with knowledge</p>
+    <h2 id="mxh-res" class="mx-h2" style="margin-bottom:32px !important;font-size:clamp(30px,3.2vw,40px)">Tools to plan your next move</h2>
+    <div class="mxh-tools">
+      <a class="mx-card" href="/calculators"><h3>Calculators</h3><p>Discover what's possible based on your numbers.</p><span class="mx-more">Try our calculators →</span></a>
+      <a class="mx-card" href="/faqs"><h3>Mortgage FAQs</h3><p>Instant answers to the 100 questions we hear most.</p><span class="mx-more">Browse FAQs →</span></a>
+      <a class="mx-card" href="/products"><h3>Loan options</h3><p>Whatever your scenario, we have a product for you.</p><span class="mx-more">Explore our products →</span></a>
+      <a class="mx-card mx-card-dark" href="https://www.scotsmanguide.com/rankings/top-originators/" target="_blank" rel="noopener"><picture><source type="image/webp" srcset="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.webp"><img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.png" alt="Scotsman Guide Top Originators badge" width="88" height="88" loading="lazy" decoding="async" style="width:88px;height:88px"></picture><span class="mx-tag">Recognition</span><h3>Scotsman Guide names Moxie a Top Originator</h3><span class="mx-more">Read more →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="mxh-final" aria-labelledby="mxh-cta">
+  <div class="mx-wrap">
+    <div class="mx-cta">
+      <div style="max-width:640px"><p class="mx-eyebrow" style="color:#7FDCEC">Serving 51 states and territories</p>
+        <h2 id="mxh-cta" class="mx-h2" style="font-size:clamp(30px,3.2vw,42px)">Buy with Moxie. Own with confidence.</h2>
+        <p>Licensed experts across the country are ready to guide you through the process and secure a great rate.</p></div>
+      <div class="mx-btns"><a class="mx-btn mx-btn-p" href="https://apply.moxiemortgage.com/?src=home_cta">Get approved now</a><a class="mx-btn mx-btn-w" href="/contact">Get expert guidance</a></div>
+    </div>
+    <div class="mxh-notes mx-fine">
+      <p>† Offers made by Moxie Mortgage are available only to clients who are purchasing a home and financing with Moxie Mortgage. This is not a commitment to lend and is contingent on qualification per full underwriting guidelines. Conditions and exclusions apply.</p>
+      <p>§ “In minutes” refers to the time it takes to submit an application. Time will vary based on the parameters of the applicant’s situation. A preapproval decision will be provided within 24 hours of a completed application.</p>
+      <p>‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Savings estimates compare principal and interest on a 30-year fixed loan at a 6.75% example rate with a rate 0.559% lower. Individual results vary.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["FinancialService","Organization"],"@id":"https://moxiemortgage.com/#org","name":"Moxie Mortgage","url":"https://moxiemortgage.com/","logo":"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/moxie-wordmark-white-640.png","telephone":"+1-480-660-2518","email":"hello@moxiemortgage.com","address":{"@type":"PostalAddress","streetAddress":"5559 S Sossaman Rd, Bldg 1 Ste 101","addressLocality":"Mesa","addressRegion":"AZ","postalCode":"85212","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"identifier":{"@type":"PropertyValue","propertyID":"NMLS","value":"1660690"},"parentOrganization":{"@type":"Organization","name":"NEXA Lending"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-480-660-2518","contactType":"customer service","areaServed":"US"},{"@type":"ContactPoint","telephone":"+1-808-818-5618","contactType":"customer service","areaServed":"US-HI","email":"aloha@moxiemortgage.com"}]},{"@type":"WebSite","@id":"https://moxiemortgage.com/#website","url":"https://moxiemortgage.com/","name":"Moxie Mortgage","publisher":{"@id":"https://moxiemortgage.com/#org"},"inLanguage":"en-US"},{"@type":"WebPage","@id":"https://moxiemortgage.com/#webpage","url":"https://moxiemortgage.com/","name":"Moxie Mortgage | Wholesale Mortgage Broker, 51 States","description":"Moxie Mortgage is a wholesale mortgage broker serving 51 states and territories. Skip the retail markup on home purchase, refinance, and HELOC loans.","isPartOf":{"@id":"https://moxiemortgage.com/#website"},"about":{"@id":"https://moxiemortgage.com/#org"},"inLanguage":"en-US","primaryImageOfPage":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/buy-hero-1400.webp","width":1400,"height":900},"speakable":{"@type":"SpeakableSpecification","cssSelector":[".mx-h1",".mx-lede",".mx-speak"]}},{"@type":"HowTo","name":"Your 3 steps to homeownership with Moxie Mortgage","step":[{"@type":"HowToStep","position":1,"name":"Get pre-approved in minutes","text":"Answer a few questions online and know exactly what you can afford, with no office visit required. A preapproval decision is provided within 24 hours of a completed application."},{"@type":"HowToStep","position":2,"name":"Get matched with the best product and rate","text":"Moxie shops 300+ investors to pair you with the right loan at the right price."},{"@type":"HowToStep","position":3,"name":"Close fast and move in sooner","text":"Clear to close in 21 days or less from your executed purchase contract."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can you save with a wholesale lender?","acceptedAnswer":{"@type":"Answer","text":"You can save on both closing costs and your monthly payment. Retail lenders often charge 4.5% to 6% for your loan, and Moxie charges a fraction of that. On a $500,000 mortgage, a 3% difference in margin could mean $15,000 in closing costs, or a lower rate that saves $10,000s over the life of the loan."}},{"@type":"Question","name":"Is it faster to get a mortgage through a wholesale lender?","acceptedAnswer":{"@type":"Answer","text":"Yes. Wholesale lenders like Moxie skip the red tape and long turn times of large retail banks."}},{"@type":"Question","name":"Do wholesale lenders have more loan options than big banks?","acceptedAnswer":{"@type":"Answer","text":"Yes. A retail bank limits you to its own products and pricing. Moxie borrowers get access to 300+ lenders that compete for your business, so you get the best product at the best market price."}},{"@type":"Question","name":"What is a correspondent lender?","acceptedAnswer":{"@type":"Answer","text":"A correspondent lender funds its own mortgage loans and partners with large wholesale investors who assume the loan after closing. It gives Moxie clients the full range of loan options under one roof, with a streamlined approval process."}}]}]}</script>
+<script>
+(function () {
+var MX = window.MX || (window.MX = {});
+MX.store = {
+  get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(k); } catch (e) {} },
+  sget: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+  sset: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+};
+MX.track = function (name, data) {
+  var p = Object.assign({ event: name }, data || {});
+  window.dataLayer = window.dataLayer || []; window.dataLayer.push(p);
+  if (typeof window.gtag === 'function') window.gtag('event', name, data || {});
+};
+MX.fullBleed = function (root) {
+  function fit() {
+    for (var el = root.parentElement; el && el !== document.body; el = el.parentElement) {
+      var cs = getComputedStyle(el);
+      if (/(hidden|clip)/.test(cs.overflowX + cs.overflow)) { el.style.overflow = 'visible'; el.style.overflowX = 'visible'; }
+    }
+    root.style.marginLeft = '0px'; root.style.width = 'auto'; root.style.maxWidth = 'none';
+    var left = root.getBoundingClientRect().left;
+    root.style.width = document.documentElement.clientWidth + 'px';
+    root.style.marginLeft = (-left) + 'px';
+  }
+  fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+  document.documentElement.style.overflowX = 'hidden';
+};
+MX.visitor = function () {
+  var qs = new URLSearchParams(location.search), S = MX.store;
+  var override = (qs.get('hero') || '').toLowerCase();
+  if (override === 'reset') { S.del('mx_visits'); S.del('mx_ab'); override = ''; }
+  var visits = parseInt(S.get('mx_visits') || '0', 10);
+  if (!S.sget('mx_counted')) { visits += 1; S.set('mx_visits', String(visits)); S.sset('mx_counted', '1'); }
+  return { qs: qs, override: override, returning: override === 'returning' || (override !== 'default' && override !== 'hawaii' && visits > 1) };
+};
+MX.region = function (qs, override, cb) {
+  if (override === 'hawaii' || (qs.get('geo') || '').toUpperCase() === 'HI') return cb(true);
+  if (override === 'default') return cb(false);
+  try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Pacific/Honolulu') return cb(true); } catch (e) {}
+  var cached = MX.store.sget('mx_region');
+  if (cached !== null) return cb(/^hawaii$/i.test(cached));
+  var done = false;
+  var finish = function (r) { if (done) return; done = true; MX.store.sset('mx_region', r || ''); cb(/^hawaii$/i.test(r || '')); };
+  setTimeout(function () { finish(''); }, 2500);
+  fetch('https://get.geojs.io/v1/ip/geo.json').then(function (r) { return r.json(); })
+    .then(function (d) { finish(d && d.region); })
+    .catch(function () {
+      fetch('https://ipapi.co/json/').then(function (r) { return r.json(); })
+        .then(function (d) { finish(d && d.region); }).catch(function () { finish(''); });
+    });
+};
+MX.applyHero = function (root, v) {
+  Object.keys(v).forEach(function (k) {
+    var el = root.querySelector('[data-mx="' + k + '"]');
+    if (!el) return;
+    if (k === 'img') { el.srcset = v.img.srcset; el.src = v.img.src; el.alt = v.img.alt; }
+    else if (k === 'cta2') { el.textContent = v.cta2.text; el.href = v.cta2.href; }
+    else if (k === 'cta') { el.textContent = v.cta.text; el.href = v.cta.href; }
+    else if (k === 'dag') { el.hidden = !v.dag; }
+    else el.textContent = v[k];
+  });
+};
+var root = document.getElementById('mx-home');
+MX.fullBleed(root);
+// ---- Dynamic hero. The HTML above is version A (what search engines index).
+// Order: ?hero= override > UTM intent (refi / heloc) > returning visitor > A/B arm. Hawaii overlays on top.
+// Test: ?hero=refi|heloc|returning|hawaii|default|reset  ?ab=A|B  ?geo=HI
+var V = MX.visitor(), qs = V.qs, S = MX.store;
+var SUB = 'Skip the retail markup. Keep more of your money and reach your home goals faster.';
+var VARS = {
+  a: { eyebrow: '', h1: 'Buy your dream home and save $1,000s on your mortgage.', sub: SUB, cta: 'Save on my home loan', dag: true, src: 'purchase' },
+  b: { eyebrow: '', h1: 'Same home. Lower mortgage. Keep the $1,000s you\u2019d pay a retail lender.', sub: SUB, cta: 'Save on my home loan', dag: true, src: 'purchase' },
+  returning: { eyebrow: 'Welcome back', h1: 'Ready to pick up where you left off?', sub: 'Your savings are still waiting. Getting pre-approved takes just a few minutes.', cta: 'Continue my approval', dag: false, src: 'returning' },
+  refi: { eyebrow: 'Refinance', h1: 'Lower your payment without the retail markup.', sub: 'See what you could save by refinancing with Moxie. It takes a few minutes and won\u2019t affect your credit to start.', cta: 'See my refi savings', dag: false, src: 'refi' },
+  heloc: { eyebrow: 'Home equity', h1: 'Put your home\u2019s equity to work.', sub: 'Tap your equity for renovations, debt payoff, or what\u2019s next, and skip the retail markup.', cta: 'Check my HELOC options', dag: false, src: 'heloc' },
+  hawaii: { eyebrow: 'Serving Hawaii homebuyers', h1: 'Buy your Hawaii home and save $1,000s on your mortgage.', sub: 'Island prices are high enough. Skip the retail markup and keep more of your money with a loan expert who knows the market.', cta: 'Save on my Hawaii home loan', dag: true, src: 'purchase_hi' },
+  hawaiiReturning: { eyebrow: 'Aloha, welcome back', h1: 'Ready to pick up where you left off?', sub: 'Your savings are still waiting. Getting pre-approved takes just a few minutes.', cta: 'Continue my approval', dag: false, src: 'returning_hi' }
+};
+var IMG_HI = { src: 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/hawaii-hero-1400.webp', srcset: 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/hawaii-hero-800.webp 800w, https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/hawaii-hero-1400.webp 1400w', alt: 'Hawaii family reviewing paperwork with their agent outside their new home' };
+
+// intent from UTMs, kept for the session
+var utm = ['utm_campaign', 'utm_content', 'utm_term', 'utm_source', 'utm_medium'].map(function (k) { return qs.get(k) || ''; }).join(' ').toLowerCase();
+var intent = /heloc|equity/.test(utm) ? 'heloc' : /refi/.test(utm) ? 'refi' : '';
+if (intent) S.sset('mx_intent', intent); else intent = S.sget('mx_intent') || '';
+
+// sticky A/B arm
+var ab = (qs.get('ab') || '').toUpperCase();
+if (ab === 'A' || ab === 'B') S.set('mx_ab', ab);
+ab = S.get('mx_ab');
+if (ab !== 'A' && ab !== 'B') { ab = Math.random() < 0.5 ? 'A' : 'B'; S.set('mx_ab', ab); }
+
+var ov = V.override, variant;
+if (ov === 'refi' || ov === 'heloc') variant = ov;
+else if (ov === 'returning') variant = 'returning';
+else if (ov === 'default' || ov === 'hawaii') variant = ab === 'B' ? 'b' : 'a';
+else if (intent) variant = intent;
+else if (V.returning) variant = 'returning';
+else variant = ab === 'B' ? 'b' : 'a';
+
+// carry UTMs to the application
+var pass = '';
+qs.forEach(function (val, k) { if (/^utm_/.test(k)) pass += '&' + encodeURIComponent(k) + '=' + encodeURIComponent(val); });
+
+var heroLabel = '', heroGeo = '';
+function decide(hi) {
+  var key = variant;
+  if (hi && (variant === 'a' || variant === 'b')) key = 'hawaii';
+  if (hi && variant === 'returning') key = 'hawaiiReturning';
+  var v = VARS[key];
+  var ey = root.querySelector('[data-mx="eyebrow"]'); ey.textContent = v.eyebrow; ey.hidden = !v.eyebrow;
+  MX.applyHero(root, { h1: v.h1, sub: v.sub, dag: v.dag, cta: { text: v.cta, href: 'https://apply.moxiemortgage.com/?src=hero_' + v.src + pass } });
+  var c2 = root.querySelector('[data-mx="cta2"]');
+  if (hi) { MX.applyHero(root, { img: IMG_HI }); c2.hidden = false; }
+  heroLabel = v.src; heroGeo = hi ? 'HI' : '';
+  MX.track('hero_view', { hero_page: 'home', hero_variant: key, hero_ab: ab, hero_geo: heroGeo, hero_label: heroLabel });
+  loadReviews(hi);
+}
+MX.region(qs, ov, decide);
+root.querySelector('[data-mx="cta"]').addEventListener('click', function () { MX.track('hero_cta_click', { hero_page: 'home', hero_label: heroLabel, hero_ab: ab, hero_geo: heroGeo }); });
+root.querySelector('[data-mx="cta2"]').addEventListener('click', function () { MX.track('hero_call_click', { hero_page: 'home', hero_label: heroLabel, hero_geo: heroGeo }); });
+
+// ---- savings estimator (edit RATE_GAP when the 12-month comparison is refreshed)
+var RATE_GAP = 0.559, BASE_RATE = 6.75;
+var amt = root.querySelector('#mxh-amt'), money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+function pay(L, r) { var i = r / 1200; return L * i / (1 - Math.pow(1 + i, -360)); }
+function calc() {
+  var L = Number(amt.value), sv = pay(L, BASE_RATE) - pay(L, BASE_RATE - RATE_GAP);
+  root.querySelector('#mxh-amt-out').textContent = money(L); amt.setAttribute('aria-valuetext', money(L));
+  amt.style.setProperty('--p', ((L - amt.min) / (amt.max - amt.min) * 100) + '%');
+  root.querySelector('#mxh-sav-m').textContent = money(sv);
+  [1, 5, 10, 30].forEach(function (y) {
+    root.querySelector('[data-y="' + y + '"]').textContent = money(sv * 12 * y);
+    root.querySelector('[data-yb="' + y + '"]').style.height = Math.max(4, y / 30 * 100) + '%';
+  });
+  root.querySelector('#mxh-sav-cta').href = 'https://apply.moxiemortgage.com/?src=home_savings&loan_amount=' + L;
+}
+amt.addEventListener('input', calc); calc();
+var savTracked = false;
+amt.addEventListener('change', function () { if (!savTracked) { savTracked = true; MX.track('savings_calc_use', { loan_amount: Number(amt.value) }); } });
+root.querySelector('#mxh-sav-cta').addEventListener('click', function () { MX.track('savings_cta_click', { loan_amount: Number(amt.value) }); });
+
+
+// ---- Review library: rotates which reviews show on each visit, filtered by location.
+// Library lives in the repo (website/reviews.json); edit it there, no Lofty change needed.
+// Hawaii visitors see only reviews tagged "HI" (falls back to everyone's reviews if none exist yet).
+var GLOGO = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@39110a3/google_logo.png', glogoOk = null;
+function swapLogos() {
+  var go = function () { root.querySelectorAll('[data-glogo]').forEach(function (el) {
+    if (el.querySelector('img')) return; var im = new Image(); im.src = GLOGO; im.alt = 'Google'; im.width = 20; im.height = 20; el.textContent = ''; el.appendChild(im); }); };
+  if (glogoOk === true) return go();
+  if (glogoOk === false) return;
+  var t = new Image(); t.onload = function () { glogoOk = true; go(); }; t.onerror = function () { glogoOk = false; }; t.src = GLOGO;
+}
+swapLogos();
+function loadReviews(hi) {
+  fetch(window.MX_REVIEWS_URL || 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json').then(function (r) { return r.json(); }).then(function (d) {
+    var sec = root.querySelector('#mxh-reviews');
+    if (d.rating) root.querySelectorAll('[data-rv="rating"]').forEach(function (n) { n.textContent = Number(d.rating).toFixed(1); });
+    if (d.count) { sec.querySelector('[data-rv="count"]').textContent = d.count + ' reviews on Google'; var c2 = root.querySelector('[data-rv="count2"]'); if (c2) c2.textContent = d.count + ' reviews'; }
+    if (d.url) sec.querySelector('[data-rv="link"]').href = d.url;
+    var all = (d.reviews || []).filter(function (x) { return x.active !== false && (x.rating || 5) >= 4 && x.text; });
+    var isHI = function (x) { return String(x.location || '').toUpperCase() === 'HI'; };
+    var pool = all.filter(function (x) { return hi ? isHI(x) : !isHI(x); });
+    if (!pool.length) pool = all.filter(function (x) { return !isHI(x); });
+    if (!pool.length) return;
+    // shuffle, then prefer reviews this visitor hasn't just seen
+    for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+    var seen = (MX.store.get('mx_rev_seen') || '').split('|');
+    pool.sort(function (a, b) { return (seen.indexOf(a.author) > -1) - (seen.indexOf(b.author) > -1); });
+    var list = pool.slice(0, 3);
+    MX.store.set('mx_rev_seen', list.map(function (x) { return x.author; }).join('|'));
+    var box = sec.querySelector('[data-rv="list"]'); box.textContent = '';
+    list.forEach(function (x) {
+      var f = document.createElement('figure'); f.className = 'mx-rev';
+      f.innerHTML = '<div class="mx-rev-top"><span class="mx-stars" role="img"></span><span class="mx-rev-src"></span></div><blockquote></blockquote><figcaption><span class="mx-av" aria-hidden="true"></span><span></span></figcaption>';
+      var r = Math.max(1, Math.min(5, Math.round(x.rating || 5)));
+      f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('aria-label', r + ' out of 5 stars');
+      f.querySelector('.mx-rev-src').textContent = x.source || 'Google'; f.querySelector('.mx-rev-src').setAttribute('data-glogo', '');
+      var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\s+\S*$/, '') + '…' : t) + '”';
+      var a = String(x.author || 'Google user'), av = f.querySelector('.mx-av'); av.textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
+      if (x.photo && /^https:\/\/lh3\.googleusercontent\.com\//.test(x.photo)) {
+        var im = new Image(); im.alt = ''; im.width = 40; im.height = 40; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+        im.onload = function () { av.textContent = ''; av.appendChild(im); av.classList.add('has-photo'); };
+        im.src = x.photo;
+      }
+      box.appendChild(f);
+    });
+    swapLogos();
+    MX.track('reviews_view', { review_pool: hi ? 'HI' : 'general', reviews_shown: list.length });
+  }).catch(function () {});
+}
+})();
+</script>

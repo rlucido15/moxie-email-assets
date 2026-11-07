@@ -80,3 +80,12 @@ These pages follow the same rules and storage as your homepage hero, so visitors
 - **Closing speed:** it's still quoted as 21 days (guarantee), under 12 days and 10 days (FAQs). Pick one claim.
 - **HELOC figures:** confirm 5 minutes, 5 days and $400K are still current.
 - **Phone format:** the general line is (480) 660-2518 and Hawaii is 808.818.5618. Say if you want both in the same format.
+
+## Homepage (/) — moxie-home-embed.html
+1. In Lofty, edit the homepage. Remove the old dynamic-hero code block and every old content block between the header and the footer.
+2. Add ONE Custom Code block and paste moxie-home-embed.html. Add the footer embed in a second block below it.
+3. SEO title: "Moxie Mortgage | Wholesale Mortgage Broker, 51 States"
+   Meta description: "Moxie Mortgage is a wholesale mortgage broker serving 51 states and territories. Skip the retail markup on home purchase, refinance, and HELOC loans."
+4. Hero logic (same storage keys as the other pages): ?hero= override > UTM intent (refi / heloc|equity, kept for the session) > returning visitor > sticky A/B arm (mx_ab). Hawaii visitors get the Hawaii photo and a Call 808.818.5618 button on every version, plus Hawaii copy on the purchase and returning versions.
+   Test URLs: ?hero=refi | heloc | returning | hawaii | default | reset, ?ab=A | B, ?geo=HI
+5. GA4 / dataLayer events: hero_view (hero_variant, hero_ab, hero_geo, hero_label), hero_cta_click, hero_call_click, savings_calc_use, savings_cta_click, reviews_view. Apply links carry ?src=hero_<label> plus any utm_ parameters.
