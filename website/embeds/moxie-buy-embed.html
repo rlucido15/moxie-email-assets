@@ -117,14 +117,14 @@
 a.mx-card{color:var(--navy)}
 a.mx-card.mx-card-dark{color:#fff}
 .mx-rating{display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:14px 20px}
-.mx-rating img{height:28px;width:auto}
+.mx-rating img{height:32px;width:32px}
 .mx-rating-n{font-size:40px;font-weight:800;line-height:1}
 .mx-revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:28px}
 .mxp.mxp .mx-rev{border:1px solid var(--line);border-radius:20px;padding:32px 32px 28px !important;margin:0 !important;background:#fff;display:flex;flex-direction:column;gap:14px}
 .mx-rev-top{display:flex;justify-content:space-between;align-items:center}
 .mx-stars{color:var(--orange);letter-spacing:3px;font-size:18px}
 .mx-rev-src{font-size:13px;color:var(--muted);display:inline-flex;align-items:center}
-.mx-rev-src img{height:20px;width:auto;display:block}
+.mx-rev-src img{height:20px;width:20px;display:block}
 .mxp.mxp .mx-rev blockquote{margin:0 !important;padding:0 !important;border:0 !important;font-style:normal !important;quotes:none}
 .mx-rev blockquote{font-size:18px;line-height:1.5}
 .mx-rev figcaption{margin-top:auto;display:flex;gap:12px;align-items:center;font-weight:700}
@@ -195,7 +195,7 @@ a.mx-card.mx-card-dark{color:#fff}
     <p style="margin-top:16px;max-width:620px;font-size:19px">Sellers pick offers they trust to close. Here's how fast Moxie moves, from first application to keys.</p>
     <div class="mx-track" aria-hidden="true"><span></span></div>
     <ol>
-      <li><span class="mx-step">Step 1 · Day one</span><h3>Same Day Mortgage Approval<span class="mx-dag">†</span></h3><p>We'll deliver your preapproval decision on your loan application within 24 hours.</p></li>
+      <li><span class="mx-step">Step 1 · Day one</span><h3>Same Day Mortgage Approval<span class="mx-dag">†</span></h3><p>We'll deliver your preapproval decision within 24 hours of completed application.</p></li>
       <li><span class="mx-step">Step 2 · While you shop</span><h3>Lock and Shop<br>Option<span class="mx-dag">†</span></h3><p>You can lock your rate for up to 360 days while you shop for your dream home.</p></li>
       <li class="mx-last"><span class="mx-step">Step 3 · Under contract</span><h3>Clear to Close in 21 Days or Less<span class="mx-dag">†</span></h3><p>Close in 21 days or less from receipt of your executed purchase contract.</p></li>
     </ol>
@@ -277,7 +277,7 @@ a.mx-card.mx-card-dark{color:#fff}
     <div class="mx-head" style="margin-bottom:0">
       <h2 id="mxb-rev" class="mx-h2" style="max-width:640px">Buying a home can be stressful. We're with you every step.</h2>
       <div class="mx-rating">
-        <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/google_logo.png" alt="Google" width="84" height="28" loading="lazy" onerror="this.outerHTML='&lt;strong style=&quot;font-size:20px&quot;&gt;Google&lt;/strong&gt;'">
+        <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@39110a3/google_logo.png" alt="Google" width="32" height="32" loading="lazy" onerror="this.outerHTML='&lt;strong style=&quot;font-size:20px&quot;&gt;Google&lt;/strong&gt;'">
         <span class="mx-rating-n" data-rv="rating" hidden></span>
         <span><span class="mx-stars" role="img" aria-label="Rated 5 stars on Google">★★★★★</span><span style="display:block;font-size:14px;color:var(--muted)" data-rv="count">Reviews from Google</span></span>
       </div>
@@ -441,10 +441,10 @@ else tr.classList.add('is-in');
 // ---- Review library: rotates which reviews show on each visit, filtered by location.
 // Library lives in the repo (website/reviews.json); edit it there, no Lofty change needed.
 // Hawaii visitors see only reviews tagged "HI" (falls back to everyone's reviews if none exist yet).
-var GLOGO = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/google_logo.png', glogoOk = null;
+var GLOGO = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@39110a3/google_logo.png', glogoOk = null;
 function swapLogos() {
   var go = function () { root.querySelectorAll('[data-glogo]').forEach(function (el) {
-    if (el.querySelector('img')) return; var im = new Image(); im.src = GLOGO; im.alt = 'Google'; im.width = 60; im.height = 20; el.textContent = ''; el.appendChild(im); }); };
+    if (el.querySelector('img')) return; var im = new Image(); im.src = GLOGO; im.alt = 'Google'; im.width = 20; im.height = 20; el.textContent = ''; el.appendChild(im); }); };
   if (glogoOk === true) return go();
   if (glogoOk === false) return;
   var t = new Image(); t.onload = function () { glogoOk = true; go(); }; t.onerror = function () { glogoOk = false; }; t.src = GLOGO;
