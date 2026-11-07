@@ -1,26 +1,1281 @@
 {
-  "_howto": "Moxie website review library. Add a review by copying one entry. location: \"HI\" for Hawaii clients, \"general\" for everyone else (state codes like \"AZ\" also work and count as non-Hawaii). Keep text under ~260 characters; longer text is trimmed on the page. Set active to false to hide a review without deleting it. After saving, changes appear within 12 hours, or right away if you open https://purge.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json",
-  "rating": null,
-  "count": null,
-  "url": "https://www.google.com/search?q=Moxie+Mortgage+reviews",
-  "reviews": [
-    { "author": "Alejandro Navia", "rating": 5, "location": "general", "active": true,
-      "text": "They held our hand every step of the way, explaining every detail with patience and clarity. Thank you, Moxie Mortgage, for making our dream of homeownership a reality!" },
-    { "author": "Arpit P", "rating": 5, "location": "general", "active": true,
-      "text": "Calvin made what is usually a stressful process completely seamless. His professionalism, transparency, and attention to detail gave me complete confidence that I was in the best hands." },
-    { "author": "S Peterson", "rating": 5, "location": "general", "active": true,
-      "text": "Alex Salomons of Moxie Mortgage was great to work with. She was very patient and helpful, guided us through the entire process, provided options, and answered all our questions." },
-    { "author": "Jaz Kang", "rating": 5, "location": "general", "active": true,
-      "text": "Working with Calvin from Moxie Mortgage was a pleasure for both my client and me. His exceptional communication and problem-solving skills ensured a smooth transaction." },
-    { "author": "Christa Young", "rating": 5, "location": "general", "active": true,
-      "text": "Thank you for all of your help with our first investment property! All the updates and keeping us in communication of our loan status. We are so grateful for your team and professionalism!" },
-    { "author": "Doug Palardy", "rating": 5, "location": "general", "active": true,
-      "text": "I have been extremely happy and pleased with Alex's work on the settlement of my house. Everything went seamless and on-time. I would highly recommend her." },
-    { "author": "Nicholas", "rating": 5, "location": "general", "active": true,
-      "text": "More than just a lender; Alex's help in my home purchase was exceptional. I highly recommend Moxie Mortgage." },
-    { "author": "Lulu Jiang", "rating": 5, "location": "general", "active": true,
-      "text": "Calvin is excellent! He is very patient to answer our questions." },
-    { "author": "Kunal Thaker", "rating": 5, "location": "general", "active": true,
-      "text": "Alex, and the whole Moxie Mortgage team is great to work with. Highly recommend!" }
-  ]
+ "_howto": "Moxie website review library. Add a review by copying one entry. location: \"HI\" for Hawaii clients, \"general\" for everyone else (state codes like \"AZ\" also work and count as non-Hawaii). Keep text under ~260 characters; longer text is trimmed on the page. Set active to false to hide a review without deleting it. After saving, changes appear within 12 hours, or right away if you open https://purge.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json Hawaii reviews were tagged where Moxie's owner reply includes \"mahalo\".",
+ "rating": 5.0,
+ "count": 173,
+ "url": "https://www.google.com/search?q=Moxie+Mortgage+reviews",
+ "updated": "2026-11-07",
+ "reviews": [
+  {
+   "author": "Jaz Kang",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Calvin from Moxie Mortgage was a pleasure for both my client and me. His exceptional communication and problem-solving skills ensured a smooth transaction. I would highly recommend Calvin and Moxie Mortgage to my clients, friends, and family."
+  },
+  {
+   "author": "Lulu Jiang",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Calvin is excellent! He is very patient to answer our questions."
+  },
+  {
+   "author": "Nicholas",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "More than just a lender; Alex's help in my home purchase was exceptional. I highly recommend Moxie Mortgage."
+  },
+  {
+   "author": "Doug Palardy",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I have been extremely happy and pleased with Alex's work on my settelment of my house. Everything went seamless and on-time I would highly recommend her to those people she will be dealing with going forward. Good luck with everything. Doug…"
+  },
+  {
+   "author": "Arpit P",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Calvin and the team at Moxie Mortgage was an absolute pleasure from start to finish. Calvin made what is usually a stressful process completely seamless."
+  },
+  {
+   "author": "Christa Young",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Thank you for all of your help with our first investment property! All the updates and keeping us in communication of our loan status. We are so grateful for your team and professionalism!"
+  },
+  {
+   "author": "Quinn Olson",
+   "rating": 5,
+   "location": "general",
+   "active": false,
+   "source": "Google",
+   "text": "Robert and his team put in all there effort into putting an amazing deal together for my client. This type of loan pretty much unheard of. When issues arose Robert and his team were on top of it,"
+  },
+  {
+   "author": "Isabel Moore",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Thank you Robert Lucido and your team we have had a great experience of working with you!!!"
+  },
+  {
+   "author": "Sarah Malatesta",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP has helped us with multiple mortgages and is always such a pleasure to work with! He is extremely knowledgeable, trustworthy, and reliable. I highly recommend his services!!"
+  },
+  {
+   "author": "Jamer Chamberlain",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I am writing a review regarding GP Lindsey in Annapolis, MD. I've worked with GP on several loans in the past and I'm currently working through getting a loan for an investment property for my daughter."
+  },
+  {
+   "author": "Joseph Johns",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Calvin was great to work with and gave me the best interest rate out there! I would highly recommend!!"
+  },
+  {
+   "author": "Laura Johns",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "So grateful Calvin saved the day! Appreciate his resourcefulness and professionalism."
+  },
+  {
+   "author": "Jennifer Gamber",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with GP was an awesome and easy experience. I would highly recommend him"
+  },
+  {
+   "author": "Jennie Ricker",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Calvin was great to work with. He was always responsive and made the transaction go very smoothly. My buyers were very happy!"
+  },
+  {
+   "author": "Kim-Lien Nguyen",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Great person to work with clear and explains well!"
+  },
+  {
+   "author": "Morgan West",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and team did amazing! As a first-time homebuyer, each step of the way I was met with knowledge, quick responses, questions answered and an accurate timeline to make sure I would close in a timely manner."
+  },
+  {
+   "author": "Patrick Lambert",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Aloha, I’m a realtor with KW, Big Island, in Hawaii. I had the pleasure of Robert Lucido Moxie mortgage working with my buyer. This gentleman was incredible to work with. 100% professional ,communication skills Were amazing ."
+  },
+  {
+   "author": "Leana Danesh",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Roberts team at Moxie Mortgage helped me purchase my first home in Hawaii through a unique physician loan program. They made the process smooth and were in constant communication with me. Extremely professional and reliable."
+  },
+  {
+   "author": "Holistic Mana",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "10/10 Robert and his team were so on top of everything and truly had the buyer’s interest in mind. Down to earth and truly put the client first! Would use them again and again in the future. Smooth and easy !"
+  },
+  {
+   "author": "Hanish Nair",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever we need him — even on weekends — sometimes late night and consistently goes above and beyond to secure the best rates and loan…"
+  },
+  {
+   "author": "Stefanie Olson",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert at Moxie Mortgage was incredible! He went above and beyond, pulling out all the stops to make sure our deal got done. He was responsive, solution-oriented, and truly fought for us every step of the way. We couldn’t recommend Robert and Moxie Mortgage more highly!"
+  },
+  {
+   "author": "Koko Patel",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Moxie mortgage and Robert Lucido made my clients’ sale and purchase of their new home a smooth transaction. Moxie and Robert did an amazing job making sure we were updated regularly regarding their VA loan which got us to the closing table as quickly as…"
+  },
+  {
+   "author": "Richard Fredricks",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Gorton (GP) Lindsay: I cannot thank you enough for what you have just done. Really, what you have done is help me with much more than securing a mortgage and a house. What you have done is help me secure a home for a family member who may need one."
+  },
+  {
+   "author": "Jack Walsh",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "It truly was a pleasure having Moxie Mortgage working with us. Purchasing our new home in Hawaii was certainly not easy, being new to this process. Being from the mainland and 35 years removed from our first house purchase, things certainly changed."
+  },
+  {
+   "author": "Bruce Kekuewa",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "I had a client who was looking to move to Hawai'i island. Looking for a VA loan and needed to close in 30 days. Robert and his team were able to work with me and now our clients to make it happen. We closed in the 30 days and our clients are smiling ear to ear."
+  },
+  {
+   "author": "Kyle Downs",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I worked with Calvin Chin and he did an awesome job! He was available any time that we had questions and went above and beyond to make sure we got the best rate and lowest cost! Would 1000% recommend!!!"
+  },
+  {
+   "author": "Adeel Ganju",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Alex was an outstanding experience from start to finish. She expertly guided us through a very complicated transaction, keeping everything organized and moving seamlessly despite several challenges along the way."
+  },
+  {
+   "author": "stephen twitchell",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Had a great experience working with Alex! She answered all my questions I know I had a lot. I would recommend her to friend and family."
+  },
+  {
+   "author": "Debra Krull",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Shout out to Robert Lucido with Moxie Mortgage, who went above and beyond what I thought was possible, for my client!! Robert’s knowledge and professionalism demonstrated 5 - STAR customer service that was unbelievable! Thank you, Robert!"
+  },
+  {
+   "author": "Jodi Altman",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Moxie did a great job getting my first time buyers loan closed in 19 days. We had a small glitch just before closing and Robert went above and beyond to be sure we closed on our contract close date. Thanks for your hard work and professionalism!"
+  },
+  {
+   "author": "Jayson Santayana",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Absolutely excellent service and value! Robert was always available and was always quick to handle issues and requests that we had. The best partnof all was that he was able to use his expertise to get us the best rate in the market."
+  },
+  {
+   "author": "Pomaika`ilani Tolentino",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and his team provided a speedy and FLAWLESS execution in our loan process. We cannot be more grateful for being referred to Robert and look forward to working with the Moxie team again in the future! Mahalo!"
+  },
+  {
+   "author": "Shayna Kleinberg",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "If I could give more than 5 stars I would. I can't speak highly enough of Alex and the team at Moxie Mortgage. While going through an extremely difficult situation, and also being a first time home buyer solely on my own, Alex made the entire mortgage experience as…"
+  },
+  {
+   "author": "Howard Sadler",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP Lindsey , as always , done a fantastic job. this is the 5th mortgage ,he has done for me.. I am 100% satisfied with the way everything was handled."
+  },
+  {
+   "author": "Coni Otto of Long & Foster Real Estate",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever my clients need him — even on weekends — and consistently goes above and beyond to secure the best rates and loan options…"
+  },
+  {
+   "author": "Derek O'Neill",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Bought my first home in Baltimore with help from Moxie and Calvin Chin, and it couldn’t have gone more smoothly! Ask for Calvin and you won’t regret it!"
+  },
+  {
+   "author": "Justin Griffing",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I recently refinanced two properties simultaneously with Alex and her team at Moxie Mortgage, and the entire experience was outstanding from start to finish."
+  },
+  {
+   "author": "Sam",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Calvin C has been very pleasant and responsive through the whole process. Made things simple. 👍"
+  },
+  {
+   "author": "Tara McLean",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I’ve now worked with Moxie Mortgage and Robert Lucido’s team on multiple transactions, and they continue to exceed expectations every time. They are incredibly responsive and efficient, making the entire process seamless from start to finish."
+  },
+  {
+   "author": "Karey Thesing",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex is awesome she’s always available to answer any of my questions. Very knowledgeable and my clients find her very detailed."
+  },
+  {
+   "author": "Kathy Williamson",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert Lucido at Moxie Mortgage is an absolute pleasure to work with. Despite the 6-hour time difference between the Big Island of Hawaii and Florida, he consistently stays responsive and keeps every transaction moving smoothly all the way to the finish line."
+  },
+  {
+   "author": "Jackie Murray",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Exceptionally responsive, connected, and can do with anyone. A pleasure to work with. Real results in real time really quick. Solutions for every situation…"
+  },
+  {
+   "author": "Trevor Morgen-Westrick",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Calvin Chin and the team at Moxie Mortgage has been an amazing experience for both me and my clients. As a realtor, having a loan officer who is quick to respond, available on weekends, and truly committed to getting buyers the best possible rate makes a…"
+  },
+  {
+   "author": "isaac yohn",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I worked with Alex S. on a refinance of my house. Moxie hires hard working professionals who made the process quick and easy. This is the 3rd mortgage I’ve got in the last 3 years and I’ll be using moxie for all my future purchases and refinances."
+  },
+  {
+   "author": "Mitzi Santayana",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Moxie Mortgage was an exceptional experience from start to finish. They went above and beyond for my client and secured an absolutely unparalleled VA interest rate that truly exceeded expectations."
+  },
+  {
+   "author": "Reggie Smoot",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Our experience was great working with Robert, Alex and Moxie Mortgage. They made the entire process easy. Alex was great keeping us informed and responding to questions and email/text. Robert was great keeping us updated. We highly recommend Moxie Mortgage."
+  },
+  {
+   "author": "Jodine Cruz",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and his team at Moxie Mortgage were the absolute BEST team my husband and I could have ever imagined working with during our home buying process! They were always so kind and willing to do anything and everything they could to help us."
+  },
+  {
+   "author": "Evidence-Based Pilates",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Robert, Tim, and the Moxie Mortgage team was one of the smoothest parts of an otherwise complex process. Securing financing for a home on the Big Island while being off island is not simple, but they made it feel that way."
+  },
+  {
+   "author": "Jimmi Combs",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Rob and his team delivered above and beyond on expectations when refinancing our first home! I enjoyed knowing I could get ahold of rob personally anytime of day or weekend to continue the process and get to the end."
+  },
+  {
+   "author": "Justin Moriki",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and the team are Moxie are the absolute best! They went above and beyond for us the whole process. From helping me fix things on my credit so that we could get approved to working through a couple last minute hiccups at the end."
+  },
+  {
+   "author": "Reynaldo Patricio",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Moxie Mortgage facilitated a remarkably seamless home-buying experience. Alex Salomons, in particular, provided exceptional service and expertise, and I would recommend their team without reservation."
+  },
+  {
+   "author": "Tyler Trudeau",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex and here team at Moxie were outstanding! Very responsive and were able to get in touch with them in minutes even over the weekends!"
+  },
+  {
+   "author": "Julia B",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Gosh, where to begin?? Alex at Moxie Mortgage was an absolute GODSEND as my husband and I navigated becoming first-time home owners. She was endlessly patient with our questions, explained concepts in a way we could understand and really just instilled a trust that…"
+  },
+  {
+   "author": "Tanner McCormack",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Drew is absolutely amazing!!! Super straight forward and super fast with responding to questions and helping to understand documents and what was needed. I will one hundred percent recommend friends and family to go with Moxie and Drew."
+  },
+  {
+   "author": "Shari Grunenwald",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Drew has been great to work with. We are about to close next week on our refinance. This was a very easy process. Thank you Drew!"
+  },
+  {
+   "author": "Ribe Ninan",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and his team were fantastic to work with. They were extremely responsive, supportive, and helped navigate several hurdles along the way to ensure a smooth transaction for my client."
+  },
+  {
+   "author": "Doris Coleman",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I would like to say from the very beginning of my process,My experience was so wonderful and your representative GP was so encouraging and down to earth.I felt like I had known him for many years.His professionalism and calming personality had a calming effect on my…"
+  },
+  {
+   "author": "Justin Morris",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP Lindsay made our first-time homebuying experience as smooth and stress-free as possible. From the beginning, he guided us through every step of the process and made sure we felt confident in our decisions."
+  },
+  {
+   "author": "Dershil Patel",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We were on a time crunch but Robert and his team were able to get everything done in record time. Highly recommend."
+  },
+  {
+   "author": "islander islander",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Professional representation and guidance from the Moxie Mortgage team and the Keller Williams Lucido Agency. Rapid responses quick turnaround on deadlines leaving us ample time to address so many personal issues making the transition effortless. Gold stars!"
+  },
+  {
+   "author": "Robert Kuziel",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex met our expectations keeping us informed every step of process."
+  },
+  {
+   "author": "Natalie Moreno",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Highly recommend the team at Moxie! They are very quick to respond and always provide solutions to any challenges I have. I know my clients are in the best hands, feeling informed and supported throughout their home purchase process."
+  },
+  {
+   "author": "Evan Santini",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We had a great experience working with Alex and Moxie Mortgage. She made the whole process very easy and stress free. Highly recommend"
+  },
+  {
+   "author": "Julia Santini",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We recently closed on a HELOC with Moxie Mortgage and could not have been happier with the entire experience!! Our loan officer, Alex, went above and beyond to ensure a smooth and seamless process from start to finish."
+  },
+  {
+   "author": "Jennifer Dente",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We had such an amazing experience working with Alex! She is the perfect combination of friendly, smart, and extremely informative. She made us feel comfortable from day one and was always quick to answer questions (and we had a lot!)."
+  },
+  {
+   "author": "JoEllen Wallace",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I can’t say enough great things about Robert and his assistant Drew. They made the entire loan process incredibly smooth and stress-free from start to finish."
+  },
+  {
+   "author": "kaiini estrada",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Drew and Robert is always a pleasure to work with. They have gone above and beyond what we expected. It’s also a pleasure to say that they have earned our trust and also became ohana(family). Thank you for all that you do for our family and communities."
+  },
+  {
+   "author": "Davspirals",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "The perfectionism, expertise made my process very easy. My officer Alex Solomons was on her game."
+  },
+  {
+   "author": "Haley Wilson",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP Lindsay was an absolute pleasure to work with throughout my first time homebuying journey. From the very beginning, he took the time to explain every step of the process and made sure I fully understood my options."
+  },
+  {
+   "author": "Aerin Kage",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Did my loan through moxie for my home and closing. Everything went great, Geeper was very helpful and made the whole process easy. Will definitely use again if I ever buy another home."
+  },
+  {
+   "author": "Bo",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Alex were fantastic to work with. They truly made our dreams come true. I don't know how they did it, but they made the impossible happen. They got us a great mortgage. The process was very easy when working with them. It was a true pleasure."
+  },
+  {
+   "author": "Cory Peterson",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP Lindsey and team have guided me smoothly through two new home purchases and a refinance. GP is extremely knowledgeable, attentive and pleasant to work with. Highly recommend!"
+  },
+  {
+   "author": "Cortney Pratt",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex has been an absolute pleasure to work with during both our initial home buying process and our refinance. She is quick to respond, incredibly knowledgeable, and made the entire experience an absolute breeze, especially for us as first time homebuyers!"
+  },
+  {
+   "author": "Ivette Garcia",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alexis helped me get a loan approved and the process was fast and easy. She is great at making things happen. I would definitely work with her again in the future if I ever needed another loan."
+  },
+  {
+   "author": "Alex Micco",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Great experience with Drew and Moxie throughout the loan process for my client"
+  },
+  {
+   "author": "Ethan Rhea",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Done many deals with them and every time it’s a smoothest transaction it’s very easy for the buyers sellers and everyone to be able to get the deal to closing as soon as possible as well. Never had a problem with them 10/10."
+  },
+  {
+   "author": "Rob Barr",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "10/10 experience. Will only be working with Moxie on all future properties. Really incredible service!"
+  },
+  {
+   "author": "Lisa Crowley",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "The easiest, most stress free process ever! Alex was absolutely amazing walking me through the mortgage process. It had been years since I bought a house and she made it an amazing experience. I would recommend Moxie Mortgage for your next mortgage."
+  },
+  {
+   "author": "Debbie Coppenger",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Dear Alex, Now that the initial flurry has settled and I am surrounded by boxes, furniture to put together, Christmas, and all the fun that comes with moving and settling in my new home, I wanted to write with special appreciation of you and your work to get me here!"
+  },
+  {
+   "author": "Jenna Thomas",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I absolutely loved working with Alex. Soo knowledgeable and responsive! 10/10"
+  },
+  {
+   "author": "Ricardo Stallings",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "The process with Moxie Mortgage Company was easy and efficient. The online portal for updating and signing forms was very convenient, and the process was smooth from start to finish."
+  },
+  {
+   "author": "Andy Powell",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was personable and kind, respectful and direct. She offered the options available to us, and was quick to get any answers she didn’t have on the spot. I will go to her for my next financial need."
+  },
+  {
+   "author": "spencer clevenger",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Drew are the highest level professionals and they continually went out of their way to be available and answer any questions whenever we had them. They always treated us with respect and made us feel like the most important customers."
+  },
+  {
+   "author": "Ricardo Stallings",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex is the best! Very helpful, knowledgeable, and resourceful. She kept the process moving from start to finish. My clients were able to purchase their condo right on time and just before the holidays! I highly recommend."
+  },
+  {
+   "author": "Hana McKee",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Rob, Alex, and Drew were fantastic to work with. We wouldn’t have been able to buy our dream house without them. It was a long process with lots of stress, as home buying is."
+  },
+  {
+   "author": "Parker Dixon",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP was great to work with on both my first home loan and refinance. As a first-time homebuyer GP talked me through everything and made the process much easier than I had anticipated."
+  },
+  {
+   "author": "melody colliatie",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I can’t say enough good things about our experience with Robert. Moxie is first class and treated us with respect and professionalism and got the job done! They were extremely timely and made themselves available to help whenever we had a question."
+  },
+  {
+   "author": "Shon Lowry",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We give a 5 rating for going through the process with us on 3 offers and canceled home contracts along with being helpful in answering all questions that came up and getting us through the process over several months."
+  },
+  {
+   "author": "Serge Jacques",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert went above and beyond to help me purchase my home. From the beginning, he was professional, patient and extremely knowledgeable. He took the time to walk me through every step of the lending process, answered my questions, and made sure I always felt confident…"
+  },
+  {
+   "author": "Nick Bund",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Great experience, guided through very thoroughly. Explained every little financial detail we had questions and concerns about. All around good experience."
+  },
+  {
+   "author": "Yale F. Lewis",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Alex Salamons of Moxie Motgage was an absolute pleasure from start to finish! Whenever we had questions, she was quick to respond and patiently walked us through every step of the process."
+  },
+  {
+   "author": "Bebi Wolfe",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was a pleasure to work with! She was always available to answer questions despite the time difference. Her timeliness and responsiveness is greatly appreciated. 👏"
+  },
+  {
+   "author": "Bherin Brown",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert is great to work with! We threw him a loop and decided to close 30 days early and he was able to pull it off, all the while providing great communication and follow through. He also offered great rates for my clients compared with competitors."
+  },
+  {
+   "author": "Saffiatu Sillah",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Words cannot express how grateful I am for Alex from Moxie. She went above and beyond to ensure my mortgage was approved within an incredibly short timeframe—just 10 days! My situation was both unique and stressful."
+  },
+  {
+   "author": "Homes And Chocolate",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Exceptional Service! Working with Robert & Moxie Mortgage was truly an outstanding experience. From start to finish, their team provided unmatched service — professional, patient, and attentive every step of the way."
+  },
+  {
+   "author": "Leiola Augustine",
+   "rating": 5,
+   "location": "HI",
+   "active": false,
+   "source": "Google",
+   "text": "Mahalo Robert for treating us to a level of class unmatched by your competitors (not that WE would send our business anywhere else)You certainly know how to take care of your clients and Referal partners as well as create a memorable event that I’m honored to have…"
+  },
+  {
+   "author": "Carolina Frias",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Robert Lucido at Moxie Mortgage was an absolute game-changer. He is relentless, insanely smart, and incredibly knowledgeable—no challenge is too big, and he always finds a solution."
+  },
+  {
+   "author": "Rose Sakai",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Drew are incredible to work with! They truly go above and beyond for every client and every transaction. They’re true solution finders — ALWAYS responsive, proactive, and committed to making the process as smooth as possible."
+  },
+  {
+   "author": "John Smith (Ed)",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Easy, professional and well communicated throughout the process. Definitely recommend."
+  },
+  {
+   "author": "John Ma-e",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Absolutely one of my best experiences working with this team. They made a home I thought impossible, possible. If I have to do it all over again I’d choose this team. Thank you for working with me every step of the way."
+  },
+  {
+   "author": "jpi96766 i",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "My Mortgage transaction was a very particular situation and Robert and his team handled it fantastically. Without them, I would not have been able to purchase my new home."
+  },
+  {
+   "author": "victor mazzio",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex and her team at Moxie Mortgage were absolutely wonderful to work with. There were many obstacles and challenges associated with my home purchase and Alex patiently walked me through each challenge and made me feel comfortable dealing with this process and…"
+  },
+  {
+   "author": "Emily Ruff",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex is one of the most knowledgeable and helpful people to work with. She is an expert in finding the best loan for her clients and her commitment to getting you to the finish line is unmatched."
+  },
+  {
+   "author": "Jeff Grunenwald",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I couldn't same better things about Drew. I will recommend him to anyone I know who is looking for a mortgage. Thank you Drew!"
+  },
+  {
+   "author": "Yolanda Philandez",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I could not have asked for a more committed and dedicated Loan Officer. Drew of Moxie Mortgage took the time to understand my needs for not only an affordable mortgage but the right home. He is highly recommended to all my friends and family."
+  },
+  {
+   "author": "kyle ferderer",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Very pleased with our experience with Drew as our LO. He was a true pro and navigated tight timelines seamlessly and made sure we were able to close ahead of schedule."
+  },
+  {
+   "author": "Mary Crone",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Excellent service, always there to answer questions!!!! Our realtor wasn't the best so we lost several houses and needed to get pre approval letters for a number of houses. Drew was on top of our request, he was sincere and detailed oriented."
+  },
+  {
+   "author": "Elise Hammond",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "GP was great to work with. Very thorough. Kept me updated. Always pleasure to talk with."
+  },
+  {
+   "author": "Taylor Hull",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Drew were both extremely informative and helpful throughout the whole mortgage process! They took the time to explain everything clearly and made sure I felt comfortable with each step! Their support made the experience smooth and stress-free."
+  },
+  {
+   "author": "Tony Glenn",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and his team are the absolute best!!! They got me a great rate and the process was so smooth!!! I'd recommend them to EVERYONE!!!"
+  },
+  {
+   "author": "Matt Cordova",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Robert and the Moxie Mortgage team was seamless from start to finish. Clear communication, quick responses, and a true commitment to our client’s best interests made the process stress-free and efficient. Highly recommend!"
+  },
+  {
+   "author": "Christine Kalapala-Brijbasi",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We had the absolute pleasure of working with Alex from Moxie Mortgage for the purchase of our new home, and we couldn’t be happier with the experience. From the very first conversation, Alex made the process feel clear, manageable, and even exciting."
+  },
+  {
+   "author": "Xaviera Rosado",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "want to take a moment to commend Robert for his outstanding professionalism, persistence, and clear communication throughout the entire transaction process. His dedication to ensuring every step moved forward smoothly was evident from start to finish."
+  },
+  {
+   "author": "Kelly Supik",
+   "rating": 5,
+   "location": "general",
+   "active": false,
+   "source": "Google",
+   "text": "They are amazing company to work with and they get the job dun no matter what you have in store"
+  },
+  {
+   "author": "Calvin Hughes",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Very pleasant experience working with Alex. She is a very determined person who will do what she can to get her clients into a home."
+  },
+  {
+   "author": "Greg Campbell",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I worked with Alex on securing the loan for my house. She’s great! Always available whenever you have questions throughout the process."
+  },
+  {
+   "author": "Jennifer Vitiello",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was great, she was understanding of my needs. Worked very quickly to get me great rates with the right lender! The process was smooth and we closed very quickly! It was a great experience for someone who gets very nervous dealing with this type of thing!"
+  },
+  {
+   "author": "Nancy Bruen",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Joni was amazing! She was with us every step of the way, and above and beyond to make sure everything went smoothly. I would absolutely recommend her and the company to my friends and family. Everything was top notch!"
+  },
+  {
+   "author": "Ruth Peterson",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert was by far the best mortgage broker I've ever worked with. His committment to assist me was there from the start. Robert's personalized approach was always friendly, extremely knowledgable, highly capable, and very proactive."
+  },
+  {
+   "author": "Ryan Schwartz",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Drew made buying a new home a fast and easy process!"
+  },
+  {
+   "author": "Gretchen Matyskiela",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Great experience with Alexandra from Moxie! She was so helpful and informative from start to finish! I would highly recommend!!"
+  },
+  {
+   "author": "Isabella Laden",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Drew has been wonderful to work with. He is very knowledgeable, prompt, and genuine. He also goes that extra mile, when you have questions, he not only answers the questions but provides numbers and data to back it up. Thank you Drew!"
+  },
+  {
+   "author": "Megan Shacklock",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "A Truly Exceptional Refinancing Experience- Refinancing my home for the first time felt overwhelming at first, but working with GP completely changed that. From start to finish, they were incredibly supportive, knowledgeable, and genuinely caring."
+  },
+  {
+   "author": "Diane Hawran",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Joni Utnage is nothing short of amazing at Moxie! She goes above and beyond for her customers with a high level of customer service and satisfaction. I could not recommend her enough."
+  },
+  {
+   "author": "Christina Bowman",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I had a unique situation and after others turned me away, Joni took special care to find me the best product. Now I'm in my dream home and loving it."
+  },
+  {
+   "author": "Simeon Ungaro",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex Salomons was our loan officer and went above and beyond our expectations . Super communicative and total transparency with our loan application. Look very forward to working with her in the future…"
+  },
+  {
+   "author": "jennifer",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We had used Drew in the past for our mortgage needs, and knew exactly who to call when we decided to move into a new home. Drew at Moxie!! Above and beyond doesn't even begin to describe how hard he works for you and how diligent he is."
+  },
+  {
+   "author": "James Matters",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Moxie Mortgage provided an expedited service that enable us to settle on a new home in a very short time. GP & Jennifer provide professional and exceptional service. They were quick to respond to our questions with detailed instructions."
+  },
+  {
+   "author": "Sean Cunningham",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "As a first time homebuyer I found GP to be extremely helpful throughout out this process. He was able to explain things in a way that was easily understandable. Great communication and always available if we needed anything…"
+  },
+  {
+   "author": "Tim Logiovino",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Joni Utnage at Moxie Mortgage has been nothing short of outstanding. She recently helped close two separate transactions for my buyers, and her communication, professionalism, and dedication were top-notch from start to finish."
+  },
+  {
+   "author": "Austin Watts",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We had great experience with Moxie. Alex Solamans was our loan officer and she was very helpful. We have used Moxie twice with Alex and she makes the process very simple and easy."
+  },
+  {
+   "author": "Drayton Herold",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Joni Utnage is always an outstanding experience from start to finish. She’s not only knowledgeable and thorough, but also incredibly efficient at navigating the mortgage process."
+  },
+  {
+   "author": "Ru4change",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was Super proactive... Can't say enough regarding her performance.. all done while taking care of her children simultaneously (hubby included)...I am on the East Coast and Alex is in the West Coast... I shall be back . Cheers…"
+  },
+  {
+   "author": "Hanna Perez",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I am incredibly grateful to Travis for not only bringing our deal to a successful conclusion but also for ensuring the other deal was closed as well. We faced challenges with the buyer's lender during the sale of our clients home, who was untruthful and delayed the…"
+  },
+  {
+   "author": "Mary Pedro",
+   "rating": 5,
+   "location": "HI",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and Drew were such a pleasure to work with. Being that we had a 6 hour difference in time, they still responded in a timely manner and answered all of my questions (which I had A LOT of)."
+  },
+  {
+   "author": "Preston Thorne",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was amazing to work with. She and her team were able to take over after another bank screwed up. The entire team was fast, responsive, professional, and great to work with. I would DEFINITELY work with Alex and her team again."
+  },
+  {
+   "author": "Jon S",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We recently had the pleasure of working with Alex as our loan officer, and we cannot recommend her highly enough! From the very beginning, she demonstrated exceptional communication skills, keeping us informed at every step of the process."
+  },
+  {
+   "author": "Marcus Hawks",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex was a great and informative throughout the entire process and made this process easy."
+  },
+  {
+   "author": "Erin King",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I absolutely can not say enough about Robert and Drew! They are absolutely yes people. Never made me ever feel like getting my second home in Hawaii was not 100% of an option!"
+  },
+  {
+   "author": "Eugene Prymak",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Robert and his team did a fantastic job every step of the way, and the investment property purchase process was the smoothest I have ever had. Definitely look forward to working with them again and would highly recommend!"
+  },
+  {
+   "author": "Team Roca Hawaii",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We are extremely grateful for Robert and Drew over at Moxie Mortgage. When all other lenders said no to our clients they came together with creative solutions and found a strategy to climb over every single obstacle that came our way with consistent and impeccable…"
+  },
+  {
+   "author": "Annika Anderson",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I had a great experience with Drew. Closed in 8 days on my refinance!"
+  },
+  {
+   "author": "Ngon Nguyen",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "He the best in Maryland!! Got me my first house. 5 stars enough said !!! Evan is the right guy for the job"
+  },
+  {
+   "author": "Russ Hauser",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "So, I had awesome personal, step by step assistance throughout the whole Heloc process. Research shows me I can trust the lender, as opposed to some out there. My loan officer, Alexandra was so helpful and friendly I felt she is like a daughter to me..."
+  },
+  {
+   "author": "Janice McCoy",
+   "rating": 5,
+   "location": "general",
+   "active": false,
+   "source": "Google",
+   "text": "Alex was amazing. It’s very difficult for me to trust people. When she finally reached me after numerous attempts. It was truly a blessing. Thank you Alex😀💰💰💰"
+  },
+  {
+   "author": "Eduard Barker",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "We really enjoyed working with Evan on our recent transaction. As this is not our first purchase, it was clear from the start of the process how thorough, involved, detailed, and professional Evan is."
+  },
+  {
+   "author": "IT Support",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Evan was attentive to detail and kept me up to date through the entire mortgage process. He made the process quick and smooth."
+  },
+  {
+   "author": "Grace Lee",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Review for Evan Naill - The Best Lender Experience I’ve Had After a truly frustrating experience with a big-box lender that had inexperienced agents causing endless delays, I was introduced to Evan through the seller’s realtor."
+  },
+  {
+   "author": "Gregory",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Evan was great to work with. He communicated with me and is awesome at his job. It was an honor to work with Evan and was there from the first day all the way to the closing meeting."
+  },
+  {
+   "author": "Calvin Kalthoff",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Drew was very helpful during my refinancing process. Any time I ran into a problem, he was quick to respond with help. Very friendly and easy to work with."
+  },
+  {
+   "author": "WAVYEAA",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Fundamentally speaking, I would like to express how delighted I am with the services I received from GP Lindsay at Moxie Mortgage. This is the best mortgage company and through the entire process of purchasing a home the communication was…"
+  },
+  {
+   "author": "Holly Ritchie",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "FIVE STAR PERFORMANCE!!! The lender was Great. The Rate was Great - and I can refi if needed!! I was able to reach my lender at all times of the delay. His response time was Amazing!!!"
+  },
+  {
+   "author": "Larisa Olesova",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "My husband and I had an extremely positive experience working with Alex Salomons. Previously we worked with Will Provost on the purchase of our first house. That's why we returned to Will when we started the process with the second property…"
+  },
+  {
+   "author": "Shakeela",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Working with Alex Salomons was a pleasant experience to say the least. She was thorough and professional all throughout the home buying process. There was a delay due to some unforeseen circumstances, but she was great in her help in…"
+  },
+  {
+   "author": "Donna Norberg-Anderson",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Drew did an amazing job on our refinance, we closed in 7 days!! If you want an easy process and a great rate, I’d highly recommend using Drew for your mortgage needs!"
+  },
+  {
+   "author": "corbin froelich",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "I’ve worked with Will Provost Countless times & it’s safe to say he’s the best in the business from A-Z! Great guy & even better Lender"
+  },
+  {
+   "author": "S Peterson",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex Salomons of Moxie Mortgage was great to work with. She was very patient and helpful, guided us through the entire process, provided options, and answered all our questions. We highly recommend Alex & Moxie."
+  },
+  {
+   "author": "KUNAL THAKER",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "Alex, and whole Moxie Mortgage team is great to work with. Highly recommend!"
+  },
+  {
+   "author": "Alejandro Navia",
+   "rating": 5,
+   "location": "general",
+   "active": true,
+   "source": "Google",
+   "text": "They held our hand every step of the way, explaining every detail with patience and clarity. Thank you, Moxie Mortgage, for making our dream of homeownership a reality!"
+  }
+ ]
 }
