@@ -460,7 +460,7 @@ function loadReviews(hi) {
       var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\s+\S*$/, '') + '…' : t) + '”';
       var a = String(x.author || 'Google user'), av = f.querySelector('.mx-av'); av.textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
       if (x.photo && /^https:\/\/lh3\.googleusercontent\.com\//.test(x.photo)) {
-        var im = new Image(); im.alt = ''; im.width = 40; im.height = 40; im.loading = 'lazy'; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+        var im = new Image(); im.alt = ''; im.width = 40; im.height = 40; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
         im.onload = function () { av.textContent = ''; av.appendChild(im); av.classList.add('has-photo'); };
         im.src = x.photo;
       }
