@@ -1,0 +1,254 @@
+<!--
+  MOXIE MORTGAGE · LOAN OPTIONS PAGE (/products)
+  Paste this whole file into ONE Lofty "Custom Code / Embed" block. See README.md for setup.
+  Images load from github.com/rlucido15/moxie-email-assets via jsDelivr (pinned commit 7c56298).
+-->
+<style>.mxp{--navy:#0E2A47;--blue:#1C97AE;--bt:#127C8F;--orange:#F46744;--muted:#4A5868;--line:#DCE6EB;--soft:#F4F8FA;
+  font-family:Barlow,"myFont-Barlow-Regular",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-align:left;box-sizing:border-box;width:100%}
+.mxp *,.mxp *::before,.mxp *::after{box-sizing:border-box}
+.mxp h1,.mxp h2,.mxp h3,.mxp p,.mxp ul,.mxp ol,.mxp figure,.mxp blockquote{margin:0;padding:0;font-family:inherit;text-transform:none;letter-spacing:normal}
+.mxp h1,.mxp h2,.mxp h3{color:inherit;text-wrap:balance}
+.mxp p{text-wrap:pretty}
+.mxp ul,.mxp ol{list-style:none}
+.mxp [hidden]{display:none !important}
+.mxp img{max-width:100%;height:auto;display:block}
+.mxp a{color:var(--bt);text-decoration:none}
+.mxp a:hover{color:#0F5F6E}
+.mxp a:focus-visible,.mxp button:focus-visible,.mxp summary:focus-visible,.mxp input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mx-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.mx-sec{padding:88px 0}
+.mx-soft{background:var(--soft)}
+.mx-eyebrow{font-weight:700;letter-spacing:.14em !important;text-transform:uppercase !important;font-size:14px;color:var(--bt);margin-bottom:12px !important}
+.mx-h1{font-size:clamp(38px,5vw,60px);line-height:1.05;font-weight:800;letter-spacing:-.02em !important}
+.mx-h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.015em !important}
+.mx-lede{font-size:20px;color:var(--muted);max-width:580px;margin-top:20px !important}
+.mx-muted{color:var(--muted)}
+.mx-dag{font-weight:400;font-size:.5em;vertical-align:super;line-height:0;margin-left:1px}
+.mx-h1 .mx-dag{font-size:16px;vertical-align:top;position:relative;top:.5em;margin-left:2px}
+.mx-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.mxp .mx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;border-radius:12px;font-weight:700;font-size:17px;line-height:1.2;transition:background .15s,color .15s;border:2px solid transparent;cursor:pointer;text-align:center}
+.mxp .mx-btn-p{background:var(--orange);color:var(--navy)}
+.mxp .mx-btn-p:hover{background:#ff7a59;color:var(--navy)}
+.mxp .mx-btn-o{border-color:var(--navy);color:var(--navy)}
+.mxp .mx-btn-o:hover{background:var(--navy);color:#fff}
+.mxp .mx-btn-w{border-color:#fff;color:#fff}
+.mxp .mx-btn-w:hover{background:#fff;color:var(--navy)}
+.mx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.mx-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;transition:transform .15s,border-color .15s;display:flex;flex-direction:column;gap:10px}
+.mx-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.mx-card h3{font-size:22px;line-height:1.2;font-weight:700}
+.mx-card p{color:var(--muted);font-size:16px}
+.mx-ico{width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mx-ico svg{width:26px;height:26px}
+.mx-more{margin-top:auto !important;font-weight:700}
+.mx-head{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
+.mx-head>p{max-width:440px}
+.mx-dark{background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 42%,#0E2A47 100%);color:#fff}
+.mx-dark .mx-eyebrow{color:#7FDCEC}
+.mx-dark p{color:#D3E3EC}
+.mx-hero{padding:56px 0 64px}
+.mx-hero .mx-wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.mx-hero-copy{flex:1 1 470px;min-width:0}
+.mx-hero-media{flex:1 1 420px;min-width:0;position:relative}
+.mx-photo{border-radius:28px;padding:14px;background:linear-gradient(135deg,#1C97AE 0%,#0E2A47 100%)}
+.mx-photo img{width:100%;aspect-ratio:14/9;object-fit:cover;border-radius:18px}
+.mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
+.mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:34px !important;max-width:600px}
+.mx-stats li{border-left:3px solid var(--blue);padding-left:12px}
+.mx-stats strong{display:block;font-size:26px;line-height:1.1}
+.mx-stats span{font-size:14px;color:var(--muted)}
+.mx-checks{display:flex;flex-direction:column;gap:12px;margin-top:28px !important}
+.mx-checks li{display:flex;gap:12px;align-items:center}
+.mx-ck{width:28px;height:28px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-faq{display:flex;flex-direction:column;gap:12px}
+.mx-faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 24px}
+.mx-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 0;min-height:60px}
+.mx-faq summary::-webkit-details-marker{display:none}
+.mx-faq summary h3{font-size:19px;line-height:1.35;font-weight:700}
+.mx-pm{flex:none;width:32px;height:32px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;font-size:22px;line-height:1;transition:transform .15s}
+.mx-faq details[open] .mx-pm{transform:rotate(45deg);background:var(--navy);color:#fff}
+.mx-ans{padding:0 0 20px;color:#344455;font-size:16px;display:flex;flex-direction:column;gap:8px}
+.mx-ans ul,.mx-ans ol{padding-left:22px !important;display:flex;flex-direction:column;gap:4px}
+.mx-ans ul{list-style:disc}.mx-ans ol{list-style:decimal}
+.mx-cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between}
+.mx-cta p{color:#C9D6DF;margin-top:14px !important}
+.mx-cta .mx-btns{margin-top:0}
+.mx-fine{font-size:13px;line-height:1.6;color:var(--muted)}
+.mx-rise{animation:mxRise .5s ease-out both}
+.mx-d2{animation-delay:.12s}
+.mx-fade{animation:mxFade .6s .1s ease-out both}
+@keyframes mxRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes mxFade{from{opacity:0}to{opacity:1}}
+@media (max-width:640px){.mx-sec{padding:64px 0}.mx-cta{padding:36px 24px}.mx-badge{left:8px;bottom:16px}.mx-hero{padding:32px 0 48px}}
+@media (prefers-reduced-motion:reduce){.mxp *,.mxp *::before,.mxp *::after{animation:none !important;transition:none !important}}</style>
+<div class="mxp" id="mx-products">
+
+<style>.mx-help{flex:0 1 300px;background:var(--navy);color:#fff;border-radius:20px;padding:26px}
+.mx-help p{color:#C9D6DF;font-size:15px;margin:4px 0 18px !important}
+.mx-tbl-box{overflow-x:auto;border:1px solid var(--line);border-radius:18px;-webkit-overflow-scrolling:touch}
+.mxp table{width:100%;border-collapse:collapse;min-width:760px;font-size:16px;margin:0}
+.mxp th,.mxp td{padding:14px 16px;text-align:left;border:0;border-bottom:1px solid var(--line);vertical-align:top;background:none;color:var(--navy)}
+.mxp thead th{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--muted);background:var(--soft)}
+.mxp tbody tr:last-child th,.mxp tbody tr:last-child td{border-bottom:0}
+.mx-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+.mxp .mx-chip{min-height:44px;padding:9px 18px;border-radius:999px;font:600 15px/1.2 inherit;font-family:inherit;cursor:pointer;background:#fff;color:var(--navy);border:1px solid #B9C8D2}
+.mxp .mx-chip:hover{border-color:var(--navy)}
+.mxp .mx-chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mx-group{margin-bottom:52px}
+.mx-group-h{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;margin-bottom:18px;border-bottom:2px solid var(--navy);padding-bottom:12px}
+.mx-group-h h2{font-size:28px;line-height:1.15;font-weight:800}
+.mx-group-h p{color:var(--muted);font-size:16px;max-width:520px}
+.mx-prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.mx-prod{scroll-margin-top:120px}
+.mx-fact{align-self:flex-start;background:#E3F5F9;color:#0F5F6E;font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px}
+.mx-prod .mx-ideal{font-size:14px;color:var(--navy)}
+.mx-links{margin-top:auto !important;padding-top:8px;display:flex;gap:18px;flex-wrap:wrap}
+.mx-links a{font-weight:700}
+.mx-links a+a{color:var(--muted);font-weight:600}</style>
+<section class="mx-hero" aria-labelledby="mxp-h1" style="padding-bottom:56px">
+  <div class="mx-wrap" style="align-items:flex-end;justify-content:space-between">
+    <div class="mx-hero-copy" style="flex:1 1 560px">
+      <p class="mx-eyebrow mx-rise">18 home loan options · 1,000s of products</p>
+      <h1 id="mxp-h1" class="mx-h1 mx-rise">Home loan options to fit your future</h1>
+      <p class="mx-lede mx-rise mx-d2" style="max-width:640px">Stop feeling overwhelmed by complex financing. From first-time homebuyer programs to self-employed bank statement loans, we provide the expert guidance and diverse loan options you need to secure your home with confidence.</p>
+    </div>
+    <div class="mx-help mx-fade">
+      <p style="color:#fff;font-weight:700;font-size:19px;margin:0 !important">Not sure which loan fits?</p>
+      <p>Answer a few questions and a loan expert will match you in one call.</p>
+      <a class="mx-btn mx-btn-p" href="https://apply.moxiemortgage.com/?src=products_match">Match me to a loan</a>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="mxp-glance" style="padding:0 0 72px">
+  <div class="mx-wrap">
+    <h2 id="mxp-glance" class="mx-h2" style="font-size:clamp(28px,3vw,36px)">Popular home loans at a glance</h2>
+    <p class="mx-muted" style="margin:8px 0 22px">Typical minimums. Your Moxie loan officer will confirm what you qualify for.</p>
+    <div class="mx-tbl-box" role="region" aria-labelledby="mxp-glance" tabindex="0">
+      <table>
+        <caption style="position:absolute;left:-9999px">Comparison of popular Moxie Mortgage home loan types</caption>
+        <thead><tr><th scope="col">Loan type</th><th scope="col">Best for</th><th scope="col">Down payment</th><th scope="col">Credit score</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="#conventional-30">Conventional</a></th><td>Buyers with steady credit and income</td><td>As low as 3%</td><td>620+</td></tr>
+          <tr><th scope="row"><a href="#fha">FHA</a></th><td>First-time buyers, lower credit or savings</td><td>3.5%</td><td>580+ (as low as 500 with Moxie)</td></tr>
+          <tr><th scope="row"><a href="#va">VA</a></th><td>Eligible veterans and service members</td><td>0%</td><td>Set by lender</td></tr>
+          <tr><th scope="row"><a href="#usda">USDA</a></th><td>Buyers in USDA-designated rural areas</td><td>0%</td><td>640+</td></tr>
+          <tr><th scope="row"><a href="#jumbo">Jumbo</a></th><td>Loans above $832,750 (2026 limit, most areas)</td><td>Often 10%–20%</td><td>Varies by program</td></tr>
+          <tr><th scope="row"><a href="#bank-statement-loan">Non-QM</a></th><td>Self-employed and investors</td><td>10%–25%</td><td>620+</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mx-soft" aria-labelledby="mxp-all" style="padding-top:72px">
+  <div class="mx-wrap">
+    <h2 id="mxp-all" class="mx-h2" style="margin-bottom:18px">Explore every loan option</h2>
+    <div class="mx-chips" role="group" aria-label="Filter loans by goal"><button type="button" class="mx-chip" data-f="all" aria-pressed="true">All loans</button><button type="button" class="mx-chip" data-f="buy" aria-pressed="false">Buying a home</button><button type="button" class="mx-chip" data-f="low" aria-pressed="false">Low or no down payment</button><button type="button" class="mx-chip" data-f="self" aria-pressed="false">Self-employed</button><button type="button" class="mx-chip" data-f="inv" aria-pressed="false">Investors</button><button type="button" class="mx-chip" data-f="equity" aria-pressed="false">Home equity</button></div>
+    <p class="mx-muted" aria-live="polite" id="mxp-count" style="position:absolute;left:-9999px"></p>
+    <div class="mx-group"><div class="mx-group-h"><h2>Conventional and jumbo loans</h2><p>The most widely used mortgages, with fixed or adjustable rates.</p></div><div class="mx-prods"><article class="mx-card mx-prod" id="conventional-30" data-tags="buy low"><span class="mx-fact">As low as 3% down</span><h3>Conventional 30 Year Fixed</h3><p>The most popular loan for buying or refinancing a home, offering a fixed rate for 30 years, down payments as low as 3%, and options with no mortgage insurance.</p><p class="mx-ideal"><strong>Ideal for:</strong> Most buyers and refinancers</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_conventional-30">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="conventional-15" data-tags="buy"><span class="mx-fact">As low as 5% down</span><h3>Conventional 15 Year Fixed</h3><p>A shorter term means higher monthly payments, but lower interest paid overall. Buy with as little as 5% down or choose options with no mortgage insurance.</p><p class="mx-ideal"><strong>Ideal for:</strong> Paying less interest overall</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_conventional-15">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="arm" data-tags="buy"><span class="mx-fact">5, 7 or 10-year fixed start</span><h3>Conventional Adjustable Rate (ARM)</h3><p>Start with a fixed rate for 5, 7, or 10 years, which adjusts every 6 months thereafter. This could offer a lower interest rate and savings compared with a fixed-rate option.</p><p class="mx-ideal"><strong>Ideal for:</strong> Buyers planning to move or refinance</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_arm">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="jumbo" data-tags="buy"><span class="mx-fact">Above $832,750</span><h3>Jumbo</h3><p>Buy or refinance beyond conventional loan limits ($832,750 for a single-family home in most areas in 2026) with many options not requiring mortgage insurance.</p><p class="mx-ideal"><strong>Ideal for:</strong> Higher-priced homes</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_jumbo">Get started →</a><a href="/contact">Ask a loan expert</a></div></article></div></div><div class="mx-group"><div class="mx-group-h"><h2>Government-backed loans</h2><p>Low or no down payment programs backed by FHA, VA and USDA.</p></div><div class="mx-prods"><article class="mx-card mx-prod" id="fha" data-tags="buy low"><span class="mx-fact">3.5% down</span><h3>FHA</h3><p>Buy or refinance with as little as 3.5% down. FHA offers lower credit requirements and allows for higher debt limits than other products.</p><p class="mx-ideal"><strong>Ideal for:</strong> First-time buyers and lower credit</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_fha">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="va" data-tags="buy low"><span class="mx-fact">0% down</span><h3>VA</h3><p>Those with military service benefits can buy or streamline refinance with as little as 0% down and often with a lower interest rate than other options.</p><p class="mx-ideal"><strong>Ideal for:</strong> Veterans and service members</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_va">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="usda" data-tags="buy low"><span class="mx-fact">0% down</span><h3>USDA</h3><p>Eligible individuals can buy or refinance in a USDA-designated rural area with as little as 0% down and often a lower interest rate than other options.</p><p class="mx-ideal"><strong>Ideal for:</strong> Rural and suburban buyers</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_usda">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="down-payment-assistance" data-tags="buy low"><span class="mx-fact">Grants and forgivable loans</span><h3>Down Payment Assistance</h3><p>Designed to make homeownership more affordable by reducing or eliminating the need for a down payment.</p><p class="mx-ideal"><strong>Ideal for:</strong> Buyers short on cash to close</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_down-payment-assistance">Get started →</a><a href="/contact">Ask a loan expert</a></div></article></div></div><div class="mx-group"><div class="mx-group-h"><h2>Self-employed and alternative income loans</h2><p>Non-QM options that qualify you without W-2s or tax returns.</p></div><div class="mx-prods"><article class="mx-card mx-prod" id="bank-statement-loan" data-tags="self"><span class="mx-fact">12–24 months of deposits</span><h3>Bank Statement Loan</h3><p>Qualify using 12–24 months of bank deposit statements instead of W-2s or tax returns. Ideal for self-employed individuals who claimed tax write-offs in prior years.</p><p class="mx-ideal"><strong>Ideal for:</strong> Self-employed with tax write-offs</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_bank-statement-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="pl-loan" data-tags="self"><span class="mx-fact">No tax returns</span><h3>P&amp;L Loan</h3><p>Qualify using profit and loss statements rather than tax returns or W-2s, offering self-employed borrowers flexibility for fluctuating income and potentially higher loan amounts.</p><p class="mx-ideal"><strong>Ideal for:</strong> Business owners with variable income</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_pl-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="asset-utilization" data-tags="self"><span class="mx-fact">Assets as income</span><h3>Asset Utilization</h3><p>Qualify using liquid assets (like savings or investments) as income, rather than traditional employment or W-2 income. Ideal for retirees and high-net-worth individuals.</p><p class="mx-ideal"><strong>Ideal for:</strong> Retirees and high-net-worth buyers</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_asset-utilization">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="no-ratio-loan" data-tags="self"><span class="mx-fact">No income documentation</span><h3>No Ratio Loan</h3><p>Qualify for a mortgage without income or employment documentation, relying instead on factors like your credit score, assets, and down payment.</p><p class="mx-ideal"><strong>Ideal for:</strong> Strong credit and assets</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_no-ratio-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article></div></div><div class="mx-group"><div class="mx-group-h"><h2>Investor and specialty loans</h2><p>Financing for rentals, fixer-uppers, land, and buying before you sell.</p></div><div class="mx-prods"><article class="mx-card mx-prod" id="dscr" data-tags="inv"><span class="mx-fact">No tax returns or W-2s</span><h3>Debt Service Coverage Ratio (DSCR)</h3><p>Invest in real estate based on the property's cash flow rather than your personal income, meaning no tax returns or W-2s are required.</p><p class="mx-ideal"><strong>Ideal for:</strong> Real estate investors</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_dscr">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="renovation-loan" data-tags="buy inv"><span class="mx-fact">One loan, one closing</span><h3>Purchase + Renovation Loan</h3><p>Finance both the purchase and renovation of a property with a single mortgage. Ideal for buying fixer-uppers.</p><p class="mx-ideal"><strong>Ideal for:</strong> Fixer-uppers</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_renovation-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="land-loan" data-tags="buy inv"><span class="mx-fact">Up to 100% construction financing</span><h3>Land Loan</h3><p>Buy raw land with the option to also include up to 100% financing for the construction of a home.</p><p class="mx-ideal"><strong>Ideal for:</strong> Building your own home</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_land-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="bridge-loan" data-tags="buy equity"><span class="mx-fact">Make non-contingent offers</span><h3>Bridge Loan</h3><p>Buy before you sell your current home with a short-term loan that enables you to make a non-contingent offer.</p><p class="mx-ideal"><strong>Ideal for:</strong> Buying before you sell</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_bridge-loan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article></div></div><div class="mx-group"><div class="mx-group-h"><h2>Home equity loans</h2><p>Tap your equity without refinancing your first mortgage.</p></div><div class="mx-prods"><article class="mx-card mx-prod" id="heloc" data-tags="equity"><span class="mx-fact">Pay interest only on what you use</span><h3>Home Equity Line of Credit (HELOC)</h3><p>Use your home equity to get access to cash, pay interest only on the amount used, typically at interest rates lower than credit cards or personal loans.</p><p class="mx-ideal"><strong>Ideal for:</strong> Flexible, ongoing access to cash</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_heloc">Get started →</a><a href="/contact">Ask a loan expert</a></div></article><article class="mx-card mx-prod" id="heloan" data-tags="equity"><span class="mx-fact">Fixed rate, lump sum</span><h3>Home Equity Loan (HELOAN)</h3><p>Use your equity to get a lump-sum amount with a fixed interest rate and predictable monthly payments, ideal for financing renovations or debt consolidation.</p><p class="mx-ideal"><strong>Ideal for:</strong> Renovations or debt consolidation</p><div class="mx-links"><a href="https://apply.moxiemortgage.com/?src=products_heloan">Get started →</a><a href="/contact">Ask a loan expert</a></div></article></div></div>
+    <p style="font-size:22px;font-weight:700;text-align:center">No matter your current situation or future goals, Moxie has you covered.</p>
+  </div>
+</section>
+
+<section class="mx-sec" aria-labelledby="mxp-help">
+  <div class="mx-wrap">
+    <h2 id="mxp-help" class="mx-h2" style="margin-bottom:28px">Questions? Ask us.</h2>
+    <div class="mx-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      <a class="mx-card" href="/faqs" style="color:var(--navy)"><h3 style="font-size:24px">Search 100 mortgage FAQs</h3><p>Get instant answers on loan types, down payments, credit, rates, and refinancing.</p><span class="mx-more">Browse FAQs →</span></a>
+      <div class="mx-card" style="background:var(--navy);border-color:var(--navy);color:#fff"><h3 style="font-size:24px">Talk to a loan expert</h3><p style="color:#C9D6DF">Our team is standing by to help you choose the best product for your goals.</p>
+        <a class="mx-btn mx-btn-w" data-mx-phone href="tel:+14806602518" style="align-self:flex-start;margin-top:6px">Call (480) 660-2518</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["FinancialService","Organization"],"@id":"https://moxiemortgage.com/#org","name":"Moxie Mortgage","url":"https://moxiemortgage.com/","logo":"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/moxie-wordmark-white-640.png","telephone":"+1-480-660-2518","email":"hello@moxiemortgage.com","address":{"@type":"PostalAddress","streetAddress":"5559 S Sossaman Rd, Bldg 1 Ste 101","addressLocality":"Mesa","addressRegion":"AZ","postalCode":"85212","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"identifier":{"@type":"PropertyValue","propertyID":"NMLS","value":"1660690"},"parentOrganization":{"@type":"Organization","name":"NEXA Lending"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-480-660-2518","contactType":"customer service","areaServed":"US"},{"@type":"ContactPoint","telephone":"+1-808-818-5618","contactType":"customer service","areaServed":"US-HI","email":"aloha@moxiemortgage.com"}]},{"@type":"CollectionPage","@id":"https://moxiemortgage.com/products#webpage","url":"https://moxiemortgage.com/products","name":"Home Loan Options: FHA, VA, Jumbo, DSCR & Non-QM | Moxie Mortgage","description":"Compare 18 home loan options, from 3% down conventional and 0% down VA and USDA to bank statement, DSCR, HELOC and bridge loans.","isPartOf":{"@type":"WebSite","@id":"https://moxiemortgage.com/#website","url":"https://moxiemortgage.com/","name":"Moxie Mortgage","publisher":{"@id":"https://moxiemortgage.com/#org"}},"about":{"@id":"https://moxiemortgage.com/#org"},"inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":[".mx-h1",".mx-lede",".mx-speak"]},"mainEntity":{"@id":"https://moxiemortgage.com/products#loans"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://moxiemortgage.com/"},{"@type":"ListItem","position":2,"name":"Loan options","item":"https://moxiemortgage.com/products"}]},{"@type":"ItemList","@id":"https://moxiemortgage.com/products#loans","name":"Moxie Mortgage home loan options","numberOfItems":18,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"MortgageLoan","name":"Conventional 30 Year Fixed","description":"The most popular loan for buying or refinancing a home, offering a fixed rate for 30 years, down payments as low as 3%, and options with no mortgage insurance.","url":"https://moxiemortgage.com/products#conventional-30","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Conventional and jumbo loans"}},{"@type":"ListItem","position":2,"item":{"@type":"MortgageLoan","name":"Conventional 15 Year Fixed","description":"A shorter term means higher monthly payments, but lower interest paid overall. Buy with as little as 5% down or choose options with no mortgage insurance.","url":"https://moxiemortgage.com/products#conventional-15","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Conventional and jumbo loans"}},{"@type":"ListItem","position":3,"item":{"@type":"MortgageLoan","name":"Conventional Adjustable Rate (ARM)","description":"Start with a fixed rate for 5, 7, or 10 years, which adjusts every 6 months thereafter. This could offer a lower interest rate and savings compared with a fixed-rate option.","url":"https://moxiemortgage.com/products#arm","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Conventional and jumbo loans"}},{"@type":"ListItem","position":4,"item":{"@type":"MortgageLoan","name":"Jumbo","description":"Buy or refinance beyond conventional loan limits ($832,750 for a single-family home in most areas in 2026) with many options not requiring mortgage insurance.","url":"https://moxiemortgage.com/products#jumbo","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Conventional and jumbo loans"}},{"@type":"ListItem","position":5,"item":{"@type":"MortgageLoan","name":"FHA","description":"Buy or refinance with as little as 3.5% down. FHA offers lower credit requirements and allows for higher debt limits than other products.","url":"https://moxiemortgage.com/products#fha","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Government-backed loans"}},{"@type":"ListItem","position":6,"item":{"@type":"MortgageLoan","name":"VA","description":"Those with military service benefits can buy or streamline refinance with as little as 0% down and often with a lower interest rate than other options.","url":"https://moxiemortgage.com/products#va","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Government-backed loans"}},{"@type":"ListItem","position":7,"item":{"@type":"MortgageLoan","name":"USDA","description":"Eligible individuals can buy or refinance in a USDA-designated rural area with as little as 0% down and often a lower interest rate than other options.","url":"https://moxiemortgage.com/products#usda","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Government-backed loans"}},{"@type":"ListItem","position":8,"item":{"@type":"LoanOrCredit","name":"Down Payment Assistance","description":"Designed to make homeownership more affordable by reducing or eliminating the need for a down payment.","url":"https://moxiemortgage.com/products#down-payment-assistance","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Government-backed loans"}},{"@type":"ListItem","position":9,"item":{"@type":"MortgageLoan","name":"Bank Statement Loan","description":"Qualify using 12–24 months of bank deposit statements instead of W-2s or tax returns. Ideal for self-employed individuals who claimed tax write-offs in prior years.","url":"https://moxiemortgage.com/products#bank-statement-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Self-employed and alternative income loans"}},{"@type":"ListItem","position":10,"item":{"@type":"MortgageLoan","name":"P&L Loan","description":"Qualify using profit and loss statements rather than tax returns or W-2s, offering self-employed borrowers flexibility for fluctuating income and potentially higher loan amounts.","url":"https://moxiemortgage.com/products#pl-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Self-employed and alternative income loans"}},{"@type":"ListItem","position":11,"item":{"@type":"MortgageLoan","name":"Asset Utilization","description":"Qualify using liquid assets (like savings or investments) as income, rather than traditional employment or W-2 income. Ideal for retirees and high-net-worth individuals.","url":"https://moxiemortgage.com/products#asset-utilization","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Self-employed and alternative income loans"}},{"@type":"ListItem","position":12,"item":{"@type":"MortgageLoan","name":"No Ratio Loan","description":"Qualify for a mortgage without income or employment documentation, relying instead on factors like your credit score, assets, and down payment.","url":"https://moxiemortgage.com/products#no-ratio-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Self-employed and alternative income loans"}},{"@type":"ListItem","position":13,"item":{"@type":"MortgageLoan","name":"Debt Service Coverage Ratio (DSCR)","description":"Invest in real estate based on the property's cash flow rather than your personal income, meaning no tax returns or W-2s are required.","url":"https://moxiemortgage.com/products#dscr","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Investor and specialty loans"}},{"@type":"ListItem","position":14,"item":{"@type":"MortgageLoan","name":"Purchase + Renovation Loan","description":"Finance both the purchase and renovation of a property with a single mortgage. Ideal for buying fixer-uppers.","url":"https://moxiemortgage.com/products#renovation-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Investor and specialty loans"}},{"@type":"ListItem","position":15,"item":{"@type":"LoanOrCredit","name":"Land Loan","description":"Buy raw land with the option to also include up to 100% financing for the construction of a home.","url":"https://moxiemortgage.com/products#land-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Investor and specialty loans"}},{"@type":"ListItem","position":16,"item":{"@type":"LoanOrCredit","name":"Bridge Loan","description":"Buy before you sell your current home with a short-term loan that enables you to make a non-contingent offer.","url":"https://moxiemortgage.com/products#bridge-loan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Investor and specialty loans"}},{"@type":"ListItem","position":17,"item":{"@type":"LoanOrCredit","name":"Home Equity Line of Credit (HELOC)","description":"Use your home equity to get access to cash, pay interest only on the amount used, typically at interest rates lower than credit cards or personal loans.","url":"https://moxiemortgage.com/products#heloc","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Home equity loans"}},{"@type":"ListItem","position":18,"item":{"@type":"LoanOrCredit","name":"Home Equity Loan (HELOAN)","description":"Use your equity to get a lump-sum amount with a fixed interest rate and predictable monthly payments, ideal for financing renovations or debt consolidation.","url":"https://moxiemortgage.com/products#heloan","provider":{"@id":"https://moxiemortgage.com/#org"},"category":"Home equity loans"}}]}]}</script>
+<script>
+(function () {
+var MX = window.MX || (window.MX = {});
+MX.store = {
+  get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(k); } catch (e) {} },
+  sget: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+  sset: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+};
+MX.track = function (name, data) {
+  var p = Object.assign({ event: name }, data || {});
+  window.dataLayer = window.dataLayer || []; window.dataLayer.push(p);
+  if (typeof window.gtag === 'function') window.gtag('event', name, data || {});
+};
+MX.fullBleed = function (root) {
+  function fit() {
+    for (var el = root.parentElement; el && el !== document.body; el = el.parentElement) {
+      var cs = getComputedStyle(el);
+      if (/(hidden|clip)/.test(cs.overflowX + cs.overflow)) { el.style.overflow = 'visible'; el.style.overflowX = 'visible'; }
+    }
+    root.style.marginLeft = '0px'; root.style.width = 'auto'; root.style.maxWidth = 'none';
+    var left = root.getBoundingClientRect().left;
+    root.style.width = document.documentElement.clientWidth + 'px';
+    root.style.marginLeft = (-left) + 'px';
+  }
+  fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+  document.documentElement.style.overflowX = 'hidden';
+};
+MX.visitor = function () {
+  var qs = new URLSearchParams(location.search), S = MX.store;
+  var override = (qs.get('hero') || '').toLowerCase();
+  if (override === 'reset') { S.del('mx_visits'); S.del('mx_ab'); override = ''; }
+  var visits = parseInt(S.get('mx_visits') || '0', 10);
+  if (!S.sget('mx_counted')) { visits += 1; S.set('mx_visits', String(visits)); S.sset('mx_counted', '1'); }
+  return { qs: qs, override: override, returning: override === 'returning' || (override !== 'default' && override !== 'hawaii' && visits > 1) };
+};
+MX.region = function (qs, override, cb) {
+  if (override === 'hawaii' || (qs.get('geo') || '').toUpperCase() === 'HI') return cb(true);
+  if (override === 'default') return cb(false);
+  try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Pacific/Honolulu') return cb(true); } catch (e) {}
+  var cached = MX.store.sget('mx_region');
+  if (cached !== null) return cb(/^hawaii$/i.test(cached));
+  var done = false;
+  var finish = function (r) { if (done) return; done = true; MX.store.sset('mx_region', r || ''); cb(/^hawaii$/i.test(r || '')); };
+  setTimeout(function () { finish(''); }, 2500);
+  fetch('https://get.geojs.io/v1/ip/geo.json').then(function (r) { return r.json(); })
+    .then(function (d) { finish(d && d.region); })
+    .catch(function () {
+      fetch('https://ipapi.co/json/').then(function (r) { return r.json(); })
+        .then(function (d) { finish(d && d.region); }).catch(function () { finish(''); });
+    });
+};
+MX.applyHero = function (root, v) {
+  Object.keys(v).forEach(function (k) {
+    var el = root.querySelector('[data-mx="' + k + '"]');
+    if (!el) return;
+    if (k === 'img') { el.srcset = v.img.srcset; el.src = v.img.src; el.alt = v.img.alt; }
+    else if (k === 'cta2') { el.textContent = v.cta2.text; el.href = v.cta2.href; }
+    else if (k === 'cta') { el.textContent = v.cta.text; el.href = v.cta.href; }
+    else if (k === 'dag') { el.hidden = !v.dag; }
+    else el.textContent = v[k];
+  });
+};
+var root = document.getElementById('mx-products');
+MX.fullBleed(root);
+var chips = [].slice.call(root.querySelectorAll('.mx-chip'));
+var cards = [].slice.call(root.querySelectorAll('.mx-prod'));
+var groups = [].slice.call(root.querySelectorAll('.mx-group'));
+chips.forEach(function (c) {
+  c.addEventListener('click', function () {
+    var f = c.getAttribute('data-f'), n = 0;
+    chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c); });
+    cards.forEach(function (k) { var on = f === 'all' || (' ' + k.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') > -1; k.hidden = !on; if (on) n++; });
+    groups.forEach(function (g) { g.hidden = !g.querySelector('.mx-prod:not([hidden])'); });
+    root.querySelector('#mxp-count').textContent = n + ' loan options shown';
+    MX.track('products_filter', { filter: f });
+  });
+});
+// Hawaii visitors get the Hawaii line on the call button
+var V = MX.visitor();
+MX.region(V.qs, V.override, function (hi) {
+  if (hi) root.querySelectorAll('[data-mx-phone]').forEach(function (a) { a.textContent = 'Call 808.818.5618'; a.href = 'tel:+18088185618'; });
+});
+})();
+</script>

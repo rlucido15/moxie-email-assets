@@ -1,0 +1,318 @@
+<!--
+  MOXIE MORTGAGE · REFINANCE PAGE (/refinance)
+  Paste this whole file into ONE Lofty "Custom Code / Embed" block. See README.md for setup.
+  Images load from github.com/rlucido15/moxie-email-assets via jsDelivr (pinned commit 7c56298).
+-->
+<style>.mxp{--navy:#0E2A47;--blue:#1C97AE;--bt:#127C8F;--orange:#F46744;--muted:#4A5868;--line:#DCE6EB;--soft:#F4F8FA;
+  font-family:Barlow,"myFont-Barlow-Regular",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);font-size:17px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-align:left;box-sizing:border-box;width:100%}
+.mxp *,.mxp *::before,.mxp *::after{box-sizing:border-box}
+.mxp h1,.mxp h2,.mxp h3,.mxp p,.mxp ul,.mxp ol,.mxp figure,.mxp blockquote{margin:0;padding:0;font-family:inherit;text-transform:none;letter-spacing:normal}
+.mxp h1,.mxp h2,.mxp h3{color:inherit;text-wrap:balance}
+.mxp p{text-wrap:pretty}
+.mxp ul,.mxp ol{list-style:none}
+.mxp [hidden]{display:none !important}
+.mxp img{max-width:100%;height:auto;display:block}
+.mxp a{color:var(--bt);text-decoration:none}
+.mxp a:hover{color:#0F5F6E}
+.mxp a:focus-visible,.mxp button:focus-visible,.mxp summary:focus-visible,.mxp input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mx-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.mx-sec{padding:88px 0}
+.mx-soft{background:var(--soft)}
+.mx-eyebrow{font-weight:700;letter-spacing:.14em !important;text-transform:uppercase !important;font-size:14px;color:var(--bt);margin-bottom:12px !important}
+.mx-h1{font-size:clamp(38px,5vw,60px);line-height:1.05;font-weight:800;letter-spacing:-.02em !important}
+.mx-h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;font-weight:800;letter-spacing:-.015em !important}
+.mx-lede{font-size:20px;color:var(--muted);max-width:580px;margin-top:20px !important}
+.mx-muted{color:var(--muted)}
+.mx-dag{font-weight:400;font-size:.5em;vertical-align:super;line-height:0;margin-left:1px}
+.mx-h1 .mx-dag{font-size:16px;vertical-align:top;position:relative;top:.5em;margin-left:2px}
+.mx-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.mxp .mx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;border-radius:12px;font-weight:700;font-size:17px;line-height:1.2;transition:background .15s,color .15s;border:2px solid transparent;cursor:pointer;text-align:center}
+.mxp .mx-btn-p{background:var(--orange);color:var(--navy)}
+.mxp .mx-btn-p:hover{background:#ff7a59;color:var(--navy)}
+.mxp .mx-btn-o{border-color:var(--navy);color:var(--navy)}
+.mxp .mx-btn-o:hover{background:var(--navy);color:#fff}
+.mxp .mx-btn-w{border-color:#fff;color:#fff}
+.mxp .mx-btn-w:hover{background:#fff;color:var(--navy)}
+.mx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.mx-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;transition:transform .15s,border-color .15s;display:flex;flex-direction:column;gap:10px}
+.mx-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.mx-card h3{font-size:22px;line-height:1.2;font-weight:700}
+.mx-card p{color:var(--muted);font-size:16px}
+.mx-ico{width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--blue);display:inline-flex;align-items:center;justify-content:center;margin-bottom:8px}
+.mx-ico svg{width:26px;height:26px}
+.mx-more{margin-top:auto !important;font-weight:700}
+.mx-head{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
+.mx-head>p{max-width:440px}
+.mx-dark{background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 42%,#0E2A47 100%);color:#fff}
+.mx-dark .mx-eyebrow{color:#7FDCEC}
+.mx-dark p{color:#D3E3EC}
+.mx-hero{padding:56px 0 64px}
+.mx-hero .mx-wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.mx-hero-copy{flex:1 1 470px;min-width:0}
+.mx-hero-media{flex:1 1 420px;min-width:0;position:relative}
+.mx-photo{border-radius:28px;padding:14px;background:linear-gradient(135deg,#1C97AE 0%,#0E2A47 100%)}
+.mx-photo img{width:100%;aspect-ratio:14/9;object-fit:cover;border-radius:18px}
+.mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
+.mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:34px !important;max-width:600px}
+.mx-stats li{border-left:3px solid var(--blue);padding-left:12px}
+.mx-stats strong{display:block;font-size:26px;line-height:1.1}
+.mx-stats span{font-size:14px;color:var(--muted)}
+.mx-checks{display:flex;flex-direction:column;gap:12px;margin-top:28px !important}
+.mx-checks li{display:flex;gap:12px;align-items:center}
+.mx-ck{width:28px;height:28px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.mx-faq{display:flex;flex-direction:column;gap:12px}
+.mx-faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 24px}
+.mx-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 0;min-height:60px}
+.mx-faq summary::-webkit-details-marker{display:none}
+.mx-faq summary h3{font-size:19px;line-height:1.35;font-weight:700}
+.mx-pm{flex:none;width:32px;height:32px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;font-size:22px;line-height:1;transition:transform .15s}
+.mx-faq details[open] .mx-pm{transform:rotate(45deg);background:var(--navy);color:#fff}
+.mx-ans{padding:0 0 20px;color:#344455;font-size:16px;display:flex;flex-direction:column;gap:8px}
+.mx-ans ul,.mx-ans ol{padding-left:22px !important;display:flex;flex-direction:column;gap:4px}
+.mx-ans ul{list-style:disc}.mx-ans ol{list-style:decimal}
+.mx-cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between}
+.mx-cta p{color:#C9D6DF;margin-top:14px !important}
+.mx-cta .mx-btns{margin-top:0}
+.mx-fine{font-size:13px;line-height:1.6;color:var(--muted)}
+.mx-rise{animation:mxRise .5s ease-out both}
+.mx-d2{animation-delay:.12s}
+.mx-fade{animation:mxFade .6s .1s ease-out both}
+@keyframes mxRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes mxFade{from{opacity:0}to{opacity:1}}
+@media (max-width:640px){.mx-sec{padding:64px 0}.mx-cta{padding:36px 24px}.mx-badge{left:8px;bottom:16px}.mx-hero{padding:32px 0 48px}}
+@media (prefers-reduced-motion:reduce){.mxp *,.mxp *::before,.mxp *::after{animation:none !important;transition:none !important}}</style>
+<div class="mxp" id="mx-refi">
+
+<style>.mx-slot{min-height:520px;display:flex;flex-direction:column;justify-content:center}
+.mx-slot.has-widget{display:block;min-height:0}
+.mx-facade{background:radial-gradient(120% 90% at 85% 0%,#145A75 0%,#0E2A47 55%,#0B2340 100%);border-radius:24px;padding:40px;color:#fff;box-shadow:0 30px 60px rgba(14,42,71,.28)}
+.mx-facade .mx-eyebrow{color:#1C97AE}
+.mx-facade h2{font-size:38px;line-height:1.1;font-weight:800}
+.mx-facade p{color:#B8C7D3;margin:18px 0 28px !important}
+.mxp .mx-facade .mx-btn{width:100%;background:#1C97AE;color:var(--navy);font-size:19px;min-height:56px;animation:mxGlow 2s 1s ease-out 2}
+.mx-pills{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.mx-pills span{border:1px solid rgba(28,151,174,.45);border-radius:999px;padding:5px 14px;font-size:14px;color:#CDEFF6}
+@keyframes mxGlow{0%,100%{box-shadow:0 0 0 0 rgba(28,151,174,.35)}50%{box-shadow:0 0 0 8px rgba(28,151,174,0)}}
+.mx-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+.mx-steps li{display:flex;flex-direction:column;gap:10px}
+.mx-num{font-weight:700;font-size:56px;line-height:1;color:var(--blue)}
+.mx-steps h3{font-size:22px;font-weight:700}
+.mx-steps p{color:var(--muted);font-size:16px}
+.mx-band{border-radius:28px;padding:56px;display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+.mx-kpis{flex:1 1 320px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.mx-kpis li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px}
+.mx-kpis strong{display:block;font-size:24px;color:#fff}
+.mx-kpis span{color:#D3E3EC;font-size:15px}
+.mx-worth{display:flex;flex-wrap:wrap;gap:48px}
+.mx-box{flex:1 1 380px;min-width:0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+.mx-box h3{font-size:22px;font-weight:700;margin-bottom:16px !important}
+.mx-box ol{list-style:decimal;padding-left:22px !important;display:flex;flex-direction:column;gap:10px}
+@media (max-width:640px){.mx-band{padding:36px 24px}.mx-facade{padding:28px}.mx-facade h2{font-size:30px}}</style>
+<section class="mx-hero" aria-labelledby="mxr-h1">
+  <div class="mx-wrap">
+    <div class="mx-hero-copy">
+      <p class="mx-eyebrow mx-rise" data-mx="eyebrow">It's your equity. Use it.</p>
+      <h1 id="mxr-h1" class="mx-h1 mx-rise"><span data-mx="h1">Refinance your mortgage at wholesale pricing</span></h1>
+      <p class="mx-lede mx-rise mx-d2" data-mx="sub">Lower your payment without the retail markup. See what you could save in a few minutes, and it won’t affect your credit to start.</p>
+      <ul class="mx-checks mx-rise mx-d2">
+        <li><span class="mx-ck"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>No junk fees or unnecessary lender fees</li>
+        <li><span class="mx-ck"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>No-cost refinance for qualifying Moxie purchase clients</li>
+        <li><span class="mx-ck"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>FHA Streamline and VA IRRRL, usually no appraisal</li>
+      </ul>
+    </div>
+    <div class="mx-hero-media mx-fade">
+      <div class="mx-slot" id="mx-refi-slot">
+        <div class="mx-facade" id="mx-refi-facade">
+          <p class="mx-eyebrow">Your new payment in 60 seconds</p>
+          <h2>How much could you be saving on your mortgage?</h2>
+          <p>Answer a few quick questions and we'll show you, in plain numbers, what your payment could look like. No guesswork and no credit check.</p>
+          <a class="mx-btn" href="https://apply.moxiemortgage.com/?src=refi_hero">Show me my numbers</a>
+          <div class="mx-pills"><span>✓ 60 seconds</span><span>✓ No credit check</span></div>
+        </div>
+      </div>
+      <p class="mx-fine" style="margin-top:14px;text-align:center">Estimates are illustrative and not a loan offer, commitment, or underwriting decision. Actual rates, costs, and terms depend on credit, property, and market conditions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mx-soft" aria-labelledby="mxr-goal">
+  <div class="mx-wrap">
+    <p class="mx-eyebrow">Pick your goal</p>
+    <h2 id="mxr-goal" class="mx-h2" style="margin-bottom:36px;max-width:720px">Find the right refinance for you</h2>
+    <div class="mx-grid">
+      <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M14 17h7v-7"/></svg></span><h3 style="font-size:24px">Lower my payment</h3><p>Rates change over time. Refinance to a lower rate or longer term to lower your monthly payment and free up savings.</p><p style="font-size:14px;color:var(--navy)"><strong>Rate-and-term refinance</strong></p><a class="mx-more" href="https://apply.moxiemortgage.com/?src=refi_lower">Lower my payment →</a></article>
+      <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></svg></span><h3 style="font-size:24px">Take cash out</h3><p>You've been building equity with every payment. You may qualify to take cash out tax-free for renovations, debt payoff, or investing.</p><p style="font-size:14px;color:var(--navy)"><strong>Cash-out refinance</strong></p><a class="mx-more" href="https://apply.moxiemortgage.com/?src=refi_cashout">Cash out my equity →</a></article>
+      <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg></span><h3 style="font-size:24px">Shorten my term</h3><p>Life changes, and so can your mortgage. Move from a 30-year to a 15-year term and reduce the interest you'll pay.</p><p style="font-size:14px;color:var(--navy)"><strong>Term-reduction refinance</strong></p><a class="mx-more" href="https://apply.moxiemortgage.com/?src=refi_term">Shorten my mortgage →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec" aria-labelledby="mxr-how">
+  <div class="mx-wrap">
+    <h2 id="mxr-how" class="mx-h2" style="margin-bottom:36px">How refinancing with Moxie works</h2>
+    <ol class="mx-steps">
+      <li><span class="mx-num">01</span><h3>See your numbers</h3><p>Use the savings tool above or talk to a loan expert. No credit check to see your estimate.</p></li>
+      <li><span class="mx-num">02</span><h3>Apply in about 10 minutes</h3><p>Apply securely online. We compare wholesale lenders and lay out your best options side by side.</p></li>
+      <li><span class="mx-num">03</span><h3>Lock and close</h3><p>Lock your rate, sign your disclosures, and close. Closing costs can often be rolled into the new loan.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section aria-labelledby="mxr-heloc" style="padding:0 0 88px">
+  <div class="mx-wrap">
+    <div class="mx-band mx-dark">
+      <div style="flex:1 1 420px;min-width:0">
+        <p class="mx-eyebrow">Keep your current rate</p>
+        <h2 id="mxr-heloc" class="mx-h2">Home Equity Line of Credit: cash in minutes, not weeks</h2>
+        <p style="margin:16px 0 26px">Love your first-mortgage rate? A HELOC lets you tap equity without touching it, and you only pay interest on what you use.</p>
+        <a class="mx-btn mx-btn-p" href="/heloc">Get my money now</a>
+      </div>
+      <ul class="mx-kpis">
+        <li><strong>5 min</strong><span>Apply 100% online</span></li>
+        <li><strong>Minutes</strong><span>To an approval decision</span></li>
+        <li><strong>5 days</strong><span>Funding in as little as</span></li>
+        <li><strong>$400K</strong><span>Borrow up to, no in-person appraisal</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mx-soft" aria-labelledby="mxr-worth">
+  <div class="mx-wrap mx-worth">
+    <div style="flex:1 1 420px;min-width:0">
+      <h2 id="mxr-worth" class="mx-h2">Is refinancing worth it?</h2>
+      <p class="mx-speak" style="margin-top:18px;font-size:20px;line-height:1.5"><strong>Usually, if your current rate is 0.5%–1% or more above today's rates.</strong> Refinancing can also make sense to switch from an ARM to a fixed rate, drop mortgage insurance, consolidate high-interest debt, or pull cash from your equity.</p>
+      <p class="mx-muted" style="margin-top:16px">Refinance closing costs typically run 2%–5% of the loan amount and can often be rolled into the new loan. Qualifying borrowers who bought their home with Moxie can refinance at no cost.</p>
+    </div>
+    <div class="mx-box">
+      <h3>What you need to refinance</h3>
+      <ol><li>Sufficient home equity</li><li>A solid credit score (620+ for most lenders)</li><li>Stable income and a low debt-to-income ratio</li><li>On-time payment history</li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec" aria-labelledby="mxr-faq">
+  <div class="mx-wrap" style="max-width:928px">
+    <h2 id="mxr-faq" class="mx-h2">Refinance questions, answered</h2>
+    <p class="mx-muted" style="margin:8px 0 28px"><a href="/faqs">Browse every mortgage FAQ</a></p>
+    <div class="mx-faq"><details open><summary><h3>Will I need another appraisal when refinancing?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">In most cases, lenders require an appraisal to confirm the current market value of the property; however, FHA Streamline and VA IRRRL refinances generally do not require an appraisal.</p></div></details><details><summary><h3>Can I roll refinance closing costs into my loan?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">Yes, often closing costs can be financed into the new loan, reducing your upfront out-of-pocket expenses.</p></div></details><details><summary><h3>What is a streamline refinance?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">A streamline refinance is a simplified process available for current FHA or VA loan holders, which does not require an appraisal.</p></div></details><details><summary><h3>Does Moxie offer no-cost refinance?</h3><span class="mx-pm" aria-hidden="true">+</span></summary><div class="mx-ans"><p class="mx-speak">Yes, for qualifying borrowers we offer a no-cost refinances for life program, which can save clients $1,000s in origination fees and unlock financing strategies that otherwise would not be feasible.</p></div></details></div>
+  </div>
+</section>
+
+<section aria-labelledby="mxr-cta" style="padding:0 0 88px">
+  <div class="mx-wrap">
+    <div class="mx-cta">
+      <div style="max-width:640px"><h2 id="mxr-cta" class="mx-h2">Questions about refinancing?</h2>
+      <p>Whether you're just exploring or ready to apply, Moxie advisors will match you with the best product at the best price available.</p></div>
+      <div class="mx-btns"><a class="mx-btn mx-btn-p" href="https://apply.moxiemortgage.com/?src=refi_cta">Start my refinance</a><a class="mx-btn mx-btn-w" data-mx-phone href="tel:+14806602518">Talk to an advisor</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["FinancialService","Organization"],"@id":"https://moxiemortgage.com/#org","name":"Moxie Mortgage","url":"https://moxiemortgage.com/","logo":"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/moxie-wordmark-white-640.png","telephone":"+1-480-660-2518","email":"hello@moxiemortgage.com","address":{"@type":"PostalAddress","streetAddress":"5559 S Sossaman Rd, Bldg 1 Ste 101","addressLocality":"Mesa","addressRegion":"AZ","postalCode":"85212","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"identifier":{"@type":"PropertyValue","propertyID":"NMLS","value":"1660690"},"parentOrganization":{"@type":"Organization","name":"NEXA Lending"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-480-660-2518","contactType":"customer service","areaServed":"US"},{"@type":"ContactPoint","telephone":"+1-808-818-5618","contactType":"customer service","areaServed":"US-HI","email":"aloha@moxiemortgage.com"}]},{"@type":"WebPage","@id":"https://moxiemortgage.com/refinance#webpage","url":"https://moxiemortgage.com/refinance","name":"Mortgage Refinance: Lower Your Payment or Cash Out | Moxie Mortgage","description":"See your new payment in 60 seconds, with no credit check. Refinance at wholesale pricing to lower your rate, shorten your term, or take cash out.","isPartOf":{"@type":"WebSite","@id":"https://moxiemortgage.com/#website","url":"https://moxiemortgage.com/","name":"Moxie Mortgage","publisher":{"@id":"https://moxiemortgage.com/#org"}},"about":{"@id":"https://moxiemortgage.com/#org"},"inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":[".mx-h1",".mx-lede",".mx-speak"]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://moxiemortgage.com/"},{"@type":"ListItem","position":2,"name":"Refinance","item":"https://moxiemortgage.com/refinance"}]},{"@type":"Service","@id":"https://moxiemortgage.com/refinance#service","name":"Mortgage refinance","serviceType":"Mortgage refinancing","provider":{"@id":"https://moxiemortgage.com/#org"},"areaServed":{"@type":"Country","name":"United States"},"description":"Rate-and-term, cash-out, and term-reduction refinances at wholesale pricing, including FHA Streamline and VA IRRRL."},{"@type":"LoanOrCredit","name":"Home Equity Line of Credit (HELOC)","loanType":"HELOC","provider":{"@id":"https://moxiemortgage.com/#org"},"url":"https://moxiemortgage.com/heloc","description":"Apply online in about 5 minutes, get a decision in minutes, and fund in as little as 5 days. Borrow up to $400,000 with no in-person appraisal."},{"@type":"HowTo","name":"How to refinance with Moxie Mortgage","step":[{"@type":"HowToStep","position":1,"name":"See your numbers","text":"Use the savings tool or talk to a loan expert. No credit check to see your estimate."},{"@type":"HowToStep","position":2,"name":"Apply in about 10 minutes","text":"Apply securely online and compare your best wholesale options side by side."},{"@type":"HowToStep","position":3,"name":"Lock and close","text":"Lock your rate, sign your disclosures, and close."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will I need another appraisal when refinancing?","acceptedAnswer":{"@type":"Answer","text":"In most cases, lenders require an appraisal to confirm the current market value of the property; however, FHA Streamline and VA IRRRL refinances generally do not require an appraisal."}},{"@type":"Question","name":"Can I roll refinance closing costs into my loan?","acceptedAnswer":{"@type":"Answer","text":"Yes, often closing costs can be financed into the new loan, reducing your upfront out-of-pocket expenses."}},{"@type":"Question","name":"What is a streamline refinance?","acceptedAnswer":{"@type":"Answer","text":"A streamline refinance is a simplified process available for current FHA or VA loan holders, which does not require an appraisal."}},{"@type":"Question","name":"Does Moxie offer no-cost refinance?","acceptedAnswer":{"@type":"Answer","text":"Yes, for qualifying borrowers we offer a no-cost refinances for life program, which can save clients $1,000s in origination fees and unlock financing strategies that otherwise would not be feasible."}}]}]}</script>
+<script>
+(function () {
+var MX = window.MX || (window.MX = {});
+MX.store = {
+  get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(k); } catch (e) {} },
+  sget: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+  sset: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+};
+MX.track = function (name, data) {
+  var p = Object.assign({ event: name }, data || {});
+  window.dataLayer = window.dataLayer || []; window.dataLayer.push(p);
+  if (typeof window.gtag === 'function') window.gtag('event', name, data || {});
+};
+MX.fullBleed = function (root) {
+  function fit() {
+    for (var el = root.parentElement; el && el !== document.body; el = el.parentElement) {
+      var cs = getComputedStyle(el);
+      if (/(hidden|clip)/.test(cs.overflowX + cs.overflow)) { el.style.overflow = 'visible'; el.style.overflowX = 'visible'; }
+    }
+    root.style.marginLeft = '0px'; root.style.width = 'auto'; root.style.maxWidth = 'none';
+    var left = root.getBoundingClientRect().left;
+    root.style.width = document.documentElement.clientWidth + 'px';
+    root.style.marginLeft = (-left) + 'px';
+  }
+  fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+  document.documentElement.style.overflowX = 'hidden';
+};
+MX.visitor = function () {
+  var qs = new URLSearchParams(location.search), S = MX.store;
+  var override = (qs.get('hero') || '').toLowerCase();
+  if (override === 'reset') { S.del('mx_visits'); S.del('mx_ab'); override = ''; }
+  var visits = parseInt(S.get('mx_visits') || '0', 10);
+  if (!S.sget('mx_counted')) { visits += 1; S.set('mx_visits', String(visits)); S.sset('mx_counted', '1'); }
+  return { qs: qs, override: override, returning: override === 'returning' || (override !== 'default' && override !== 'hawaii' && visits > 1) };
+};
+MX.region = function (qs, override, cb) {
+  if (override === 'hawaii' || (qs.get('geo') || '').toUpperCase() === 'HI') return cb(true);
+  if (override === 'default') return cb(false);
+  try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Pacific/Honolulu') return cb(true); } catch (e) {}
+  var cached = MX.store.sget('mx_region');
+  if (cached !== null) return cb(/^hawaii$/i.test(cached));
+  var done = false;
+  var finish = function (r) { if (done) return; done = true; MX.store.sset('mx_region', r || ''); cb(/^hawaii$/i.test(r || '')); };
+  setTimeout(function () { finish(''); }, 2500);
+  fetch('https://get.geojs.io/v1/ip/geo.json').then(function (r) { return r.json(); })
+    .then(function (d) { finish(d && d.region); })
+    .catch(function () {
+      fetch('https://ipapi.co/json/').then(function (r) { return r.json(); })
+        .then(function (d) { finish(d && d.region); }).catch(function () { finish(''); });
+    });
+};
+MX.applyHero = function (root, v) {
+  Object.keys(v).forEach(function (k) {
+    var el = root.querySelector('[data-mx="' + k + '"]');
+    if (!el) return;
+    if (k === 'img') { el.srcset = v.img.srcset; el.src = v.img.src; el.alt = v.img.alt; }
+    else if (k === 'cta2') { el.textContent = v.cta2.text; el.href = v.cta2.href; }
+    else if (k === 'cta') { el.textContent = v.cta.text; el.href = v.cta.href; }
+    else if (k === 'dag') { el.hidden = !v.dag; }
+    else el.textContent = v[k];
+  });
+};
+var root = document.getElementById('mx-refi');
+MX.fullBleed(root);
+// ---- move Moxie's existing "How much could you be saving" widget (its own Lofty block) into the hero.
+// If it isn't on the page, the facade stays and its button links to the application.
+function mountWidget() {
+  var slot = document.getElementById('mx-refi-slot'); if (!slot || slot.classList.contains('has-widget')) return true;
+  var blocks = document.querySelectorAll('.custom-code-html-content');
+  for (var i = 0; i < blocks.length; i++) {
+    var b = blocks[i];
+    if (root.contains(b) || b.contains(root)) continue;
+    if (/How much could you be saving/i.test(b.textContent || '')) {
+      var block = b.closest('.md-custom-code') || b.parentElement;
+      slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget');
+      if (block && !block.contains(root)) block.style.display = 'none';
+      return true;
+    }
+  }
+  return false;
+}
+if (!mountWidget()) document.addEventListener('DOMContentLoaded', function () { if (!mountWidget()) window.addEventListener('load', mountWidget); });
+
+// ---- dynamic hero (returning + Hawaii), same rules and storage as the homepage hero
+var V = MX.visitor();
+MX.region(V.qs, V.override, function (hi) {
+  var v = {}, label = 'default';
+  if (V.returning) {
+    v = { eyebrow: hi ? 'Aloha, welcome back' : 'Welcome back', h1: 'Ready to pick up where you left off?',
+          sub: 'Your savings are still waiting. See your new payment in 60 seconds, then lock it in with a Moxie loan expert.' + (hi ? ' Call our Hawaii team at 808.818.5618.' : '') };
+    label = 'returning';
+  } else if (hi) {
+    v = { eyebrow: 'Serving Hawaii homeowners', h1: 'Refinance your Hawaii home at wholesale pricing',
+          sub: 'Lower your payment without the retail markup. See what you could save in a few minutes. Questions? Call our Hawaii team at 808.818.5618.' };
+  }
+  if (hi) { label += '_hi'; root.querySelectorAll('[data-mx-phone]').forEach(function (a) { a.textContent = 'Call 808.818.5618'; a.href = 'tel:+18088185618'; }); }
+  MX.applyHero(root, v);
+  MX.track('hero_view', { hero_page: 'refinance', hero_label: label });
+});
+})();
+</script>
