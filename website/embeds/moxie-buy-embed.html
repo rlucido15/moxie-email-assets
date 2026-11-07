@@ -3,8 +3,10 @@
   Paste this whole file into ONE Lofty "Custom Code / Embed" block. See README.md for setup.
   Images load from github.com/rlucido15/moxie-email-assets via jsDelivr (pinned commit 7c56298).
 -->
-<style>.mxp{--navy:#0E2A47;--blue:#1C97AE;--bt:#127C8F;--orange:#F46744;--muted:#4A5868;--line:#DCE6EB;--soft:#F4F8FA;
-  font-family:Barlow,"myFont-Barlow-Regular",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);font-size:17px;line-height:1.55;
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-400-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:500;font-display:swap;src:url(https://cdn.chime.me/doc/fs/upload/2024124/14/c202c01f-272d-4423-9fd7-72c91e452881/Barlow-Medium.ttf) format('truetype'),url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-600-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-600-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.chime.me/doc/fs/upload/2024124/14/05cdcc97-1e84-4a7f-ad8a-f81dbe379c1e/Barlow-Bold.ttf) format('truetype'),url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-700-normal.woff2) format('woff2')}@font-face{font-family:MoxieBarlow;font-style:normal;font-weight:800;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@326b42d/website/fonts/barlow-latin-800-normal.woff2) format('woff2')}.mxp{--navy:#0E2A47;--blue:#1C97AE;--bt:#127C8F;--orange:#F46744;--muted:#4A5868;--line:#DCE6EB;--soft:#F4F8FA;
+  font-family:MoxieBarlow,Barlow,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);font-size:17px;line-height:1.55;
   -webkit-font-smoothing:antialiased;text-align:left;box-sizing:border-box;width:100%}
 .mxp *,.mxp *::before,.mxp *::after{box-sizing:border-box}
 .mxp h1,.mxp h2,.mxp h3,.mxp p,.mxp ul,.mxp ol,.mxp figure,.mxp blockquote{margin:0;padding:0;font-family:inherit;text-transform:none;letter-spacing:normal}
@@ -97,7 +99,7 @@
 .mx-track.is-in span{transform:scaleX(1)}
 .mx-soon{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
 .mx-tabs{display:flex;flex-wrap:wrap;gap:8px;background:var(--soft);padding:6px;border-radius:14px}
-.mxp .mx-tab{flex:1 1 160px;min-height:46px;border:0;border-radius:10px;background:transparent;color:var(--navy);font:700 16px/1.2 inherit;font-family:inherit;cursor:pointer;padding:10px 16px}
+.mxp .mx-tab{flex:1 1 160px;min-height:46px;border:0;border-radius:10px;background:transparent;color:var(--navy);font-family:inherit;font-weight:700;font-size:16px;line-height:1.2;cursor:pointer;padding:10px 16px}
 .mxp .mx-tab[aria-selected="true"]{background:var(--navy);color:#fff}
 .mx-panel{margin-top:18px;border:1px solid var(--line);border-radius:20px;padding:32px}
 .mx-panel h3{font-size:26px;font-weight:700;margin-bottom:8px !important}
