@@ -12,7 +12,11 @@
 .mxp h1,.mxp h2,.mxp h3,.mxp p,.mxp ul,.mxp ol,.mxp figure,.mxp blockquote{margin:0;padding:0;font-family:inherit;text-transform:none;letter-spacing:normal}
 .mxp h1,.mxp h2,.mxp h3{color:inherit;text-wrap:balance}
 .mxp p{text-wrap:pretty}
-.mxp ul,.mxp ol{list-style:none}
+.mxp ul,.mxp ol{list-style:none !important;padding:0 !important;margin:0}
+.mxp.mxp li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;text-indent:0 !important}
+.mxp li::before{content:none !important;display:none !important}
+.mxp.mxp .mx-ans li{list-style:disc !important;margin:0 0 4px 22px !important}
+.mxp.mxp .mx-ans ol li,.mxp.mxp .mx-box ol li{list-style:decimal !important;margin-left:22px !important}
 .mxp [hidden]{display:none !important}
 .mxp img{max-width:100%;height:auto;display:block}
 .mxp a{color:var(--bt);text-decoration:none}
@@ -57,10 +61,11 @@
 .mx-photo img{width:100%;aspect-ratio:14/9;object-fit:cover;border-radius:18px}
 .mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
 .mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
-.mx-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:34px !important;max-width:600px}
-.mx-stats li{border-left:3px solid var(--blue);padding-left:12px}
-.mx-stats strong{display:block;font-size:26px;line-height:1.1}
-.mx-stats span{font-size:14px;color:var(--muted)}
+.mx-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:16px 48px;margin-top:36px !important}
+@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,auto);gap:16px 32px}}
+
+.mx-stats strong{display:block;font-size:28px;line-height:1.1;font-weight:800}
+.mx-stats span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
 .mx-checks{display:flex;flex-direction:column;gap:12px;margin-top:28px !important}
 .mx-checks li{display:flex;gap:12px;align-items:center}
 .mx-ck{width:28px;height:28px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
