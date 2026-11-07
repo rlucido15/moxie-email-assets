@@ -120,25 +120,25 @@ a.mx-card.mx-card-dark{color:#fff}
 .mx-rev-src{font-size:13px;color:var(--muted)}
 .mx-rev blockquote{font-size:18px;line-height:1.5}
 .mx-rev figcaption{margin-top:auto;display:flex;gap:12px;align-items:center;font-weight:700}
-.mx-sav{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
-.mx-sav-in{flex:1 1 440px;min-width:0}
-.mx-sav-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:36px 0 12px;max-width:520px}
+.mx-sav{display:flex;flex-wrap:wrap;gap:48px;align-items:stretch}
+.mx-sav-in{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.mx-sav-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}
 .mx-sav-row label{font-weight:700;font-size:17px}
-.mx-sav-row output{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums}
-.mxp .mx-range{-webkit-appearance:none;appearance:none;width:100%;max-width:520px;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--blue) var(--p,21%),#DCE6EB var(--p,21%));outline-offset:6px;cursor:pointer;margin:10px 0}
+.mx-sav-row output{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;color:#fff}
+.mxp .mx-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--blue) var(--p,21%),rgba(255,255,255,.25) var(--p,21%));cursor:pointer;margin:12px 0 6px}
 .mx-range::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 8px rgba(14,42,71,.25)}
 .mx-range::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 8px rgba(14,42,71,.25)}
-.mx-sav-ends{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);max-width:520px}
-.mx-sav-out{flex:1 1 400px;min-width:0;background:var(--navy);color:#fff;border-radius:24px;padding:36px;box-shadow:0 24px 50px rgba(14,42,71,.22)}
-.mx-sav-out>p{color:#C9D6DF;font-size:15px}
-.mx-sav-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
-.mx-sav-grid div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:20px}
-.mx-sav-grid strong{display:block;font-size:clamp(26px,2.6vw,36px);line-height:1.05;font-variant-numeric:tabular-nums;color:#fff}
-.mx-sav-grid div+div strong{color:var(--orange)}
-.mx-sav-grid span{font-size:15px;color:#C9D6DF}
-.mxp .mx-sav-out .mx-btn{width:100%;font-size:18px;min-height:52px}
-.mx-sav-out .mx-sav-note{font-size:12px;line-height:1.5;color:#9FB3C2;margin-top:14px !important}
-@media (max-width:420px){.mx-sav-grid{grid-template-columns:minmax(0,1fr)}.mx-sav-out{padding:26px}}
+.mx-sav-ends{display:flex;justify-content:space-between;font-size:14px;color:#C9D6DF}
+.mx-sav-act{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.mx-sav-chart{flex:1 1 520px;min-width:0;background:#fff;color:var(--navy);border-radius:24px;padding:32px 36px 24px;box-shadow:0 30px 60px rgba(2,10,30,.3);display:flex;flex-direction:column;gap:18px}
+.mx-sav-chart p{color:var(--navy)}
+.mx-bars{height:260px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:end;border-bottom:2px solid var(--line)}
+.mx-bars>div{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:10px}
+.mx-bars strong{font-size:20px;font-variant-numeric:tabular-nums}
+.mx-bars i{display:block;width:70%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#1C97AE,#0E2A47);transition:height .25s ease-out}
+.mx-bar-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:center;font-size:15px;color:var(--muted);font-weight:600}
+.mx-sav-chart .mx-sav-note{font-size:12px;line-height:1.5;color:var(--muted)}
+@media (max-width:640px){.mx-sav-chart{padding:24px 18px 18px}.mx-bars{height:200px;gap:10px}.mx-bars strong{font-size:15px}.mx-bar-l{gap:10px;font-size:13px}}
 .mx-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:none}</style>
 <section class="mx-hero" aria-labelledby="mxb-h1">
   <div class="mx-wrap">
@@ -174,29 +174,6 @@ a.mx-card.mx-card-dark{color:#fff}
       <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Buyer Rate Protection Guarantee<span class="mx-dag">†</span></h3><p>If you aren't happy with your mortgage, we'll cover your lender fees on any refinance to help.</p></article>
       <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></span><h3>Best Product Guarantee<span class="mx-dag">†</span></h3><p>With access to 1,000s of products, we'll help you find the best product for your needs.</p></article>
       <article class="mx-card"><span class="mx-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></svg></span><h3>Rate Buydown Guarantee<span class="mx-dag">†</span></h3><p>We'll knock 1% off your rate for the first year, so your payment starts lower while you settle in.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="mx-sec" aria-labelledby="mxb-sav" id="mxb-savings">
-  <div class="mx-wrap mx-sav">
-    <div class="mx-sav-in">
-      <p class="mx-eyebrow">Savings estimator</p>
-      <h2 id="mxb-sav" class="mx-h2">See what you could save with Moxie</h2>
-      <p class="mx-muted mx-speak" style="margin-top:16px;font-size:19px;max-width:520px">Our rates have averaged <strong style="color:var(--navy)">0.559% lower</strong> than the nation's largest retail lender over the past 12 months.<span class="mx-dag">‡</span></p>
-      <div class="mx-sav-row"><label for="mxb-amt">Loan amount</label><output id="mxb-amt-out" for="mxb-amt">$400,000</output></div>
-      <input class="mx-range" id="mxb-amt" type="range" min="100000" max="1500000" step="10000" value="400000" aria-valuetext="$400,000">
-      <div class="mx-sav-ends"><span>$100K</span><span>$1.5M</span></div>
-    </div>
-    <div class="mx-sav-out" aria-live="polite">
-      <p style="font-weight:600">Your estimated savings with Moxie</p>
-      <div class="mx-sav-grid">
-        <div><strong id="mxb-sav-m">$147</strong><span>per month</span></div>
-        <div><strong id="mxb-sav-l">$52,867</strong><span>over a 30-year loan</span></div>
-      </div>
-      <p style="margin:16px 0 24px !important">That's about <strong style="color:#fff" id="mxb-sav-5">$8,811</strong> in your first five years.</p>
-      <a class="mx-btn mx-btn-p" id="mxb-sav-cta" href="https://apply.moxiemortgage.com/?src=buy_savings&amp;loan_amount=400000">Lock in my savings</a>
-      <p class="mx-sav-note">Estimate only, not a loan offer. Principal and interest on a 30-year fixed loan. Your rate and savings depend on credit, property, and market conditions.</p>
     </div>
   </div>
 </section>
@@ -240,6 +217,36 @@ a.mx-card.mx-card-dark{color:#fff}
         <h3>Talk it through with a loan expert</h3><p>Learn about the homebuying process and how to take advantage of Moxie's buyer benefits. No obligation.</p>
         <a class="mx-btn mx-btn-o" href="/contact">Chat with a loan expert</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="mx-sec mx-dark" aria-labelledby="mxb-sav" id="mxb-savings">
+  <div class="mx-wrap mx-sav">
+    <div class="mx-sav-in">
+      <p class="mx-eyebrow" style="margin:0 !important">Savings estimator</p>
+      <h2 id="mxb-sav" class="mx-h2">Watch your savings add up</h2>
+      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.559% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
+      <div>
+        <div class="mx-sav-row"><label for="mxb-amt">Loan amount</label><output id="mxb-amt-out" for="mxb-amt">$400,000</output></div>
+        <input class="mx-range" id="mxb-amt" type="range" min="100000" max="1500000" step="10000" value="400000" aria-valuetext="$400,000">
+        <div class="mx-sav-ends"><span>$100K</span><span>$1.5M</span></div>
+      </div>
+      <div class="mx-sav-act">
+        <a class="mx-btn mx-btn-p" id="mxb-sav-cta" href="https://apply.moxiemortgage.com/?src=buy_savings&amp;loan_amount=400000">Lock in my savings</a>
+        <span style="color:#D3E3EC"><strong style="color:#fff" id="mxb-sav-m">$147</strong> a month</span>
+      </div>
+    </div>
+    <div class="mx-sav-chart" aria-live="polite">
+      <p style="font-weight:700;font-size:17px">Your estimated savings with Moxie</p>
+      <div class="mx-bars">
+        <div><strong data-y="1">$1,762</strong><i data-yb="1" style="height:4%"></i></div>
+        <div><strong data-y="5">$8,811</strong><i data-yb="5" style="height:16.7%"></i></div>
+        <div><strong data-y="10">$17,622</strong><i data-yb="10" style="height:33.3%"></i></div>
+        <div><strong data-y="30">$52,867</strong><i data-yb="30" style="height:100%"></i></div>
+      </div>
+      <div class="mx-bar-l" aria-hidden="true"><span>Year 1</span><span>Year 5</span><span>Year 10</span><span>Year 30</span></div>
+      <p class="mx-sav-note">Estimate only, not a loan offer. Principal and interest on a 30-year fixed loan. Your rate and savings depend on credit, property, and market conditions.</p>
     </div>
   </div>
 </section>
@@ -395,8 +402,10 @@ function calc() {
   root.querySelector('#mxb-amt-out').textContent = money(L); amt.setAttribute('aria-valuetext', money(L));
   amt.style.setProperty('--p', ((L - amt.min) / (amt.max - amt.min) * 100) + '%');
   root.querySelector('#mxb-sav-m').textContent = money(sv);
-  root.querySelector('#mxb-sav-l').textContent = money(sv * 360);
-  root.querySelector('#mxb-sav-5').textContent = money(sv * 60);
+  [1, 5, 10, 30].forEach(function (y) {
+    root.querySelector('[data-y="' + y + '"]').textContent = money(sv * 12 * y);
+    root.querySelector('[data-yb="' + y + '"]').style.height = Math.max(4, y / 30 * 100) + '%';
+  });
   root.querySelector('#mxb-sav-cta').href = 'https://apply.moxiemortgage.com/?src=buy_savings&loan_amount=' + L;
 }
 amt.addEventListener('input', calc); calc();
