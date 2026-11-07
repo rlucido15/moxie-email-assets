@@ -139,7 +139,9 @@ a.mx-card.mx-card-dark{color:#fff}
 .mx-bar-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;text-align:center;font-size:15px;color:var(--muted);font-weight:600}
 .mx-sav-chart .mx-sav-note{font-size:12px;line-height:1.5;color:var(--muted)}
 @media (max-width:640px){.mx-sav-chart{padding:24px 18px 18px}.mx-bars{height:200px;gap:10px}.mx-bars strong{font-size:15px}.mx-bar-l{gap:10px;font-size:13px}}
-.mx-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:none}</style>
+.mx-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:none;overflow:hidden}
+.mx-av.has-photo{background:#E3F5F9}
+.mx-av img{width:100%;height:100%;object-fit:cover;display:block}</style>
 <section class="mx-hero" aria-labelledby="mxb-h1">
   <div class="mx-wrap">
     <div class="mx-hero-copy">
@@ -456,7 +458,12 @@ function loadReviews(hi) {
       f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('aria-label', r + ' out of 5 stars');
       f.querySelector('.mx-rev-src').textContent = x.source || 'Google';
       var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\s+\S*$/, '') + '…' : t) + '”';
-      var a = String(x.author || 'Google user'); f.querySelector('.mx-av').textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
+      var a = String(x.author || 'Google user'), av = f.querySelector('.mx-av'); av.textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
+      if (x.photo && /^https:\/\/lh3\.googleusercontent\.com\//.test(x.photo)) {
+        var im = new Image(); im.alt = ''; im.width = 40; im.height = 40; im.loading = 'lazy'; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';
+        im.onload = function () { av.textContent = ''; av.appendChild(im); av.classList.add('has-photo'); };
+        im.src = x.photo;
+      }
       box.appendChild(f);
     });
     MX.track('reviews_view', { review_pool: hi ? 'HI' : 'general', reviews_shown: list.length });

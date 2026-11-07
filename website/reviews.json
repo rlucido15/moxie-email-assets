@@ -1,5 +1,5 @@
 {
- "_howto": "Moxie website review library. Add a review by copying one entry. location: \"HI\" for Hawaii clients, \"general\" for everyone else (state codes like \"AZ\" also work and count as non-Hawaii). Keep text under ~260 characters; longer text is trimmed on the page. Set active to false to hide a review without deleting it. After saving, changes appear within 12 hours, or right away if you open https://purge.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json Hawaii reviews were tagged where Moxie's owner reply includes \"mahalo\".",
+ "_howto": "Moxie website review library. Add a review by copying one entry. location: \"HI\" for Hawaii clients, \"general\" for everyone else (state codes like \"AZ\" also work and count as non-Hawaii). Keep text under ~260 characters; longer text is trimmed on the page. Set active to false to hide a review without deleting it. After saving, changes appear within 12 hours, or right away if you open https://purge.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json Hawaii reviews were tagged where Moxie's owner reply includes \"mahalo\". \"photo\" is the reviewer's Google profile picture (leave it out to show their initial).",
  "rating": 5.0,
  "count": 173,
  "url": "https://www.google.com/search?q=Moxie+Mortgage+reviews",
@@ -27,7 +27,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "More than just a lender; Alex's help in my home purchase was exceptional. I highly recommend Moxie Mortgage."
+   "text": "More than just a lender; Alex's help in my home purchase was exceptional. I highly recommend Moxie Mortgage.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXYjiDXY0EkU5-51zv22rqmrYtWODyN9FJzXHBHlKQJU72cqmAa=s96-c"
   },
   {
    "author": "Doug Palardy",
@@ -59,7 +60,8 @@
    "location": "general",
    "active": false,
    "source": "Google",
-   "text": "Robert and his team put in all there effort into putting an amazing deal together for my client. This type of loan pretty much unheard of. When issues arose Robert and his team were on top of it,"
+   "text": "Robert and his team put in all there effort into putting an amazing deal together for my client. This type of loan pretty much unheard of. When issues arose Robert and his team were on top of it,",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWsJs6b5nYxuRkVd2dgZHeyL-6l6RSmGznN3xH8xjhktMWN1sP9=s96-c"
   },
   {
    "author": "Isabel Moore",
@@ -75,7 +77,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "GP has helped us with multiple mortgages and is always such a pleasure to work with! He is extremely knowledgeable, trustworthy, and reliable. I highly recommend his services!!"
+   "text": "GP has helped us with multiple mortgages and is always such a pleasure to work with! He is extremely knowledgeable, trustworthy, and reliable. I highly recommend his services!!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjV1syciSkmXJQctshgDaIyXXYycR1CCwKhlzKnB3HDH5lSmm5jR=s96-c"
   },
   {
    "author": "Jamer Chamberlain",
@@ -115,7 +118,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Calvin was great to work with. He was always responsive and made the transaction go very smoothly. My buyers were very happy!"
+   "text": "Calvin was great to work with. He was always responsive and made the transaction go very smoothly. My buyers were very happy!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjW47wheqk5kIjdB7pqiIsb4FEiKUjLKOOZ-B6jThyPjlcZwCstx=s96-c"
   },
   {
    "author": "Kim-Lien Nguyen",
@@ -123,7 +127,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Great person to work with clear and explains well!"
+   "text": "Great person to work with clear and explains well!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXWEDY-xMovknAdeRKo3C-EyLNyX9-QA_Q3ibncmg9YcTo5avIG=s96-c"
   },
   {
    "author": "Morgan West",
@@ -147,7 +152,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Roberts team at Moxie Mortgage helped me purchase my first home in Hawaii through a unique physician loan program. They made the process smooth and were in constant communication with me. Extremely professional and reliable."
+   "text": "Roberts team at Moxie Mortgage helped me purchase my first home in Hawaii through a unique physician loan program. They made the process smooth and were in constant communication with me. Extremely professional and reliable.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXNiR4mP1ENlHvhaS_YTTCFpG0Pv6xba-xu8nPnkRtmmt6JikCV=s96-c"
   },
   {
    "author": "Holistic Mana",
@@ -155,7 +161,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "10/10 Robert and his team were so on top of everything and truly had the buyer’s interest in mind. Down to earth and truly put the client first! Would use them again and again in the future. Smooth and easy !"
+   "text": "10/10 Robert and his team were so on top of everything and truly had the buyer’s interest in mind. Down to earth and truly put the client first! Would use them again and again in the future. Smooth and easy !",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVhuiXE6yC4a60llKZ7_ByYbumRB9RDyWrdXxmIYaNuUyOH078=s96-c"
   },
   {
    "author": "Hanish Nair",
@@ -163,7 +170,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever we need him — even on weekends — sometimes late night and consistently goes above and beyond to secure the best rates and loan…"
+   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever we need him — even on weekends — sometimes late night and consistently goes above and beyond to secure the best rates and loan…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXhrdnXH8ry4ygHvX7gL0mrzBlv6NoaVX7aPoTejnOU0IXoMi6rxQ=s96-c"
   },
   {
    "author": "Stefanie Olson",
@@ -171,7 +179,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Robert at Moxie Mortgage was incredible! He went above and beyond, pulling out all the stops to make sure our deal got done. He was responsive, solution-oriented, and truly fought for us every step of the way. We couldn’t recommend Robert and Moxie Mortgage more highly!"
+   "text": "Robert at Moxie Mortgage was incredible! He went above and beyond, pulling out all the stops to make sure our deal got done. He was responsive, solution-oriented, and truly fought for us every step of the way. We couldn’t recommend Robert and Moxie Mortgage more highly!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVZ0FyWSv05ekO-ykiJTfMF82epuBSdxdaQOYOEO6d0Irv8Esg=s96-c"
   },
   {
    "author": "Koko Patel",
@@ -179,7 +188,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Moxie mortgage and Robert Lucido made my clients’ sale and purchase of their new home a smooth transaction. Moxie and Robert did an amazing job making sure we were updated regularly regarding their VA loan which got us to the closing table as quickly as…"
+   "text": "Working with Moxie mortgage and Robert Lucido made my clients’ sale and purchase of their new home a smooth transaction. Moxie and Robert did an amazing job making sure we were updated regularly regarding their VA loan which got us to the closing table as quickly as…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVxyz-BEkNRWD2O2a-mXcbSVPUj6j-IAF5v_QgrNERDXa3cP9rW=s96-c"
   },
   {
    "author": "Richard Fredricks",
@@ -227,7 +237,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Had a great experience working with Alex! She answered all my questions I know I had a lot. I would recommend her to friend and family."
+   "text": "Had a great experience working with Alex! She answered all my questions I know I had a lot. I would recommend her to friend and family.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWOwq74he2xAztJ5dYnmTVxeJm5QtD8j-ePEGdt9FOMK8AZI-zT=s96-c"
   },
   {
    "author": "Debra Krull",
@@ -243,7 +254,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Robert and Moxie did a great job getting my first time buyers loan closed in 19 days. We had a small glitch just before closing and Robert went above and beyond to be sure we closed on our contract close date. Thanks for your hard work and professionalism!"
+   "text": "Robert and Moxie did a great job getting my first time buyers loan closed in 19 days. We had a small glitch just before closing and Robert went above and beyond to be sure we closed on our contract close date. Thanks for your hard work and professionalism!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjUOKI8cb35oxBJMQgPayhoQfeDALI8mVbsWBsmi8AM1lV_vtA=s96-c"
   },
   {
    "author": "Jayson Santayana",
@@ -259,7 +271,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Robert and his team provided a speedy and FLAWLESS execution in our loan process. We cannot be more grateful for being referred to Robert and look forward to working with the Moxie team again in the future! Mahalo!"
+   "text": "Robert and his team provided a speedy and FLAWLESS execution in our loan process. We cannot be more grateful for being referred to Robert and look forward to working with the Moxie team again in the future! Mahalo!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWIK_ZpstA6yw_WxtmX_fZ9-jc-Hczjcsivn7qvX0f71mrwVSj96A=s96-c"
   },
   {
    "author": "Shayna Kleinberg",
@@ -275,7 +288,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "GP Lindsey , as always , done a fantastic job. this is the 5th mortgage ,he has done for me.. I am 100% satisfied with the way everything was handled."
+   "text": "GP Lindsey , as always , done a fantastic job. this is the 5th mortgage ,he has done for me.. I am 100% satisfied with the way everything was handled.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjW69v0Ykg5TBFRX5SHpfoZJ9bDAOta_P-RdaIcLgrOR2JFr09d4=s96-c"
   },
   {
    "author": "Coni Otto of Long & Foster Real Estate",
@@ -283,7 +297,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever my clients need him — even on weekends — and consistently goes above and beyond to secure the best rates and loan options…"
+   "text": "Working with Calvin and the team at Moxie Mortgage has been an incredible experience. Calvin is always quick to respond, available whenever my clients need him — even on weekends — and consistently goes above and beyond to secure the best rates and loan options…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjU5F_Kd-8qDhkWA-4hpm4A5HmCyZJBNGr1yKJx3L7-VVwYbXmVtnQ=s96-c"
   },
   {
    "author": "Derek O'Neill",
@@ -291,7 +306,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Bought my first home in Baltimore with help from Moxie and Calvin Chin, and it couldn’t have gone more smoothly! Ask for Calvin and you won’t regret it!"
+   "text": "Bought my first home in Baltimore with help from Moxie and Calvin Chin, and it couldn’t have gone more smoothly! Ask for Calvin and you won’t regret it!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjViEM9XMRO0M4ZpbfxyyX3d7Yv1hdufv9ZrX4LD_nWbYIEFdNXQ=s96-c"
   },
   {
    "author": "Justin Griffing",
@@ -307,7 +323,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Calvin C has been very pleasant and responsive through the whole process. Made things simple. 👍"
+   "text": "Calvin C has been very pleasant and responsive through the whole process. Made things simple. 👍",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWFYfVqIcOA3Exyk8fCSCV_0EaaRWgRfGGwfoj7EfCbHrja5xLc=s96-c"
   },
   {
    "author": "Tara McLean",
@@ -315,7 +332,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I’ve now worked with Moxie Mortgage and Robert Lucido’s team on multiple transactions, and they continue to exceed expectations every time. They are incredibly responsive and efficient, making the entire process seamless from start to finish."
+   "text": "I’ve now worked with Moxie Mortgage and Robert Lucido’s team on multiple transactions, and they continue to exceed expectations every time. They are incredibly responsive and efficient, making the entire process seamless from start to finish.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVp09JZ1WPpceLwQ8f3s-TpuekxTiQMoJoiwQVDNL3GomBziJ1E=s96-c"
   },
   {
    "author": "Karey Thesing",
@@ -323,7 +341,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Alex is awesome she’s always available to answer any of my questions. Very knowledgeable and my clients find her very detailed."
+   "text": "Alex is awesome she’s always available to answer any of my questions. Very knowledgeable and my clients find her very detailed.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXzOGfTQWb7EbubTMaIJwH6mJSFYsypEo_9AbdaeAqZjFP0yGJK=s96-c"
   },
   {
    "author": "Kathy Williamson",
@@ -363,7 +382,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Moxie Mortgage was an exceptional experience from start to finish. They went above and beyond for my client and secured an absolutely unparalleled VA interest rate that truly exceeded expectations."
+   "text": "Working with Moxie Mortgage was an exceptional experience from start to finish. They went above and beyond for my client and secured an absolutely unparalleled VA interest rate that truly exceeded expectations.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXGXc9n-eTZDiSeH-Zn_6LVzVsZmhNJebrPBt8JW0Q8C6uGZpRj=s96-c"
   },
   {
    "author": "Reggie Smoot",
@@ -387,7 +407,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Working with Robert, Tim, and the Moxie Mortgage team was one of the smoothest parts of an otherwise complex process. Securing financing for a home on the Big Island while being off island is not simple, but they made it feel that way."
+   "text": "Working with Robert, Tim, and the Moxie Mortgage team was one of the smoothest parts of an otherwise complex process. Securing financing for a home on the Big Island while being off island is not simple, but they made it feel that way.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWE6HdSG0lFG3xqbNUrfXs2mFQ6uaXI7QcmReV2zg5JPoEgBqpa=s96-c"
   },
   {
    "author": "Jimmi Combs",
@@ -395,7 +416,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Rob and his team delivered above and beyond on expectations when refinancing our first home! I enjoyed knowing I could get ahold of rob personally anytime of day or weekend to continue the process and get to the end."
+   "text": "Rob and his team delivered above and beyond on expectations when refinancing our first home! I enjoyed knowing I could get ahold of rob personally anytime of day or weekend to continue the process and get to the end.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWzHqnm2Y2VDN-FPayBQTOIs3o9RL9_d3ci3Dy0CXdabkjM8Jw=s96-c"
   },
   {
    "author": "Justin Moriki",
@@ -403,7 +425,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Robert and the team are Moxie are the absolute best! They went above and beyond for us the whole process. From helping me fix things on my credit so that we could get approved to working through a couple last minute hiccups at the end."
+   "text": "Robert and the team are Moxie are the absolute best! They went above and beyond for us the whole process. From helping me fix things on my credit so that we could get approved to working through a couple last minute hiccups at the end.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWlbbaDS7gp07W22x3IGdklpzfyCqmPDDXhjpx_OhqYNXOnLhvSFA=s96-c"
   },
   {
    "author": "Reynaldo Patricio",
@@ -459,7 +482,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I would like to say from the very beginning of my process,My experience was so wonderful and your representative GP was so encouraging and down to earth.I felt like I had known him for many years.His professionalism and calming personality had a calming effect on my…"
+   "text": "I would like to say from the very beginning of my process,My experience was so wonderful and your representative GP was so encouraging and down to earth.I felt like I had known him for many years.His professionalism and calming personality had a calming effect on my…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWEejpoleGzxBO1M1VGsbaXE8LvSh6C5PPkLu63imdEcg6yosYG=s96-c"
   },
   {
    "author": "Justin Morris",
@@ -467,7 +491,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "GP Lindsay made our first-time homebuying experience as smooth and stress-free as possible. From the beginning, he guided us through every step of the process and made sure we felt confident in our decisions."
+   "text": "GP Lindsay made our first-time homebuying experience as smooth and stress-free as possible. From the beginning, he guided us through every step of the process and made sure we felt confident in our decisions.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWGDQTb7wT05W1BRuGwJMynl38xJxzFPRLmzSaLi8bUUAflgJA=s96-c"
   },
   {
    "author": "Dershil Patel",
@@ -475,7 +500,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "We were on a time crunch but Robert and his team were able to get everything done in record time. Highly recommend."
+   "text": "We were on a time crunch but Robert and his team were able to get everything done in record time. Highly recommend.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjW2j3q4mTdXXQ4fYyd-Ivy5itLR2wzQwgh4QgYxQVId8fF7j9uoVQ=s96-c"
   },
   {
    "author": "islander islander",
@@ -483,7 +509,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Professional representation and guidance from the Moxie Mortgage team and the Keller Williams Lucido Agency. Rapid responses quick turnaround on deadlines leaving us ample time to address so many personal issues making the transition effortless. Gold stars!"
+   "text": "Professional representation and guidance from the Moxie Mortgage team and the Keller Williams Lucido Agency. Rapid responses quick turnaround on deadlines leaving us ample time to address so many personal issues making the transition effortless. Gold stars!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXZaQD0Wd5oLkHW5MOZFAqePct5PP2_6HK9_wKqHikw8dor4Mul=s96-c"
   },
   {
    "author": "Robert Kuziel",
@@ -499,7 +526,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Highly recommend the team at Moxie! They are very quick to respond and always provide solutions to any challenges I have. I know my clients are in the best hands, feeling informed and supported throughout their home purchase process."
+   "text": "Highly recommend the team at Moxie! They are very quick to respond and always provide solutions to any challenges I have. I know my clients are in the best hands, feeling informed and supported throughout their home purchase process.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWxddQCd0uKR88GpKTtPoxAu7ydLBAwSFkJX5GkB9hBovTAU04=s96-c"
   },
   {
    "author": "Evan Santini",
@@ -515,7 +543,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "We recently closed on a HELOC with Moxie Mortgage and could not have been happier with the entire experience!! Our loan officer, Alex, went above and beyond to ensure a smooth and seamless process from start to finish."
+   "text": "We recently closed on a HELOC with Moxie Mortgage and could not have been happier with the entire experience!! Our loan officer, Alex, went above and beyond to ensure a smooth and seamless process from start to finish.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXWCowgTifCcu-yTL6p5U2RX7EZwftf3BvS5oTQDMJtMWdlrFJL=s96-c"
   },
   {
    "author": "Jennifer Dente",
@@ -531,7 +560,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I can’t say enough great things about Robert and his assistant Drew. They made the entire loan process incredibly smooth and stress-free from start to finish."
+   "text": "I can’t say enough great things about Robert and his assistant Drew. They made the entire loan process incredibly smooth and stress-free from start to finish.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXxZgRsuW3BRBM1djjWXyOuIjprsZSUIBZry-2fgCG3jpDuim_2=s96-c"
   },
   {
    "author": "kaiini estrada",
@@ -563,7 +593,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Did my loan through moxie for my home and closing. Everything went great, Geeper was very helpful and made the whole process easy. Will definitely use again if I ever buy another home."
+   "text": "Did my loan through moxie for my home and closing. Everything went great, Geeper was very helpful and made the whole process easy. Will definitely use again if I ever buy another home.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjUXuGC7QUZy2bJIBYLr2h5Z0wPrsGDQ7R-God4Hvcwu3f5CD9Q=s96-c"
   },
   {
    "author": "Bo",
@@ -571,7 +602,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Robert and Alex were fantastic to work with. They truly made our dreams come true. I don't know how they did it, but they made the impossible happen. They got us a great mortgage. The process was very easy when working with them. It was a true pleasure."
+   "text": "Robert and Alex were fantastic to work with. They truly made our dreams come true. I don't know how they did it, but they made the impossible happen. They got us a great mortgage. The process was very easy when working with them. It was a true pleasure.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVZ5QWOfVabVtCStgujTB9t4sKxcB0QhvllaEWg5ZAUpzg0Ov1X=s96-c"
   },
   {
    "author": "Cory Peterson",
@@ -603,7 +635,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Great experience with Drew and Moxie throughout the loan process for my client"
+   "text": "Great experience with Drew and Moxie throughout the loan process for my client",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXtsKHK51Kn7OALD6_5B1GIvszmUBOwKAdZ2w3cpSaUqTyrr-fDsQ=s96-c"
   },
   {
    "author": "Ethan Rhea",
@@ -611,7 +644,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Done many deals with them and every time it’s a smoothest transaction it’s very easy for the buyers sellers and everyone to be able to get the deal to closing as soon as possible as well. Never had a problem with them 10/10."
+   "text": "Done many deals with them and every time it’s a smoothest transaction it’s very easy for the buyers sellers and everyone to be able to get the deal to closing as soon as possible as well. Never had a problem with them 10/10.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjURj1orbh7vM6-I0sM63KVZ3a71996pSqYd6p88yuW_tPfSP84=s96-c"
   },
   {
    "author": "Rob Barr",
@@ -643,7 +677,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I absolutely loved working with Alex. Soo knowledgeable and responsive! 10/10"
+   "text": "I absolutely loved working with Alex. Soo knowledgeable and responsive! 10/10",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWzivYUdOZB4sQxqssaX-YQEXpQnunpLV3MCEVjdTcTr1VQucXfgQ=s96-c"
   },
   {
    "author": "Ricardo Stallings",
@@ -659,7 +694,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Alex was personable and kind, respectful and direct. She offered the options available to us, and was quick to get any answers she didn’t have on the spot. I will go to her for my next financial need."
+   "text": "Alex was personable and kind, respectful and direct. She offered the options available to us, and was quick to get any answers she didn’t have on the spot. I will go to her for my next financial need.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXyoVFHTaFaxdGebnGS-0h1QMQ1A0CHMwfiZ8eW5MgmZmWlwyw9=s96-c"
   },
   {
    "author": "spencer clevenger",
@@ -683,7 +719,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Rob, Alex, and Drew were fantastic to work with. We wouldn’t have been able to buy our dream house without them. It was a long process with lots of stress, as home buying is."
+   "text": "Rob, Alex, and Drew were fantastic to work with. We wouldn’t have been able to buy our dream house without them. It was a long process with lots of stress, as home buying is.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjUwzWz5J9cEthBABhIfzvzSqOuD-7WeM6duaBczYpBI4BhvQms=s96-c"
   },
   {
    "author": "Parker Dixon",
@@ -723,7 +760,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Great experience, guided through very thoroughly. Explained every little financial detail we had questions and concerns about. All around good experience."
+   "text": "Great experience, guided through very thoroughly. Explained every little financial detail we had questions and concerns about. All around good experience.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXNakwyChcZMjwu6UdXKwJWTW8c_tsuVVohJ2RHKRYJCJsxNeFf=s96-c"
   },
   {
    "author": "Yale F. Lewis",
@@ -747,7 +785,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Robert is great to work with! We threw him a loop and decided to close 30 days early and he was able to pull it off, all the while providing great communication and follow through. He also offered great rates for my clients compared with competitors."
+   "text": "Robert is great to work with! We threw him a loop and decided to close 30 days early and he was able to pull it off, all the while providing great communication and follow through. He also offered great rates for my clients compared with competitors.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjV4GQU1GO4s7_BKqoPcS6j5ph9RM22Dv3sJ3KkrGCsWK3iRwhM2=s96-c"
   },
   {
    "author": "Saffiatu Sillah",
@@ -763,7 +802,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Exceptional Service! Working with Robert & Moxie Mortgage was truly an outstanding experience. From start to finish, their team provided unmatched service — professional, patient, and attentive every step of the way."
+   "text": "Exceptional Service! Working with Robert & Moxie Mortgage was truly an outstanding experience. From start to finish, their team provided unmatched service — professional, patient, and attentive every step of the way.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVUpDEm9GGUNlAAsOoq2sOEZ654jcxzxJmJRRKex9gi_vbHntA=s96-c"
   },
   {
    "author": "Leiola Augustine",
@@ -771,7 +811,8 @@
    "location": "HI",
    "active": false,
    "source": "Google",
-   "text": "Mahalo Robert for treating us to a level of class unmatched by your competitors (not that WE would send our business anywhere else)You certainly know how to take care of your clients and Referal partners as well as create a memorable event that I’m honored to have…"
+   "text": "Mahalo Robert for treating us to a level of class unmatched by your competitors (not that WE would send our business anywhere else)You certainly know how to take care of your clients and Referal partners as well as create a memorable event that I’m honored to have…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWkjn5J5F2un6zNsyupgWUvdEUJ37c8CgkdJM3z5WVHPBbEPEmZ=s96-c"
   },
   {
    "author": "Carolina Frias",
@@ -787,7 +828,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Robert and Drew are incredible to work with! They truly go above and beyond for every client and every transaction. They’re true solution finders — ALWAYS responsive, proactive, and committed to making the process as smooth as possible."
+   "text": "Robert and Drew are incredible to work with! They truly go above and beyond for every client and every transaction. They’re true solution finders — ALWAYS responsive, proactive, and committed to making the process as smooth as possible.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXMVeNUWJZatuLB01G8SD7NrAapNqsbBSXWzBEu79biNIIWCKS4=s96-c"
   },
   {
    "author": "John Smith (Ed)",
@@ -803,7 +845,8 @@
    "location": "HI",
    "active": true,
    "source": "Google",
-   "text": "Absolutely one of my best experiences working with this team. They made a home I thought impossible, possible. If I have to do it all over again I’d choose this team. Thank you for working with me every step of the way."
+   "text": "Absolutely one of my best experiences working with this team. They made a home I thought impossible, possible. If I have to do it all over again I’d choose this team. Thank you for working with me every step of the way.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXgHJ6BPlV0HK9zHmynPwk0OhkICO7JXslLEaUlFdYbLSn8x2fV=s96-c"
   },
   {
    "author": "jpi96766 i",
@@ -875,7 +918,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Robert and Drew were both extremely informative and helpful throughout the whole mortgage process! They took the time to explain everything clearly and made sure I felt comfortable with each step! Their support made the experience smooth and stress-free."
+   "text": "Robert and Drew were both extremely informative and helpful throughout the whole mortgage process! They took the time to explain everything clearly and made sure I felt comfortable with each step! Their support made the experience smooth and stress-free.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjULoCN8TNTSI8T3HvkK5s-IYkm-7jwDfD16gPz5--RRksVM5oTw=s96-c"
   },
   {
    "author": "Tony Glenn",
@@ -883,7 +927,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Robert and his team are the absolute best!!! They got me a great rate and the process was so smooth!!! I'd recommend them to EVERYONE!!!"
+   "text": "Robert and his team are the absolute best!!! They got me a great rate and the process was so smooth!!! I'd recommend them to EVERYONE!!!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXhS-nZSfxqeQ4qoQPDnr8SU6ei93Fg1vGnWWxueBUlhpjLDNJJ=s96-c"
   },
   {
    "author": "Matt Cordova",
@@ -899,7 +944,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "We had the absolute pleasure of working with Alex from Moxie Mortgage for the purchase of our new home, and we couldn’t be happier with the experience. From the very first conversation, Alex made the process feel clear, manageable, and even exciting."
+   "text": "We had the absolute pleasure of working with Alex from Moxie Mortgage for the purchase of our new home, and we couldn’t be happier with the experience. From the very first conversation, Alex made the process feel clear, manageable, and even exciting.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVyuT50JElfcfkLbNAPZb6Dl5LbjIF7voCNgsx8fbIPxjPaanAFlg=s96-c"
   },
   {
    "author": "Xaviera Rosado",
@@ -907,7 +953,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "want to take a moment to commend Robert for his outstanding professionalism, persistence, and clear communication throughout the entire transaction process. His dedication to ensuring every step moved forward smoothly was evident from start to finish."
+   "text": "want to take a moment to commend Robert for his outstanding professionalism, persistence, and clear communication throughout the entire transaction process. His dedication to ensuring every step moved forward smoothly was evident from start to finish.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjV6fC_w_E7tChK57GVWan3xwkoo_Ntt-jDkefzqscikuF5O0xM=s96-c"
   },
   {
    "author": "Kelly Supik",
@@ -915,7 +962,8 @@
    "location": "general",
    "active": false,
    "source": "Google",
-   "text": "They are amazing company to work with and they get the job dun no matter what you have in store"
+   "text": "They are amazing company to work with and they get the job dun no matter what you have in store",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXC2rJnT1skf4z7Iucpv8lP_axJSeiUjhxuOXtjivZqu-NQOmms=s96-c"
   },
   {
    "author": "Calvin Hughes",
@@ -923,7 +971,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Very pleasant experience working with Alex. She is a very determined person who will do what she can to get her clients into a home."
+   "text": "Very pleasant experience working with Alex. She is a very determined person who will do what she can to get her clients into a home.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXRhRwcviIiFcdYGyfvkZlNxjszxV4p7BpqmXhi-QyjFXPrmtg=s96-c"
   },
   {
    "author": "Greg Campbell",
@@ -939,7 +988,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Alex was great, she was understanding of my needs. Worked very quickly to get me great rates with the right lender! The process was smooth and we closed very quickly! It was a great experience for someone who gets very nervous dealing with this type of thing!"
+   "text": "Alex was great, she was understanding of my needs. Worked very quickly to get me great rates with the right lender! The process was smooth and we closed very quickly! It was a great experience for someone who gets very nervous dealing with this type of thing!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWawVmE8oZlU6Z8o_ms0MRLvWjejOUuGUjDpkAEv0pnCGK_dhal=s96-c"
   },
   {
    "author": "Nancy Bruen",
@@ -995,7 +1045,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Joni Utnage is nothing short of amazing at Moxie! She goes above and beyond for her customers with a high level of customer service and satisfaction. I could not recommend her enough."
+   "text": "Joni Utnage is nothing short of amazing at Moxie! She goes above and beyond for her customers with a high level of customer service and satisfaction. I could not recommend her enough.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVvCRjVkF7VgR65k2ma8r16TDwax9X8Di1i9WtxslLAQCmoPdPNPg=s96-c"
   },
   {
    "author": "Christina Bowman",
@@ -1003,7 +1054,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I had a unique situation and after others turned me away, Joni took special care to find me the best product. Now I'm in my dream home and loving it."
+   "text": "I had a unique situation and after others turned me away, Joni took special care to find me the best product. Now I'm in my dream home and loving it.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjX9lbOKnC6A3DWcploA8bPXiXZ22kx_TlYDEyzQuH2wwX5Hs706tA=s96-c"
   },
   {
    "author": "Simeon Ungaro",
@@ -1019,7 +1071,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "We had used Drew in the past for our mortgage needs, and knew exactly who to call when we decided to move into a new home. Drew at Moxie!! Above and beyond doesn't even begin to describe how hard he works for you and how diligent he is."
+   "text": "We had used Drew in the past for our mortgage needs, and knew exactly who to call when we decided to move into a new home. Drew at Moxie!! Above and beyond doesn't even begin to describe how hard he works for you and how diligent he is.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXXMN2_1x5tmEMQCqDAJx1ACZt-kPJLLQWHCB44XMMKIpcYBgnWqw=s96-c"
   },
   {
    "author": "James Matters",
@@ -1059,7 +1112,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Joni Utnage is always an outstanding experience from start to finish. She’s not only knowledgeable and thorough, but also incredibly efficient at navigating the mortgage process."
+   "text": "Working with Joni Utnage is always an outstanding experience from start to finish. She’s not only knowledgeable and thorough, but also incredibly efficient at navigating the mortgage process.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWnFPhHqfIWXdiTrs6t6gM82igl-OaiXgGmOpXzhqZSo5aLAaA=s96-c"
   },
   {
    "author": "Ru4change",
@@ -1067,7 +1121,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Alex was Super proactive... Can't say enough regarding her performance.. all done while taking care of her children simultaneously (hubby included)...I am on the East Coast and Alex is in the West Coast... I shall be back . Cheers…"
+   "text": "Alex was Super proactive... Can't say enough regarding her performance.. all done while taking care of her children simultaneously (hubby included)...I am on the East Coast and Alex is in the West Coast... I shall be back . Cheers…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVOE-91c4U0VNL58pyT6Qu0sOZjLhJ9A1HGjHZF5SSLbEkTdfUD=s96-c"
   },
   {
    "author": "Hanna Perez",
@@ -1075,7 +1130,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I am incredibly grateful to Travis for not only bringing our deal to a successful conclusion but also for ensuring the other deal was closed as well. We faced challenges with the buyer's lender during the sale of our clients home, who was untruthful and delayed the…"
+   "text": "I am incredibly grateful to Travis for not only bringing our deal to a successful conclusion but also for ensuring the other deal was closed as well. We faced challenges with the buyer's lender during the sale of our clients home, who was untruthful and delayed the…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjUbB8c2-8T64oXrbv-pzS8HOB0nJHUuoaiRIH__Ry0scBEY-oru=s96-c"
   },
   {
    "author": "Mary Pedro",
@@ -1115,7 +1171,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "I absolutely can not say enough about Robert and Drew! They are absolutely yes people. Never made me ever feel like getting my second home in Hawaii was not 100% of an option!"
+   "text": "I absolutely can not say enough about Robert and Drew! They are absolutely yes people. Never made me ever feel like getting my second home in Hawaii was not 100% of an option!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWFNFQls0aOdDcAFv9z4tHjxwm3WXZ_7HCpLYtouI16ZEY5bSxf=s96-c"
   },
   {
    "author": "Eugene Prymak",
@@ -1123,7 +1180,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Robert and his team did a fantastic job every step of the way, and the investment property purchase process was the smoothest I have ever had. Definitely look forward to working with them again and would highly recommend!"
+   "text": "Robert and his team did a fantastic job every step of the way, and the investment property purchase process was the smoothest I have ever had. Definitely look forward to working with them again and would highly recommend!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjV64q9mKI4Xf1nEgBXHNlTUQhsua8aHuywqO-HZJPLkJU15QA5G=s96-c"
   },
   {
    "author": "Team Roca Hawaii",
@@ -1131,7 +1189,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "We are extremely grateful for Robert and Drew over at Moxie Mortgage. When all other lenders said no to our clients they came together with creative solutions and found a strategy to climb over every single obstacle that came our way with consistent and impeccable…"
+   "text": "We are extremely grateful for Robert and Drew over at Moxie Mortgage. When all other lenders said no to our clients they came together with creative solutions and found a strategy to climb over every single obstacle that came our way with consistent and impeccable…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjU1TgjFbEum4O_bx3-Cxtsm_tMVPEWyCEEipPlzJt3ycyAbUdQ=s96-c"
   },
   {
    "author": "Annika Anderson",
@@ -1147,7 +1206,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "He the best in Maryland!! Got me my first house. 5 stars enough said !!! Evan is the right guy for the job"
+   "text": "He the best in Maryland!! Got me my first house. 5 stars enough said !!! Evan is the right guy for the job",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVhKMF4m90fGrwPYZPk6KUzNlCRR3koJB3vtWNJhz1IutbdWw4LBg=s96-c"
   },
   {
    "author": "Russ Hauser",
@@ -1163,7 +1223,8 @@
    "location": "general",
    "active": false,
    "source": "Google",
-   "text": "Alex was amazing. It’s very difficult for me to trust people. When she finally reached me after numerous attempts. It was truly a blessing. Thank you Alex😀💰💰💰"
+   "text": "Alex was amazing. It’s very difficult for me to trust people. When she finally reached me after numerous attempts. It was truly a blessing. Thank you Alex😀💰💰💰",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVzwbJw2hjkfWxAJCKDHg3cbX1TAo0fjCY5DjXShxuKFy0dBE4=s96-c"
   },
   {
    "author": "Eduard Barker",
@@ -1187,7 +1248,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Review for Evan Naill - The Best Lender Experience I’ve Had After a truly frustrating experience with a big-box lender that had inexperienced agents causing endless delays, I was introduced to Evan through the seller’s realtor."
+   "text": "Review for Evan Naill - The Best Lender Experience I’ve Had After a truly frustrating experience with a big-box lender that had inexperienced agents causing endless delays, I was introduced to Evan through the seller’s realtor.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVNxO9XXL9IpCDuXRaI6_GM4p0v5rhxz6OVywdYtnf5nFIRTL3vEA=s96-c"
   },
   {
    "author": "Gregory",
@@ -1203,7 +1265,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Drew was very helpful during my refinancing process. Any time I ran into a problem, he was quick to respond with help. Very friendly and easy to work with."
+   "text": "Drew was very helpful during my refinancing process. Any time I ran into a problem, he was quick to respond with help. Very friendly and easy to work with.",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXHjH9eAFjrP9mTKuJxlUGAlU9rwh67n37nYpK9Y17t8kWtNuju=s96-c"
   },
   {
    "author": "WAVYEAA",
@@ -1211,7 +1274,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Fundamentally speaking, I would like to express how delighted I am with the services I received from GP Lindsay at Moxie Mortgage. This is the best mortgage company and through the entire process of purchasing a home the communication was…"
+   "text": "Fundamentally speaking, I would like to express how delighted I am with the services I received from GP Lindsay at Moxie Mortgage. This is the best mortgage company and through the entire process of purchasing a home the communication was…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjUbHiVTO3UmkBWAONDV0Co6sAb67kcRbu0ab3CwipMZn0XMY8Et=s96-c"
   },
   {
    "author": "Holly Ritchie",
@@ -1219,7 +1283,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "FIVE STAR PERFORMANCE!!! The lender was Great. The Rate was Great - and I can refi if needed!! I was able to reach my lender at all times of the delay. His response time was Amazing!!!"
+   "text": "FIVE STAR PERFORMANCE!!! The lender was Great. The Rate was Great - and I can refi if needed!! I was able to reach my lender at all times of the delay. His response time was Amazing!!!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjW2RA_2OyvUkW90ssuOGx4bF8DooKmef-_Yoe-6tCiZ3gMedXU=s96-c"
   },
   {
    "author": "Larisa Olesova",
@@ -1227,7 +1292,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "My husband and I had an extremely positive experience working with Alex Salomons. Previously we worked with Will Provost on the purchase of our first house. That's why we returned to Will when we started the process with the second property…"
+   "text": "My husband and I had an extremely positive experience working with Alex Salomons. Previously we worked with Will Provost on the purchase of our first house. That's why we returned to Will when we started the process with the second property…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjX4EAzX81ULui69836n7JWYdjodLi1dh93sptKGE_cJwm95s4XfqA=s96-c"
   },
   {
    "author": "Shakeela",
@@ -1235,7 +1301,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Working with Alex Salomons was a pleasant experience to say the least. She was thorough and professional all throughout the home buying process. There was a delay due to some unforeseen circumstances, but she was great in her help in…"
+   "text": "Working with Alex Salomons was a pleasant experience to say the least. She was thorough and professional all throughout the home buying process. There was a delay due to some unforeseen circumstances, but she was great in her help in…",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjWESp8nY8Zljwh1rwumAwxQSVDQEDXOY_Fa5SmXn-zE8JbRjZo=s96-c"
   },
   {
    "author": "Donna Norberg-Anderson",
@@ -1243,7 +1310,8 @@
    "location": "general",
    "active": true,
    "source": "Google",
-   "text": "Drew did an amazing job on our refinance, we closed in 7 days!! If you want an easy process and a great rate, I’d highly recommend using Drew for your mortgage needs!"
+   "text": "Drew did an amazing job on our refinance, we closed in 7 days!! If you want an easy process and a great rate, I’d highly recommend using Drew for your mortgage needs!",
+   "photo": "https://lh3.googleusercontent.com/a-/ALV-UjVdmG3Po9B9Gh5KLTaYlofTDj0u4IID04zC0pvV1EmWQ47fn6y4=s96-c"
   },
   {
    "author": "corbin froelich",
