@@ -1,0 +1,26 @@
+{
+  "_howto": "Moxie website review library. Add a review by copying one entry. location: \"HI\" for Hawaii clients, \"general\" for everyone else (state codes like \"AZ\" also work and count as non-Hawaii). Keep text under ~260 characters; longer text is trimmed on the page. Set active to false to hide a review without deleting it. After saving, changes appear within 12 hours, or right away if you open https://purge.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json",
+  "rating": null,
+  "count": null,
+  "url": "https://www.google.com/search?q=Moxie+Mortgage+reviews",
+  "reviews": [
+    { "author": "Alejandro Navia", "rating": 5, "location": "general", "active": true,
+      "text": "They held our hand every step of the way, explaining every detail with patience and clarity. Thank you, Moxie Mortgage, for making our dream of homeownership a reality!" },
+    { "author": "Arpit P", "rating": 5, "location": "general", "active": true,
+      "text": "Calvin made what is usually a stressful process completely seamless. His professionalism, transparency, and attention to detail gave me complete confidence that I was in the best hands." },
+    { "author": "S Peterson", "rating": 5, "location": "general", "active": true,
+      "text": "Alex Salomons of Moxie Mortgage was great to work with. She was very patient and helpful, guided us through the entire process, provided options, and answered all our questions." },
+    { "author": "Jaz Kang", "rating": 5, "location": "general", "active": true,
+      "text": "Working with Calvin from Moxie Mortgage was a pleasure for both my client and me. His exceptional communication and problem-solving skills ensured a smooth transaction." },
+    { "author": "Christa Young", "rating": 5, "location": "general", "active": true,
+      "text": "Thank you for all of your help with our first investment property! All the updates and keeping us in communication of our loan status. We are so grateful for your team and professionalism!" },
+    { "author": "Doug Palardy", "rating": 5, "location": "general", "active": true,
+      "text": "I have been extremely happy and pleased with Alex's work on the settlement of my house. Everything went seamless and on-time. I would highly recommend her." },
+    { "author": "Nicholas", "rating": 5, "location": "general", "active": true,
+      "text": "More than just a lender; Alex's help in my home purchase was exceptional. I highly recommend Moxie Mortgage." },
+    { "author": "Lulu Jiang", "rating": 5, "location": "general", "active": true,
+      "text": "Calvin is excellent! He is very patient to answer our questions." },
+    { "author": "Kunal Thaker", "rating": 5, "location": "general", "active": true,
+      "text": "Alex, and the whole Moxie Mortgage team is great to work with. Highly recommend!" }
+  ]
+}

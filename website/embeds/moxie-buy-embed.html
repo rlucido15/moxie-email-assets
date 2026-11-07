@@ -338,6 +338,7 @@ function decide(hi) {
     root.querySelectorAll('[data-mx-phone]').forEach(function (a) { a.textContent = 'Call 808.818.5618'; a.href = 'tel:+18088185618'; }); }
   MX.applyHero(root, v);
   MX.track('hero_view', { hero_page: 'buy', hero_label: label });
+  loadReviews(hi);
 }
 MX.region(V.qs, V.override, decide);
 root.querySelectorAll('.mx-hero a').forEach(function (a) { a.addEventListener('click', function () { MX.track('hero_cta_click', { hero_page: 'buy', cta: a.textContent.trim() }); }); });
@@ -357,27 +358,38 @@ var tr = root.querySelector('.mx-track');
 if ('IntersectionObserver' in window) { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { tr.classList.add('is-in'); io.disconnect(); } }); }, { threshold: .4 }); io.observe(tr); }
 else tr.classList.add('is-in');
 
-// ---- Google reviews feed hook. When the Business Profile sync is live, set window.MX_REVIEWS_URL
-// (before this block) to a JSON file shaped like:
-// { "rating": 4.9, "count": 123, "url": "https://g.page/r/...", "reviews": [{ "author": "Name", "rating": 5, "text": "..." }] }
-if (window.MX_REVIEWS_URL) {
-  fetch(window.MX_REVIEWS_URL).then(function (r) { return r.json(); }).then(function (d) {
+// ---- Review library: rotates which reviews show on each visit, filtered by location.
+// Library lives in the repo (website/reviews.json); edit it there, no Lofty change needed.
+// Hawaii visitors see only reviews tagged "HI" (falls back to everyone's reviews if none exist yet).
+function loadReviews(hi) {
+  fetch(window.MX_REVIEWS_URL || 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/website/reviews.json').then(function (r) { return r.json(); }).then(function (d) {
     var sec = root.querySelector('#mxb-reviews');
     if (d.rating) { var n = sec.querySelector('[data-rv="rating"]'); n.textContent = Number(d.rating).toFixed(1); n.hidden = false; }
     if (d.count) sec.querySelector('[data-rv="count"]').textContent = d.count + ' reviews on Google';
     if (d.url) sec.querySelector('[data-rv="link"]').href = d.url;
-    var list = (d.reviews || []).filter(function (x) { return (x.rating || 5) >= 4 && x.text; }).slice(0, 3);
-    if (list.length) {
-      var box = sec.querySelector('[data-rv="list"]'); box.textContent = '';
-      list.forEach(function (x) {
-        var f = document.createElement('figure'); f.className = 'mx-rev';
-        f.innerHTML = '<div class="mx-rev-top"><span class="mx-stars" role="img"></span><span class="mx-rev-src">Google</span></div><blockquote></blockquote><figcaption><span class="mx-av" aria-hidden="true"></span><span></span></figcaption>';
-        var r = Math.round(x.rating || 5); f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('aria-label', r + ' out of 5 stars');
-        var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\s+\S*$/, '') + '…' : t) + '”';
-        var a = String(x.author || 'Google user'); f.querySelector('.mx-av').textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
-        box.appendChild(f);
-      });
-    }
+    var all = (d.reviews || []).filter(function (x) { return x.active !== false && (x.rating || 5) >= 4 && x.text; });
+    var isHI = function (x) { return String(x.location || '').toUpperCase() === 'HI'; };
+    var pool = all.filter(function (x) { return hi ? isHI(x) : !isHI(x); });
+    if (!pool.length) pool = all.filter(function (x) { return !isHI(x); });
+    if (!pool.length) return;
+    // shuffle, then prefer reviews this visitor hasn't just seen
+    for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+    var seen = (MX.store.get('mx_rev_seen') || '').split('|');
+    pool.sort(function (a, b) { return (seen.indexOf(a.author) > -1) - (seen.indexOf(b.author) > -1); });
+    var list = pool.slice(0, 3);
+    MX.store.set('mx_rev_seen', list.map(function (x) { return x.author; }).join('|'));
+    var box = sec.querySelector('[data-rv="list"]'); box.textContent = '';
+    list.forEach(function (x) {
+      var f = document.createElement('figure'); f.className = 'mx-rev';
+      f.innerHTML = '<div class="mx-rev-top"><span class="mx-stars" role="img"></span><span class="mx-rev-src"></span></div><blockquote></blockquote><figcaption><span class="mx-av" aria-hidden="true"></span><span></span></figcaption>';
+      var r = Math.max(1, Math.min(5, Math.round(x.rating || 5)));
+      f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('aria-label', r + ' out of 5 stars');
+      f.querySelector('.mx-rev-src').textContent = x.source || 'Google';
+      var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\s+\S*$/, '') + '…' : t) + '”';
+      var a = String(x.author || 'Google user'); f.querySelector('.mx-av').textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
+      box.appendChild(f);
+    });
+    MX.track('reviews_view', { review_pool: hi ? 'HI' : 'general', reviews_shown: list.length });
   }).catch(function () {});
 }
 })();

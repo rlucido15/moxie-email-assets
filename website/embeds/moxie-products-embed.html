@@ -102,7 +102,10 @@
 .mx-group-h{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;margin-bottom:18px;border-bottom:2px solid var(--navy);padding-bottom:12px}
 .mx-group-h h2{font-size:28px;line-height:1.15;font-weight:800}
 .mx-group-h p{color:var(--muted);font-size:16px;max-width:520px}
-.mx-prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.mx-prods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:1100px){.mx-prods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.mx-prods{grid-template-columns:minmax(0,1fr)}}
+.mx-prods .mx-card{padding:24px}.mx-prods .mx-card h3{font-size:20px}
 .mx-prod{scroll-margin-top:120px}
 .mx-fact{align-self:flex-start;background:#E3F5F9;color:#0F5F6E;font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px}
 .mx-prod .mx-ideal{font-size:14px;color:var(--navy)}
@@ -114,7 +117,7 @@
     <div class="mx-hero-copy" style="flex:1 1 560px">
       <p class="mx-eyebrow mx-rise">18 home loan options · 1,000s of products</p>
       <h1 id="mxp-h1" class="mx-h1 mx-rise">Home loan options to fit your future</h1>
-      <p class="mx-lede mx-rise mx-d2" style="max-width:640px">Stop feeling overwhelmed by complex financing. From first-time homebuyer programs to self-employed bank statement loans, we provide the expert guidance and diverse loan options you need to secure your home with confidence.</p>
+      <p class="mx-lede mx-rise mx-d2" style="max-width:640px">From first-time homebuyer programs to self-employed bank statement loans, we provide the expert guidance and diverse loan options you need to secure your home with confidence.</p>
     </div>
     <div class="mx-help mx-fade">
       <p style="color:#fff;font-weight:700;font-size:19px;margin:0 !important">Not sure which loan fits?</p>
