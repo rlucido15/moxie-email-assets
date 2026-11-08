@@ -105,3 +105,9 @@ Replace the page's three blocks (heading text, 3-column cards, closing text) wit
 2. Add ONE Custom Code block with the matching embed, then the footer embed.
 3. The calculators still run from github.io (rlucido15/mortgage-calculator, affordability-calculator, rent-vs-buy-calculator), so lead capture, email and PDF reports are unchanged. The embed sizes the calculator to its content automatically.
 4. Optional SEO title tweaks: keep the current titles; they already match the new H1s.
+
+## Client success (/client-success) — moxie-client-success-embed.html
+1. In Lofty, create a new page with URL /client-success. SEO title: "Client Success Stories | Moxie Mortgage". Meta description: "Real-world homeownership case studies from Moxie Mortgage clients: first-time buyers, VA loans, self-employed borrowers, refinances, investors, Hawaii buyers, and tough files."
+2. Add ONE Custom Code block with this embed, then the footer embed.
+3. Point the nav/footer "Client Success" links (and the "READ CLIENT STORIES" button on /blog) to /client-success.
+4. Keep publishing stories in the Lofty blog under the Client Success category. New ones appear on the page automatically ("New story"); fold them in with the "Client Stories Update" routine so they get a summary, tags, and crawlable HTML.
