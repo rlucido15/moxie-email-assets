@@ -1,0 +1,62 @@
+from common import *
+
+FCSS = r"""
+.mxf{--navy:#0E2A47;font-family:MoxieBarlow,Barlow,system-ui,sans-serif;background:var(--navy);color:#C9D6DF;font-size:15px;line-height:1.6;box-sizing:border-box;text-align:left;width:100%}
+.mxf *{box-sizing:border-box}
+.mxf h2,.mxf p,.mxf ul,.mxf address{margin:0;padding:0;list-style:none;font-style:normal;text-transform:none}
+.mxf a{color:#C9D6DF;text-decoration:none}
+.mxf a:hover{color:#7FDCEC}
+.mxf a:focus-visible{outline:3px solid #1C97AE;outline-offset:2px}
+.mxf-top{max-width:1200px;margin:0 auto;padding:64px 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px}
+.mxf h2{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:12px}
+.mxf ul{display:flex;flex-direction:column;gap:8px;list-style:none !important;padding:0 !important;margin:0 !important}
+.mxf.mxf li{list-style:none !important;margin:0 !important;padding:0 !important}
+.mxf li::before{content:none !important}
+.mxf-bot{border-top:1px solid rgba(255,255,255,.12)}
+.mxf-bot div{max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:#9FB3C2}
+"""
+
+html = f"""<!--
+  MOXIE MORTGAGE · SITE FOOTER
+  Paste into a Lofty "Custom Code / Embed" block at the bottom of each page (or once in a site-wide footer area if your theme has one).
+-->
+<style>{FONT_CSS}{FCSS.strip()}</style>
+<footer class="mxf" id="mx-footer">
+  <div class="mxf-top">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <img src="{CDN}moxie-wordmark-white-640.png" alt="Moxie Mortgage" width="150" height="33" loading="lazy" style="width:150px;height:auto">
+      <p>Empowered by NEXA Lending</p>
+      <address>5559 S Sossaman Rd, Bldg 1 Ste 101<br>Mesa, AZ 85212</address>
+    </div>
+    <nav aria-label="Loans"><h2>Loans</h2><ul>
+      <li><a href="/buy">Buy a home</a></li><li><a href="/refinance">Refinance</a></li><li><a href="/heloc">HELOC</a></li><li><a href="/products">All loan options</a></li></ul></nav>
+    <nav aria-label="Resources"><h2>Resources</h2><ul>
+      <li><a href="/faqs">Mortgage FAQs</a></li><li><a href="/calculators">Calculators</a></li><li><a href="/blog?categoryId=45795">Market reports</a></li><li><a href="/blog?categoryId=60326">Client success</a></li></ul></nav>
+    <div><h2>Contact</h2><ul>
+      <li><a href="tel:{PHONE_TEL}">480.660.2518</a></li>
+      <li><a href="mailto:hello@moxiemortgage.com">hello@moxiemortgage.com</a></li>
+      <li>Hawaii: <a href="tel:{HI_TEL}">{HI_PHONE}</a></li>
+      <li><a href="mailto:aloha@moxiemortgage.com">aloha@moxiemortgage.com</a></li></ul></div>
+  </div>
+  <div class="mxf-bot"><div>
+    <span>Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/1660690" rel="noopener">NMLS Consumer Access</a> · Equal Housing Opportunity</span>
+    <span><a href="/site/privacy-terms">Privacy &amp; terms</a> · <a href="/accessibility">Accessibility</a> · <a href="/sitemap">Sitemap</a></span>
+  </div></div>
+</footer>
+<script>
+(function () {{
+  var f = document.getElementById('mx-footer');
+  function fit() {{
+    for (var el = f.parentElement; el && el !== document.body; el = el.parentElement) {{
+      var cs = getComputedStyle(el); if (/(hidden|clip)/.test(cs.overflowX + cs.overflow)) {{ el.style.overflow = 'visible'; }}
+    }}
+    f.style.marginLeft = '0px'; f.style.width = 'auto';
+    var left = f.getBoundingClientRect().left;
+    f.style.width = document.documentElement.clientWidth + 'px'; f.style.marginLeft = (-left) + 'px';
+  }}
+  fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+}})();
+</script>
+"""
+open('/home/claude/build/out/moxie-footer-embed.html', 'w', encoding='utf-8').write(html)
+print('footer ok')
