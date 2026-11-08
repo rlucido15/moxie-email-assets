@@ -2,6 +2,7 @@
 import json
 
 CDN = "https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@7c56298/website/"
+CDN_M = "https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@f1af2af/website/"  # 480/640 mobile hero sizes
 SITE = "https://moxiemortgage.com"
 APPLY = "https://apply.moxiemortgage.com/"
 PHONE = "(480) 660-2518"

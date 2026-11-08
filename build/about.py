@@ -162,7 +162,7 @@ body = f"""
       </div>
     </div>
     <div class="mx-revs" data-rv="list">{''.join(buy.review(n, t) for n, t in REVIEWS)}</div>
-    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700">Read all reviews on Google →</a></p>
+    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700;display:inline-flex;align-items:center;min-height:48px;padding:0 16px">Read all reviews on Google →</a></p>
   </div>
 </section>
 

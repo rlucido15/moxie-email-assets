@@ -3,8 +3,8 @@ CDN_MAIN = "https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@main/websit
 
 A = APPLY
 img = lambda name, alt, eager=True: (
-    f'<img data-mx="img" src="{CDN}{name}-1400.webp" srcset="{CDN}{name}-800.webp 800w, {CDN}{name}-1400.webp 1400w" '
-    f'sizes="(max-width: 900px) 92vw, 560px" width="1400" height="900" alt="{alt}"'
+    f'<img data-mx="img" src="{CDN}{name}-1400.webp" srcset="{CDN_M}{name}-480.webp 480w, {CDN_M}{name}-640.webp 640w, {CDN}{name}-800.webp 800w, {CDN}{name}-1400.webp 1400w" '
+    f'sizes="(max-width: 900px) calc(92vw - 28px), 532px" width="1400" height="900" alt="{alt}"'
     + (' fetchpriority="high" decoding="async"' if eager else ' loading="lazy" decoding="async"') + '>')
 
 FAQ = [
@@ -237,14 +237,14 @@ body = f"""
     <div class="mx-revs" data-rv="list">
       {''.join(review(n, t) for n, t in REVIEWS)}
     </div>
-    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700">Read all reviews on Google →</a></p>
+    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700;display:inline-flex;align-items:center;min-height:48px;padding:0 16px">Read all reviews on Google →</a></p>
   </div>
 </section>
 
 <section class="mx-sec mx-soft" aria-labelledby="mxb-faq">
   <div class="mx-wrap" style="max-width:928px">
     <h2 id="mxb-faq" class="mx-h2">Home buying questions, answered</h2>
-    <p class="mx-muted" style="margin:8px 0 28px">Straight answers to what buyers ask us most. <a href="/faqs">See all 100 mortgage FAQs</a></p>
+    <p class="mx-muted" style="margin:8px 0 28px">Straight answers to what buyers ask us most. <a href="/faqs" style="text-decoration:underline;text-underline-offset:3px">See all 100 mortgage FAQs</a></p>
     {faq_details([(q, f'<p class="mx-speak">{a}</p>') for q, a in FAQ])}
   </div>
 </section>
@@ -265,8 +265,8 @@ body = f"""
 script = f"""
 // ---- dynamic hero: default is in the HTML (what search engines index); swaps for returning + Hawaii visitors
 var V = MX.visitor();
-var IMG_DEF = {{ src: '{CDN}buy-hero-1400.webp', srcset: '{CDN}buy-hero-800.webp 800w, {CDN}buy-hero-1400.webp 1400w', alt: 'Homebuyers shaking hands with their Moxie loan officer after approval' }};
-var IMG_HI = {{ src: '{CDN}hawaii-hero-1400.webp', srcset: '{CDN}hawaii-hero-800.webp 800w, {CDN}hawaii-hero-1400.webp 1400w', alt: 'Hawaii family reviewing paperwork with their agent outside their new home' }};
+var IMG_DEF = {{ src: '{CDN}buy-hero-1400.webp', srcset: '{CDN_M}buy-hero-480.webp 480w, {CDN_M}buy-hero-640.webp 640w, {CDN}buy-hero-800.webp 800w, {CDN}buy-hero-1400.webp 1400w', alt: 'Homebuyers shaking hands with their Moxie loan officer after approval' }};
+var IMG_HI = {{ src: '{CDN}hawaii-hero-1400.webp', srcset: '{CDN_M}hawaii-hero-480.webp 480w, {CDN_M}hawaii-hero-640.webp 640w, {CDN}hawaii-hero-800.webp 800w, {CDN}hawaii-hero-1400.webp 1400w', alt: 'Hawaii family reviewing paperwork with their agent outside their new home' }};
 function decide(hi) {{
   var v, label;
   if (V.returning) {{

@@ -88,6 +88,12 @@ def plain(a):
     return a.replace('||', ' ')
 
 
+DEFER = """// Start the calculator once the page itself has loaded, so it doesn't compete with the first paint.
+var go = function () { if (!fr.getAttribute('src')) fr.src = fr.dataset.src; };
+if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+"""
+
+
 def build_page(k):
     p = PAGES[k]; src = p['src']
     qs = [(q, ''.join(f'<p class="mx-speak">{para}</p>' for para in a.split('||'))) for q, a in src['faq']]
@@ -106,7 +112,7 @@ def build_page(k):
 </section>
 <section class="mxc-frame" aria-label="{p['name']}">
   <div class="mx-wrap" style="--mxc-h:{p['minh'][0]}px;--mxc-hm:{p['minh'][1]}px">
-    <iframe id="{f['id']}" src="{src['iframe']}" title="{f['title']}"{f['attrs']}></iframe>
+    <iframe id="{f['id']}" {'data-src' if k == 'mortgage' else 'src'}="{src['iframe']}" title="{f['title']}"{f['attrs']}></iframe>
     <noscript><p><a href="{src['iframe']}">Open the {p['card'][0].lower()}</a></p></noscript>
   </div>
 </section>
@@ -133,7 +139,7 @@ def build_page(k):
     script = f"""
 // Size the calculator to its content. The calculator reports its height; only messages from {ORIGIN} are trusted.
 var fr = root.querySelector('iframe');
-window.addEventListener('message', function (e) {{
+{DEFER if k == 'mortgage' else ''}window.addEventListener('message', function (e) {{
   if (e.origin !== '{ORIGIN}' || e.source !== fr.contentWindow) return;
   var d = e.data || {{}}, h = d.height || d.moxieCalcHeight;
   if (typeof h === 'number' && h > 200 && h < 20000) {{ fr.style.height = Math.ceil(h) + 'px'; fr.style.minHeight = '0'; }}

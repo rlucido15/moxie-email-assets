@@ -108,7 +108,7 @@ body = f"""
       </div>
     </div>
     <div class="mx-hero-media">
-      <div class="mx-photo"><img data-mx="img" src="{CDN}buy-hero-1400.webp" srcset="{CDN}buy-hero-800.webp 800w, {CDN}buy-hero-1400.webp 1400w" sizes="(max-width: 900px) 92vw, 560px" width="1400" height="900" alt="Homebuyers shaking hands with their Moxie loan officer after approval" fetchpriority="high" decoding="async"></div>
+      <div class="mx-photo"><img data-mx="img" src="{CDN}buy-hero-1400.webp" srcset="{CDN_M}buy-hero-480.webp 480w, {CDN_M}buy-hero-640.webp 640w, {CDN}buy-hero-800.webp 800w, {CDN}buy-hero-1400.webp 1400w" sizes="(max-width: 900px) calc(92vw - 28px), 532px" width="1400" height="900" alt="Homebuyers shaking hands with their Moxie loan officer after approval" fetchpriority="high" decoding="async"></div>
       <div class="mx-badge"><span class="mx-badge-i">{ICON['trend'].replace('<svg ', '<svg width="22" height="22" ')}</span><span><strong style="display:block;font-size:16px">Wholesale pricing</strong><span style="font-size:13px;color:var(--muted)">No retail markup</span></span></div>
     </div>
   </div>
@@ -198,7 +198,7 @@ body = f"""
     <div class="mx-revs" data-rv="list">
       {''.join(buy.review(n, t) for n, t in REVIEWS)}
     </div>
-    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700">Read all reviews on Google →</a></p>
+    <p style="margin-top:24px;text-align:center"><a data-rv="link" href="https://www.google.com/search?q=Moxie+Mortgage+reviews" rel="noopener" style="font-weight:700;display:inline-flex;align-items:center;min-height:48px;padding:0 16px">Read all reviews on Google →</a></p>
   </div>
 </section>
 
@@ -256,7 +256,7 @@ var VARS = {{
   hawaii: {{ eyebrow: 'Serving Hawaii homebuyers', h1: 'Buy your Hawaii home and save $1,000s on your mortgage.', sub: 'Island prices are high enough. Skip the retail markup and keep more of your money with a loan expert who knows the market.', cta: 'Save on my Hawaii home loan', dag: true, src: 'purchase_hi' }},
   hawaiiReturning: {{ eyebrow: 'Aloha, welcome back', h1: 'Ready to pick up where you left off?', sub: 'Your savings are still waiting. Getting pre-approved takes just a few minutes.', cta: 'Continue my approval', dag: false, src: 'returning_hi' }}
 }};
-var IMG_HI = {{ src: '{CDN}hawaii-hero-1400.webp', srcset: '{CDN}hawaii-hero-800.webp 800w, {CDN}hawaii-hero-1400.webp 1400w', alt: 'Hawaii family reviewing paperwork with their agent outside their new home' }};
+var IMG_HI = {{ src: '{CDN}hawaii-hero-1400.webp', srcset: '{CDN_M}hawaii-hero-480.webp 480w, {CDN_M}hawaii-hero-640.webp 640w, {CDN}hawaii-hero-800.webp 800w, {CDN}hawaii-hero-1400.webp 1400w', alt: 'Hawaii family reviewing paperwork with their agent outside their new home' }};
 
 // intent from UTMs, kept for the session
 var utm = ['utm_campaign', 'utm_content', 'utm_term', 'utm_source', 'utm_medium'].map(function (k) {{ return qs.get(k) || ''; }}).join(' ').toLowerCase();
@@ -321,6 +321,6 @@ early = "<script>\n(function () {\n" + ENGINE.strip() + "\nvar root = document.g
 i = html.index('</section>') + len('</section>')
 html = html[:i] + '\n' + early + html[i:]
 from optimize import optimize
-html = optimize(html, hero_img=(CDN + 'buy-hero-800.webp 800w, ' + CDN + 'buy-hero-1400.webp 1400w', '(max-width: 900px) 92vw, 560px'))
+html = optimize(html, hero_img=(CDN_M + 'buy-hero-480.webp 480w, ' + CDN_M + 'buy-hero-640.webp 640w, ' + CDN + 'buy-hero-800.webp 800w, ' + CDN + 'buy-hero-1400.webp 1400w', '(max-width: 900px) calc(92vw - 28px), 532px'))
 open('/home/claude/build/out/moxie-home-embed.html', 'w', encoding='utf-8').write(html)
 print('home ok')
