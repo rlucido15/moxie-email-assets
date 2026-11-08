@@ -89,3 +89,19 @@ These pages follow the same rules and storage as your homepage hero, so visitors
 4. Hero logic (same storage keys as the other pages): ?hero= override > UTM intent (refi / heloc|equity, kept for the session) > returning visitor > sticky A/B arm (mx_ab). Hawaii visitors get the Hawaii photo and a Call 808.818.5618 button on every version, plus Hawaii copy on the purchase and returning versions.
    Test URLs: ?hero=refi | heloc | returning | hawaii | default | reset, ?ab=A | B, ?geo=HI
 5. GA4 / dataLayer events: hero_view (hero_variant, hero_ab, hero_geo, hero_label), hero_cta_click, hero_call_click, savings_calc_use, savings_cta_click, reviews_view. Apply links carry ?src=hero_<label> plus any utm_ parameters.
+
+## About (/about) — moxie-about-embed.html
+1. Edit the About page in Lofty. Delete every block between the header and the footer (definition banner, map banner, "Our mission" text, both testimonial blocks).
+2. Add ONE Custom Code block, paste moxie-about-embed.html, and add the footer embed below it.
+3. Keep the SEO title "About Moxie Mortgage | Wholesale Lending by NEXA" and the current meta description.
+4. Founder headshot: once the photo is in the repo, set HEADSHOT in about.py and rebuild (initials show until then).
+5. Hawaii visitors see "Call 808.818.5618" instead of "Talk to a loan expert", and Hawaii-tagged reviews.
+
+## Calculators hub (/calculators) — moxie-calculators-embed.html
+Replace the page's three blocks (heading text, 3-column cards, closing text) with this one embed + the footer embed.
+
+## Calculator pages — moxie-calc-mortgage-embed.html (/mortgage-calculator), moxie-calc-affordability-embed.html (/affordabilitycalculator), moxie-calc-rentvsbuy-embed.html (/rentvsbuy)
+1. On each page, delete the title banner, the old Custom Code block holding the iframe, the definitions text block, and the legal-disclosure text block.
+2. Add ONE Custom Code block with the matching embed, then the footer embed.
+3. The calculators still run from github.io (rlucido15/mortgage-calculator, affordability-calculator, rent-vs-buy-calculator), so lead capture, email and PDF reports are unchanged. The embed sizes the calculator to its content automatically.
+4. Optional SEO title tweaks: keep the current titles; they already match the new H1s.
