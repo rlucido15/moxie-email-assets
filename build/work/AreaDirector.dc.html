@@ -29,10 +29,13 @@ a{color:#127C8F}a:hover{color:#0F5F6E}
 .ad-step::after{content:"\2192";position:absolute;right:-22px;top:50%;transform:translateY(-50%);width:32px;height:32px;box-shadow:0 0 0 3px #F4F8FA;border-radius:50%;background:#1C97AE;color:#fff;display:flex;align-items:center;justify-content:center;font:800 16px/1 Barlow,system-ui,sans-serif;z-index:1}
 @media (max-width:1100px){.ad-step::after{display:none}}
 .ad-tl>li{opacity:0;transform:translateY(18px)}
-.ad-tl.ad-in>li{animation:adPop .55s cubic-bezier(.2,.7,.3,1) both}
-.ad-tl.ad-in>li:nth-child(2){animation-delay:.25s} .ad-tl.ad-in>li:nth-child(3){animation-delay:.5s} .ad-tl.ad-in>li:nth-child(4){animation-delay:.75s} .ad-tl.ad-in>li:nth-child(5){animation-delay:1s}
-@keyframes adPop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.ad-tl>li{opacity:1;transform:none}}
+.ad-tl>li:nth-child(1){z-index:5} .ad-tl>li:nth-child(2){z-index:4} .ad-tl>li:nth-child(3){z-index:3} .ad-tl>li:nth-child(4){z-index:2} .ad-tl>li:nth-child(5){z-index:1}
+.ad-tl.ad-in>li{animation:adRise .8s cubic-bezier(.22,.7,.25,1) both}
+.ad-tl.ad-in>li:nth-child(2){animation-delay:.7s} .ad-tl.ad-in>li:nth-child(3){animation-delay:1.4s} .ad-tl.ad-in>li:nth-child(4){animation-delay:2.1s} .ad-tl.ad-in>li:nth-child(5){animation-delay:2.8s}
+@keyframes adRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes adSlide{0%{opacity:0;transform:translateX(calc(-100% - 28px))}25%{opacity:1}100%{opacity:1;transform:none}}
+@media (min-width:1100px){.ad-tl>li{position:relative;transform:translateX(calc(-100% - 28px))} .ad-tl>li:nth-child(1){transform:translateY(18px)} .ad-tl.ad-in>li{animation-name:adSlide;animation-duration:1s} .ad-tl.ad-in>li:nth-child(1){animation-name:adRise;animation-duration:.8s}}
+@media (prefers-reduced-motion:reduce){.ad-tl>li{opacity:1 !important;transform:none !important;animation:none !important}}
 
 .ad-rev-track{display:grid; grid-auto-flow:column; grid-template-rows:repeat(2,auto); grid-auto-columns:calc((100% - 32px)/3); gap:16px; margin-top:36px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:10px; scrollbar-width:thin; scrollbar-color:#1C97AE #E3F5F9}
 .ad-rev-track:focus-visible{outline:2px solid #1C97AE; outline-offset:4px}
