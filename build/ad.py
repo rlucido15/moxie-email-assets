@@ -72,9 +72,15 @@ AD_CSS = page_css + r"""
 .mxa-slot button.submit{width:100% !important;min-height:52px !important;border:0 !important;border-radius:12px !important;background:#F46744 !important;color:#0E2A47 !important;font:700 17px MoxieBarlow,Barlow,system-ui,sans-serif !important;text-transform:none !important;letter-spacing:0 !important;cursor:pointer}
 .mxa-slot button.submit:hover{background:#ff7a59 !important}
 .mxa-slot button.submit.submit-disabled{opacity:.6}
-.mxa-fallback{display:flex;flex-direction:column;gap:12px}
+.mxa-slot{min-height:640px}
+.mxa-slot.has-form{min-height:0}
+.mxa-fallback{display:none;flex-direction:column;gap:12px}
+.mxa-slot.no-form{min-height:0}
+.mxa-slot.no-form .mxa-fallback{display:flex}
 .mxa-slot.has-form .mxa-fallback{display:none}
-@media (max-width:560px){.mxa-slot .basic-info{grid-template-columns:1fr}.mxa-form{padding:24px}}
+@media (max-width:560px){.mxa-slot .basic-info{grid-template-columns:1fr}.mxa-form{padding:24px}.mxa-slot{min-height:900px}}
+/* below-the-fold sections skip rendering work until they are near the viewport */
+.mxa-main>section:nth-of-type(n+3){content-visibility:auto;contain-intrinsic-size:auto 900px}
 """
 
 body = main.strip()
@@ -118,6 +124,11 @@ body = body.replace('>{{volume}}</dd>', f' data-ad="volume">{short(L0 * A0)}</dd
 body = body.replace('>{{loans}} loans × {{loanLabel}} average × 0.25%</p>',
                     f'><span data-ad="loans">{L0}</span> loans × <span data-ad="loanLabel">{short(A0)}</span> average × 0.25%</p>')
 assert '{{' not in body, re.findall(r'\{\{\w+\}\}', body)
+
+# ---------- page speed + answer engines: H1 paints immediately (it is the LCP element); speakable hooks
+body = body.replace('<h1 id="ad-h1" class="mx-rise"', '<h1 id="ad-h1" class="mx-speak"', 1)
+body = body.replace('<p style="margin: 0 0 8px">Area Directors are part of the Moxie team', '<p class="mx-speak" style="margin: 0 0 8px">Area Directors are part of the Moxie team', 1)
+assert body.count('class="mx-speak"') == 2
 
 # ---------- grids: fit 4 marketing cards and 5 timeline steps on laptop widths too
 body = body.replace('grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px', 'grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px', 1)
@@ -230,17 +241,21 @@ function mountForm() {
 if (!mountForm()) {
   var mo = new MutationObserver(function () { if (mountForm()) mo.disconnect(); });
   mo.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function () { mo.disconnect(); }, 20000);
+  setTimeout(function () { mo.disconnect(); var sl = root.querySelector('#mxa-form-slot'); if (sl && !sl.classList.contains('has-form')) sl.classList.add('no-form'); }, 6000);
   window.addEventListener('load', function () { if (mountForm()) mo.disconnect(); });
 }
 root.querySelectorAll('a[href="#apply"]').forEach(function (a) { a.addEventListener('click', function () { MX.track('ad_apply_click', { src: a.textContent.trim() }); }); });
 """.replace('__PON__', pill_on).replace('__POFF__', pill_off)
 
 DESC = "Join Moxie Mortgage as an Area Director: a W-2 business development role paid 0.25% of the loan amount on closed Moxie loans in your area. No mortgage license or loan work required."
-page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage', DESC, 'Area Director')
+import datetime
+page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage', DESC, 'Area Director', {
+    "dateModified": datetime.date.today().isoformat(),
+    "keywords": "Moxie Mortgage Area Director, mortgage business development role, earn mortgage income without a license, alternative to a mortgage joint venture",
+    "mentions": [{"@type": "Thing", "name": "Real Estate Settlement Procedures Act (RESPA)"}, {"@type": "Thing", "name": "Mortgage joint venture"}]})
 schema = jsonld([ORG, page, crumbs])
 
-LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message input-container label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled -->'
+LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message input-container label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled has-form no-form -->'
 full = wrap('mx-ad', LOFTY_KEEP + f'\n<style>{AD_CSS}</style>\n<div class="mxa-main">\n{body}\n</div>', script, schema, 'AREA DIRECTOR (/area-director, replaces /bdm)')
 # the design font is Barlow; the shared embeds self-host it as MoxieBarlow
 full = full.replace('font-family: Barlow, system-ui, sans-serif', 'font-family: MoxieBarlow, Barlow, system-ui, sans-serif')
