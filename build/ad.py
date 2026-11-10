@@ -49,7 +49,8 @@ AD_CSS = page_css + r"""
 .mxa-slot .md-form{padding:0 !important;margin:0 !important;background:none !important;min-height:0 !important;width:auto !important}
 .mxa-slot .md-form .mask,.mxa-slot .md-form .site-title{display:none !important}
 .mxa-slot .md-form-container{padding:0 !important;margin:0 !important;max-width:none !important;width:auto !important;background:none !important;box-shadow:none !important}
-.mxa-slot .basic-info{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.mxa-slot .input-content{display:block !important;width:100% !important}
+.mxa-slot .basic-info{width:100% !important;display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
 .mxa-slot .basic-info>.fullname{grid-column:1/-1}
 .mxa-slot .basic-info>.singleLineTextH2jVGbA4p{grid-column:1/-1}
 .mxa-slot .v-input{margin:0 !important;width:auto !important;max-width:none !important;padding:0 !important}
@@ -195,7 +196,7 @@ DESC = "Join Moxie Mortgage as an Area Director: a W-2 business development role
 page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage', DESC, 'Area Director')
 schema = jsonld([ORG, page, crumbs])
 
-LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container basic-info fullname singleLineTextH2jVGbA4p v-input message label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled -->'
+LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled -->'
 full = wrap('mx-ad', LOFTY_KEEP + f'\n<style>{AD_CSS}</style>\n<div class="mxa-main">\n{body}\n</div>', script, schema, 'AREA DIRECTOR (/area-director, replaces /bdm)')
 # the design font is Barlow; the shared embeds self-host it as MoxieBarlow
 full = full.replace('font-family: Barlow, system-ui, sans-serif', 'font-family: MoxieBarlow, Barlow, system-ui, sans-serif')
