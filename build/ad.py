@@ -46,7 +46,7 @@ AD_CSS = page_css + r"""
 .mxp blockquote::before,.mxp blockquote::after{content:none}
 .mxp input.ad-range{border:0;padding:0;background-color:transparent}
 /* the Lofty application form, moved into the apply card */
-.mxa-form{flex:1 1 480px;min-width:0;background:#fff;color:#0E2A47;border-radius:24px;padding:32px;box-shadow:0 30px 60px rgba(2,2,21,.35)}
+.mxa-form{flex:1 1 480px;min-width:0;max-width:560px;margin:0 auto;align-self:center;background:#fff;color:#0E2A47;border-radius:24px;padding:32px;box-shadow:0 30px 60px rgba(2,2,21,.35)}
 .mxa-form>h3{font-size:24px;line-height:1.2;font-weight:800}
 .mxa-form>p{margin:6px 0 18px !important;color:#4A5868;font-size:15px}
 .mxa-slot .md-form{padding:0 !important;margin:0 !important;background:none !important;min-height:0 !important;width:auto !important}
@@ -101,7 +101,7 @@ pill_off = 'min-height:44px;border-radius:999px;padding:8px 16px;font:700 15px M
 R = {
     'onClick="{{pickExample}}" aria-pressed="{{exPressed}}" style="{{exStyle}}"': f'data-ad-preset="40" aria-pressed="true" style="{pill_on}"',
     'onClick="{{pickLarge}}" aria-pressed="{{lgPressed}}" style="{{lgStyle}}"': f'data-ad-preset="80" aria-pressed="false" style="{pill_off}"',
-    'value="{{loans}}" onInput="{{onLoans}}" style="{{loansTrack}}"': f'value="{L0}" style="{track(L0, 1, 250)}"',
+    'value="{{loans}}" onInput="{{onLoans}}" style="{{loansTrack}}"': f'value="{L0}" style="{track(L0, 1, 100)}"',
     'value="{{loan}}" onInput="{{onLoan}}" style="{{loanTrack}}"': f'value="{A0}" style="{track(A0, 150000, 1500000)}"',
     'onClick="{{revPrev}}"': 'data-ad-rev="-1"',
     'onClick="{{revNext}}"': 'data-ad-rev="1"',
@@ -122,6 +122,8 @@ assert '{{' not in body, re.findall(r'\{\{\w+\}\}', body)
 body = body.replace('grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px', 'grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px', 1)
 body = body.replace('grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px', 'grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 28px', 1)
 
+body = body.replace('<ol class="ad-tl ad-in"', '<ol class="ad-tl"', 1)
+
 # ---------- apply steps list gets a hook for the li reset
 body = body.replace('<ol style="list-style: none; padding: 0; margin: 32px 0 0;', '<ol class="ad-steps" style="list-style: none; padding: 0; margin: 32px 0 0;', 1)
 
@@ -134,8 +136,7 @@ body = body.replace(form.group(0), f'''
         <p>We’ll review and reach out to book your onboarding call.</p>
         <div class="mxa-slot" id="mxa-form-slot">
           <div class="mxa-fallback">
-            <p style="margin:0;color:#4A5868">Call us and we’ll get your application started.</p>
-            <a class="mx-btn mx-btn-p" href="tel:{PHONE_TEL}">Call {PHONE}</a>
+            <a class="mx-btn mx-btn-p" href="mailto:hello@moxiemortgage.com?subject=Area%20Director%20application">Submit application</a>
           </div>
         </div>
       </div>''', 1)
@@ -156,7 +157,7 @@ function paint() {
   var set = function (k, v) { root.querySelectorAll('[data-ad="' + k + '"]').forEach(function (el) { el.textContent = v; }); };
   set('loans', st.loans); set('loanLabel', short(st.loan)); set('annual', usd(annual)); set('monthly', usd(annual / 12)); set('volume', short(st.loans * st.loan));
   rL.value = st.loans; rA.value = st.loan;
-  rL.style.background = track(st.loans, 1, 250); rA.style.background = track(st.loan, 150000, 1500000);
+  rL.style.background = track(st.loans, 1, 100); rA.style.background = track(st.loan, 150000, 1500000);
   root.querySelectorAll('[data-ad-preset]').forEach(function (b) {
     var on = st.loan === 500000 && st.loans === +b.getAttribute('data-ad-preset');
     b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.style.cssText = on ? PON : POFF;
@@ -169,6 +170,13 @@ rA.addEventListener('input', function () { st.loan = +rA.value; paint(); used('s
 root.querySelectorAll('[data-ad-preset]').forEach(function (b) {
   b.addEventListener('click', function () { st.loans = +b.getAttribute('data-ad-preset'); st.loan = 500000; paint(); used('preset'); });
 });
+
+// ---- timeline: cards appear one after the next when the section scrolls into view
+var tl = root.querySelector('.ad-tl');
+if (tl) {
+  if (!('IntersectionObserver' in window)) tl.classList.add('ad-in');
+  else { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { tl.classList.add('ad-in'); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(tl); }
+}
 
 // ---- reviews: arrow buttons page the scrolling track
 var trackEl = root.querySelector('.ad-rev-track');
@@ -196,7 +204,12 @@ function mountForm() {
   }
   return false;
 }
-if (!mountForm()) document.addEventListener('DOMContentLoaded', function () { if (!mountForm()) window.addEventListener('load', mountForm); });
+if (!mountForm()) {
+  var mo = new MutationObserver(function () { if (mountForm()) mo.disconnect(); });
+  mo.observe(document.body, { childList: true, subtree: true });
+  setTimeout(function () { mo.disconnect(); }, 20000);
+  window.addEventListener('load', function () { if (mountForm()) mo.disconnect(); });
+}
 root.querySelectorAll('a[href="#apply"]').forEach(function (a) { a.addEventListener('click', function () { MX.track('ad_apply_click', { src: a.textContent.trim() }); }); });
 """.replace('__PON__', pill_on).replace('__POFF__', pill_off)
 
