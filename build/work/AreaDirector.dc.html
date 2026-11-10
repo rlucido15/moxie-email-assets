@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Area Director – Moxie Mortgage</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:#127C8F}a:hover{color:#0F5F6E}
+.mx-btn-p:hover{background:#ff7a59 !important}
+.mx-btn-w:hover{background:#ffffff !important;color:#0E2A47 !important}
+.mx-pill:hover{border-color:#1C97AE !important}
+.mx-card{transition:transform .15s ease,border-color .15s ease}
+.mx-card:hover{border-color:#1C97AE !important;transform:translateY(-2px)}
+.ad-range{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;cursor:pointer;margin:10px 0 4px}
+.ad-range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid #1C97AE;box-shadow:0 2px 8px rgba(14,42,71,.25)}
+.ad-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #1C97AE}
+.ad-in{width:100%;box-sizing:border-box;min-height:46px;border:1px solid #C9D8DF;border-radius:10px;padding:10px 12px;font:500 16px Barlow,system-ui,sans-serif;color:#0E2A47;background:#fff}
+.ad-in:focus{outline:2px solid #1C97AE;outline-offset:0;border-color:#1C97AE}
+.ad-step{position:relative}
+.ad-step::after{content:"\2192";position:absolute;right:-22px;top:50%;transform:translateY(-50%);width:32px;height:32px;box-shadow:0 0 0 3px #F4F8FA;border-radius:50%;background:#1C97AE;color:#fff;display:flex;align-items:center;justify-content:center;font:800 16px/1 Barlow,system-ui,sans-serif;z-index:1}
+@media (max-width:1100px){.ad-step::after{display:none}}
+.ad-tl>li{animation:adPop .55s cubic-bezier(.2,.7,.3,1) both}
+.ad-tl>li:nth-child(1){animation-delay:.1s} .ad-tl>li:nth-child(2){animation-delay:.35s} .ad-tl>li:nth-child(3){animation-delay:.6s} .ad-tl>li:nth-child(4){animation-delay:.85s} .ad-tl>li:nth-child(5){animation-delay:1.1s}
+@keyframes adPop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){
+  .ad-tl>li{animation-timeline:view(); animation-delay:0s !important; animation-duration:auto}
+  .ad-tl>li:nth-child(1){animation-range:entry 20% cover 30%}
+  .ad-tl>li:nth-child(2){animation-range:entry 45% cover 35%}
+  .ad-tl>li:nth-child(3){animation-range:entry 70% cover 40%}
+  .ad-tl>li:nth-child(4){animation-range:entry 95% cover 45%}
+  .ad-tl>li:nth-child(5){animation-range:cover 25% cover 50%}
+}
+
+.ad-rev-track{display:grid; grid-auto-flow:column; grid-template-rows:repeat(2,auto); grid-auto-columns:calc((100% - 32px)/3); gap:16px; margin-top:36px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:10px; scrollbar-width:thin; scrollbar-color:#1C97AE #E3F5F9}
+.ad-rev-track:focus-visible{outline:2px solid #1C97AE; outline-offset:4px}
+.ad-rev-track::-webkit-scrollbar{height:8px} .ad-rev-track::-webkit-scrollbar-track{background:#E3F5F9; border-radius:8px} .ad-rev-track::-webkit-scrollbar-thumb{background:#1C97AE; border-radius:8px}
+.ad-rv-q{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.ad-rv-x{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.ad-rv-x:checked+.ad-rv-q{-webkit-line-clamp:unset;display:block}
+.ad-rv-more{align-self:flex-start;margin-top:-4px;font:700 14px Barlow,system-ui,sans-serif;color:#127C8F;cursor:pointer;border-bottom:1.5px solid currentColor;line-height:1.3}
+.ad-rv-more::after{content:"Read more"}
+.ad-rv-x:checked~.ad-rv-more::after{content:"Show less"}
+.ad-rv-x:focus-visible~.ad-rv-more{outline:2px solid #1C97AE;outline-offset:3px;border-radius:2px}
+.ad-rev-track{grid-template-rows:repeat(2,auto) !important; align-items:stretch}
+.ad-rev-btn{width:48px; height:48px; border-radius:50%; border:1.5px solid #C9D8DF; background:#fff; color:#0E2A47; font:700 26px/1 Barlow,system-ui,sans-serif; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; padding:0 0 3px}
+.ad-rev-btn:hover{border-color:#1C97AE; color:#127C8F}
+@media (max-width:1000px){.ad-rev-track{grid-auto-columns:calc((100% - 16px)/2)}}
+@media (max-width:640px){.ad-rev-track{grid-auto-columns:85%}}
+@keyframes mxRise{from{transform:translateY(8px)}to{transform:none}}
+.mx-rise{animation:mxRise .5s ease-out both}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div style="font-family: Barlow, system-ui, sans-serif; color: #0E2A47; background: #ffffff; font-size: 17px; line-height: 1.55">
+<main>
+
+  <!-- HERO -->
+  <section aria-labelledby="ad-h1" style="background: linear-gradient(315deg, #1C97AE 0%, #0D4E66 42%, #0E2A47 100%); color: #ffffff; padding: 88px 24px 96px">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+      <div style="flex: 1 1 560px; min-width: 0">
+        <p class="mx-rise" style="margin: 0 0 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #7FDCEC">Area Director</p>
+        <h1 id="ad-h1" class="mx-rise" style="margin: 0; font-size: clamp(40px, 5.2vw, 64px); line-height: 1.03; font-weight: 800; letter-spacing: -0.02em">Earn mortgage income in your area, no license required.</h1>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px">
+          <a href="#apply" class="mx-btn-p" style="background: #F46744; color: #0E2A47; font-weight: 700; padding: 15px 26px; border-radius: 12px; text-decoration: none; display: inline-flex; min-height: 48px; box-sizing: border-box; align-items: center">Apply to join Moxie</a>
+          <a href="#earn" class="mx-btn-w" style="border: 2px solid #ffffff; color: #ffffff; font-weight: 700; padding: 13px 24px; border-radius: 12px; text-decoration: none; display: inline-flex; min-height: 48px; box-sizing: border-box; align-items: center">Estimate your compensation</a>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0">
+        <dl aria-label="The role at a glance" style="margin: 0; background: #ffffff; color: #0E2A47; border-radius: 24px; padding: 32px; box-shadow: 0 30px 60px rgba(2,2,21,.35); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+          <div style="grid-column: 1 / -1; background: #0E2A47; color: #ffffff; border-radius: 16px; padding: 20px 22px">
+            <dt style="font-size: 15px; color: #7FDCEC; font-weight: 600">Earn on every loan generated in your assigned area</dt>
+            <dd style="margin: 2px 0 0; font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em">0.25%<span style="font-size: 18px; font-weight: 600; color: #D3E3EC; letter-spacing: 0"> of the loan amount</span></dd>
+          </div>
+          <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px"><dt style="font-size: 14px; color: #4A5868">Upfront cost</dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">$0</dd></div>
+          <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px"><dt style="font-size: 14px; color: #4A5868">Onboarding call</dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">20 min</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPENSATION ESTIMATOR -->
+  <section id="earn" aria-labelledby="ad-earn" style="max-width: 1200px; margin: 0 auto; padding: 92px 24px">
+    <div style="max-width: 760px">
+      <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #127C8F">How compensation works</p>
+      <h2 id="ad-earn" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">Adjust the numbers to see what your income could look like.</h2>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 40px; align-items: stretch">
+      <div style="flex: 1 1 520px; min-width: 0; border: 1px solid #DCE6EB; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; justify-content: space-evenly; gap: 28px">
+        <div role="group" aria-label="Example volumes" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" class="mx-pill" onClick="{{pickExample}}" aria-pressed="{{exPressed}}" style="{{exStyle}}">Example · 40 loans a year</button>
+          <button type="button" class="mx-pill" onClick="{{pickLarge}}" aria-pressed="{{lgPressed}}" style="{{lgStyle}}">Example · 80 loans a year</button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 28px">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><label for="ad-loans" style="font-weight: 700; font-size: 19px">Closed Moxie loans per year</label><output for="ad-loans" style="font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums">{{loans}}</output></div>
+            <input id="ad-loans" class="ad-range" type="range" min="1" max="250" step="1" value="{{loans}}" onInput="{{onLoans}}" style="{{loansTrack}}">
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><label for="ad-loan" style="font-weight: 700; font-size: 19px">Average loan amount</label><output for="ad-loan" style="font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums">{{loanLabel}}</output></div>
+            <input id="ad-loan" class="ad-range" type="range" min="150000" max="1500000" step="25000" value="{{loan}}" onInput="{{onLoan}}" style="{{loanTrack}}">
+          </div>
+        </div>
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0; background: #0E2A47; color: #ffffff; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
+        <p style="margin: 0; font-weight: 700; color: #7FDCEC; letter-spacing: .12em; text-transform: uppercase; font-size: 13px">Estimated annual compensation</p>
+        <p aria-live="polite" style="margin: 0; font-size: clamp(48px, 5vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{annual}}</p>
+        <dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <div style="background: rgba(255,255,255,.08); border-radius: 14px; padding: 14px 16px"><dt style="font-size: 14px; color: #C9D6DF">Average per month</dt><dd style="margin: 2px 0 0; font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums">{{monthly}}</dd></div>
+          <div style="background: rgba(255,255,255,.08); border-radius: 14px; padding: 14px 16px"><dt style="font-size: 14px; color: #C9D6DF">Annual loan volume</dt><dd style="margin: 2px 0 0; font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums">{{volume}}</dd></div>
+        </dl>
+        <p style="margin: 0; font-size: 15px; color: #D3E3EC">{{loans}} loans × {{loanLabel}} average × 0.25%</p>
+        <a href="#apply" class="mx-btn-p" style="margin-top: auto; align-self: flex-start; background: #F46744; color: #0E2A47; font-weight: 700; padding: 14px 24px; border-radius: 12px; text-decoration: none; display: inline-flex; min-height: 48px; box-sizing: border-box; align-items: center">Apply to become an Area Director</a>
+      </div>
+    </div>
+    <p style="margin: 18px 0 0; font-size: 13px; color: #4A5868">Illustrative estimates only, not a guarantee of compensation. Actual pay depends on closed loan volume and is set by a written agreement, subject to RESPA, state law and brokerage policy.</p>
+  </section>
+
+  <!-- REPEAT VOLUME -->
+  <section aria-labelledby="ad-again" style="background: #F4F8FA; padding: 92px 24px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 56px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 560px; min-width: 0">
+          <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #127C8F">Repeat business counts</p>
+          <h2 id="ad-again" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">Volume builds over time.</h2>
+          <p style="margin: 16px 0 0; font-size: 19px; color: #4A5868">Closed volume includes repeat Moxie loans, such as refinances and HELOCs, when the borrower chooses Moxie again. Payroll is processed as loans close. No waitinf for distribution schedule, or even the next payroll cycle.</p>
+        </div>
+      </div>
+      <ol class="ad-tl" style="list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
+        <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 0</span><h3 style="margin: 12px 0 0; font-size: 20px">Purchase</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$600,000 loan</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$1,500</p></li>
+        <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 2</span><h3 style="margin: 12px 0 0; font-size: 20px">Refinance</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$610,000 loan</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$1,525</p></li>
+        <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 5</span><h3 style="margin: 12px 0 0; font-size: 20px">HELOC</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$75,000 line</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$188</p></li>
+        <li style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 7</span><h3 style="margin: 12px 0 0; font-size: 20px">Next purchase</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$750,000 loan</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$1,875</p></li>
+        <li style="background: #0E2A47; color: #ffffff; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #F46744; color: #0E2A47; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Over seven years</span><h3 style="margin: 12px 0 0; font-size: 20px">Four loans</h3><p style="margin: 2px 0 0; color: #C9D6DF; font-size: 15px">One household</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800">$5,088</p></li>
+      </ol>
+      <p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Illustrative example at 0.25% of the loan amount. Subject to the written agreement and applicable law.</p>
+    </div>
+  </section>
+
+  <!-- JV COMPARISON -->
+  <section aria-labelledby="ad-jv" style="max-width: 1200px; margin: 0 auto; padding: 92px 24px">
+    <div style="max-width: 760px">
+      <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #127C8F">Skip the joint venture</p>
+      <h2 id="ad-jv" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">A mortgage joint venture takes months to build. This takes a day.</h2>
+    </div>
+    <div style="margin-top: 36px; overflow-x: auto; border: 1px solid #DCE6EB; border-radius: 24px">
+      <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 16px">
+        <caption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Mortgage joint venture compared with the Moxie Area Director role</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="text-align: left; padding: 20px 24px; width: 26%"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Item</span></th>
+            <th scope="col" style="text-align: left; padding: 20px 24px; color: #4A5868; font-size: 15px; letter-spacing: .08em; text-transform: uppercase">Mortgage joint venture</th>
+            <th scope="col" style="text-align: left; padding: 20px 24px; background: #0E2A47; color: #ffffff; font-size: 15px; letter-spacing: .08em; text-transform: uppercase">Moxie Area Director</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">Upfront cost</th><td style="padding: 18px 24px; color: #4A5868">Capital, legal and licensing fees</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">$0</td></tr>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">Time to launch</th><td style="padding: 18px 24px; color: #4A5868">Months</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">Live within 24 hours</td></tr>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">Licensing and compliance</th><td style="padding: 18px 24px; color: #4A5868">Yours to set up and maintain</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">Not required, handled by Moxie</td></tr>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">Software</th><td style="padding: 18px 24px; color: #4A5868">Yours to buy</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">Provided for $55/month</td></tr>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">Loan origination</th><td style="padding: 18px 24px; color: #4A5868">Hire and manage it</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">Handled by licensed Moxie loan officers</td></tr>
+          <tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">When you’re paid</th><td style="padding: 18px 24px; color: #4A5868">Periodic profit distributions; the mortgage company controls the P&amp;L</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">Whenever a loan closes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHAT AGENTS GET -->
+  <section aria-labelledby="ad-tools" style="background: #F4F8FA; padding: 92px 24px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="max-width: 760px">
+        <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #127C8F">Marketing support</p>
+        <h2 id="ad-tools" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">Ready-to-use Moxie marketing for your area, every month.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px">
+        <article class="mx-card" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="background: #E3F5F9; height: 240px; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/2184183c16f63209083b1f848369886d" alt="Example listing flyer showing estimated buyer payments" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 20px rgba(14,42,71,.15)"></div>
+          <div style="padding: 20px 24px 24px"><h3 style="margin: 0; font-size: 20px">Listing flyers</h3>
+          <p style="margin: 6px 0 0; color: #4A5868; font-size: 16px">Show buyers the payment with a seller-paid buydown.</p></div>
+        </article>
+        <article class="mx-card" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="background: #E3F5F9; height: 240px; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/096b0531d3c6db98ee8b90e1f2ebf9e5" alt="Example Moxie social post" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 20px rgba(14,42,71,.15)"></div>
+          <div style="padding: 20px 24px 24px"><h3 style="margin: 0; font-size: 20px">Monthly social posts</h3>
+          <p style="margin: 6px 0 0; color: #4A5868; font-size: 16px">Savings-driven graphics with the agent’s number on them.</p></div>
+        </article>
+        <article class="mx-card" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="background: #E3F5F9; height: 240px; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/3b018aaca4d50896a0c8bfd7904ad87c" alt="Moxie Agent Portal announcement graphic" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 20px rgba(14,42,71,.15)"></div>
+          <div style="padding: 20px 24px 24px"><h3 style="margin: 0; font-size: 20px">Realtor Portal</h3>
+          <p style="margin: 6px 0 0; color: #4A5868; font-size: 16px">Buyers apply online and track their loan in one place.</p></div>
+        </article>
+        <article class="mx-card" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="background: #E3F5F9; height: 240px; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/0e04ccd625696ebe9a11ec059e3a1b14" alt="Example Moxie Minute market email" loading="lazy" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 20px rgba(14,42,71,.15)"></div>
+          <div style="padding: 20px 24px 24px"><h3 style="margin: 0; font-size: 20px">Moxie Minute</h3>
+          <p style="margin: 6px 0 0; color: #4A5868; font-size: 16px">A weekly market-intelligence email that keeps agents informed.</p></div>
+        </article>
+      </div>
+      <p style="margin: 20px 0 0; font-size: 17px">Plus approval pages and a direct line to a licensed Moxie loan officer, live within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- BUYERS COME OUT AHEAD -->
+  <section aria-labelledby="ad-buyers" style="background: #0E2A47; color: #ffffff; padding: 96px 24px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 56px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 620px; min-width: 0">
+          <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #7FDCEC">Better for homebuyers</p>
+          <h2 id="ad-buyers" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">And your clients get <br>a better deal.</h2>
+        </div>
+        <p style="flex: 1 1 360px; margin: 0; font-size: 19px; color: #D3E3EC; max-width: 460px">Moxie is direct to wholesale, so buyers skip the retail overhead. Buyers are always free to choose their own lender.</p>
+      </div>
+      <dl style="margin: 44px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+        <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 26px 24px 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px"><dt style="font-size: 16px; line-height: 1.4; color: #C9D6DF">Lower rates than the largest retail lender, on average<sup>1</sup></dt><dd style="margin: 0; font-size: clamp(44px, 4.4vw, 58px); line-height: 1; font-weight: 800; letter-spacing: -0.02em; color: #7FDCEC; font-variant-numeric: tabular-nums">0.559%</dd></div>
+        <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 26px 24px 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px"><dt style="font-size: 16px; line-height: 1.4; color: #C9D6DF">Average clear to close<sup>2</sup></dt><dd style="margin: 0; font-size: clamp(44px, 4.4vw, 58px); line-height: 1; font-weight: 800; letter-spacing: -0.02em; color: #7FDCEC; font-variant-numeric: tabular-nums">14 days</dd></div>
+        <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 26px 24px 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px"><dt style="font-size: 16px; line-height: 1.4; color: #C9D6DF">Wholesale investors</dt><dd style="margin: 0; font-size: clamp(44px, 4.4vw, 58px); line-height: 1; font-weight: 800; letter-spacing: -0.02em; color: #7FDCEC; font-variant-numeric: tabular-nums">300+</dd></div>
+        <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 26px 24px 22px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 10px"><dt style="font-size: 16px; line-height: 1.4; color: #C9D6DF">States and territories</dt><dd style="margin: 0; font-size: clamp(44px, 4.4vw, 58px); line-height: 1; font-weight: 800; letter-spacing: -0.02em; color: #7FDCEC; font-variant-numeric: tabular-nums">51</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- AGENT REVIEWS -->
+  <section aria-labelledby="ad-reviews" style="background: #F4F8FA; padding: 92px 24px">
+    <div style="max-width: 1200px; margin: 0 auto">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 560px; min-width: 0">
+          <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #127C8F">From agents who work with us</p>
+          <h2 id="ad-reviews" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">Top agents say their clients are in great hands.</h2>
+        </div>
+        <p style="flex: 0 1 auto; margin: 0; display: inline-flex; align-items: center; gap: 10px; font-weight: 700"><span aria-hidden="true" style="color: #F46744; letter-spacing: 2px">★★★★★</span>5.0 on Google</p>
+      </div>
+      <div class="ad-rev-track" tabindex="0" aria-label="Agent reviews, scroll for more" role="region">
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv1" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“The team at Moxie are hands down the best I have worked with in 20 years in this industry. Not only are their products, pricing, and investor options unmatched, but also their knowledge, strategy, and overall approach consistently serves our clients at the highest level and makes living their dreams of homeownership possible.”</blockquote><label for="ad-rv1" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Lisa Teichner</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Calvin is always quick to respond, available whenever my clients need him — even on weekends… Having a lender I can fully trust makes a huge difference in my business.”</blockquote>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Coni Otto</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv3" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Moxie is great to work with! We threw them a loop and needed to close 30 days early. They were able to pull it off, all while providing great communication + great rates. It was a mini miracle! Highly recommend Moxie!”</blockquote><label for="ad-rv3" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Bherin Brown</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv4" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Working with Robert and Moxie Mortgage was an absolute game-changer. They are relentless, insanely smart, and incredibly knowledgeable — no challenge is too big; they always find a solution. From getting the best rates to providing hands-down top-tier service and communication, Moxie goes above and beyond every step of the way.”</blockquote><label for="ad-rv4" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Carolina Frias</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv5" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“They went above and beyond for my client and secured an absolutely unparalleled VA interest rate… Even at the last minute, Robert was able to reduce my clients’ costs by an additional $700.”</blockquote><label for="ad-rv5" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Mitzi Santayana</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv6" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Moxie is incredible to work with! They truly go above and beyond for every client. They’re true solution finders — ALWAYS responsive, proactive, and committed to making the process as smooth as possible. I have full trust in them and look forward to making more clients’ dreams come true together!”</blockquote><label for="ad-rv6" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Rose Sakai</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Robert and his skilled team really are the best I have met in over 25 years! No hidden fees, no hidden costs… Just great service!”</blockquote>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Patrick Lambert</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv8" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Working with Moxie Mortgage was truly an outstanding experience. From start to finish, their team provided unmatched service — it’s rare to find a lender who combines deep expertise with genuine care for their clients. I highly recommend Robert &amp; Moxie Mortgage to anyone looking for top-tier service and a seamless lending experience!”</blockquote><label for="ad-rv8" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Rochelle Augustin Beck</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv9" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Despite the 6-hour time difference between the Big Island of Hawaii and Florida, he consistently stays responsive and keeps every transaction moving smoothly all the way to the finish line.”</blockquote><label for="ad-rv9" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Kathy Williamson</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv10" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Moxie Mortgage is fantastic to work with. They’re incredibly knowledgeable, think outside the box to get the deal done, and have excellent communication with agents + clients. Highly recommend!”</blockquote><label for="ad-rv10" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Missy Elliott</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv11" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“They were extremely responsive, supportive, and helped navigate several hurdles along the way… they were able to get the loan closed in about 15 days, which was incredibly impressive.”</blockquote><label for="ad-rv11" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Ribe Ninan</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv12" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Robert at Moxie Mortgage was incredible! He went above and beyond, pulling out all the stops to make sure our deal got done. He was responsive, solution-oriented, and truly fought for us every step of the way. We couldn’t recommend Robert and Moxie Mortgage more highly!”</blockquote><label for="ad-rv12" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Stefanie Olson</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv13" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Working with Moxie mortgage and Robert Lucido made my clients’ sale and purchase of their new home a smooth transaction. Moxie and Robert did an amazing job making sure we were updated regularly regarding their VA loan which got us to the closing table as quickly as possible!”</blockquote><label for="ad-rv13" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Koko Patel</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv14" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Shout out to Robert Lucido with Moxie Mortgage, who went above and beyond what I thought was possible, for my client!! Robert’s knowledge and professionalism demonstrated 5-STAR customer service that was unbelievable!”</blockquote><label for="ad-rv14" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Debbie Krull</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv15" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“Robert and Moxie did a great job getting my first time buyers loan closed in 19 days. We had a small glitch just before closing and Robert went above and beyond to be sure we closed on our contract close date. Thanks for your hard work and professionalism!”</blockquote><label for="ad-rv15" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Jodi Altman</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+        <figure class="mx-card" style="margin: 0; scroll-snap-align: start; height: 100%; box-sizing: border-box; background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 24px 26px 22px; display: flex; flex-direction: column; gap: 12px">
+          <span role="img" aria-label="5 out of 5 stars" style="color: #F46744; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+          <input type="checkbox" id="ad-rv16" class="ad-rv-x" aria-label="Show the full review"><blockquote class="ad-rv-q" style="margin: 0; font-size: 17px; line-height: 1.55">“I had a client who was looking to move to Hawai‘i island. Looking for a VA loan and needed to close in 30 days. Robert and his team were able to work with me and now our clients to make it happen. We closed in the 30 days and our clients are smiling ear to ear.”</blockquote><label for="ad-rv16" class="ad-rv-more"></label>
+          <figcaption style="margin-top: auto; padding-top: 12px; border-top: 1px solid #DCE6EB"><span style="display: block; font-weight: 700">Bruce Kekuewa</span><span style="display: block; color: #4A5868; font-size: 15px">Realtor®</span></figcaption>
+        </figure>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px">
+        <p style="margin: 0; font-size: 13px; color: #4A5868">Reviews from real estate agents who work with Moxie, shared on Google and directly with our team. Some are excerpted.</p>
+        <div style="display: flex; gap: 10px; flex: none">
+          <button type="button" class="ad-rev-btn" aria-label="Previous reviews" onClick="{{revPrev}}">‹</button>
+          <button type="button" class="ad-rev-btn" aria-label="More reviews" onClick="{{revNext}}">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS + APPLY -->
+  <section id="apply" aria-labelledby="ad-apply" style="background: linear-gradient(315deg, #1C97AE 0%, #0D4E66 42%, #0E2A47 100%); color: #ffffff; padding: 92px 24px">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+      <div style="flex: 1 1 440px; min-width: 0">
+        <p style="margin: 0 0 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #7FDCEC">Get started</p>
+        <h2 id="ad-apply" style="margin: 0; font-size: clamp(32px, 3.6vw, 46px); line-height: 1.08; font-weight: 800; letter-spacing: -0.015em">Three steps to getting started.</h2>
+        <ol style="list-style: none; padding: 0; margin: 32px 0 0; display: flex; flex-direction: column; gap: 22px">
+          <li style="display: flex; gap: 18px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #0E2A47; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; justify-content: center">1</span><div><h3 style="margin: 0; font-size: 20px">20-minute onboarding call</h3><p style="margin: 4px 0 0; color: #D3E3EC">We review your written agreement and set up payroll and accounts.</p></div></li>
+          <li style="display: flex; gap: 18px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; color: #0E2A47; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; justify-content: center">2</span><div><h3 style="margin: 0; font-size: 20px">Live within 24 hours</h3><p style="margin: 4px 0 0; color: #D3E3EC">Approval pages, marketing and a direct line to a licensed Moxie loan officer.</p></div></li>
+          <li style="display: flex; gap: 18px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #F46744; color: #0E2A47; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; justify-content: center">3</span><div><h3 style="margin: 0; font-size: 20px">Paid as loans close</h3><p style="margin: 4px 0 0; color: #D3E3EC">Compensation runs through Moxie payroll on closed loan volume.</p></div></li>
+        </ol>
+      </div>
+      <form aria-labelledby="ad-form-h" style="flex: 1 1 480px; min-width: 0; background: #ffffff; color: #0E2A47; border-radius: 24px; padding: 32px; box-shadow: 0 30px 60px rgba(2,2,21,.35); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px">
+        <h3 id="ad-form-h" style="grid-column: 1 / -1; margin: 0; font-size: 24px">Apply to become an Area Director</h3>
+        <p style="grid-column: 1 / -1; margin: -6px 0 4px; color: #4A5868; font-size: 15px">We’ll review and reach out to book your onboarding call.</p>
+        <div style="grid-column: 1 / -1"><label for="ad-name" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Name</label><input id="ad-name" class="ad-in" type="text" autocomplete="name"></div>
+        <div><label for="ad-phone" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Phone *</label><input id="ad-phone" class="ad-in" type="tel" autocomplete="tel" required=""></div>
+        <div><label for="ad-email" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Email *</label><input id="ad-email" class="ad-in" type="email" autocomplete="email" required=""></div>
+        <div><label for="ad-units" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Buyer sales, last 12 months (units) *</label><input id="ad-units" class="ad-in" type="number" inputmode="numeric" required=""></div>
+        <div><label for="ad-vol" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Sales volume, last 12 months *</label><input id="ad-vol" class="ad-in" type="text" inputmode="decimal" required=""></div>
+        <div style="grid-column: 1 / -1"><label for="ad-states" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">States you operate in *</label><input id="ad-states" class="ad-in" type="text" required=""></div>
+        <div style="grid-column: 1 / -1"><label for="ad-msg" style="display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px">Message</label><textarea id="ad-msg" class="ad-in" rows="3" style="resize: vertical"></textarea></div>
+        <div style="grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start"><input id="ad-consent" type="checkbox" required="" style="margin-top: 4px; width: 18px; height: 18px; accent-color: #127C8F; flex: none"><label for="ad-consent" style="font-size: 12.5px; line-height: 1.45; color: #4A5868">I agree to the <a href="#">Electronic Disclosure Consent Agreement</a> and to receive recurring marketing communications from Moxie Mortgage, including auto-dialed calls, texts, and prerecorded or artificial voice messages. Frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help. I agree to the <a href="#">Terms of Service and Privacy Policy</a>. Consent is not required to make a purchase; call us for direct assistance.</label></div>
+        <button type="submit" class="mx-btn-p" style="grid-column: 1 / -1; background: #F46744; color: #0E2A47; font: 700 17px Barlow, system-ui, sans-serif; padding: 15px 26px; border: 0; border-radius: 12px; min-height: 52px; cursor: pointer">Submit application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- DISCLOSURES -->
+  <section aria-label="Disclosures" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 56px; font-size: 13px; line-height: 1.55; color: #4A5868">
+    <p style="margin: 0 0 8px">Area Directors are part of the Moxie team and are compensated through Moxie payroll under a written agreement, subject to RESPA, state law and brokerage policy. Compensation figures shown are illustrative estimates only, not a guarantee; actual pay depends on closed loan volume. Area Directors do not take loan applications, quote rates or discuss loan terms; licensed Moxie loan officers handle every loan. Consumers are always free to choose their lender and settlement service providers.</p>
+    <p style="margin: 0 0 8px"><sup>1</sup> Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Rate and savings vary and depend on borrower’s qualification, property specifics, and market conditions. <sup>2</sup> Moxie average clear-to-close time; the industry average was 38 days (ICE Mortgage Technology, May 2026). Rates vary by borrower, property and market. Not a commitment to lend; all loans are subject to credit approval.</p>
+    <p style="margin: 0">Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { loans: 40, loan: 500000 };
+  }
+  renderVals() {
+    const s = this.state;
+    const loans = s.loans;
+    const annual = loans * s.loan * 0.0025;
+    const usd = (n) => '$' + Math.round(n).toLocaleString('en-US');
+    const short = (n) => n >= 1000000 ? '$' + (n / 1000000).toFixed(n % 1000000 ? 2 : 1).replace(/\.?0+$/, '') + 'M' : '$' + Math.round(n / 1000) + 'K';
+    const track = (v, lo, hi) => { const p = ((v - lo) / (hi - lo) * 100).toFixed(1); return 'background:linear-gradient(90deg,#1C97AE ' + p + '%,#DCE6EB ' + p + '%)'; };
+    const isEx = s.loans === 40 && s.loan === 500000;
+    const isLg = s.loans === 80 && s.loan === 500000;
+    const pill = (on) => 'min-height:44px;border-radius:999px;padding:8px 16px;font:700 15px Barlow,system-ui,sans-serif;cursor:pointer;border:1.5px solid ' + (on ? '#0E2A47;background:#0E2A47;color:#ffffff' : '#C9D8DF;background:#ffffff;color:#0E2A47');
+    return {
+      loan: s.loan, loanLabel: short(s.loan), volume: short(loans * s.loan),
+      loans: loans, annual: usd(annual), monthly: usd(annual / 12),
+      loansTrack: track(s.loans, 1, 250), loanTrack: track(s.loan, 150000, 1500000),
+      onLoans: (e) => this.setState({ loans: Number(e.target.value) }),
+      onLoan: (e) => this.setState({ loan: Number(e.target.value) }),
+      exStyle: pill(isEx), lgStyle: pill(isLg), exPressed: isEx ? 'true' : 'false', lgPressed: isLg ? 'true' : 'false',
+      pickExample: () => this.setState({ loans: 40, loan: 500000 }),
+      pickLarge: () => this.setState({ loans: 80, loan: 500000 }),
+      revPrev: (e) => { const t = (e.currentTarget || e.target).closest('section').querySelector('.ad-rev-track'); if (t) t.scrollBy({ left: -t.clientWidth, behavior: 'smooth' }); },
+      revNext: (e) => { const t = (e.currentTarget || e.target).closest('section').querySelector('.ad-rev-track'); if (t) t.scrollBy({ left: t.clientWidth, behavior: 'smooth' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

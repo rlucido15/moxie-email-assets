@@ -14,7 +14,7 @@ Scripts use absolute paths (`/home/claude/build/out`, `/home/claude/work`), so k
 
 ## Build
 `cd /home/claude/build && python3 <page>.py`, output goes to `out/`. Pages: buy, refi, products, faqs, footer,
-home, about, calc (hub + 3 calculator pages), cs (client success).
+home, about, calc (hub + 3 calculator pages), cs (client success), ad (Area Director; reads the canvas design `AreaDirector.dc.html`, snapshot in `work/`).
 
 ## Client success stories
 Data: `work/stories.py` (`STORIES` list + `FEATURED`). Add a tuple per new story:

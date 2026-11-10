@@ -11,6 +11,8 @@ from optimize import optimize
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = '/home/claude/canvas/project/AreaDirector.dc.html'
+if not os.path.exists(SRC):
+    SRC = '/home/claude/work/AreaDirector.dc.html'  # snapshot kept in build/work/
 CDN_AD = "https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@c5224bc/website/"
 IMG = {
     '/_blob/2184183c16f63209083b1f848369886d': ('ad-listing-flyer.webp', 560, 684),
@@ -32,6 +34,7 @@ page_css = page_css.replace('.mx-btn-p:hover', '.mxp .mxa-btn-p:hover').replace(
 
 AD_CSS = page_css + r"""
 .mxp.mxp .ad-tl>li{padding:22px 24px !important}
+.mxp .mxa-main h3{font-weight:700}
 .mxp.mxp .ad-steps>li{display:flex !important;gap:18px}
 .mxp a.mxa-btn-p{color:#0E2A47}
 .mxp a.mxa-btn-w{color:#fff}
@@ -113,6 +116,10 @@ body = body.replace('>{{volume}}</dd>', f' data-ad="volume">{short(L0 * A0)}</dd
 body = body.replace('>{{loans}} loans × {{loanLabel}} average × 0.25%</p>',
                     f'><span data-ad="loans">{L0}</span> loans × <span data-ad="loanLabel">{short(A0)}</span> average × 0.25%</p>')
 assert '{{' not in body, re.findall(r'\{\{\w+\}\}', body)
+
+# ---------- grids: fit 4 marketing cards and 5 timeline steps on laptop widths too
+body = body.replace('grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px', 'grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px', 1)
+body = body.replace('grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px', 'grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 28px', 1)
 
 # ---------- apply steps list gets a hook for the li reset
 body = body.replace('<ol style="list-style: none; padding: 0; margin: 32px 0 0;', '<ol class="ad-steps" style="list-style: none; padding: 0; margin: 32px 0 0;', 1)
