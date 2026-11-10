@@ -58,6 +58,7 @@ AD_CSS = page_css + r"""
 .mxa-slot .basic-info>.singleLineTextH2jVGbA4p{grid-column:1/-1}
 .mxa-slot .v-input{margin:0 !important;width:auto !important;max-width:none !important;padding:0 !important}
 .mxa-slot .v-input.message{margin-top:14px !important}
+.mxa-slot .input-container{margin:0 !important;padding:0 !important;width:100% !important;border:0 !important;background:none !important}
 .mxa-slot .label-top{display:block !important;position:static !important;transform:none !important;font:600 15px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;margin:0 0 6px !important;opacity:1 !important;background:none !important;padding:0 !important;letter-spacing:0 !important;text-transform:none !important}
 .mxa-slot input[type=text],.mxa-slot input[type=tel],.mxa-slot input[type=email],.mxa-slot textarea{width:100% !important;box-sizing:border-box !important;min-height:46px !important;border:1px solid #C9D8DF !important;border-radius:10px !important;padding:10px 12px !important;font:500 16px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;background:#fff !important;box-shadow:none !important}
 .mxa-slot textarea{min-height:92px !important;resize:vertical}
@@ -177,7 +178,7 @@ root.querySelectorAll('[data-ad-rev]').forEach(function (b) {
 
 // ---- move Moxie's Lofty application form (its own block on this page) into the apply card.
 // Leads keep going to Lofty exactly as before. If the form block isn't on the page, a call button shows instead.
-var RELABEL = [[/buyer sales/i, 'Buyer sales, last 12 months (units)*'], [/sales \(volume\)/i, 'Sales volume, last 12 months*']];
+var RELABEL = [[/buyer sales/i, 'Buyer sales, last 12 months (units)*'], [/sales \(volume\)/i, 'Sales volume, last 12 months*'], [/states you operate/i, 'States you operate in*']];
 function mountForm() {
   var slot = root.querySelector('#mxa-form-slot'); if (!slot || slot.classList.contains('has-form')) return true;
   var blocks = document.querySelectorAll('.md-form');
@@ -203,7 +204,7 @@ DESC = "Join Moxie Mortgage as an Area Director: a W-2 business development role
 page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage', DESC, 'Area Director')
 schema = jsonld([ORG, page, crumbs])
 
-LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled -->'
+LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message input-container label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled -->'
 full = wrap('mx-ad', LOFTY_KEEP + f'\n<style>{AD_CSS}</style>\n<div class="mxa-main">\n{body}\n</div>', script, schema, 'AREA DIRECTOR (/area-director, replaces /bdm)')
 # the design font is Barlow; the shared embeds self-host it as MoxieBarlow
 full = full.replace('font-family: Barlow, system-ui, sans-serif', 'font-family: MoxieBarlow, Barlow, system-ui, sans-serif')
