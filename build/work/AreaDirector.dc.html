@@ -30,11 +30,11 @@ a{color:#127C8F}a:hover{color:#0F5F6E}
 @media (max-width:1100px){.ad-step::after{display:none}}
 .ad-tl>li{opacity:0;transform:translateY(18px)}
 .ad-tl>li:nth-child(1){z-index:5} .ad-tl>li:nth-child(2){z-index:4} .ad-tl>li:nth-child(3){z-index:3} .ad-tl>li:nth-child(4){z-index:2} .ad-tl>li:nth-child(5){z-index:1}
-.ad-tl.ad-in>li{animation:adRise .8s cubic-bezier(.22,.7,.25,1) both}
-.ad-tl.ad-in>li:nth-child(2){animation-delay:.7s} .ad-tl.ad-in>li:nth-child(3){animation-delay:1.4s} .ad-tl.ad-in>li:nth-child(4){animation-delay:2.1s} .ad-tl.ad-in>li:nth-child(5){animation-delay:2.8s}
+.ad-tl.ad-go>li{animation:adRise .8s cubic-bezier(.22,.7,.25,1) both}
+.ad-tl.ad-go>li:nth-child(2){animation-delay:.7s} .ad-tl.ad-go>li:nth-child(3){animation-delay:1.4s} .ad-tl.ad-go>li:nth-child(4){animation-delay:2.1s} .ad-tl.ad-go>li:nth-child(5){animation-delay:2.8s}
 @keyframes adRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes adSlide{0%{opacity:0;transform:translateX(calc(-100% - 28px))}25%{opacity:1}100%{opacity:1;transform:none}}
-@media (min-width:1100px){.ad-tl>li{position:relative;transform:translateX(calc(-100% - 28px))} .ad-tl>li:nth-child(1){transform:translateY(18px)} .ad-tl.ad-in>li{animation-name:adSlide;animation-duration:1s} .ad-tl.ad-in>li:nth-child(1){animation-name:adRise;animation-duration:.8s}}
+@media (min-width:1100px){.ad-tl>li{position:relative;transform:translateX(calc(-100% - 28px))} .ad-tl>li:nth-child(1){transform:translateY(18px)} .ad-tl.ad-go>li{animation-name:adSlide;animation-duration:1s} .ad-tl.ad-go>li:nth-child(1){animation-name:adRise;animation-duration:.8s}}
 @media (prefers-reduced-motion:reduce){.ad-tl>li{opacity:1 !important;transform:none !important;animation:none !important}}
 
 .ad-rev-track{display:grid; grid-auto-flow:column; grid-template-rows:repeat(2,auto); grid-auto-columns:calc((100% - 32px)/3); gap:16px; margin-top:36px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; padding-bottom:10px; scrollbar-width:thin; scrollbar-color:#1C97AE #E3F5F9}
@@ -131,7 +131,7 @@ a{color:#127C8F}a:hover{color:#0F5F6E}
           <p style="margin: 16px 0 0; font-size: 19px; color: #4A5868">Closed volume includes repeat Moxie loans, such as refinances and HELOCs, when the borrower chooses Moxie again. Payroll is processed as loans close. No waitinf for distribution schedule, or even the next payroll cycle.</p>
         </div>
       </div>
-      <ol class="ad-tl ad-in" style="list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
+      <ol class="ad-tl ad-go" style="list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px">
         <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 0</span><h3 style="margin: 12px 0 0; font-size: 20px">Purchase</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$600,000 loan</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$1,500</p></li>
         <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 2</span><h3 style="margin: 12px 0 0; font-size: 20px">Refinance</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$610,000 loan</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$1,525</p></li>
         <li class="ad-step" style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 20px; padding: 22px 24px"><span style="display: inline-block; background: #E3F5F9; color: #127C8F; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 4px 12px">Year 5</span><h3 style="margin: 12px 0 0; font-size: 20px">HELOC</h3><p style="margin: 2px 0 0; color: #4A5868; font-size: 15px">$75,000 line</p><p style="margin: 10px 0 0; font-size: 30px; font-weight: 800; color: #127C8F">$188</p></li>

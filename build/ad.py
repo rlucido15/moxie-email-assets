@@ -123,7 +123,7 @@ assert '{{' not in body, re.findall(r'\{\{\w+\}\}', body)
 body = body.replace('grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 36px', 'grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px', 1)
 body = body.replace('grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px', 'grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 28px', 1)
 
-body = body.replace('<ol class="ad-tl ad-in"', '<ol class="ad-tl"', 1)
+body = body.replace('<ol class="ad-tl ad-go"', '<ol class="ad-tl"', 1)
 
 # ---------- apply steps list gets a hook for the li reset
 body = body.replace('<ol style="list-style: none; padding: 0; margin: 32px 0 0;', '<ol class="ad-steps" style="list-style: none; padding: 0; margin: 32px 0 0;', 1)
@@ -175,8 +175,8 @@ root.querySelectorAll('[data-ad-preset]').forEach(function (b) {
 // ---- timeline: cards appear one after the next when the section scrolls into view
 var tl = root.querySelector('.ad-tl');
 if (tl) {
-  if (!('IntersectionObserver' in window)) tl.classList.add('ad-in');
-  else { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { tl.classList.add('ad-in'); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(tl); }
+  if (!('IntersectionObserver' in window)) tl.classList.add('ad-go');
+  else { var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { tl.classList.add('ad-go'); io.disconnect(); } }); }, { threshold: 0.25 }); io.observe(tl); }
 }
 
 // ---- reviews: arrow buttons page the scrolling track
