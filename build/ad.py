@@ -172,6 +172,28 @@ root.querySelectorAll('[data-ad-preset]').forEach(function (b) {
   b.addEventListener('click', function () { st.loans = +b.getAttribute('data-ad-preset'); st.loan = 500000; paint(); used('preset'); });
 });
 
+// ---- first view: nudge the loans slider right and back to 40 so visitors see it moves the estimate
+var touched = false;
+rL.addEventListener('pointerdown', function () { touched = true; });
+rL.addEventListener('keydown', function () { touched = true; });
+function nudge() {
+  if (touched || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var start = null, from = st.loans, peak = 72, dur = 1800;
+  var ease = function (t) { return t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
+  function step(ts) {
+    if (touched) return;
+    if (start === null) start = ts;
+    var t = Math.min(1, (ts - start) / dur), k = t < .5 ? ease(t * 2) : ease((1 - t) * 2);
+    st.loans = Math.round(from + (peak - from) * k); paint();
+    if (t < 1) requestAnimationFrame(step); else { st.loans = from; paint(); }
+  }
+  requestAnimationFrame(step);
+}
+if ('IntersectionObserver' in window) {
+  var nio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { nio.disconnect(); setTimeout(nudge, 350); } }); }, { threshold: 0.6 });
+  nio.observe(rL.closest('div'));
+}
+
 // ---- timeline: cards appear one after the next when the section scrolls into view
 var tl = root.querySelector('.ad-tl');
 if (tl) {
