@@ -65,12 +65,28 @@ hero = f'''
     </div>
   </section>'''
 
+
+# ---------------- STOP SAYING NO (from the recruiting deck)
+STOPS = [
+    ('Losing deals on rate', 'Price every file across 300+ wholesale investors instead of one rate sheet.'),
+    ('Turning away self-employed borrowers', 'Bank statement, P&amp;L and asset depletion loans when tax returns don’t tell the story.'),
+    ('Saying no to lower credit scores', 'Non-QM options for borrowers other lenders turned down.'),
+    ('Sending investors elsewhere', 'DSCR, fix and flip, bridge and portfolio loans for real estate investors.'),
+    ('Fighting slow, unresponsive operations', 'Dedicated processors and mortgage consultants on your files.'),
+    ('Waiting weeks to get paid', 'Everyday payday: commission is paid as your loans close.'),
+]
+stop_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
+    f'<article style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 24px 26px">'
+    f'<h3 style="margin: 0; font-size: 20px; color: #ffffff; display: flex; gap: 10px; align-items: center"><span aria-hidden="true" style="flex: none; width: 28px; height: 28px; border-radius: 50%; background: #F46744; color: #0E2A47; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; font-size: 16px">×</span>Stop {t[0].lower() + t[1:]}</h3>'
+    f'<p style="margin: 8px 0 0 38px; color: #D3E3EC; font-size: 16px">{d}</p></article>' for t, d in STOPS) + '</div>'
+stop_sec = section('lo-stop', 'Sound familiar?', 'Stop saying no to good borrowers.', stop_cards, bg='#0E2A47', dark=True)
+
 # ---------------- FOUR PILLARS
 PILLARS = [
     ('pct', 'Lender access and pricing', 'Shop 300+ wholesale investors through NEXA instead of one rate sheet. Moxie rates averaged 0.559% lower than the largest retail lender.<sup>1</sup>'),
     ('trend', 'A referral pipeline', 'Moxie Area Directors build agent relationships in their markets, and agent partners introduce their buyers to Moxie loan officers.'),
     ('grid', 'Tools that sell for you', 'Arive for origination, Lofty CRM, and client-ready worksheets and calculators that make the numbers easy to explain.'),
-    ('shield', 'Training and mentorship', 'Moxie University, twice-weekly team huddles, and a mentor for deal strategy and accountability.'),
+    ('shield', 'Support and mentorship', 'Dedicated processors, a full back office, Moxie University, and a mentor for deal strategy.'),
 ]
 pillars = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article class="mxa-card" style="{CARD}; display: flex; flex-direction: column; gap: 10px">'
@@ -106,7 +122,19 @@ flow_items += ('<li style="background: #0E2A47; color: #ffffff; border-radius: 2
 flow = section('lo-flow', 'How referrals reach you', 'A pipeline that doesn’t depend on cold calls.',
                f'<ol class="ad-tl" style="list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 28px">{flow_items}</ol>'
                '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
-               bg='#F4F8FA', lede='Moxie invests in the agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
+               lede='Moxie invests in the agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
+
+
+# ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)
+PRODUCTS = ['Conventional', 'FHA', 'VA', 'USDA', 'Jumbo and super jumbo', 'HELOC', 'Home equity loans', 'Second mortgages', 'Bank statement',
+            'P&amp;L only', 'Asset depletion', 'DSCR', 'Non-QM', 'ITIN', 'Foreign national', 'DACA', 'Doctor loans', 'Down payment assistance',
+            '203(k) and renovation', 'Construction and one-time close', 'Fix and flip', 'Bridge loans', 'Interest-only', 'Manufactured homes',
+            'Non-warrantable condos', 'Condotels', 'Up to 8 units', 'Mixed use', 'Close in an LLC', 'Reverse mortgages', 'Temporary buydowns', 'ARMs']
+chips = '<ul style="list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 10px">' + ''.join(
+    f'<li style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 15px">{x}</li>' for x in PRODUCTS) + '</ul>'
+products_sec = section('lo-products', 'Loan programs', 'Thousands of programs, so you can say yes more often.',
+    chips + '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Program availability varies by state, investor and borrower qualification.</p>',
+    bg='#F4F8FA', lede='Through NEXA’s wholesale investors, Moxie loan officers can match nearly any borrower to a program, from first-time buyers to self-employed borrowers and investors.')
 
 # ---------------- RETAIL VS MOXIE TABLE
 ROWS = [
@@ -114,6 +142,8 @@ ROWS = [
     ('Pricing', 'Retail pricing that carries branch overhead', 'Wholesale pricing; rates averaged 0.559% lower than the largest retail lender<sup>1</sup>'),
     ('Speed', '38-day industry average to close<sup>2</sup>', '14-day average clear to close<sup>2</sup>'),
     ('Referrals', 'Mostly yours to find', 'Area Directors and agent partners introduce buyers'),
+    ('When you’re paid', 'On the next payroll cycle, often weeks after closing', 'Everyday payday: as your loans close'),
+    ('Operations', 'Shared processing queue', 'Dedicated processors and mortgage consultants'),
     ('Technology', 'Whatever the company licenses', 'Arive, Lofty CRM and Moxie client tools'),
     ('Support', 'Varies by branch', 'A mentor on your deals and twice-weekly team huddles'),
 ]
@@ -155,14 +185,32 @@ assert 'lo-mkt' in mk and 'Co-marketing' in mk and 'your name and number' in mk
 
 # ---------------- TRAINING
 TRAIN = [
+    ('Processing and consultants', 'Dedicated loan processors plus mortgage consultants to help structure tough scenarios.'),
+    ('A full back office', 'HR, legal, compliance, marketing, accounting, payroll and licensing, handled for you.'),
+    ('A mentor on your deals', 'Training and deal strategy, an accountability partner, and direction when a file gets complicated.'),
     ('Moxie University', 'Courses on products, pricing strategy and Moxie’s tools, available whenever you need them.'),
     ('Monday and Friday huddles', 'Live team calls at noon ET for market updates, new tools and deal reviews.'),
-    ('A mentor on your deals', 'Training and deal strategy, an accountability partner, and direction when a file gets complicated.'),
+    ('Annual mortgage conference', 'Learn from top producers and lenders, and meet the rest of the team.'),
 ]
-train = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
+train = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article style="background: rgba(255,255,255,.06); border: 1px solid rgba(127,220,236,.25); border-radius: 20px; padding: 26px"><h3 style="margin: 0; font-size: 21px; color: #ffffff">{t}</h3><p style="margin: 8px 0 0; color: #D3E3EC; font-size: 16px">{d}</p></article>'
     for t, d in TRAIN) + '</div>'
-train_sec = section('lo-train', 'Training and mentorship', 'You’re never on your own with a tough file.', train, bg='#0E2A47', dark=True)
+train_sec = section('lo-train', 'Support and training', 'You’re never on your own with a tough file.', train, bg='#0E2A47', dark=True)
+
+
+# ---------------- PAY + BENEFITS
+BENEFITS = [
+    ('cash', 'Everyday payday', 'Commission is paid as your loans close, not on a monthly cycle.'),
+    ('shield', 'Medical, dental and vision', 'Health coverage options for eligible loan officers.'),
+    ('trend', '401(k) and HSA', 'Plan for retirement and set aside pre-tax dollars for health costs.'),
+    ('grid', 'W-2 or 1099', 'Choose the employment structure that fits your business.'),
+]
+ben_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
+    f'<article class="mxa-card" style="{CARD}; display: flex; flex-direction: column; gap: 10px">'
+    f'<span style="width: 48px; height: 48px; border-radius: 14px; background: #FDE7E1; color: #C2482A; display: inline-flex; align-items: center; justify-content: center"><span style="width: 24px; height: 24px; display: block">{ICON[ic]}</span></span>'
+    f'<h3 style="margin: 6px 0 0; font-size: 21px">{t}</h3><p style="margin: 0; color: #4A5868; font-size: 16px">{d}</p></article>' for ic, t, d in BENEFITS) + '</div>'
+ben_sec = section('lo-pay', 'Pay and benefits', 'Get paid faster, with benefits that come with a real company.',
+    ben_cards + '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. We walk through the full plan on your intro call.</p>')
 
 # ---------------- REVIEWS (reuse AD track)
 rv = re.search(r'\s*<!-- AGENT REVIEWS -->.*?</section>', ad.body, re.S)
@@ -177,17 +225,17 @@ FAQ = [
     ('What is it like to be a loan officer at Moxie Mortgage?',
      'Moxie Mortgage is a wholesale mortgage brokerage and a division of NEXA Mortgage. Moxie loan officers price loans across 300+ wholesale investors, get introductions from Moxie Area Directors and agent partners, use Moxie’s client tools and CRM, and work with a mentor and a team that meets twice a week.'),
     ('How are Moxie loan officers paid?',
-     'Loan officers are paid on closed loans under a written compensation agreement. We walk through the full plan, including splits and any costs you’re responsible for, on your intro call. As federal rules require, loan officer pay is never based on a loan’s rate or terms.'),
+     'Loan officers are paid on closed loans under a written compensation agreement, and commission is paid as each loan closes. W-2 and 1099 options are available, and eligible loan officers can access medical, dental and vision coverage, a 401(k) and an HSA. We walk through the full plan, including splits and any costs you’re responsible for, on your intro call. As federal rules require, loan officer pay is never based on a loan’s rate or terms.'),
     ('Does Moxie provide leads or referrals?',
      'Moxie Area Directors build relationships with real estate agents in their markets, and agent partners introduce their buyers to Moxie loan officers. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.'),
     ('Which lenders and loan programs can I offer?',
-     'Through NEXA, Moxie loan officers can shop more than 300 wholesale investors for conventional, FHA, VA, jumbo, non-QM and HELOC loans.'),
+     'Through NEXA, Moxie loan officers can shop more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, ITIN and foreign national loans, construction, renovation and reverse mortgages.'),
     ('What technology do Moxie loan officers use?',
      'Arive for loan origination, Lofty for CRM and follow-up, and Moxie’s client tools, including a debt consolidation worksheet with MISMO 3.4 credit import, ARM vs. fixed and buydown comparisons, and an effective rate calculator.'),
     ('What do I need to join, and which states can I originate in?',
      'You need an active NMLS license in good standing. Moxie loan officers are sponsored through NEXA Mortgage in the states where they’re licensed. NEXA isn’t licensed in New York or Massachusetts yet, so we can’t sponsor originators there today.'),
     ('What training and support will I get?',
-     'Moxie University for on-demand training, Monday and Friday team huddles at noon ET, short how-to videos for Moxie’s client tools, and a mentor for deal strategy and accountability.'),
+     'Dedicated loan processors and mortgage consultants, a back office that handles HR, legal, compliance, marketing, accounting, payroll and licensing, Moxie University for on-demand training, Monday and Friday team huddles at noon ET, an annual mortgage conference, and a mentor for deal strategy and accountability.'),
     ('How do I apply?',
      'Fill out the short application on this page. We’ll reach out to book a 20-minute intro call to review compensation, the referral pipeline and next steps.'),
 ]
@@ -245,7 +293,7 @@ disclosures = '''
     <p style="margin: 0">Moxie Mortgage, a division of NEXA Mortgage, LLC · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
   </section>'''
 
-body = hero + why + pricing + flow + compare + tools_sec + mk + train_sec + rv + faq_sec + apply_sec + disclosures
+body = hero + stop_sec + why + pricing + products_sec + flow + compare + tools_sec + mk + ben_sec + train_sec + rv + faq_sec + apply_sec + disclosures
 body += f'''
 <dialog class="mxa-dlg" id="mxa-dlg" aria-labelledby="mxa-dlg-h"><div>
   <button type="button" class="mxa-x" data-mxa-close aria-label="Close">×</button>
@@ -273,11 +321,11 @@ s = s.replace('Thanks! We’ll review it and reach out to book your onboarding c
 s = s.replace('// ---- timeline:', '// ---- referral flow:')
 # FAQ: one open at a time is not needed; leave native <details>
 
-DESC = ("Join Moxie Mortgage as a loan officer: 300+ wholesale investors, referrals from Area Directors and agent partners, "
-        "client-ready sales tools, and hands-on mentorship. For experienced, licensed LOs.")
+DESC = ("Join Moxie Mortgage as a loan officer: 300+ wholesale investors, thousands of loan programs, referrals from agent partners, "
+        "everyday payday, benefits, and hands-on support. For experienced, licensed LOs.")
 page, crumbs = webpage('/loanofficer', 'Loan Officer Careers | Join Moxie Mortgage', DESC, 'Loan Officer Careers', {
     "dateModified": datetime.date.today().isoformat(),
-    "keywords": "mortgage loan officer jobs, loan officer careers, mortgage broker loan officer, wholesale mortgage loan officer, join a mortgage brokerage, NEXA Mortgage loan officer",
+    "keywords": "mortgage loan officer jobs, non-QM loan officer, W-2 loan officer with benefits, loan officer careers, mortgage broker loan officer, wholesale mortgage loan officer, join a mortgage brokerage, NEXA Mortgage loan officer",
     "audience": {"@type": "Audience", "audienceType": "Licensed mortgage loan originators"},
     "mentions": [{"@type": "Organization", "name": "NEXA Mortgage"}, {"@type": "Thing", "name": "NMLS license sponsorship"}]})
 schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
