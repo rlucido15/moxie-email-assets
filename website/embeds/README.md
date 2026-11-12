@@ -112,16 +112,15 @@ Replace the page's three blocks (heading text, 3-column cards, closing text) wit
 3. Point the nav/footer "Client Success" links (and the "READ CLIENT STORIES" button on /blog) to /client-success.
 4. Keep publishing stories in the Lofty blog under the Client Success category. New ones appear on the page automatically ("New story"); fold them in with the "Client Stories Update" routine so they get a summary, tags, and crawlable HTML.
 
-## /area-director (new page, replaces /bdm)
-File: `moxie-area-director-embed.html` (~66 KB)
+## /area-director (live at /areadirector)
+File: `moxie-area-director-embed.html` (~74 KB)
 
-1. In Lofty, create a page at **/area-director** (or reuse the /bdm page and change its URL).
-2. Remove the old banner block and the old text block under the form. **Keep the application form block** ("Apply now and start earning in days"). Don't delete it: the new page moves it into its "Apply to become an Area Director" card and restyles it, so applications keep going into Lofty exactly as today.
-3. Add a Custom Code / Embed block directly under the header, *above* the form block, and paste the whole file.
-4. Add the footer embed at the bottom.
-5. If you moved off /bdm, point /bdm to /area-director (redirect, or a link from the old page) so old links keep working.
-   - If the form block is ever missing, the card shows a "Call (480) 660-2518" button instead.
-   - The form's "2023 Buyer Sales (Units)" and "2023 Sales (Volume)" labels are relabeled on the page to "last 12 months". To change what is actually collected, edit the fields in Lofty's form settings.
+1. In Lofty, on the /areadirector page, add a Custom Code / Embed block directly under the header and paste the whole file.
+2. No Lofty form block is needed. The page has its own application form (an inline card plus a popup that every "Apply" button opens). It posts to the existing "Lofty API" intake Apps Script (the same deployment the rent-vs-buy calculator uses), which creates or updates the Lofty lead tagged **CTA: AD Application**. Units, volume, states, message and consent text go into the lead's pinned note.
+3. Add the footer embed at the bottom.
+4. Point /bdm to /areadirector so old links keep working.
+   - The Lofty API key stays in the Apps Script. The page only carries that script's spam-gate secret, same as the calculators.
+   - To change the endpoint, rebuild with `AD_ENDPOINT=... python3 build/ad.py`.
 
 SEO (page settings › SEO):
 - Title: `Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage`

@@ -11,7 +11,10 @@ from optimize import optimize
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # Google Apps Script web app that holds the Lofty API key and creates the lead (see ad-relay.gs). Paste its /exec URL here.
-AD_ENDPOINT = os.environ.get('AD_ENDPOINT', '')
+# Existing shared "Lofty API" intake Apps Script (same deployment the rent-vs-buy calculator uses).
+# The secret is only that script's light spam gate; the Lofty API key stays server-side in the script.
+AD_ENDPOINT = os.environ.get('AD_ENDPOINT', 'https://script.google.com/macros/s/AKfycby2DNAgTJREXdoEPWPobju74TheeTS5ne4LdXR16cVG9jW7HfcwCJchxGgthsM47Ndj/exec')
+AD_SECRET = os.environ.get('AD_SECRET', 'joasidfjoaiewlkejwlkessddfsqwe')
 SRC = '/home/claude/canvas/project/AreaDirector.dc.html'
 if not os.path.exists(SRC):
     SRC = '/home/claude/work/AreaDirector.dc.html'  # snapshot kept in build/work/
@@ -238,8 +241,8 @@ root.querySelectorAll('[data-ad-rev]').forEach(function (b) {
   b.addEventListener('click', function () { trackEl.scrollBy({ left: +b.getAttribute('data-ad-rev') * trackEl.clientWidth, behavior: 'smooth' }); });
 });
 
-// ---- application: our own form, posted to Moxie's relay, which creates the lead in Lofty tagged "CTA: AD Application"
-var ENDPOINT = '__ENDPOINT__';
+// ---- application: our own form, posted to Moxie's existing Lofty intake script, which tags the lead "CTA: AD Application"
+var ENDPOINT = '__ENDPOINT__', SECRET = '__SECRET__';
 var started = Date.now();
 var dlg = root.querySelector('#mxa-dlg');
 function openApply(src) {
@@ -270,8 +273,10 @@ root.querySelectorAll('[data-mxa-form]').forEach(function (form) {
     if (v('website') || Date.now() - started < 3000) { done(form); return; } // bots: pretend success, send nothing
     if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) return fail('Applications aren’t connected yet. Please call ' + '__PHONE__' + '.');
     var consentText = form.querySelector('.mxa-consent label').textContent.replace(/\s+/g, ' ').trim();
-    var payload = { name: v('name'), phone: v('phone'), email: v('email'), units: v('units'), volume: v('volume'), states: v('states'),
-      message: v('message'), consent: true, consentText: consentText, page: location.href.split('#')[0], ts: new Date().toISOString() };
+    var payload = { name: v('name'), phone: v('phone'), email: v('email'), cta: 'AD Application', source: 'MoxieMortgage.com — Area Director page',
+      consent: true, secret: SECRET, message: v('message'), pageUrl: location.href.split('#')[0], submittedAt: new Date().toISOString(),
+      fields: { 'Application': 'Area Director', 'Buyer sales, last 12 months (units)': v('units'), 'Sales volume, last 12 months': v('volume'),
+        'States': v('states'), 'Consent text': consentText } };
     btn.disabled = true; btn.textContent = 'Sending…';
     fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
       .then(function (r) { return r.json(); })
@@ -287,7 +292,7 @@ function done(form) {
     f.innerHTML = '<div class="full mxa-done" role="status"><b>Application received.</b>Thanks! We’ll review it and reach out to book your onboarding call.</div>';
   });
 }
-""".replace('__PON__', pill_on).replace('__POFF__', pill_off).replace('__ENDPOINT__', AD_ENDPOINT).replace('__PHONE__', PHONE)
+""".replace('__PON__', pill_on).replace('__POFF__', pill_off).replace('__ENDPOINT__', AD_ENDPOINT).replace('__SECRET__', AD_SECRET).replace('__PHONE__', PHONE)
 
 DESC = "Join Moxie Mortgage as an Area Director: a W-2 business development role paid 0.25% of the loan amount on closed Moxie loans in your area. No mortgage license or loan work required."
 import datetime
