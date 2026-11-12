@@ -10,6 +10,8 @@ from common import *
 from optimize import optimize
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+# Google Apps Script web app that holds the Lofty API key and creates the lead (see ad-relay.gs). Paste its /exec URL here.
+AD_ENDPOINT = os.environ.get('AD_ENDPOINT', '')
 SRC = '/home/claude/canvas/project/AreaDirector.dc.html'
 if not os.path.exists(SRC):
     SRC = '/home/claude/work/AreaDirector.dc.html'  # snapshot kept in build/work/
@@ -34,7 +36,7 @@ page_css = page_css.replace('.mx-btn-p:hover', '.mxp .mxa-btn-p:hover').replace(
 
 AD_CSS = page_css + r"""
 .mxp.mxp .ad-tl>li{padding:22px 24px !important}
-.mxp .mxa-main h3{font-weight:700}
+.mxp .mxa-main h3,.mxa-dlg h3{font-weight:700}
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
 @media (prefers-reduced-motion:reduce){.mxp .ad-tl>li{opacity:1 !important;transform:none !important}}
 .mxp.mxp .ad-steps>li{display:flex !important;gap:18px}
@@ -47,39 +49,32 @@ AD_CSS = page_css + r"""
 .mxp blockquote{border:0;quotes:none;font-style:normal}
 .mxp blockquote::before,.mxp blockquote::after{content:none}
 .mxp input.ad-range{border:0;padding:0;background-color:transparent}
-/* the Lofty application form, moved into the apply card */
+/* application form (inline card + popup) */
 .mxa-form{flex:1 1 480px;min-width:0;max-width:560px;margin:0 auto;align-self:center;background:#fff;color:#0E2A47;border-radius:24px;padding:32px;box-shadow:0 30px 60px rgba(2,2,21,.35)}
-.mxa-form>h3{font-size:24px;line-height:1.2;font-weight:800}
-.mxa-form>p{margin:6px 0 18px !important;color:#4A5868;font-size:15px}
-.mxa-slot .md-form{padding:0 !important;margin:0 !important;background:none !important;min-height:0 !important;width:auto !important}
-.mxa-slot .md-form .mask,.mxa-slot .md-form .site-title{display:none !important}
-.mxa-slot .md-form-container{padding:0 !important;margin:0 !important;max-width:none !important;width:auto !important;background:none !important;box-shadow:none !important}
-.mxa-slot .input-content{display:block !important;width:100% !important}
-.mxa-slot .basic-info{width:100% !important;display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
-.mxa-slot .basic-info>.fullname{grid-column:1/-1}
-.mxa-slot .basic-info>.singleLineTextH2jVGbA4p{grid-column:1/-1}
-.mxa-slot .v-input{margin:0 !important;width:auto !important;max-width:none !important;padding:0 !important}
-.mxa-slot .v-input.message{margin-top:14px !important}
-.mxa-slot .input-container{margin:0 !important;padding:0 !important;width:100% !important;border:0 !important;background:none !important}
-.mxa-slot .label-top{display:block !important;position:static !important;transform:none !important;font:600 15px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;margin:0 0 6px !important;opacity:1 !important;background:none !important;padding:0 !important;letter-spacing:0 !important;text-transform:none !important}
-.mxa-slot input[type=text],.mxa-slot input[type=tel],.mxa-slot input[type=email],.mxa-slot textarea{width:100% !important;box-sizing:border-box !important;min-height:46px !important;border:1px solid #C9D8DF !important;border-radius:10px !important;padding:10px 12px !important;font:500 16px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;background:#fff !important;box-shadow:none !important}
-.mxa-slot textarea{min-height:92px !important;resize:vertical}
-.mxa-slot input:focus,.mxa-slot textarea:focus{outline:2px solid #1C97AE !important;border-color:#1C97AE !important}
-.mxa-slot .mg-error{font-size:13px !important;margin:4px 0 0 !important}
-.mxa-slot .disclaimer-wrap{margin-top:16px !important}
-.mxa-slot .disclaimer-content,.mxa-slot .disclaimer-content p{font-size:12.5px !important;line-height:1.45 !important;color:#4A5868 !important}
-.mxa-slot .submit-content{margin-top:18px !important;padding:0 !important}
-.mxa-slot .submit-box{width:100% !important;max-width:none !important}
-.mxa-slot button.submit{width:100% !important;min-height:52px !important;border:0 !important;border-radius:12px !important;background:#F46744 !important;color:#0E2A47 !important;font:700 17px MoxieBarlow,Barlow,system-ui,sans-serif !important;text-transform:none !important;letter-spacing:0 !important;cursor:pointer}
-.mxa-slot button.submit:hover{background:#ff7a59 !important}
-.mxa-slot button.submit.submit-disabled{opacity:.6}
-.mxa-slot{min-height:640px}
-.mxa-slot.has-form{min-height:0}
-.mxa-fallback{display:none;flex-direction:column;gap:12px}
-.mxa-slot.no-form{min-height:0}
-.mxa-slot.no-form .mxa-fallback{display:flex}
-.mxa-slot.has-form .mxa-fallback{display:none}
-@media (max-width:560px){.mxa-slot .basic-info{grid-template-columns:1fr}.mxa-form{padding:24px}.mxa-slot{min-height:900px}}
+.mxa-form>h3,.mxa-dlg h3{font-size:24px;line-height:1.2;font-weight:800}
+.mxa-form>p,.mxa-dlg .mxa-sub{margin:6px 0 18px !important;color:#4A5868;font-size:15px}
+.mxa-f{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 16px}
+.mxa-f .full{grid-column:1/-1}
+.mxa-f label{display:block;font-weight:600;font-size:15px;margin:0 0 6px;color:#0E2A47}
+.mxa-f input[type=text],.mxa-f input[type=tel],.mxa-f input[type=email],.mxa-f textarea{width:100%;box-sizing:border-box;min-height:46px;border:1px solid #C9D8DF !important;border-radius:10px !important;padding:10px 12px !important;font:500 16px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;background:#fff !important;box-shadow:none !important;margin:0 !important}
+.mxa-f textarea{min-height:84px;resize:vertical}
+.mxa-f input:focus,.mxa-f textarea:focus{outline:2px solid #1C97AE !important;border-color:#1C97AE !important}
+.mxa-f [aria-invalid=true]{border-color:#C2362B !important}
+.mxa-f .mxa-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
+.mxa-f .mxa-consent{display:flex;gap:10px;align-items:flex-start}
+.mxa-f .mxa-consent input{margin:4px 0 0;width:18px;height:18px;accent-color:#127C8F;flex:none}
+.mxa-f .mxa-consent label{font-weight:400;font-size:12.5px;line-height:1.45;color:#4A5868;margin:0}
+.mxa-f button[type=submit]{width:100%;min-height:52px;border:0;border-radius:12px;background:#F46744;color:#0E2A47;font:700 17px MoxieBarlow,Barlow,system-ui,sans-serif;cursor:pointer}
+.mxa-f button[type=submit]:hover{background:#ff7a59}
+.mxa-f button[disabled]{opacity:.6;cursor:wait}
+.mxa-err{color:#C2362B;font-size:14px;margin:0}
+.mxa-done{text-align:center;padding:20px 0}
+.mxa-done b{display:block;font-size:22px;margin-bottom:6px}
+.mxa-dlg{border:0;padding:0;border-radius:24px;max-width:560px;width:calc(100% - 32px);max-height:calc(100% - 32px);box-shadow:0 30px 80px rgba(2,2,21,.45);color:#0E2A47;font-family:MoxieBarlow,Barlow,system-ui,sans-serif}
+.mxa-dlg::backdrop{background:rgba(14,42,71,.6)}
+.mxa-dlg>div{padding:32px;position:relative}
+.mxa-x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:#F4F8FA;color:#0E2A47;font-size:22px;line-height:1;cursor:pointer}
+@media (max-width:560px){.mxa-f{grid-template-columns:1fr}.mxa-form,.mxa-dlg>div{padding:24px}}
 /* below-the-fold sections skip rendering work until they are near the viewport */
 .mxa-main>section:nth-of-type(n+3){content-visibility:auto;contain-intrinsic-size:auto 900px}
 """
@@ -143,16 +138,40 @@ body = body.replace('<ol style="list-style: none; padding: 0; margin: 32px 0 0;'
 # ---------- the design's static form -> slot for Moxie's Lofty form block
 form = re.search(r'\s*<form aria-labelledby="ad-form-h".*?</form>', body, re.S)
 assert form
+CONSENT = ('I agree to the <a href="/site/electronic-disclosure-consent" target="_blank" rel="noopener">Electronic Disclosure Consent Agreement</a> '
+           'and to receive recurring marketing communications from Moxie Mortgage, including auto-dialed calls, texts, and prerecorded or artificial '
+           'voice messages. Frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help. I agree to the '
+           '<a href="/site/privacy-terms#terms-of-service" target="_blank" rel="noopener">Terms of Service</a> and '
+           '<a href="/site/privacy-terms#privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. Consent is not required to make a purchase; '
+           f'call {PHONE} for direct assistance.')
+def appform(k):
+    f = lambda n: f'mxa-{k}-{n}'
+    return f'''<form class="mxa-f" data-mxa-form novalidate>
+          <div class="full"><label for="{f('name')}">Name *</label><input id="{f('name')}" name="name" type="text" autocomplete="name" required maxlength="60"></div>
+          <div><label for="{f('phone')}">Phone *</label><input id="{f('phone')}" name="phone" type="tel" autocomplete="tel" required maxlength="20"></div>
+          <div><label for="{f('email')}">Email *</label><input id="{f('email')}" name="email" type="email" autocomplete="email" required maxlength="80"></div>
+          <div><label for="{f('units')}">Buyer sales, last 12 months (units) *</label><input id="{f('units')}" name="units" type="text" inputmode="numeric" required maxlength="20"></div>
+          <div><label for="{f('volume')}">Sales volume, last 12 months *</label><input id="{f('volume')}" name="volume" type="text" inputmode="decimal" required maxlength="30"></div>
+          <div class="full"><label for="{f('states')}">States you operate in *</label><input id="{f('states')}" name="states" type="text" required maxlength="120"></div>
+          <div class="full"><label for="{f('msg')}">Message</label><textarea id="{f('msg')}" name="message" rows="3" maxlength="1000"></textarea></div>
+          <div class="mxa-hp" aria-hidden="true"><label for="{f('web')}">Website</label><input id="{f('web')}" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="full mxa-consent"><input id="{f('ok')}" name="consent" type="checkbox" required><label for="{f('ok')}">{CONSENT}</label></div>
+          <p class="full mxa-err" role="alert" hidden></p>
+          <div class="full"><button type="submit">Submit application</button></div>
+        </form>'''
 body = body.replace(form.group(0), f'''
       <div class="mxa-form" id="mxa-apply-card">
         <h3 id="ad-form-h">Apply to become an Area Director</h3>
         <p>We’ll review and reach out to book your onboarding call.</p>
-        <div class="mxa-slot" id="mxa-form-slot">
-          <div class="mxa-fallback">
-            <a class="mx-btn mx-btn-p" href="mailto:hello@moxiemortgage.com?subject=Area%20Director%20application">Submit application</a>
-          </div>
-        </div>
+        {appform('card')}
       </div>''', 1)
+body += f'''
+<dialog class="mxa-dlg" id="mxa-dlg" aria-labelledby="mxa-dlg-h"><div>
+  <button type="button" class="mxa-x" data-mxa-close aria-label="Close">×</button>
+  <h3 id="mxa-dlg-h">Apply to become an Area Director</h3>
+  <p class="mxa-sub">Takes about a minute. We’ll reach out to book your 20-minute onboarding call.</p>
+  {appform('pop')}
+</div></dialog>'''
 
 # ---------- shared footer is its own embed block
 body = re.sub(r'\s*<dc-import[^>]*></dc-import>', '', body)
@@ -219,34 +238,56 @@ root.querySelectorAll('[data-ad-rev]').forEach(function (b) {
   b.addEventListener('click', function () { trackEl.scrollBy({ left: +b.getAttribute('data-ad-rev') * trackEl.clientWidth, behavior: 'smooth' }); });
 });
 
-// ---- move Moxie's Lofty application form (its own block on this page) into the apply card.
-// Leads keep going to Lofty exactly as before. If the form block isn't on the page, a call button shows instead.
-var RELABEL = [[/buyer sales/i, 'Buyer sales, last 12 months (units)*'], [/sales \(volume\)/i, 'Sales volume, last 12 months*'], [/states you operate/i, 'States you operate in*']];
-function mountForm() {
-  var slot = root.querySelector('#mxa-form-slot'); if (!slot || slot.classList.contains('has-form')) return true;
-  var blocks = document.querySelectorAll('.md-form');
-  for (var i = 0; i < blocks.length; i++) {
-    var b = blocks[i];
-    if (root.contains(b) || !b.querySelector('form')) continue;
-    slot.appendChild(b); slot.classList.add('has-form');
-    b.querySelectorAll('.v-input').forEach(function (v) {
-      var lab = v.querySelector('.label-top'), inp = v.querySelector('input,textarea'); if (!lab || !inp) return;
-      RELABEL.forEach(function (r) { if (r[0].test(lab.textContent)) { lab.textContent = r[1]; inp.placeholder = ''; } });
-      if (inp.placeholder) inp.placeholder = '';
-    });
-    b.addEventListener('submit', function () { MX.track('ad_apply_submit', {}); }, true);
-    return true;
-  }
-  return false;
+// ---- application: our own form, posted to Moxie's relay, which creates the lead in Lofty tagged "CTA: AD Application"
+var ENDPOINT = '__ENDPOINT__';
+var started = Date.now();
+var dlg = root.querySelector('#mxa-dlg');
+function openApply(src) {
+  MX.track('ad_apply_open', { src: src });
+  if (dlg && typeof dlg.showModal === 'function') { dlg.showModal(); var f = dlg.querySelector('input[name=name]'); if (f) f.focus(); }
+  else { var c = root.querySelector('#mxa-apply-card'); if (c) c.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 }
-if (!mountForm()) {
-  var mo = new MutationObserver(function () { if (mountForm()) mo.disconnect(); });
-  mo.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function () { mo.disconnect(); var sl = root.querySelector('#mxa-form-slot'); if (sl && !sl.classList.contains('has-form')) sl.classList.add('no-form'); }, 6000);
-  window.addEventListener('load', function () { if (mountForm()) mo.disconnect(); });
+root.querySelectorAll('a[href="#apply"]').forEach(function (a) {
+  a.addEventListener('click', function (e) { e.preventDefault(); openApply(a.textContent.trim()); });
+});
+if (dlg) {
+  dlg.querySelector('[data-mxa-close]').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 }
-root.querySelectorAll('a[href="#apply"]').forEach(function (a) { a.addEventListener('click', function () { MX.track('ad_apply_click', { src: a.textContent.trim() }); }); });
-""".replace('__PON__', pill_on).replace('__POFF__', pill_off)
+var digits = function (v) { return String(v || '').replace(/\D/g, ''); };
+root.querySelectorAll('[data-mxa-form]').forEach(function (form) {
+  var err = form.querySelector('.mxa-err'), btn = form.querySelector('button[type=submit]');
+  function fail(msg, el) { err.textContent = msg; err.hidden = false; if (el) { el.setAttribute('aria-invalid', 'true'); el.focus(); } }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); err.hidden = true;
+    form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    var v = function (n) { return (form.elements[n].value || '').trim(); };
+    var req = ['name', 'phone', 'email', 'units', 'volume', 'states'];
+    for (var i = 0; i < req.length; i++) { if (!v(req[i])) return fail('Please fill in all required fields.', form.elements[req[i]]); }
+    if (digits(v('phone')).length < 10) return fail('Please enter a 10-digit phone number.', form.elements.phone);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) return fail('Please enter a valid email address.', form.elements.email);
+    if (!form.elements.consent.checked) return fail('Please check the consent box to continue.', form.elements.consent);
+    if (v('website') || Date.now() - started < 3000) { done(form); return; } // bots: pretend success, send nothing
+    if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) return fail('Applications aren’t connected yet. Please call ' + '__PHONE__' + '.');
+    var consentText = form.querySelector('.mxa-consent label').textContent.replace(/\s+/g, ' ').trim();
+    var payload = { name: v('name'), phone: v('phone'), email: v('email'), units: v('units'), volume: v('volume'), states: v('states'),
+      message: v('message'), consent: true, consentText: consentText, page: location.href.split('#')[0], ts: new Date().toISOString() };
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j || !j.ok) throw new Error((j && j.error) || 'failed');
+        MX.track('ad_apply_submit', { src: form.closest('dialog') ? 'popup' : 'card' }); done(form);
+      })
+      .catch(function () { btn.disabled = false; btn.textContent = 'Submit application'; fail('Something went wrong sending your application. Please try again or call ' + '__PHONE__' + '.'); });
+  });
+});
+function done(form) {
+  root.querySelectorAll('[data-mxa-form]').forEach(function (f) {
+    f.innerHTML = '<div class="full mxa-done" role="status"><b>Application received.</b>Thanks! We’ll review it and reach out to book your onboarding call.</div>';
+  });
+}
+""".replace('__PON__', pill_on).replace('__POFF__', pill_off).replace('__ENDPOINT__', AD_ENDPOINT).replace('__PHONE__', PHONE)
 
 DESC = "Join Moxie Mortgage as an Area Director: a W-2 business development role paid 0.25% of the loan amount on closed Moxie loans in your area. No mortgage license or loan work required."
 import datetime
@@ -256,7 +297,7 @@ page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income i
     "mentions": [{"@type": "Thing", "name": "Real Estate Settlement Procedures Act (RESPA)"}, {"@type": "Thing", "name": "Mortgage joint venture"}]})
 schema = jsonld([ORG, page, crumbs])
 
-LOFTY_KEEP = '<!-- styles the moved Lofty form: md-form mask site-title md-form-container input-content basic-info fullname singleLineTextH2jVGbA4p v-input message input-container label-top mg-error disclaimer-wrap disclaimer-content submit-content submit-box submit submit-disabled has-form no-form -->'
+LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid -->'
 full = wrap('mx-ad', LOFTY_KEEP + f'\n<style>{AD_CSS}</style>\n<div class="mxa-main">\n{body}\n</div>', script, schema, 'AREA DIRECTOR (/area-director, replaces /bdm)')
 # the design font is Barlow; the shared embeds self-host it as MoxieBarlow
 full = full.replace('font-family: Barlow, system-ui, sans-serif', 'font-family: MoxieBarlow, Barlow, system-ui, sans-serif')
