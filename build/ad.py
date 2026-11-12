@@ -35,6 +35,7 @@ page_css = page_css.replace('.mx-btn-p:hover', '.mxp .mxa-btn-p:hover').replace(
 AD_CSS = page_css + r"""
 .mxp.mxp .ad-tl>li{padding:22px 24px !important}
 .mxp .mxa-main h3{font-weight:700}
+.mxp .mxa-main section[id]{scroll-margin-top:120px}
 @media (prefers-reduced-motion:reduce){.mxp .ad-tl>li{opacity:1 !important;transform:none !important}}
 .mxp.mxp .ad-steps>li{display:flex !important;gap:18px}
 .mxp a.mxa-btn-p{color:#0E2A47}
