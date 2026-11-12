@@ -61,6 +61,20 @@ AD_CSS = page_css + r"""
 .mxa-f label{display:block;font-weight:600;font-size:15px;margin:0 0 6px;color:#0E2A47}
 .mxa-f input[type=text],.mxa-f input[type=tel],.mxa-f input[type=email],.mxa-f textarea{width:100%;box-sizing:border-box;min-height:46px;border:1px solid #C9D8DF !important;border-radius:10px !important;padding:10px 12px !important;font:500 16px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47 !important;background:#fff !important;box-shadow:none !important;margin:0 !important}
 .mxa-f textarea{min-height:84px;resize:vertical}
+.mxa-f .mxa-lbl{display:block;font-weight:600;font-size:15px;margin:0 0 6px;color:#0E2A47}
+.mxa-st{position:relative}
+.mxa-st summary{list-style:none;cursor:pointer;min-height:46px;box-sizing:border-box;border:1px solid #C9D8DF;border-radius:10px;padding:11px 40px 11px 12px;font:500 16px MoxieBarlow,Barlow,system-ui,sans-serif;color:#0E2A47;background:#fff;position:relative}
+.mxa-st summary::-webkit-details-marker{display:none}
+.mxa-st summary::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;border-right:2px solid #127C8F;border-bottom:2px solid #127C8F;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.mxa-st[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.mxa-st summary:focus-visible{outline:2px solid #1C97AE}
+.mxa-st.mxa-bad summary{border-color:#C2362B}
+.mxa-st .mxa-st-v.mxa-ph{color:#6B7F8E}
+.mxa-st-p{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;margin-top:6px;padding:10px;border:1px solid #C9D8DF;border-radius:10px;background:#fff;max-height:228px;overflow:auto}
+.mxa-st-p label{display:flex !important;align-items:center;justify-content:center;gap:0;margin:0 !important;padding:7px 0;border:1px solid #DCE7EC;border-radius:8px;font:600 14px MoxieBarlow,Barlow,system-ui,sans-serif !important;color:#0E2A47;cursor:pointer;user-select:none}
+.mxa-st-p input{position:absolute;opacity:0;width:1px;height:1px}
+.mxa-st-p label:has(input:checked){background:#127C8F;border-color:#127C8F;color:#fff}
+.mxa-st-p label:has(input:focus-visible){outline:2px solid #1C97AE}
 .mxa-f input:focus,.mxa-f textarea:focus{outline:2px solid #1C97AE !important;border-color:#1C97AE !important}
 .mxa-f [aria-invalid=true]{border-color:#C2362B !important}
 .mxa-f .mxa-hp{position:absolute !important;left:-9999px !important;width:1px;height:1px;opacity:0}
@@ -147,6 +161,9 @@ CONSENT = ('I agree to the <a href="/site/electronic-disclosure-consent" target=
            '<a href="/site/privacy-terms#terms-of-service" target="_blank" rel="noopener">Terms of Service</a> and '
            '<a href="/site/privacy-terms#privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. Consent is not required to make a purchase; '
            f'call {PHONE} for direct assistance.')
+US_STATES = 'AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split()
+ST_BOXES = ''.join(f'<label><input type="checkbox" value="{a}">{a}</label>' for a in US_STATES)
+
 def appform(k):
     f = lambda n: f'mxa-{k}-{n}'
     return f'''<form class="mxa-f" data-mxa-form novalidate>
@@ -155,7 +172,7 @@ def appform(k):
           <div><label for="{f('email')}">Email *</label><input id="{f('email')}" name="email" type="email" autocomplete="email" required maxlength="80"></div>
           <div><label for="{f('units')}">Buyer sales, last 12 months (units) *</label><input id="{f('units')}" name="units" type="text" inputmode="numeric" required maxlength="20"></div>
           <div><label for="{f('volume')}">Sales volume, last 12 months *</label><input id="{f('volume')}" name="volume" type="text" inputmode="decimal" required maxlength="30"></div>
-          <div class="full"><label for="{f('states')}">States you operate in *</label><input id="{f('states')}" name="states" type="text" required maxlength="120"></div>
+          <div class="full"><span class="mxa-lbl" id="{f('states')}-l">States you operate in *</span><details class="mxa-st"><summary aria-labelledby="{f('states')}-l {f('states')}-v"><span id="{f('states')}-v" class="mxa-st-v">Select states</span></summary><div class="mxa-st-p" role="group" aria-labelledby="{f('states')}-l">{ST_BOXES}</div></details><input type="hidden" name="states" value=""></div>
           <div class="full"><label for="{f('msg')}">Message</label><textarea id="{f('msg')}" name="message" rows="3" maxlength="1000"></textarea></div>
           <div class="mxa-hp" aria-hidden="true"><label for="{f('web')}">Website</label><input id="{f('web')}" name="website" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="full mxa-consent"><input id="{f('ok')}" name="consent" type="checkbox" required><label for="{f('ok')}">{CONSENT}</label></div>
@@ -257,6 +274,16 @@ if (dlg) {
   dlg.querySelector('[data-mxa-close]').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 }
+root.querySelectorAll('.mxa-st').forEach(function (d) {
+  var form = d.closest('form'), hid = form.elements.states, val = d.querySelector('.mxa-st-v');
+  function sync() {
+    var on = [].map.call(d.querySelectorAll('input:checked'), function (c) { return c.value; });
+    hid.value = on.join(', '); d.classList.remove('mxa-bad');
+    val.textContent = on.length ? on.join(', ') : 'Select states'; val.classList.toggle('mxa-ph', !on.length);
+  }
+  d.addEventListener('change', sync); sync();
+  document.addEventListener('click', function (e) { if (d.open && !d.contains(e.target)) d.open = false; });
+});
 var digits = function (v) { return String(v || '').replace(/\D/g, ''); };
 root.querySelectorAll('[data-mxa-form]').forEach(function (form) {
   var err = form.querySelector('.mxa-err'), btn = form.querySelector('button[type=submit]');
@@ -266,14 +293,18 @@ root.querySelectorAll('[data-mxa-form]').forEach(function (form) {
     form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
     var v = function (n) { return (form.elements[n].value || '').trim(); };
     var req = ['name', 'phone', 'email', 'units', 'volume', 'states'];
-    for (var i = 0; i < req.length; i++) { if (!v(req[i])) return fail('Please fill in all required fields.', form.elements[req[i]]); }
+    for (var i = 0; i < req.length; i++) {
+      if (v(req[i])) continue;
+      if (req[i] === 'states') { var st = form.querySelector('.mxa-st'); st.classList.add('mxa-bad'); st.open = true; return fail('Please select the states you operate in.', st.querySelector('summary')); }
+      return fail('Please fill in all required fields.', form.elements[req[i]]);
+    }
     if (digits(v('phone')).length < 10) return fail('Please enter a 10-digit phone number.', form.elements.phone);
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) return fail('Please enter a valid email address.', form.elements.email);
     if (!form.elements.consent.checked) return fail('Please check the consent box to continue.', form.elements.consent);
     if (v('website') || Date.now() - started < 3000) { done(form); return; } // bots: pretend success, send nothing
     if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) return fail('Applications aren’t connected yet. Please call ' + '__PHONE__' + '.');
     var consentText = form.querySelector('.mxa-consent label').textContent.replace(/\s+/g, ' ').trim();
-    var payload = { name: v('name'), phone: v('phone'), email: v('email'), cta: 'AD Application', source: 'MoxieMortgage.com — Area Director page',
+    var payload = { name: v('name'), phone: v('phone'), email: v('email'), cta: 'AD Application', tags: v('states').split(', ').filter(Boolean), source: 'MoxieMortgage.com — Area Director page',
       consent: true, secret: SECRET, message: v('message'), pageUrl: location.href.split('#')[0], submittedAt: new Date().toISOString(),
       fields: { 'Application': 'Area Director', 'Buyer sales, last 12 months (units)': v('units'), 'Sales volume, last 12 months': v('volume'),
         'States': v('states'), 'Consent text': consentText } };
@@ -302,7 +333,7 @@ page, crumbs = webpage('/area-director', 'Area Director | Earn Mortgage Income i
     "mentions": [{"@type": "Thing", "name": "Real Estate Settlement Procedures Act (RESPA)"}, {"@type": "Thing", "name": "Mortgage joint venture"}]})
 schema = jsonld([ORG, page, crumbs])
 
-LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid -->'
+LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open -->'
 full = wrap('mx-ad', LOFTY_KEEP + f'\n<style>{AD_CSS}</style>\n<div class="mxa-main">\n{body}\n</div>', script, schema, 'AREA DIRECTOR (/area-director, replaces /bdm)')
 # the design font is Barlow; the shared embeds self-host it as MoxieBarlow
 full = full.replace('font-family: Barlow, system-ui, sans-serif', 'font-family: MoxieBarlow, Barlow, system-ui, sans-serif')
