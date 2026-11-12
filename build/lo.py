@@ -130,7 +130,7 @@ PRODUCTS = ['Conventional', 'FHA', 'VA', 'USDA', 'Jumbo and super jumbo', 'HELOC
             'P&amp;L only', 'Asset depletion', 'DSCR', 'Non-QM', 'ITIN', 'Foreign national', 'DACA', 'Doctor loans', 'Down payment assistance',
             '203(k) and renovation', 'Construction and one-time close', 'Fix and flip', 'Bridge loans', 'Interest-only', 'Manufactured homes',
             'Non-warrantable condos', 'Condotels', 'Up to 8 units', 'Mixed use', 'Close in an LLC', 'Reverse mortgages', 'Temporary buydowns', 'ARMs']
-chips = '<ul style="list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 10px">' + ''.join(
+chips = '<ul class="lo-chips" style="list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 10px">' + ''.join(
     f'<li style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 15px">{x}</li>' for x in PRODUCTS) + '</ul>'
 products_sec = section('lo-products', 'Loan programs', 'Thousands of programs, so you can say yes more often.',
     chips + '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Program availability varies by state, investor and borrower qualification.</p>',
@@ -333,6 +333,8 @@ schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
 LO_CSS = ad.AD_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
+.mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
+.mxp.mxp .lo-chips>li::before{content:none !important}
 .mxp .mxa-main .mx-faq details{border-bottom:1px solid #DCE6EB}
 .mxp .mxa-main .mx-faq summary h3{font-size:19px;font-weight:700;margin:0}
 """
