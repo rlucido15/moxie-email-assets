@@ -112,6 +112,17 @@ Replace the page's three blocks (heading text, 3-column cards, closing text) wit
 3. Point the nav/footer "Client Success" links (and the "READ CLIENT STORIES" button on /blog) to /client-success.
 4. Keep publishing stories in the Lofty blog under the Client Success category. New ones appear on the page automatically ("New story"); fold them in with the "Client Stories Update" routine so they get a summary, tags, and crawlable HTML.
 
+## /loanofficer (new page)
+File: `moxie-loan-officer-embed.html` (~93 KB)
+
+1. In Lofty, create a page at **/loanofficer**. Add a Custom Code / Embed block directly under the header and paste the whole file. Add the footer embed at the bottom.
+2. No Lofty form block is needed. The page's own application form (inline card plus a popup that every "Apply" button opens) posts to the existing "Lofty API" intake Apps Script. Leads are tagged **CTA: LO Application** plus one tag per licensed state (e.g. `AZ`). NMLS #, years, units, volume, states, company and consent text go in the pinned note.
+3. Add /loanofficer to the site nav or footer so it gets crawled, and submit it in Google Search Console.
+
+SEO (page settings › SEO):
+- Title: `Loan Officer Careers | Join Moxie Mortgage`
+- Meta description: `Join Moxie Mortgage as a loan officer: 300+ wholesale investors, referrals from Area Directors and agent partners, client-ready sales tools, and hands-on mentorship.`
+
 ## /area-director (live at /areadirector)
 File: `moxie-area-director-embed.html` (~74 KB)
 

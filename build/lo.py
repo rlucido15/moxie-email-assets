@@ -137,7 +137,7 @@ TOOLS = [
     ('Buydown calculator', 'Turn seller credits into a lower payment and show it on the listing flyer.'),
     ('Effective rate calculator', 'Show the after-tax cost of mortgage interest for clients who itemize.'),
     ('Arive and Lofty CRM', 'Originate in Arive and keep every lead and past client moving in Lofty.'),
-    ('Moxie University', 'On-demand training plus a short video for every Moxie tool.'),
+    ('Moxie University', 'On-demand courses plus short how-to videos for Moxie’s client tools.'),
 ]
 tools = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article class="mxa-card" style="{CARD}"><h3 style="margin: 0; font-size: 20px; display: flex; gap: 10px; align-items: center"><span style="color: #127C8F; flex: none; display: inline-flex">{ICON["check22"]}</span>{t}</h3>'
@@ -155,7 +155,7 @@ assert 'lo-mkt' in mk and 'Co-marketing' in mk and 'your name and number' in mk
 
 # ---------------- TRAINING
 TRAIN = [
-    ('Moxie University', 'Courses on products, pricing strategy and every Moxie tool, available whenever you need them.'),
+    ('Moxie University', 'Courses on products, pricing strategy and Moxie’s tools, available whenever you need them.'),
     ('Monday and Friday huddles', 'Live team calls at noon ET for market updates, new tools and deal reviews.'),
     ('A mentor on your deals', 'Training and deal strategy, an accountability partner, and direction when a file gets complicated.'),
 ]
@@ -187,7 +187,7 @@ FAQ = [
     ('What do I need to join, and which states can I originate in?',
      'You need an active NMLS license in good standing. Moxie loan officers are sponsored through NEXA Mortgage in the states where they’re licensed. NEXA isn’t licensed in New York or Massachusetts yet, so we can’t sponsor originators there today.'),
     ('What training and support will I get?',
-     'Moxie University for on-demand training, Monday and Friday team huddles at noon ET, short training videos for each Moxie tool, and a mentor for deal strategy and accountability.'),
+     'Moxie University for on-demand training, Monday and Friday team huddles at noon ET, short how-to videos for Moxie’s client tools, and a mentor for deal strategy and accountability.'),
     ('How do I apply?',
      'Fill out the short application on this page. We’ll reach out to book a 20-minute intro call to review compensation, the referral pipeline and next steps.'),
 ]
