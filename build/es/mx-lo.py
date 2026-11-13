@@ -250,3 +250,44 @@ T.update({
     "Share of Moxie Mortgage’s business from inception through November 2026: company-generated versus loan officer–sourced, and purchase versus refinance. Past results don’t guarantee future referral volume.":
         "Proporción del negocio de Moxie Mortgage desde su inicio hasta noviembre de 2026: generado por la empresa frente a conseguido por el oficial de préstamos, y compra frente a refinanciamiento. Los resultados pasados no garantizan el volumen futuro de referidos.",
 })
+
+# ---- operations, transparency and pay emphasis
+T.update({
+    "Wholesale pricing means your borrowers skip the retail overhead, and fast closings help their offers win. You see the full pricing and the investor purchase advice on every loan.":
+        "Los precios mayoristas permiten que tus clientes se ahorren los costos minoristas, y los cierres rápidos ayudan a que sus ofertas ganen. Ves los precios completos y el aviso de compra del inversionista en cada préstamo.",
+    "Built to close": "Hecho para cerrar",
+    "Operations that keep your files moving.": "Operaciones que mantienen tus expedientes en movimiento.",
+    "The deals only count if they close. Moxie keeps processing in-house and has priority lines into the investors you use most.":
+        "Los préstamos solo cuentan si cierran. Moxie procesa internamente y tiene acceso prioritario a los inversionistas que más usas.",
+    "In-house processing": "Procesamiento interno",
+    "Moxie’s own processors work your files, so you aren’t waiting in a shared third-party queue.":
+        "Los procesadores de Moxie trabajan tus expedientes, así que no esperas en una fila compartida de terceros.",
+    "Priority underwriting and account support": "Suscripción prioritaria y soporte de cuenta",
+    "Priority underwriting and account support with key investors across product types: conventional, government, jumbo, non-QM and HELOC.":
+        "Suscripción prioritaria y soporte de cuenta con inversionistas clave en todos los tipos de producto: convencional, gubernamental, jumbo, non-QM y HELOC.",
+    "Full transparency": "Transparencia total",
+    "See the pricing and the investor purchase advice on every loan, so you always know how your deal was priced and paid.":
+        "Ve los precios y el aviso de compra del inversionista en cada préstamo, para que siempre sepas cómo se cotizó y se pagó tu préstamo.",
+    "In-house processing and priority underwriting with key investors.": "Procesamiento interno y suscripción prioritaria con inversionistas clave.",
+    "In-house operations": "Operaciones internas",
+    "In-house processing, priority underwriting and account support with key investors, and a mentor for deal strategy.":
+        "Procesamiento interno, suscripción prioritaria y soporte de cuenta con inversionistas clave, y un mentor para la estrategia de tus préstamos.",
+    "82% of business company-generated, 86% purchase": "82% del negocio generado por la empresa, 86% de compra",
+    "In-house processing, plus priority underwriting and account support with key investors": "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave",
+    "Transparency": "Transparencia",
+    "You see your split, not the pricing": "Ves tu porcentaje, no los precios",
+    "Full transparency on pricing and the investor purchase advice": "Transparencia total en los precios y el aviso de compra del inversionista",
+    "Generous compensation, with full benefits.": "Compensación generosa, con beneficios completos.",
+    "Packages built to reward production, paid as your loans close, with full health insurance and a 401(k) for eligible employees.":
+        "Paquetes diseñados para premiar la producción, pagados a medida que cierran tus préstamos, con seguro médico completo y un 401(k) para los empleados elegibles.",
+    "Generous compensation": "Compensación generosa",
+    "Compensation packages built to reward production, set out in a written agreement.": "Paquetes de compensación diseñados para premiar la producción, establecidos en un acuerdo por escrito.",
+    "Full health insurance": "Seguro médico completo",
+    "Medical, dental and vision coverage for eligible employees.": "Cobertura médica, dental y de la vista para los empleados elegibles.",
+    "Plan for retirement and set aside pre-tax dollars for health costs, for eligible employees.": "Planea tu retiro y aparta dinero antes de impuestos para gastos médicos, para los empleados elegibles.",
+    "Moxie offers generous compensation packages, paid on closed loans under a written agreement, and commission is paid as each loan closes. W-2 and 1099 options are available, and eligible employees get full health insurance (medical, dental and vision), a 401(k) and an HSA. We walk through the full plan, including splits and any costs you’re responsible for, on your intro call. As federal rules require, loan officer pay is never based on a loan’s rate or terms.":
+        "Moxie ofrece paquetes de compensación generosos, pagados por préstamos cerrados bajo un acuerdo por escrito, y la comisión se paga a medida que cierra cada préstamo. Hay opciones W-2 y 1099, y los empleados elegibles reciben seguro médico completo (médico, dental y de la vista), un 401(k) y una HSA. En tu llamada de introducción revisamos el plan completo, incluidos los porcentajes y cualquier costo que te corresponda. Como lo exigen las reglas federales, el pago del oficial de préstamos nunca se basa en la tasa ni en los términos del préstamo.",
+    "Who processes and underwrites my loans?": "¿Quién procesa y suscribe mis préstamos?",
+    "Moxie processes loans in-house, and Moxie loan officers get priority underwriting and account support with key investors across product types. You also get full transparency on pricing and the investor purchase advice on every loan.":
+        "Moxie procesa los préstamos internamente, y sus oficiales de préstamos reciben suscripción prioritaria y soporte de cuenta con inversionistas clave en todos los tipos de producto. También tienes transparencia total en los precios y el aviso de compra del inversionista en cada préstamo.",
+})
