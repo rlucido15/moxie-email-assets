@@ -373,7 +373,7 @@ jump_nav = ('\n  <nav class="lo-jump" aria-label="Page sections"><div class="lo-
             + ''.join(f'<option value="{i}">{t}</option>' for i, t in JUMP) + '</select></label></nav>')
 JUMP_CSS = r"""
 .mxp .lo-jump{position:relative;z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #DCE6EB;transition:box-shadow .2s}
-.mxp .lo-jump.pinned{position:fixed;left:0;right:0;top:var(--lo-jt,0px);box-shadow:0 8px 24px rgba(14,42,71,.08)}
+.mxp .lo-jump.pinned{position:fixed;left:0;right:0;top:var(--lo-jt,0px);transition:top .25s ease,box-shadow .2s;box-shadow:0 8px 24px rgba(14,42,71,.08)}
 .mxp .lo-jump-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .mxp.mxp .lo-jump a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;font-size:15px;font-weight:600;color:#0E2A47;text-decoration:none;white-space:nowrap;border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
 .mxp.mxp .lo-jump a:hover{background:#E3F5F9;color:#127C8F}
@@ -748,7 +748,8 @@ s += '''
   window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
   // the site header switches to fixed on its own scroll handler; re-measure whenever it changes
   var hdrEl = document.getElementById('mx-header');
-  if (hdrEl && 'MutationObserver' in window) new MutationObserver(onScroll).observe(hdrEl, { attributes: true, attributeFilter: ['class', 'style'] });
+  if (hdrEl && 'MutationObserver' in window) new MutationObserver(function () { onScroll(); setTimeout(onScroll, 180); setTimeout(onScroll, 400); }).observe(hdrEl, { attributes: true, attributeFilter: ['class', 'style'] });
+  if (hdrEl) hdrEl.addEventListener('transitionend', onScroll);
   var hw = document.getElementById('mx-header-wrap');
   if (hw && hw !== hdrEl && 'MutationObserver' in window) new MutationObserver(onScroll).observe(hw, { attributes: true, attributeFilter: ['class', 'style'] });
   var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
