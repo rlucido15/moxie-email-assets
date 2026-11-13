@@ -154,7 +154,7 @@ flow = section('lo-flow', 'Where your deals come from', 'Most of the business co
 
 # ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)
 PROGRAM_GROUPS = [
-    ('home', 'Agency and government', 'FICO from 500', ['Conventional', 'FHA', 'VA', 'USDA', 'Down payment assistance', 'Doctor loans']),
+    ('home', 'Agency and government', 'Up to 100% LTV', ['Conventional', 'FHA', 'VA', 'USDA', 'Down payment assistance', 'Doctor loans']),
     ('gem', 'Jumbo', 'Up to $30M', ['Jumbo', 'Jumbo max ($5M)', 'Super jumbo ($30M)', 'Non-QM jumbo']),
     ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'No doc', 'Foreign national']),
     ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
@@ -171,28 +171,29 @@ prog_cards = '<div class="lo-pg">' + ''.join(
     '<div class="lo-pl-wrap"><ul class="lo-plist">' + ''.join(f'<li style="--j: {k}"><span class="lo-ck" aria-hidden="true"></span><span>{x}</span></li>' for k, x in enumerate(items)) + '</ul></div></article>'
     for n, (ic, title, hi, items) in enumerate(PROGRAM_GROUPS)) + '</div>'
 PROG_CSS = r"""
-.mxp .lo-pg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;margin-top:44px}
-.mxp .lo-pg>.lo-pc{grid-column:span 2}
-.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:span 3}
-@media (max-width:1000px){.mxp .lo-pg>.lo-pc,.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:span 3}}
-@media (max-width:640px){.mxp .lo-pg>.lo-pc,.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:1/-1}}
+.mxp .lo-pg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:1fr;gap:20px;margin-top:44px}
+.mxp .lo-pg>.lo-pc{display:flex;flex-direction:column}
+@media (max-width:1100px){.mxp .lo-pg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.mxp .lo-pg{grid-template-columns:1fr;grid-auto-rows:auto}}
 .mxp .lo-pc{position:relative;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 0 #DCE6EB,0 12px 32px rgba(14,42,71,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .mxp .lo-pc::after{content:"";position:absolute;inset:0;border-radius:24px;border:1.5px solid transparent;pointer-events:none;transition:border-color .3s}
 .mxp .lo-pc:hover{transform:translateY(-6px);box-shadow:0 1px 0 #DCE6EB,0 22px 44px rgba(14,42,71,.16)}
 .mxp .lo-pc:hover::after{border-color:#1C97AE}
-.mxp .lo-pc-top{position:relative;display:flex;gap:14px;align-items:center;padding:24px 24px 22px;background:radial-gradient(120% 140% at 100% 0%,#1C97AE 0%,#145A75 38%,#0E2A47 78%);color:#fff;overflow:hidden}
+.mxp .lo-pc-top{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-areas:"ic n" "txt txt";align-content:start;row-gap:16px;height:196px;box-sizing:border-box;padding:22px 22px 20px;background:radial-gradient(120% 140% at 100% 0%,#1C97AE 0%,#145A75 38%,#0E2A47 78%);color:#fff;overflow:hidden}
 .mxp .lo-pc-top::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);pointer-events:none}
 .mxp .lo-pc-ic{flex:none;width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#7FDCEC;display:inline-flex;align-items:center;justify-content:center;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
 .mxp .lo-pc-ic>span{width:26px;height:26px;display:block}
 .mxp .lo-pc:hover .lo-pc-ic{transform:rotate(-8deg) scale(1.08)}
 .mxp .lo-pc-top h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B8E6EF}
-.mxp .lo-pc-hi{margin:2px 0 0;font-size:clamp(22px,2.2vw,26px);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff}
-.mxp .lo-pc-n{margin-left:auto;flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:#F46744;color:#0E2A47;font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
+.mxp .lo-pc-hi{margin:4px 0 0;font-size:clamp(20px,1.75vw,24px);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff}
+.mxp .lo-pc-ic{grid-area:ic}
+.mxp .lo-pc-top>div{grid-area:txt}
+.mxp .lo-pc-n{grid-area:n;align-self:start;flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:#F46744;color:#0E2A47;font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-pl-wrap{padding:22px 24px 26px}
-.mxp .lo-plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.mxp .lo-plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px}
 .mxp.mxp .lo-plist>li{display:flex !important;gap:10px;margin:0 !important;padding:0 !important;font-size:15.5px;line-height:1.4;color:#0E2A47;font-weight:500;list-style:none}
 .mxp .lo-ck{flex:none;width:6px;height:11px;border:solid #1C97AE;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);margin:3px 3px 0 2px}
-@media (max-width:420px){.mxp .lo-plist{grid-template-columns:1fr}.mxp .lo-pc-top{padding:20px}.mxp .lo-pl-wrap{padding:18px 20px 22px}}
+@media (max-width:600px){.mxp .lo-pc-top{height:auto;padding:20px}.mxp .lo-pl-wrap{padding:18px 20px 22px}}
 /* reveal: only when JS has armed it, so content never stays hidden */
 .mxp .lo-pg.arm .lo-pc{opacity:0;transform:translateY(28px) scale(.98)}
 .mxp .lo-pg.arm .lo-plist>li{opacity:0;transform:translateX(-8px)}

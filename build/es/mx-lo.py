@@ -483,3 +483,4 @@ T.update({"Tap everything that sounds like your week, and see what changes at Mo
 T.update({"New to Moxie?": "¿Nuevo en Moxie?", "Get the full story: who we are, how we started and what we stand for.": "Conoce la historia completa: quiénes somos, cómo empezamos y qué defendemos.",
           "Learn more about Moxie": "Conoce más sobre Moxie", " (opens in a new tab)": " (se abre en una pestaña nueva)", "(opens in a new tab)": "(se abre en una pestaña nueva)",
           "About Moxie Mortgage": "Sobre Moxie Mortgage"})
+T.update({"Up to 100% LTV": "Hasta 100% LTV"})
