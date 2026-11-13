@@ -230,8 +230,8 @@ PAIN = [
     ('You’re chasing your own leads.', '82% of our business is company-generated', 'Warm introductions from key enterprise accounts, Area Directors and agent partners, and 86% of it is purchase.<sup>3</sup>'),
     ('You’re losing deals on rate.', 'Wholesale pricing that wins', 'Moxie rates averaged 0.559% lower than the largest retail lender.<sup>1</sup>'),
     ('You wait weeks to get paid.', 'Everyday payday', 'Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.'),
-    ('You’re turning away good borrowers.', 'Huge product selection', 'Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.'),
-    ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors across product types.'),
+    ('You’re turning away opportunities.', 'Huge product selection', 'Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.'),
+    ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
 ]
 OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'

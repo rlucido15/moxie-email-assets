@@ -491,3 +491,5 @@ T.update({"App": "Solicitud", "Funded": "Fondeado", "Title work received": "Tít
 T.update({"rating on Google": "de calificación en Google"})
 T.update({"Google rating": "Calificación en Google"})
 T.update({"Tap if that’s you": "Tócalo si eres tú"})
+T.update({"You’re turning away opportunities.": "Estás dejando ir oportunidades.",
+          "In-house processing, plus priority underwriting and account support with key investors.": "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave."})
