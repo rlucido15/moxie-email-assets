@@ -528,7 +528,7 @@ BENTO_CSS = r"""
 .mxp .lo-rov-logo{font-size:20px;font-weight:800;letter-spacing:-.01em;color:#7FDCEC}
 .mxp .lo-rov-logo b{color:#fff;font-weight:800}
 .mxp .lo-dtabs{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
-.mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;text-align:center;white-space:nowrap;text-overflow:ellipsis;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
+.mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;line-height:1.2;text-wrap:balance;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
 .mxp .lo-dtabs span:hover{color:#fff}
 .mxp .lo-dtabs span.on{background:rgba(127,220,236,.16);border-color:rgba(127,220,236,.5);color:#fff}
 .mxp .lo-dtabs span i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:#7FDCEC;transform:scaleX(0);transform-origin:left}
@@ -586,7 +586,7 @@ BENTO_CSS = r"""
 @keyframes lo-wh-d2{0%,38%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}46%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
 @keyframes lo-wh-d3{0%,46%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}54%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
 @keyframes lo-wh-d4{0%,54%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}62%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
-@media (max-width:420px){.mxp .lo-wh-house{width:52px;height:52px;border-radius:14px}.mxp .lo-wh-house svg{width:38px;height:38px}.mxp .lo-wh-stage{gap:10px}.mxp .lo-wh-doc{font-size:13px;padding:7px 10px;gap:8px}.mxp .lo-rf-a{font-size:13px;gap:2px 8px;padding:8px 12px;flex-wrap:wrap}.mxp .lo-rf-bell{display:none}.mxp .lo-rf-a b{white-space:nowrap}.mxp .lo-rf-a small{letter-spacing:.06em}.mxp .lo-rov-done{font-size:13px;padding:8px 12px}}
+@media (max-width:420px){.mxp .lo-dtabs span{font-size:11px;letter-spacing:.05em;padding:6px 8px}.mxp .lo-wh-house{width:52px;height:52px;border-radius:14px}.mxp .lo-wh-house svg{width:38px;height:38px}.mxp .lo-wh-stage{gap:10px}.mxp .lo-wh-doc{font-size:13px;padding:7px 10px;gap:8px}.mxp .lo-rf-a{font-size:13px;gap:2px 8px;padding:8px 12px;flex-wrap:wrap}.mxp .lo-rf-bell{display:none}.mxp .lo-rf-a b{white-space:nowrap}.mxp .lo-rf-a small{letter-spacing:.06em}.mxp .lo-rov-done{font-size:13px;padding:8px 12px}}
 .mxp .lo-rov-done,.mxp .lo-wh-doc,.mxp .lo-rf-a b{text-wrap:balance}
 .mxp .lo-rov-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
 .mxp .lo-rov-bar i{display:block;height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,#1C97AE,#7FDCEC);transform-origin:left;animation:lo-rov-fill 6s cubic-bezier(.4,0,.2,1) infinite}
