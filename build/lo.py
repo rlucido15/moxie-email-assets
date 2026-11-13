@@ -269,14 +269,14 @@ FLIP_CSS = r"""
 .mxp .lo-fl-sum.on .lo-fl-msg0{display:none}
 .mxp .lo-fl-sum.on .lo-fl-msg1{display:block}
 .mxp.mxp .lo-fl-n{display:inline-block !important;min-width:1.4em;padding:0 .3em;border-radius:8px;background:#F46744;color:#0E2A47;text-align:center}
-.mxp .lo-fl-n.pop{animation:lo-pop .35s ease}
+.mxp .lo-fl-n.lo-bump{animation:lo-pop .35s ease}
 @keyframes lo-pop{50%{transform:scale(1.35)}}
 .mxp .lo-fl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px}
 .mxp.mxp .lo-fl-apply{color:#7FDCEC;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .mxp .lo-fl-sum:not(.on) .lo-fl-cta{opacity:.55}
 @media (max-width:980px){.mxp .lo-fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:19px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.pop{animation:none}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
 """
 
 # ---------------- WHERE YOUR DEALS COME FROM (value stack, dark)
@@ -743,7 +743,7 @@ s += '''
     c.addEventListener('click', function () {
       c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
       var k = cards.filter(function (x) { return x.getAttribute('aria-pressed') === 'true'; }).length;
-      if (n) { n.textContent = k; n.classList.remove('pop'); void n.offsetWidth; n.classList.add('pop'); }
+      if (n) { n.textContent = k; n.classList.remove('lo-bump'); void n.offsetWidth; n.classList.add('lo-bump'); }
       if (sum) sum.classList.toggle('on', k > 0);
       if (window.MX && MX.track && k === 1) MX.track('lo_pain_pick');
     });
