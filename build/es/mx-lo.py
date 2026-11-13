@@ -499,3 +499,4 @@ T.update({
     "Appraisal uploaded": "Avalúo cargado", "Comparable sales pulled": "Ventas comparables obtenidas", "Value gaps flagged": "Diferencias de valor detectadas",
     "ROV letter drafted": "Carta de ROV redactada", "ROV ready to submit in minutes": "ROV listo para enviar en minutos", "ROVai": "ROVai",
 })
+T.update({"Rating on Google": "Calificación en Google", "5 out of 5 stars": "5 de 5 estrellas"})
