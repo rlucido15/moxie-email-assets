@@ -116,7 +116,7 @@ header.md-header,.md-header{display:none !important}
 .mxh-logo img,.mxh-main{transition:width .2s ease,min-height .2s ease,padding .2s ease}
 @keyframes mxhDrop{from{transform:translateY(-100%)}to{transform:none}}
 /* phone action bar */
-.mxh-bar{display:none}
+.mxh-bar{display:none;--navy:#0E2A47;--line:#DCE6EB}
 @media (max-width:760px){
   .mxh-bar{position:fixed;left:0;right:0;bottom:0;z-index:1001;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(14,42,71,.1);transform:translateY(110%);transition:transform .25s ease;font-family:MoxieBarlow,Barlow,system-ui,sans-serif}
   .mxh-bar.show{transform:none}
