@@ -247,16 +247,16 @@ pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back
 FLIP_CSS = r"""
 .mxp .lo-fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;perspective:1600px}
 .mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:20px;-webkit-tap-highlight-color:transparent}
-.mxp .lo-fl:focus-visible{outline:3px solid #F46744;outline-offset:4px}
+.mxp .lo-fl:focus-visible{outline:3px solid #0E2A47;outline-offset:4px}
 .mxp .lo-fl-in{display:grid;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .mxp .lo-fl[aria-pressed="true"] .lo-fl-in{transform:rotateY(180deg)}
 .mxp .lo-fl-face{grid-area:1/1;position:relative;display:flex;flex-direction:column;gap:14px;min-height:220px;padding:28px 28px 24px;border-radius:20px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif;overflow:hidden}
 .mxp .lo-fl-front{background:#fff;color:#0E2A47;border:2px solid #0E2A47;box-shadow:0 14px 32px rgba(14,42,71,.12);transition:box-shadow .25s}
-.mxp .lo-fl-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#F46744}
+.mxp .lo-fl-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#0E2A47}
 .mxp .lo-fl:hover .lo-fl-front{box-shadow:0 24px 48px rgba(14,42,71,.22)}
 .mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-5deg)}
 .mxp .lo-fl[aria-pressed="true"]:hover .lo-fl-in{transform:rotateY(180deg)}
-.mxp .lo-fl-num{font-size:15px;font-weight:800;letter-spacing:.14em;color:#F46744}
+.mxp .lo-fl-num{font-size:15px;font-weight:800;letter-spacing:.14em;color:#0E2A47}
 .mxp .lo-fl-q{font-size:clamp(22px,1.9vw,26px);font-weight:800;line-height:1.18;letter-spacing:-.015em;color:#0E2A47}
 .mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#127C8F}
 .mxp .lo-fl-arrow{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #1C97AE;font-size:15px;letter-spacing:0;transition:transform .25s,background .25s,color .25s}
