@@ -242,7 +242,7 @@ pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back
     f'<div class="lo-fl-grid">{flip_cards}</div>'
     '<div class="lo-fl-sum" aria-live="polite">'
     '<p class="lo-fl-msg lo-fl-msg0">Pick the ones that sound like you.</p>'
-    '<p class="lo-fl-msg lo-fl-msg1"><span>You picked</span> <b class="lo-fl-n">0</b> <span>of 6, and every one is fixed at Moxie.</span></p>'
+    '<p class="lo-fl-msg lo-fl-msg1"><span>You picked</span> <span class="lo-fl-n">0</span> <span>of 6, and every one is fixed at Moxie.</span></p>'
     f'<div class="lo-fl-cta"><a href="#founder" class="mxa-btn-p" data-jump-link="founder" style="{BTN_P}">Talk with our founder</a><a href="#apply" class="lo-fl-apply">Apply to join Moxie</a></div></div>',
     lede='Tap everything that sounds like your week, and see what changes at Moxie.')
 FLIP_CSS = r"""
@@ -268,7 +268,7 @@ FLIP_CSS = r"""
 .mxp .lo-fl-msg1{display:none}
 .mxp .lo-fl-sum.on .lo-fl-msg0{display:none}
 .mxp .lo-fl-sum.on .lo-fl-msg1{display:block}
-.mxp .lo-fl-n{display:inline-block;min-width:1.4em;padding:0 .3em;border-radius:8px;background:#F46744;color:#0E2A47;text-align:center}
+.mxp.mxp .lo-fl-n{display:inline-block !important;min-width:1.4em;padding:0 .3em;border-radius:8px;background:#F46744;color:#0E2A47;text-align:center}
 .mxp .lo-fl-n.pop{animation:lo-pop .35s ease}
 @keyframes lo-pop{50%{transform:scale(1.35)}}
 .mxp .lo-fl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px}
