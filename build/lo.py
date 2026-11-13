@@ -58,8 +58,8 @@ hero = f'''
             <dt style="font-size: 15px; color: #7FDCEC; font-weight: 600">Company-generated business since day one<sup>3</sup></dt>
             <dd style="margin: 2px 0 0; font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em">82%</dd>
           </div>
-          <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Avg. clear to close<sup>2</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">14 days</dd></div>
           <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Purchase business<sup>3</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">86%</dd></div>
+          <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Avg. clear to close<sup>2</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">14 days</dd></div>
         </dl>
       </div>
     </div>
@@ -142,7 +142,7 @@ dealstats = ('<div style="display: grid; grid-template-columns: repeat(auto-fit,
 flow = section('lo-flow', 'Where your deals come from', 'Most of the business comes to you.',
                dealstats + f'<h3 style="margin: 56px 0 0; font-size: 24px">How introductions reach you</h3><ol class="ad-tl" style="list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(165px, 1fr)); gap: 28px">{flow_items}</ol>'
                '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
-               lede='Moxie invests in the agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.', sec_id='deals')
+               lede='Moxie invests in the enterprise accounts and agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.', sec_id='deals')
 
 
 # ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)

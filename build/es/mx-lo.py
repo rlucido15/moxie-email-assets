@@ -297,3 +297,5 @@ T.update({
     "Since day one, most Moxie loans have started with a warm introduction from our key enterprise accounts, Area Directors, agent partners or Moxie marketing, not a loan officer’s own prospecting.":
         "Desde el primer día, la mayoría de los préstamos de Moxie han empezado con una presentación de nuestras cuentas empresariales clave, Directores de Área, agentes aliados o el marketing de Moxie, no con la prospección propia del oficial de préstamos.",
 })
+T.update({"Moxie invests in the enterprise accounts and agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.":
+    "Moxie invierte en las cuentas empresariales y las relaciones con agentes que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos."})
