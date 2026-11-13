@@ -94,6 +94,11 @@
 
 <style>.mx-slot{min-height:520px;display:flex;flex-direction:column;justify-content:center}
 .mx-slot.has-widget{display:block;min-height:0}
+.mx-hero.mx-hero-w{padding:24px 0 56px}
+.mx-hero.mx-hero-w .mx-wrap{max-width:1360px;align-items:flex-start;gap:40px}
+.mx-hero-w .mx-hero-copy{flex:1 1 380px;padding-top:64px}
+.mx-hero-w .mx-hero-media{flex:1.6 1 600px}
+@media (max-width:1060px){.mx-hero-w .mx-hero-copy{padding-top:16px}}
 .mx-facade{background:radial-gradient(120% 90% at 85% 0%,#145A75 0%,#0E2A47 55%,#0B2340 100%);border-radius:24px;padding:40px;color:#fff;box-shadow:0 30px 60px rgba(14,42,71,.28)}
 .mx-facade .mx-eyebrow{color:#1C97AE}
 .mx-facade h2{font-size:38px;line-height:1.1;font-weight:800}
@@ -470,7 +475,7 @@ function mountWidget() {
     if (root.contains(b) || b.contains(root)) continue;
     if (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || '')) {
       var block = b.closest('.md-custom-code') || b.parentElement;
-      slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget');
+      slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget'); var hero = root.querySelector('.mx-hero'); if (hero) hero.classList.add('mx-hero-w');
       if (block && !block.contains(root)) block.style.display = 'none';
       return true;
     }
