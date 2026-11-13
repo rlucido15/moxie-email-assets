@@ -193,7 +193,7 @@ ROWS = [
     ('When you’re paid', 'On the next payroll cycle, often weeks after closing', 'Everyday payday: as your loans close'),
     ('Operations', 'Shared processing queue', 'In-house processing, plus priority underwriting and account support with key investors'),
     ('Transparency', 'You see your split, not the pricing', 'Full transparency on pricing and the investor purchase advice'),
-    ('Technology', 'Whatever the company licenses', 'Arive, Lofty CRM and Moxie client tools'),
+    ('Technology', 'Whatever the company licenses', 'Proprietary Moxie tools, integrated, automated and powered by AI'),
     ('Support', 'Varies by branch', 'A mentor on your deals and twice-weekly team huddles'),
 ]
 trs = ''.join(f'<tr style="border-top: 1px solid #DCE6EB"><th scope="row" style="text-align: left; padding: 18px 24px; font-weight: 700">{a}</th><td style="padding: 18px 24px; color: #4A5868">{b}</td><td style="padding: 18px 24px; background: #F4F8FA; font-weight: 700">{c}</td></tr>' for a, b, c in ROWS)
@@ -221,7 +221,8 @@ TOOLS = [
 tools = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article class="mxa-card" style="{CARD}"><h3 style="margin: 0; font-size: 20px; display: flex; gap: 10px; align-items: center"><span style="color: #127C8F; flex: none; display: inline-flex">{ICON["check22"]}</span>{t}</h3>'
     f'<p style="margin: 8px 0 0; color: #4A5868; font-size: 16px">{d}</p></article>' for t, d in TOOLS) + '</div>'
-tools_sec = section('lo-tools', 'Tools and technology', 'Client-ready tools that make your numbers easy to say yes to.', tools)
+tools_sec = section('lo-tools', 'Tools and technology', 'Proprietary tools you won’t get anywhere else.', tools,
+                    lede='Moxie has invested significantly to give its team cutting-edge technology, including proprietary tools available only to Moxie team members. Our systems are integrated, automated and powered by AI, maximizing your effectiveness and minimizing wasted time.')
 
 # ---------------- MARKETING (reuse AD cards and images)
 mk = re.search(r'\s*<!-- WHAT AGENTS GET -->.*?</section>', ad.body, re.S)
@@ -283,7 +284,7 @@ FAQ = [
     ('Who processes and underwrites my loans?',
      'Moxie processes loans in-house, and Moxie loan officers get priority underwriting and account support with key investors across product types. You also get full transparency on pricing and the investor purchase advice on every loan.'),
     ('What technology do Moxie loan officers use?',
-     'Arive for loan origination, Lofty for CRM and follow-up, and Moxie’s client tools, including a debt consolidation worksheet with MISMO 3.4 credit import, ARM vs. fixed and buydown comparisons, and an effective rate calculator.'),
+     'Moxie has invested significantly to give its team cutting-edge technology, including proprietary tools available only to Moxie team members. Our systems are integrated, automated and powered by AI, maximizing your effectiveness and minimizing wasted time. That includes Arive for loan origination, Lofty for CRM and follow-up, and Moxie’s proprietary client tools, including a debt consolidation worksheet with MISMO 3.4 credit import, ARM vs. fixed and buydown comparisons, and an effective rate calculator.'),
     ('What do I need to join, and which states can I originate in?',
      'You need an active NMLS license in good standing. Moxie loan officers are sponsored through NEXA Mortgage in the states where they’re licensed. NEXA isn’t licensed in New York or Massachusetts yet, so we can’t sponsor originators there today.'),
     ('What training and support will I get?',
