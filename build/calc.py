@@ -142,7 +142,9 @@ var fr = root.querySelector('iframe');
 // Spanish: the calculator opens in the visitor's language and follows the EN/ES toggle live
 function withLang(u) {{ var es = window.MX.i18n && MX.i18n.lang === 'es'; try {{ var x = new URL(u, location.href); if (es) x.searchParams.set('lang', 'es'); else x.searchParams.delete('lang'); return x.href; }} catch (e) {{ return u; }} }}
 if (fr.getAttribute('src')) {{ var s0 = withLang(fr.getAttribute('src')); if (s0 !== fr.src) fr.src = s0; }}
-document.addEventListener('mx:lang', function (e) {{ if (e.detail && e.detail.root && e.detail.root !== root) return; if (fr.contentWindow && fr.getAttribute('src')) fr.contentWindow.postMessage({{ mxLang: MX.i18n.lang }}, '{ORIGIN}'); }});
+function sendLang() {{ if (window.MX.i18n && fr.contentWindow && fr.getAttribute('src')) fr.contentWindow.postMessage({{ mxLang: MX.i18n.lang }}, '{ORIGIN}'); }}
+document.addEventListener('mx:lang', function (e) {{ if (e.detail && e.detail.root && e.detail.root !== root) return; sendLang(); }});
+fr.addEventListener('load', sendLang);   // a toggle clicked while the calculator was still loading still reaches it
 {DEFER if k == 'mortgage' else ''}window.addEventListener('message', function (e) {{
   if (e.origin !== '{ORIGIN}' || e.source !== fr.contentWindow) return;
   var d = e.data || {{}}, h = d.height || d.moxieCalcHeight;
