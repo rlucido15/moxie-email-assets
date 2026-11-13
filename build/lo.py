@@ -502,10 +502,10 @@ viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span>'
             '<b class="v">↑</b><i></i><b class="v">↓</b>'
             '<span class="lo-loop-back">Coming back</span><b>←</b><span>Funded</span></div>')
-viz_uni = ('<figure class="lo-uni-shot"><span class="lo-uni-bar" aria-hidden="true"><i></i><i></i><i></i></span>'
+viz_uni = ('<div class="lo-uni-wrap"><figure class="lo-uni-shot"><span class="lo-uni-bar" aria-hidden="true"><i></i><i></i><i></i></span>'
            '<img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@4e6bbe5/website/moxieu-course-360.webp" srcset="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@4e6bbe5/website/moxieu-course-360.webp 360w, https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@4e6bbe5/website/moxieu-course-720.webp 720w" sizes="(max-width: 600px) 80vw, 300px" '
-           'width="360" height="207" loading="lazy" decoding="async" alt="Moxie University Employee Onboarding course"></figure>')
-viz_uni += '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
+           'width="360" height="207" loading="lazy" decoding="async" alt="Moxie University Employee Onboarding course">'
+           '<span class="lo-viz-play lo-uni-ov" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></span></figure></div>')
 viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
             + ''.join(f'<div class="lo-toast" style="--k: {k}"><span class="lo-toast-ic">{CHK}</span>{t}</div>' for k, t in enumerate(['Title work received', 'Appraisal ordered', 'Clear to close']))
             + '</div>')
@@ -652,11 +652,15 @@ BENTO_CSS = r"""
 .mxp .lo-viz-loop b.v{justify-self:center;line-height:1}
 .mxp .lo-viz-loop b{color:#7FDCEC;font-weight:700}
 .mxp .lo-viz-loop .lo-loop-back{background:#F46744;color:#0E2A47}
-.mxp .lo-uni-shot{margin:20px 0 0;max-width:300px;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 20px 36px rgba(2,2,21,.5);transform:perspective(900px) rotateY(-9deg) rotateX(3deg);transform-origin:left center;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mxp .lo-uni-wrap{margin-top:auto;padding-top:20px}
+.mxp .lo-uni-shot{position:relative;margin:0;max-width:300px;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 20px 36px rgba(2,2,21,.5);transform:perspective(900px) rotateY(-9deg) rotateX(3deg);transform-origin:left center;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
 .mxp .lo-b-uni:hover .lo-uni-shot{transform:perspective(900px) rotateY(0) rotateX(0) translateY(-3px)}
 .mxp .lo-uni-bar{display:flex;gap:5px;padding:6px 9px;background:#EEF3F6;border-bottom:1px solid #DCE6EB}
 .mxp .lo-uni-bar i{width:7px;height:7px;border-radius:50%;background:#C6D3DB}
 .mxp .lo-uni-shot img{display:block;width:100%;height:auto}
+.mxp .mxp .lo-uni-ov,.mxp .lo-viz-play.lo-uni-ov{position:absolute;left:10px;bottom:10px;margin:0;padding:6px 14px 6px 6px;gap:9px;border-radius:999px;background:rgba(14,42,71,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:13px;color:#fff;box-shadow:0 8px 18px rgba(2,2,21,.35)}
+.mxp .lo-uni-ov .lo-play{width:34px;height:34px}
+.mxp .lo-uni-ov .lo-play::after{left:13px;top:10px;border-left-width:11px;border-top-width:7px;border-bottom-width:7px}
 @media (prefers-reduced-motion:reduce){.mxp .lo-uni-shot{transform:none;transition:none}}
 .mxp .lo-viz-play{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#7FDCEC}
 .mxp .lo-play{position:relative;flex:none;width:48px;height:48px;border-radius:50%;background:#F46744;box-shadow:0 0 0 0 rgba(244,103,68,.5);animation:lo-pulse 2.4s ease-out infinite}
