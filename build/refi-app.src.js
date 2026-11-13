@@ -84,7 +84,7 @@
         style: {
           fontFamily: "Barlow, sans-serif",
           fontWeight: 600,
-          fontSize: "clamp(26px, 4.4vw, 38px)",
+          fontSize: "clamp(24px, 2.6vw, 31px)",
           lineHeight: 1.12,
           color: C.ink,
           margin: "0 0 8px",
@@ -103,8 +103,8 @@
           fontSize: 16,
           lineHeight: 1.5,
           color: C.slate,
-          margin: "0 0 30px",
-          maxWidth: 460
+          margin: "0 0 18px",
+          maxWidth: 600
         }
       },
       children
@@ -124,8 +124,8 @@
           justifyContent: "space-between",
           width: "100%",
           textAlign: "left",
-          padding: "18px 20px",
-          marginBottom: 12,
+          padding: "13px 16px",
+          marginBottom: 10,
           borderRadius: 14,
           cursor: "pointer",
           border: `1.5px solid ${active ? C.teal : hover ? "#3a4657" : C.line}`,
@@ -696,14 +696,13 @@
       "div",
       {
         style: {
-          minHeight: "100vh",
-          width: "100%",
+                    width: "100%",
           fontFamily: "Barlow, sans-serif",
           background: C.page,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "clamp(12px, 3vw, 40px)",
+          padding: 0,
           boxSizing: "border-box",
           position: "relative"
         }
@@ -724,27 +723,9 @@
           "div",
           {
             style: {
-              display: "flex",
-              alignItems: "center",
-              marginBottom: 16
-            }
-          },
-          /* @__PURE__ */ React.createElement(
-            "img",
-            {
-              src: MOXIE_LOGO_DARK,
-              alt: "Moxie Mortgage",
-              style: { height: 20, width: "auto", display: "block" }
-            }
-          )
-        ),
-        /* @__PURE__ */ React.createElement(
-          "div",
-          {
-            style: {
               background: C.card,
               borderRadius: 22,
-              padding: "clamp(40px, 5vw, 64px) clamp(24px, 3.4vw, 44px)",
+              padding: "clamp(22px, 2.4vw, 32px) clamp(20px, 2.8vw, 36px)",
               boxShadow: "0 24px 70px rgba(13,20,36,0.28)",
               position: "relative",
               overflow: "hidden"
@@ -766,7 +747,7 @@
               }
             }
           ),
-          /* @__PURE__ */ React.createElement("div", { style: { position: "relative", zIndex: 1 } }, cur !== "intro" && cur !== "lead" && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 30 } }, /* @__PURE__ */ React.createElement(ProgressRail, { phase: phaseFor(cur) })), cur === "intro" && /* @__PURE__ */ React.createElement(Fade, { k: "intro" }, /* @__PURE__ */ React.createElement(
+          /* @__PURE__ */ React.createElement("div", { style: { position: "relative", zIndex: 1 } }, cur !== "intro" && cur !== "lead" && /* @__PURE__ */ React.createElement("div", { style: { marginBottom: 18 } }, /* @__PURE__ */ React.createElement(ProgressRail, { phase: phaseFor(cur) })), cur === "intro" && /* @__PURE__ */ React.createElement(Fade, { k: "intro" }, /* @__PURE__ */ React.createElement(
             "div",
             {
               style: {
@@ -786,13 +767,13 @@
               style: {
                 fontFamily: "Barlow, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(30px, 5.2vw, 50px)",
+                fontSize: "clamp(28px, 3.2vw, 40px)",
                 lineHeight: 1.06,
                 letterSpacing: "-0.03em",
                 color: C.ink,
-                margin: "0 0 26px",
+                margin: "0 0 12px",
                 textWrap: "balance",
-                maxWidth: 460
+                maxWidth: 620
               }
             },
             "How much could you be saving on your mortgage?"
@@ -804,8 +785,8 @@
                 fontSize: 16,
                 lineHeight: 1.5,
                 color: C.slate,
-                margin: "0 0 34px",
-                maxWidth: 460
+                margin: "0 0 22px",
+                maxWidth: 600
               }
             },
             "Answer a few quick questions and we\u2019ll show you, in plain numbers, what your payment could look like. No guesswork and no credit check."
@@ -842,7 +823,7 @@
               /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", style: { flexShrink: 0 } }, /* @__PURE__ */ React.createElement("path", { d: "M5 13l4 4L19 7", stroke: C.teal, strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })),
               t
             ))
-          )), cur === "goal" && /* @__PURE__ */ React.createElement(Fade, { k: "goal" }, /* @__PURE__ */ React.createElement(Eyebrow, null, "Your goals"), /* @__PURE__ */ React.createElement(Question, null, "What would you like your mortgage to do for you?"), /* @__PURE__ */ React.createElement(Helper, null, "Pick the one that matters most right now. We\u2019ll tailor everything after this to match."), /* @__PURE__ */ React.createElement(Choice, { label: "Lower my monthly payment", sub: "Put a few hundred back in your pocket", active: goal === "lower", onClick: () => setGoal("lower") }), /* @__PURE__ */ React.createElement(Choice, { label: "Get cash from my equity", sub: "For renovations, debt, or big plans", active: goal === "cash", onClick: () => setGoal("cash") }), /* @__PURE__ */ React.createElement(Choice, { label: "Pay off my mortgage faster", sub: "Own it years sooner, skip interest", active: goal === "faster", onClick: () => setGoal("faster") }), /* @__PURE__ */ React.createElement(Choice, { label: "I'm not sure yet", sub: "Show me what makes the most sense", active: goal === "unsure", onClick: () => setGoal("unsure") }), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 24 } }, /* @__PURE__ */ React.createElement(CTA, { onClick: next, disabled: !canAdvance() }, "Continue"))), cur === "upload" && /* @__PURE__ */ React.createElement(Fade, { k: "upload" }, /* @__PURE__ */ React.createElement(Eyebrow, null, "Optional shortcut"), parse.status === "review" && parse.fields ? /* @__PURE__ */ React.createElement(
+          )), cur === "goal" && /* @__PURE__ */ React.createElement(Fade, { k: "goal" }, /* @__PURE__ */ React.createElement(Eyebrow, null, "Your goals"), /* @__PURE__ */ React.createElement(Question, null, "What would you like your mortgage to do for you?"), /* @__PURE__ */ React.createElement(Helper, null, "Pick the one that matters most right now. We\u2019ll tailor everything after this to match."), /* @__PURE__ */ React.createElement("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", columnGap: 10 } }, /* @__PURE__ */ React.createElement(Choice, { label: "Lower my monthly payment", sub: "Put a few hundred back in your pocket", active: goal === "lower", onClick: () => setGoal("lower") }), /* @__PURE__ */ React.createElement(Choice, { label: "Get cash from my equity", sub: "For renovations, debt, or big plans", active: goal === "cash", onClick: () => setGoal("cash") }), /* @__PURE__ */ React.createElement(Choice, { label: "Pay off my mortgage faster", sub: "Own it years sooner, skip interest", active: goal === "faster", onClick: () => setGoal("faster") }), /* @__PURE__ */ React.createElement(Choice, { label: "I'm not sure yet", sub: "Show me what makes the most sense", active: goal === "unsure", onClick: () => setGoal("unsure") })), /* @__PURE__ */ React.createElement("div", { style: { marginTop: 8 } }, /* @__PURE__ */ React.createElement(CTA, { onClick: next, disabled: !canAdvance() }, "Continue"))), cur === "upload" && /* @__PURE__ */ React.createElement(Fade, { k: "upload" }, /* @__PURE__ */ React.createElement(Eyebrow, null, "Optional shortcut"), parse.status === "review" && parse.fields ? /* @__PURE__ */ React.createElement(
             ParsedReview,
             {
               fields: parse.fields,
