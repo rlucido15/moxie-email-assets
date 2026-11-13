@@ -256,7 +256,7 @@ html = f"""<!--
   // Spanish suggestion: once, for visitors whose browser prefers Spanish and who haven't picked a language
   var tip = h.querySelector('.mxh-tip');
   var picked = null, seen = null; try {{ picked = localStorage.getItem('mx_lang'); seen = localStorage.getItem('mx_lang_tip'); }} catch (x) {{}}
-  var prefersEs = (navigator.languages || [navigator.language || '']).slice(0, 2).some(function (l) {{ return /^es\b/i.test(l || ''); }});
+  var prefersEs = (navigator.languages || [navigator.language || '']).slice(0, 2).some(function (l) {{ return /^es(-|_|$)/i.test(l || ''); }});
   function hideTip() {{ tip.classList.remove('show'); try {{ localStorage.setItem('mx_lang_tip', '1'); }} catch (x) {{}} }}
   if (prefersEs && !picked && !seen && MX.i18n.lang === 'en') {{
     setTimeout(function () {{ if (!stuck) {{ tip.classList.add('show'); MX.track && MX.track('language_tip_shown', {{}}); }} }}, 1200);
