@@ -475,7 +475,7 @@ refi_slide = ('<div class="lo-sl lo-sl-rf">'
               '<span class="lo-rf-lbl">Client’s target rate</span><span class="lo-rf-dot"></span></div>'
               '<div class="lo-rf-al">' + ''.join(f'<div class="lo-rf-a"><span class="lo-rf-bell">{BELL}</span><b><small>Past client</small>{a}</b><em>{b}</em></div>' for a, b in RF_ALERTS) + '</div>'
               + DONE('Clients alerted the moment rates drop') + '</div>')
-WH_DOCS = ['Closing summary', 'Home care guide', 'Utility setup', '1-year check-in']
+WH_DOCS = ['Local attractions', 'Parks and trails', 'Restaurants', 'Hospitals and urgent care']
 home_slide = ('<div class="lo-sl lo-sl-wh">'
               '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Welcome home packet</b></span></div>'
               '<div class="lo-wh-stage"><div class="lo-wh-house"><svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">'
@@ -483,7 +483,7 @@ home_slide = ('<div class="lo-sl lo-sl-wh">'
               '<path class="lo-wh-draw" pathLength="1" d="M8 31 L32 10 L56 31 M15 26 V54 H49 V26"/>'
               '<rect class="lo-wh-door" x="27" y="39" width="10" height="15" rx="1.5"/></svg></div>'
               '<div class="lo-wh-docs">' + ''.join(f'<div class="lo-wh-doc"><i></i>{t}</div>' for t in WH_DOCS) + '</div></div>'
-              + DONE('Sent to every client at closing') + '</div>')
+              + DONE('Their new neighborhood, all in one guide') + '</div>')
 DEMOS = ['ROVai', 'Refi alerts', 'Welcome home']
 viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
              + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
