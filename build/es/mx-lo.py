@@ -398,3 +398,55 @@ T.update({
     "Past buyers become move-up buyers and investors, with DSCR and non-QM options ready.": "Los compradores anteriores se convierten en compradores de una casa más grande e inversionistas, con opciones DSCR y non-QM listas.",
     "Debt consolidation and rate-and-term refinances for clients you already closed.": "Consolidación de deudas y refinanciamientos de tasa y plazo para clientes con los que ya cerraste.",
 })
+# ---- review round 2 + partner relationships
+T.update({
+    "A huge product array": "Una enorme variedad de productos",
+    "FICO scores from 500, self-employed bank statement loans, DSCR up to 25 units, non-QM, HELOCs and thousands more programs across 300+ wholesale investors.":
+        "Puntajes FICO desde 500, préstamos con estados de cuenta bancarios para trabajadores independientes, DSCR hasta 25 unidades, non-QM, HELOC y miles de programas más con más de 300 inversionistas mayoristas.",
+    "14-day average clear to close": "Promedio de 14 días para la aprobación final",
+    "In-house processing, plus priority underwriting and account support with key investors across product types.":
+        "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave en todos los tipos de producto.",
+    "Moxie invests in the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.":
+        "Moxie invierte en las cuentas empresariales y las relaciones que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos.",
+    "Follow-up and client retention systems": "Sistemas de seguimiento y retención de clientes",
+    "Automated follow-up keeps every lead and past client close for referrals, equity options and refinances when the numbers work.":
+        "El seguimiento automatizado mantiene cerca a cada prospecto y cliente anterior para referidos, opciones con el valor de su casa y refinanciamientos cuando los números convienen.",
+    "Created by Moxie, personalized to you.": "Creado por Moxie, personalizado para ti.",
+    "Flyers, guides and special offers": "Volantes, guías y ofertas especiales",
+    "Listing and buydown flyers, buyer guides and special offers that show buyers the savings.":
+        "Volantes de propiedades y de buydowns, guías para compradores y ofertas especiales que les muestran el ahorro a los compradores.",
+    "FICO from 500": "FICO desde 500",
+    "No tax returns needed": "Sin declaraciones de impuestos",
+    "DSCR up to 25 units": "DSCR hasta 25 unidades",
+    "Keep the low first rate": "Conserva la tasa baja de la primera hipoteca",
+    "Build, renovate, rehab": "Construye, remodela, rehabilita",
+    "Payments that fit": "Pagos que se ajustan",
+    "Proven tools that turn your complex details into a clear understanding in minutes.":
+        "Herramientas probadas que convierten tus detalles complejos en algo claro en minutos.",
+    "Originate in Arive and keep every lead and past client moving forward and coming back in Lofty.":
+        "Origina en Arive y mantén a cada prospecto y cliente anterior avanzando y regresando con Lofty.",
+    "Automated client experience": "Experiencia del cliente automatizada",
+    "Automated tools that elevate and streamline every step for your clients, from application to closing and beyond.":
+        "Herramientas automatizadas que mejoran y agilizan cada paso para tus clientes, desde la solicitud hasta el cierre y después.",
+    "Partner relationships": "Relaciones con socios",
+    "Relationships that close loans faster and make clients happier.": "Relaciones que cierran préstamos más rápido y dejan más contentos a los clientes.",
+    "Moxie’s partner network takes work off your plate and your clients’ plates, from insurance to appraisal to moving day.":
+        "La red de socios de Moxie te quita trabajo a ti y a tus clientes, desde el seguro hasta el avalúo y el día de la mudanza.",
+    "Faster clear to close": "Aprobación final más rápida",
+    "Insurance network": "Red de seguros",
+    "Our insurance network finds clients the best price on homeowners insurance, so they’re fully protected while keeping their monthly payment as low as possible, with no work required from them.":
+        "Nuestra red de seguros les encuentra a los clientes el mejor precio en su seguro de vivienda, para que estén totalmente protegidos y su pago mensual sea lo más bajo posible, sin que tengan que hacer nada.",
+    "No cost to the borrower": "Sin costo para el prestatario",
+    "Home services": "Servicios para el hogar",
+    "Help with the move and getting the new home set up, at no cost to the borrower.": "Ayuda con la mudanza y con la instalación en la casa nueva, sin costo para el prestatario.",
+    "Faster appraisals": "Avalúos más rápidos",
+    "AMC relationships": "Relaciones con AMC",
+    "Appraisal management relationships with local market experts speed up appraisal turnaround times.":
+        "Las relaciones con compañías de gestión de avalúos y expertos del mercado local agilizan los tiempos de entrega de los avalúos.",
+    "Annual conference": "Conferencia anual",
+    "A yearly event with top producers and lenders.": "Un evento anual con los mejores originadores y prestamistas.",
+    "Four steps to joining Moxie.": "Cuatro pasos para unirte a Moxie.",
+    "White-glove onboarding": "Incorporación personalizada",
+    "Get fully trained on everything, including your lender relationships and every tool at your disposal.":
+        "Recibe capacitación completa en todo, incluidas tus relaciones con prestamistas y cada herramienta a tu disposición.",
+})
