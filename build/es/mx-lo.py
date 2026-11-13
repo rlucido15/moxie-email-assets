@@ -462,3 +462,5 @@ T.update({
     "Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers who want to excel.":
         "Préstamos de compra calificados, precios mayoristas, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia que quieren destacar.",
 })
+T.update({"Jumbo": "Jumbo", "Up to $30M": "Hasta $30M", "Jumbo max ($5M)": "Jumbo máximo ($5M)", "Super jumbo ($30M)": "Super jumbo ($30M)",
+          "No doc": "Sin documentación de ingresos", "HELOAN": "HELOAN", "Construction": "Construcción", "One-time close": "Cierre único"})

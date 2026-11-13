@@ -153,11 +153,12 @@ flow = section('lo-flow', 'Where your deals come from', 'Most of the business co
 
 # ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)
 PROGRAM_GROUPS = [
-    ('home', 'Agency and government', 'FICO from 500', ['Conventional', 'FHA', 'VA', 'USDA', 'Jumbo and super jumbo', 'Down payment assistance', 'Doctor loans']),
-    ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'No doc loans', 'Foreign national']),
+    ('home', 'Agency and government', 'FICO from 500', ['Conventional', 'FHA', 'VA', 'USDA', 'Down payment assistance', 'Doctor loans']),
+    ('gem', 'Jumbo', 'Up to $30M', ['Jumbo', 'Jumbo max ($5M)', 'Super jumbo ($30M)']),
+    ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'No doc', 'Foreign national']),
     ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
-    ('cash', 'Home equity', 'Keep the low first rate', ['HELOC', 'Home equity loans', 'Second mortgages', 'Reverse mortgages']),
-    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction and one-time close', 'Fix and flip']),
+    ('cash', 'Home equity', 'Keep the low first rate', ['HELOC', 'HELOAN', 'Second mortgages', 'Reverse mortgages']),
+    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction', 'One-time close', 'Fix and flip']),
     ('grid', 'Unique properties', 'Hard-to-finance properties', ['Non-warrantable condos', 'Condotels', 'Manufactured homes']),
     ('pct', 'Rate and payment options', 'Payments that fit', ['ARMs', 'Interest-only', 'Temporary buydowns']),
 ]
@@ -169,11 +170,11 @@ prog_cards = '<div class="lo-pg">' + ''.join(
     '<div class="lo-pl-wrap"><ul class="lo-plist">' + ''.join(f'<li style="--j: {k}"><span class="lo-ck" aria-hidden="true"></span><span>{x}</span></li>' for k, x in enumerate(items)) + '</ul></div></article>'
     for n, (ic, title, hi, items) in enumerate(PROGRAM_GROUPS)) + '</div>'
 PROG_CSS = r"""
-.mxp .lo-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:44px}
-.mxp .lo-pg>.lo-pc:last-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(300px,1fr) 2fr;align-items:stretch}
-.mxp .lo-pg>.lo-pc:last-child .lo-pl-wrap{display:flex;align-items:center}
-.mxp .lo-pg>.lo-pc:last-child .lo-plist{display:flex;flex-wrap:wrap;gap:12px 36px}
-@media (max-width:700px){.mxp .lo-pg>.lo-pc:last-child{display:block}.mxp .lo-pg>.lo-pc:last-child .lo-plist{display:grid}}
+.mxp .lo-pg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;margin-top:44px}
+.mxp .lo-pg>.lo-pc{grid-column:span 2}
+.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:span 3}
+@media (max-width:1000px){.mxp .lo-pg>.lo-pc,.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:span 3}}
+@media (max-width:640px){.mxp .lo-pg>.lo-pc,.mxp .lo-pg>.lo-pc:nth-last-child(-n+2){grid-column:1/-1}}
 .mxp .lo-pc{position:relative;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 0 #DCE6EB,0 12px 32px rgba(14,42,71,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .mxp .lo-pc::after{content:"";position:absolute;inset:0;border-radius:24px;border:1.5px solid transparent;pointer-events:none;transition:border-color .3s}
 .mxp .lo-pc:hover{transform:translateY(-6px);box-shadow:0 1px 0 #DCE6EB,0 22px 44px rgba(14,42,71,.16)}
