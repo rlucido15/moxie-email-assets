@@ -136,10 +136,10 @@ CHEV = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width=
 BURGER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>'
 
 apply_cta = f'<a href="{APPLY}" class="mxh-cta" data-mx-nolang><span data-es="Obtén tu aprobación">Get approved now</span></a>'
-nav_items = f'<li>{a(APPLY, "Start Approval", "Aprobación", cls="mxh-start", extra=" data-mx-nolang")}</li>' + ''.join(f'<li>{a(h, en, es)}</li>' for h, en, es in NAV)
+nav_items = ''.join(f'<li>{a(h, en, es)}</li>' for h, en, es in NAV)
 menu = ('<div><h3 data-es="Recursos">Resources</h3>' + ''.join(a(h, en, es) for h, en, es in RES) + '</div>'
         '<div><h3 data-es="Calculadoras">Calculators</h3>' + ''.join(a(h, en, es) for h, en, es in CALC) + '</div>')
-panel = (f'{a(APPLY, "Start Approval", "Solicitar aprobación", cls="mxh-start", extra=" data-mx-nolang")}' + ''.join(a(h, en, es) for h, en, es in NAV)
+panel = (''.join(a(h, en, es) for h, en, es in NAV)
          + '<h3 data-es="Recursos">Resources</h3>' + ''.join(a(h, en, es) for h, en, es in RES)
          + '<h3 data-es="Calculadoras">Calculators</h3>' + ''.join(a(h, en, es) for h, en, es in CALC) + apply_cta)
 
