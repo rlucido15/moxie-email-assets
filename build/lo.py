@@ -234,7 +234,7 @@ OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" widt
 flip_cards = ''.join(
     f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
     f'<span class="lo-fl-in">'
-    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-num" aria-hidden="true">0{n + 1}</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
+    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
     f'<span class="lo-fl-face lo-fl-back">{OK_IC}<span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
     f'</span></button>' for n, (a, b, c) in enumerate(PAIN))
 pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back by the wrong company.',
@@ -256,7 +256,6 @@ FLIP_CSS = r"""
 .mxp .lo-fl:hover .lo-fl-front{box-shadow:0 24px 48px rgba(14,42,71,.22)}
 .mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-5deg)}
 .mxp .lo-fl[aria-pressed="true"]:hover .lo-fl-in{transform:rotateY(180deg)}
-.mxp .lo-fl-num{font-size:15px;font-weight:800;letter-spacing:.14em;color:#0E2A47}
 .mxp .lo-fl-q{font-size:clamp(22px,1.9vw,26px);font-weight:800;line-height:1.18;letter-spacing:-.015em;color:#0E2A47}
 .mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#127C8F}
 .mxp .lo-fl-arrow{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #1C97AE;font-size:15px;letter-spacing:0;transition:transform .25s,background .25s,color .25s}
