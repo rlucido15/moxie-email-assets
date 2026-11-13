@@ -105,7 +105,7 @@ var q = root.querySelector('#mxf-q'), sum = root.querySelector('#mxf-sum'), clr 
 var groups = [].slice.call(root.querySelectorAll('.mx-cgroup'));
 var cats = [].slice.call(root.querySelectorAll('.mx-cat'));
 var items = [].slice.call(root.querySelectorAll('.mx-cgroup details')).map(function (d) {{
-  return {{ d: d, h3: d.querySelector('h3'), q: d.querySelector('h3').textContent, text: d.textContent.toLowerCase(), wasOpen: d.open }};
+  return {{ d: d, h3: d.querySelector('h3'), q: (window.MX.i18n ? MX.i18n.en(d.querySelector('h3').textContent) : d.querySelector('h3').textContent), text: d.textContent.toLowerCase(), wasOpen: d.open }};
 }});
 var cat = 'all', TOTAL = {total}, NCAT = {len(data)}, timer;
 function escRe(s) {{ return s.replace(/[.*+?^${{}}()|[\\]\\\\]/g, '\\\\$&'); }}
@@ -116,7 +116,7 @@ function run(track) {{
     var inCat = cat === 'all' || it.d.parentElement.parentElement.getAttribute('data-c') === cat;
     var hit = !searching || terms.every(function (t) {{ return it.text.indexOf(t) > -1; }});
     var on = inCat && hit; it.d.hidden = !on; if (on) n++;
-    it.h3.textContent = it.q;
+    it.h3.textContent = window.MX.i18n ? MX.i18n.text(it.q) : it.q;
     if (searching && on) {{ it.h3.innerHTML = it.h3.innerHTML.replace(re, '<mark class="mx-hl">$1</mark>'); it.d.open = true; }}
     else if (!searching) it.d.open = it.wasOpen;
   }});
@@ -127,11 +127,13 @@ function run(track) {{
   if (track && searching) {{ clearTimeout(timer); timer = setTimeout(function () {{ MX.track('faq_search', {{ search_term: raw, results: n }}); }}, 1200); }}
 }}
 q.addEventListener('input', function () {{ run(true); }});
-root.querySelectorAll('.mx-pop button').forEach(function (b) {{ b.addEventListener('click', function () {{ q.value = b.getAttribute('data-q'); setCat('all'); run(true); }}); }});
+root.querySelectorAll('.mx-pop button').forEach(function (b) {{ b.addEventListener('click', function () {{ q.value = (window.MX.i18n && MX.i18n.lang === 'es') ? b.textContent.trim().toLowerCase() : b.getAttribute('data-q'); setCat('all'); run(true); }}); }});
 function setCat(c) {{ cat = c; cats.forEach(function (x) {{ x.setAttribute('aria-pressed', x.getAttribute('data-c') === c); }}); }}
 cats.forEach(function (b) {{ b.addEventListener('click', function () {{ setCat(b.getAttribute('data-c')); run(false); }}); }});
 clr.addEventListener('click', function () {{ q.value = ''; setCat('all'); run(false); q.focus(); }});
 items.forEach(function (it) {{ it.d.addEventListener('toggle', function () {{ if (it.d.open) MX.track('faq_open', {{ question: it.q }}); }}); }});
+// Spanish: the page text is swapped in place, so re-read the search index from the page when the language changes
+document.addEventListener('mx:lang', function () {{ setTimeout(function () {{ items.forEach(function (it) {{ it.text = it.d.textContent.toLowerCase(); }}); run(false); }}, 0); }});
 var pre = new URLSearchParams(location.search).get('q'); if (pre) {{ q.value = pre; run(false); }}
 var V = MX.visitor();
 MX.region(V.qs, V.override, function (hi) {{

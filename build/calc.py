@@ -89,7 +89,7 @@ def plain(a):
 
 
 DEFER = """// Start the calculator once the page itself has loaded, so it doesn't compete with the first paint.
-var go = function () { if (!fr.getAttribute('src')) fr.src = fr.dataset.src; };
+var go = function () { if (!fr.getAttribute('src')) fr.src = withLang(fr.dataset.src); };
 if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
 """
 
@@ -139,6 +139,10 @@ def build_page(k):
     script = f"""
 // Size the calculator to its content. The calculator reports its height; only messages from {ORIGIN} are trusted.
 var fr = root.querySelector('iframe');
+// Spanish: the calculator opens in the visitor's language and follows the EN/ES toggle live
+function withLang(u) {{ var es = window.MX.i18n && MX.i18n.lang === 'es'; try {{ var x = new URL(u, location.href); if (es) x.searchParams.set('lang', 'es'); else x.searchParams.delete('lang'); return x.href; }} catch (e) {{ return u; }} }}
+if (fr.getAttribute('src')) {{ var s0 = withLang(fr.getAttribute('src')); if (s0 !== fr.src) fr.src = s0; }}
+document.addEventListener('mx:lang', function (e) {{ if (e.detail && e.detail.root && e.detail.root !== root) return; if (fr.contentWindow && fr.getAttribute('src')) fr.contentWindow.postMessage({{ mxLang: MX.i18n.lang }}, '{ORIGIN}'); }});
 {DEFER if k == 'mortgage' else ''}window.addEventListener('message', function (e) {{
   if (e.origin !== '{ORIGIN}' || e.source !== fr.contentWindow) return;
   var d = e.data || {{}}, h = d.height || d.moxieCalcHeight;

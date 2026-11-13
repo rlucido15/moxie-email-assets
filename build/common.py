@@ -1,3 +1,4 @@
+import os
 """Shared pieces for the Moxie Lofty embeds."""
 import json
 
@@ -249,7 +250,20 @@ def faq_details(items, open_first=True):
     return '<div class="mx-faq">' + ''.join(out) + '</div>'
 
 
+def es_url(root_id):
+    """CDN URL of this page's Spanish dictionary (es/build.py writes them; publish_es.sh pins the commit), or None."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    pin = os.path.join(here, 'es', '_cdn.txt')
+    if not (os.path.exists(os.path.join(here, 'es', root_id + '.json')) and os.path.exists(pin)): return None
+    return f"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@{open(pin).read().strip()}/website/es/{root_id}.json"
+
+
 def wrap(root_id, body, script, schema, title_comment):
+    from i18n import I18N_JS
+    es = es_url(root_id)
+    es_js = (I18N_JS.strip() + '\n') if es else ''
+    es_reg = f"MX.i18n.load(root, '{es}');\n" if es else ''
+    script = es_reg + script
     return f"""<!--
   MOXIE MORTGAGE · {title_comment}
   Paste this whole file into ONE Lofty "Custom Code / Embed" block. See README.md for setup.
@@ -257,13 +271,13 @@ def wrap(root_id, body, script, schema, title_comment):
 -->
 <link rel="preload" href="{FONTBASE}barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{FONTBASE}barlow-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<style>{FONT_CSS}{CSS.strip()}</style>
+<style>{FONT_CSS}{CSS.strip()}.mx-es-wait{{visibility:hidden}}</style>
 <div class="mxp" id="{root_id}">
 {body}
 </div>
 {schema}
 <script>
-(function () {{
+{es_js}(function () {{
 {ENGINE.strip()}
 var root = document.getElementById('{root_id}');
 MX.fullBleed(root);
