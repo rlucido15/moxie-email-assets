@@ -477,3 +477,6 @@ T.update({"Huge product selection": "Enorme variedad de productos", "We create t
 T.update({"Today": "Hoy", "With Moxie": "Con Moxie", "ARM vs. fixed": "ARM vs. fija", "Buydowns": "Buydowns", "Effective rate": "Tasa efectiva",
           "Lead": "Prospecto", "Application": "Solicitud", "Closed": "Cerrado", "Coming back": "Regresa", "On demand, 24/7": "Cuando quieras, 24/7",
           "Application received": "Solicitud recibida", "Appraisal ordered": "Avalúo solicitado", "Clear to close": "Aprobación final"})
+T.update({"Tap everything that sounds like your week, and see what changes at Moxie.": "Toca todo lo que se parezca a tu semana y mira qué cambia en Moxie.",
+          "That’s me": "Así me pasa", "Pick the ones that sound like you.": "Elige los que te suenen familiares.",
+          "You picked": "Elegiste", "of 6, and every one is fixed at Moxie.": "de 6, y Moxie resuelve cada uno."})

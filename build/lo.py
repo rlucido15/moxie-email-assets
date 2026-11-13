@@ -231,14 +231,53 @@ PAIN = [
     ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors across product types.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
 ]
-X_IC = '<span aria-hidden="true" class="lo-pf-x">×</span>'
-OK_IC = f'<span aria-hidden="true" class="lo-pf-ok"><span style="width: 16px; height: 16px; display: block">{ICON["check22"]}</span></span>'
-pain_rows = ''.join(
-    f'<li class="lo-pf-row"><div class="lo-pf-was">{X_IC}<p>{a}</p></div>'
-    f'<div class="lo-pf-now">{OK_IC}<div><h3>{b}</h3><p>{c}</p></div></div></li>' for a, b, c in PAIN)
+OK_IC = f'<span aria-hidden="true" class="lo-fl-ok"><span style="width: 16px; height: 16px; display: block">{ICON["check22"]}</span></span>'
+flip_cards = ''.join(
+    f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
+    f'<span class="lo-fl-in">'
+    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-x" aria-hidden="true">×</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">That’s me</span></span>'
+    f'<span class="lo-fl-face lo-fl-back">{OK_IC}<span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
+    f'</span></button>' for n, (a, b, c) in enumerate(PAIN))
 pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back by the wrong company.',
-    '<div class="lo-pf-head" aria-hidden="true"><span>What you’re dealing with now</span><span>What you get at Moxie</span></div>'
-    f'<ul class="lo-pf" style="list-style: none; padding: 0; margin: 0">{pain_rows}</ul>')
+    f'<div class="lo-fl-grid">{flip_cards}</div>'
+    '<div class="lo-fl-sum" aria-live="polite">'
+    '<p class="lo-fl-msg lo-fl-msg0">Pick the ones that sound like you.</p>'
+    '<p class="lo-fl-msg lo-fl-msg1"><span>You picked</span> <b class="lo-fl-n">0</b> <span>of 6, and every one is fixed at Moxie.</span></p>'
+    f'<div class="lo-fl-cta"><a href="#founder" class="mxa-btn-p" data-jump-link="founder" style="{BTN_P}">Talk with our founder</a><a href="#apply" class="lo-fl-apply">Apply to join Moxie</a></div></div>',
+    lede='Tap everything that sounds like your week, and see what changes at Moxie.')
+FLIP_CSS = r"""
+.mxp .lo-fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;perspective:1400px}
+.mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:22px;-webkit-tap-highlight-color:transparent}
+.mxp .lo-fl:focus-visible{outline:3px solid #1C97AE;outline-offset:4px}
+.mxp .lo-fl-in{display:grid;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.mxp .lo-fl[aria-pressed="true"] .lo-fl-in{transform:rotateY(180deg)}
+.mxp .lo-fl-face{grid-area:1/1;display:flex;flex-direction:column;gap:10px;min-height:200px;padding:26px;border-radius:22px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif}
+.mxp .lo-fl-front{background:#F4F8FA;border:1.5px solid #DCE6EB;transition:border-color .2s,box-shadow .2s,transform .2s}
+.mxp .lo-fl:hover .lo-fl-front{border-color:#1C97AE;box-shadow:0 14px 30px rgba(14,42,71,.10)}
+.mxp .lo-fl-x{width:34px;height:34px;border-radius:50%;background:#FDE7E1;color:#C2482A;font-weight:800;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.mxp .lo-fl-q{font-size:21px;font-weight:700;line-height:1.3;color:#0E2A47}
+.mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#127C8F}
+.mxp .lo-fl-hint::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid #1C97AE;box-sizing:border-box}
+.mxp .lo-fl:hover .lo-fl-hint::before{background:#E3F5F9}
+.mxp .lo-fl-back{transform:rotateY(180deg);background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 55%,#0E2A47 100%);color:#fff;box-shadow:0 16px 34px rgba(14,42,71,.22)}
+.mxp .lo-fl-ok{width:34px;height:34px;border-radius:50%;background:#fff;color:#127C8F;display:inline-flex;align-items:center;justify-content:center}
+.mxp .lo-fl-t{font-size:21px;font-weight:800;line-height:1.25}
+.mxp .lo-fl-d{font-size:15.5px;line-height:1.45;color:#D3E3EC}
+.mxp .lo-fl-sum{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:22px 28px;border-radius:22px;background:#0E2A47;color:#fff;transition:background .3s}
+.mxp .lo-fl-msg{margin:0;font-size:20px;font-weight:700}
+.mxp .lo-fl-msg1{display:none}
+.mxp .lo-fl-sum.on .lo-fl-msg0{display:none}
+.mxp .lo-fl-sum.on .lo-fl-msg1{display:block}
+.mxp .lo-fl-n{display:inline-block;min-width:1.4em;padding:0 .3em;border-radius:8px;background:#F46744;color:#0E2A47;text-align:center}
+.mxp .lo-fl-n.pop{animation:lo-pop .35s ease}
+@keyframes lo-pop{50%{transform:scale(1.35)}}
+.mxp .lo-fl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px}
+.mxp.mxp .lo-fl-apply{color:#7FDCEC;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.mxp .lo-fl-sum:not(.on) .lo-fl-cta{opacity:.55}
+@media (max-width:980px){.mxp .lo-fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:19px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.pop{animation:none}}
+"""
 
 # ---------------- WHERE YOUR DEALS COME FROM (value stack, dark)
 STACK = [
@@ -676,6 +715,28 @@ s += '''
   links.forEach(function (a) { var el = root.querySelector('#' + a.getAttribute('data-jump')); if (el) io.observe(el); });
 })();
 
+// ---- "Sound familiar?" pick-your-frustrations cards
+(function () {
+  var cards = [].slice.call(root.querySelectorAll('.lo-fl')); if (!cards.length) return;
+  var sum = root.querySelector('.lo-fl-sum'), n = root.querySelector('.lo-fl-n');
+  cards.forEach(function (c) {
+    c.addEventListener('click', function () {
+      c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      var k = cards.filter(function (x) { return x.getAttribute('aria-pressed') === 'true'; }).length;
+      if (n) { n.textContent = k; n.classList.remove('pop'); void n.offsetWidth; n.classList.add('pop'); }
+      if (sum) sum.classList.toggle('on', k > 0);
+      if (window.MX && MX.track && k === 1) MX.track('lo_pain_pick');
+    });
+  });
+  var f = root.querySelector('.lo-fl-cta a[data-jump-link]');
+  if (f) f.addEventListener('click', function (e) {
+    var t = root.querySelector('a[data-jump="founder"]') ; var el = root.querySelector('#founder');
+    if (!el) return; e.preventDefault();
+    var h = document.getElementById('mx-header'); var off = (h && getComputedStyle(h).position === 'fixed' ? h.getBoundingClientRect().bottom : 0) + 80;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+  });
+})();
+
 // ---- tools bento: grow the bars and drop in the client updates when visible
 (function () {
   var bt = root.querySelector('.lo-bento'); if (!bt) return;
@@ -710,7 +771,7 @@ page, crumbs = webpage('/loanofficer', 'Loan Officer Careers | Join Moxie Mortga
 schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
 
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
-LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + r"""
+LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + FLIP_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
 .mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
 .mxp.mxp .lo-chips>li::before{content:none !important}
