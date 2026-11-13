@@ -26,7 +26,8 @@ def section(sid, eyebrow, h2, inner, bg=None, lede=None, sec_id=None, dark=False
     wrap_style = f'background: {bg}; padding: 92px 24px' + ('; color: #ffffff' if dark else '') if bg else 'max-width: 1200px; margin: 0 auto; padding: 92px 24px'
     open_inner = '<div style="max-width: 1200px; margin: 0 auto">' if bg else '<div>'
     lede_html = f'<p style="margin: 16px 0 0; font-size: 19px; color: {"#D3E3EC" if dark else "#4A5868"}">{lede}</p>' if lede else ''
-    idattr = f' id="{sec_id}"' if sec_id else ''
+    sec_id = sec_id or sid.replace('lo-', '')
+    idattr = f' id="{sec_id}"'
     return f'''
   <section{idattr} aria-labelledby="{sid}" style="{wrap_style}">
     {open_inner}
@@ -312,6 +313,24 @@ STREAM_CSS = r"""
 .mxp .lo-sup p{margin:4px 0 0;font-size:15px;color:#D3E3EC}
 """
 
+# ---------------- QUICK-JUMP TABS
+JUMP = [('pain', 'Why Moxie'), ('deals', 'Deal flow'), ('marketing', 'Marketing'), ('products', 'Loan programs'), ('tools', 'Tools'),
+        ('partners', 'Partners'), ('pay', 'Pay and support'), ('faq', 'FAQ'), ('apply', 'Apply')]
+jump_nav = ('\n  <nav class="lo-jump" aria-label="Page sections"><div class="lo-jump-in">'
+            + ''.join(f'<a href="#{i}" data-jump="{i}">{t}</a>' for i, t in JUMP) + '</div></nav>')
+JUMP_CSS = r"""
+.mxp .lo-jump{position:sticky;top:var(--lo-jt,0px);z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #DCE6EB;transition:box-shadow .2s}
+.mxp .lo-jump.stuck{box-shadow:0 8px 24px rgba(14,42,71,.08)}
+.mxp .lo-jump-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.mxp.mxp .lo-jump a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;font-size:15px;font-weight:600;color:#0E2A47;text-decoration:none;white-space:nowrap;border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.mxp.mxp .lo-jump a:hover{background:#E3F5F9;color:#127C8F}
+.mxp.mxp .lo-jump a[aria-current="true"]{background:#0E2A47;color:#fff}
+.mxp.mxp .lo-jump a[href="#apply"]{background:#F46744;color:#0E2A47;font-weight:700}
+.mxp .lo-jump a:focus-visible{outline:3px solid #1C97AE;outline-offset:2px}
+.mxp section[id]{scroll-margin-top:140px}
+@media (max-width:900px){.mxp .lo-jump{position:static;background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}.mxp .lo-jump-in{padding:14px 16px;gap:6px}.mxp.mxp .lo-jump a{min-height:34px;padding:0 12px;font-size:14px;border-color:#DCE6EB}.mxp section[id]{scroll-margin-top:90px}}
+"""
+
 # ---------------- FOUNDER (a direct line, not a recruiter)
 HS = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@25d214c/website/robert-lucido-headshot-'
 founder_sec = f'''
@@ -395,6 +414,7 @@ mk = re.search(r'\s*<!-- WHAT AGENTS GET -->.*?</section>', ad.body, re.S)
 assert mk, 'AD marketing section not found'
 mk = mk.group(0).replace('<!-- WHAT AGENTS GET -->', '<!-- CO-MARKETING -->')
 mk = re.sub(r'aria-labelledby="ad-tools"', 'aria-labelledby="lo-mkt"', mk).replace('id="ad-tools"', 'id="lo-mkt"')
+mk = re.sub(r'<section(?![^>]*\bid=)', '<section id="marketing"', mk, count=1)
 mk = mk.replace('>Marketing support<', '>Co-marketing<').replace('Ready-to-use Moxie marketing for your area, every month.', 'Marketing your agent partners will actually use.')
 mk = re.sub(r'\s*<p[^>]*>Plus approval pages and a direct line to a licensed Moxie loan officer, live within 24 hours\.</p>', '', mk)
 mk = mk.replace('Marketing your agent partners will actually use.</h2>', 'Marketing your agent partners will actually use.</h2>\n        <p style="margin: 14px 0 0; font-size: 19px; color: #4A5868">Created by Moxie, personalized to you.</p>', 1)
@@ -515,7 +535,7 @@ disclosures = '''
     <p style="margin: 0">Moxie Mortgage, a division of NEXA Mortgage, LLC · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
   </section>'''
 
-body = hero + pain_sec + deals_sec + mk + products_sec + tools_sec + partners_sec + pay_sec + founder_sec + rv + faq_sec + apply_sec + disclosures
+body = hero + jump_nav + pain_sec + deals_sec + mk + products_sec + tools_sec + partners_sec + pay_sec + founder_sec + rv + faq_sec + apply_sec + disclosures
 body += f'''
 <dialog class="mxa-dlg" id="mxa-dlg" aria-labelledby="mxa-dlg-h"><div>
   <button type="button" class="mxa-x" data-mxa-close aria-label="Close">×</button>
@@ -542,6 +562,37 @@ assert "cta: 'LO Application'" in s and 'AD Application' not in s
 s = s.replace('Thanks! We’ll review it and reach out to book your onboarding call.', 'Thanks! We’ll review it and reach out to book your intro call.')
 s = s.replace('// ---- timeline:', '// ---- referral flow:')
 s += '''
+// ---- quick-jump tabs: sit under the site header, highlight the section in view
+(function () {
+  var nav = root.querySelector('.lo-jump'); if (!nav) return;
+  var hdr = document.getElementById('mx-header-wrap');
+  var setTop = function () {
+    var t = 0;
+    if (hdr) { var cs = getComputedStyle(hdr); if (cs.position === 'sticky' || cs.position === 'fixed') t = Math.max(0, hdr.getBoundingClientRect().bottom); }
+    nav.style.setProperty('--lo-jt', t + 'px');
+    nav.classList.toggle('stuck', nav.getBoundingClientRect().top <= t + 1 && window.scrollY > 0);
+  };
+  var raf = 0; var onScroll = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; setTop(); }); };
+  window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); setTop();
+  var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
+  links.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var el = root.querySelector('#' + a.getAttribute('data-jump')); if (!el) return;
+      e.preventDefault();
+      var off = (parseFloat(nav.style.getPropertyValue('--lo-jt')) || 0) + (getComputedStyle(nav).position === 'sticky' ? nav.offsetHeight : 0) + 12;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', '#' + a.getAttribute('data-jump'));
+    });
+  });
+  if (!('IntersectionObserver' in window)) return;
+  var cur = null;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) cur = e.target.id; });
+    links.forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('data-jump') === cur ? 'true' : 'false'); });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  links.forEach(function (a) { var el = root.querySelector('#' + a.getAttribute('data-jump')); if (el) io.observe(el); });
+})();
+
 // ---- loan program cards: staggered reveal when they scroll into view
 (function () {
   var pg = root.querySelector('.lo-pg'); if (!pg) return;
@@ -565,7 +616,7 @@ page, crumbs = webpage('/loanofficer', 'Loan Officer Careers | Join Moxie Mortga
 schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
 
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
-LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + r"""
+LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
 .mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
 .mxp.mxp .lo-chips>li::before{content:none !important}

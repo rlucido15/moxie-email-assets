@@ -469,3 +469,5 @@ T.update({
         "Ayuda con la mudanza y con la instalación en la casa nueva, sin costo para el prestatario, para que haya menos estrés y la casa se sienta como un hogar más pronto.",
     "Get paid well. Work anywhere, but never work alone.": "Gana bien. Trabaja desde donde sea, pero nunca solo.",
 })
+T.update({"Why Moxie": "Por qué Moxie", "Deal flow": "Flujo de préstamos", "Marketing": "Marketing", "Loan programs": "Programas", "Tools": "Herramientas",
+          "Partners": "Socios", "Pay and support": "Pago y soporte", "FAQ": "Preguntas", "Apply": "Solicitar", "Page sections": "Secciones de la página"})
