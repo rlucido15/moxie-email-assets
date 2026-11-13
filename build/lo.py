@@ -647,7 +647,7 @@ BENTO_CSS = r"""
 .mxp .lo-bar-new i{background:linear-gradient(90deg,#1C97AE,#7FDCEC);box-shadow:0 0 18px rgba(127,220,236,.45)}
 .mxp .lo-tchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .mxp .lo-tchips span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#E3F5F9}
-.mxp .lo-viz-loop{margin-top:auto;padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:4px 8px;font-size:13px;font-weight:600;max-width:340px}
+.mxp .lo-viz-loop{margin-top:auto;margin-bottom:auto;padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:4px 8px;font-size:13px;font-weight:600;max-width:340px}
 .mxp .lo-viz-loop span{padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.08);color:#E3F5F9;text-align:center;white-space:nowrap}
 .mxp .lo-viz-loop b.v{justify-self:center;line-height:1}
 .mxp .lo-viz-loop b{color:#7FDCEC;font-weight:700}
