@@ -527,8 +527,8 @@ BENTO_CSS = r"""
 .mxp .lo-rov-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
 .mxp .lo-rov-logo{font-size:20px;font-weight:800;letter-spacing:-.01em;color:#7FDCEC}
 .mxp .lo-rov-logo b{color:#fff;font-weight:800}
-.mxp .lo-dtabs{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px}
-.mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
+.mxp .lo-dtabs{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;text-align:center;white-space:nowrap;text-overflow:ellipsis;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
 .mxp .lo-dtabs span:hover{color:#fff}
 .mxp .lo-dtabs span.on{background:rgba(127,220,236,.16);border-color:rgba(127,220,236,.5);color:#fff}
 .mxp .lo-dtabs span i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:#7FDCEC;transform:scaleX(0);transform-origin:left}
