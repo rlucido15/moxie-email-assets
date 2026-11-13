@@ -454,12 +454,36 @@ TOOLS = [
 T = dict(TOOLS)
 CHK = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>'
 ROV_STEPS = ['Appraisal uploaded', 'Comparable sales pulled', 'Value gaps flagged', 'ROV letter drafted']
-viz_tools = ('<div class="lo-rov" aria-hidden="true">'
-             '<div class="lo-rov-top"><span class="lo-rov-logo"><b>ROV</b>ai</span><span class="lo-rov-sub">Reconsideration of value, automated</span></div>'
+DONE = lambda t: f'<div class="lo-rov-done"><span>✓</span>{t}</div>'
+rov_slide = ('<div class="lo-sl lo-sl-rov on">'
+             '<div class="lo-rov-top"><span class="lo-rov-logo"><b>ROV</b>ai</span></div>'
              '<div class="lo-rov-bar"><i></i></div>'
              '<ul class="lo-rov-steps">' + ''.join(f'<li><span class="lo-rov-ic"></span>{t}</li>' for t in ROV_STEPS) + '</ul>'
-             '<div class="lo-rov-done"><span>✓</span>ROV ready to submit in minutes</div></div>'
-             '<div class="lo-tchips"><span>ROVai</span><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
+             + DONE('ROV ready to submit in minutes') + '</div>')
+BELL = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>'
+RF_ALERTS = [('Past client, Phoenix', 'Save $384/mo'), ('Past client, Tampa', 'Save $291/mo')]
+refi_slide = ('<div class="lo-sl lo-sl-rf">'
+              '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Refi alert engine</b></span></div>'
+              '<div class="lo-rf-chart"><svg viewBox="0 0 300 100" preserveAspectRatio="none">'
+              '<line class="lo-rf-tg" x1="0" y1="62" x2="300" y2="62"/>'
+              '<path class="lo-rf-ln" pathLength="1" d="M0,22 C30,16 45,32 70,28 S110,42 135,36 S170,52 195,58 S240,76 300,84"/></svg>'
+              '<span class="lo-rf-lbl">Client’s target rate</span><span class="lo-rf-dot"></span></div>'
+              '<div class="lo-rf-al">' + ''.join(f'<div class="lo-rf-a"><span class="lo-rf-bell">{BELL}</span><b>{a}</b><em>{b}</em></div>' for a, b in RF_ALERTS) + '</div>'
+              + DONE('Clients alerted the moment rates drop') + '</div>')
+WH_DOCS = ['Closing summary', 'Home care guide', 'Utility setup', '1-year check-in']
+home_slide = ('<div class="lo-sl lo-sl-wh">'
+              '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Welcome home packet</b></span></div>'
+              '<div class="lo-wh-stage"><div class="lo-wh-house"><svg viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round">'
+              '<path class="lo-wh-roof" d="M10 30 L32 11 L54 30 Z"/>'
+              '<path class="lo-wh-draw" pathLength="1" d="M8 31 L32 10 L56 31 M15 26 V54 H49 V26"/>'
+              '<rect class="lo-wh-door" x="27" y="39" width="10" height="15" rx="1.5"/></svg></div>'
+              '<div class="lo-wh-docs">' + ''.join(f'<div class="lo-wh-doc"><i></i>{t}</div>' for t in WH_DOCS) + '</div></div>'
+              + DONE('Sent to every client at closing') + '</div>')
+DEMOS = ['ROVai', 'Refi alerts', 'Welcome home']
+viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
+             + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
+             + '</div><div class="lo-demo">' + rov_slide + refi_slide + home_slide + '</div></div>'
+             '<div class="lo-tchips"><span>ROVai</span><span>Refi alert engine</span><span>Welcome home packet</span><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span><b>→</b><span>Funded</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
 viz_uni = '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
 viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
@@ -489,7 +513,51 @@ BENTO_CSS = r"""
 .mxp .lo-rov-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
 .mxp .lo-rov-logo{font-size:20px;font-weight:800;letter-spacing:-.01em;color:#7FDCEC}
 .mxp .lo-rov-logo b{color:#fff;font-weight:800}
-.mxp .lo-rov-sub{font-size:12.5px;color:#B8C7D3;font-weight:600}
+.mxp .lo-dtabs{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px}
+.mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
+.mxp .lo-dtabs span:hover{color:#fff}
+.mxp .lo-dtabs span.on{background:rgba(127,220,236,.16);border-color:rgba(127,220,236,.5);color:#fff}
+.mxp .lo-dtabs span i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:#7FDCEC;transform:scaleX(0);transform-origin:left}
+.mxp .lo-dtabs span.on i{animation:lo-dt 6.5s linear forwards}
+@keyframes lo-dt{to{transform:scaleX(1)}}
+.mxp .lo-demo{display:grid;flex:1 1 auto}
+.mxp .lo-sl{grid-area:1/1;display:flex;flex-direction:column;gap:12px;opacity:0;visibility:hidden;transition:opacity .45s,visibility 0s .45s}
+.mxp .lo-sl.on{opacity:1;visibility:visible;transition:opacity .45s}
+.mxp .lo-sl:not(.on) *,.mxp .lo-sl:not(.on) *::after{animation:none !important}
+.mxp .lo-rf-chart{position:relative;height:104px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.mxp .lo-rf-chart svg{position:absolute;inset:8px 0;width:100%;height:calc(100% - 16px);overflow:visible}
+.mxp .lo-rf-tg{stroke:#F46744;stroke-width:2;stroke-dasharray:6 6;vector-effect:non-scaling-stroke}
+.mxp .lo-rf-ln{fill:none;stroke:#7FDCEC;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:lo-rf-draw 6s cubic-bezier(.45,0,.3,1) infinite}
+.mxp .lo-rf-lbl{position:absolute;left:10px;top:calc(8px + 62% * .846 - 22px);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#F7A389}
+.mxp .lo-rf-dot{position:absolute;left:68%;top:calc(8px + 62% * .846);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#F46744;box-shadow:0 0 0 0 rgba(244,103,68,.6);opacity:0;animation:lo-rf-dot 6s ease infinite}
+.mxp .lo-rf-al{display:grid;gap:8px}
+.mxp .lo-rf-a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:#fff;color:#0E2A47;font-size:14px;opacity:0;transform:translateX(24px);animation:6s cubic-bezier(.2,.8,.2,1) infinite}
+.mxp .lo-rf-a:nth-child(1){animation-name:lo-rf-a1}.mxp .lo-rf-a:nth-child(2){animation-name:lo-rf-a2}
+.mxp .lo-rf-bell{flex:none;width:26px;height:26px;border-radius:8px;background:#0E2A47;color:#7FDCEC;display:inline-flex;align-items:center;justify-content:center}
+.mxp .lo-rf-a b{font-weight:700;min-width:0}
+.mxp .lo-rf-a em{margin-left:auto;font-style:normal;font-weight:800;color:#127C8F;white-space:nowrap}
+@keyframes lo-rf-draw{0%{stroke-dashoffset:1}55%,95%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:.4}}
+@keyframes lo-rf-dot{0%,40%{opacity:0;transform:scale(.3)}45%{opacity:1;transform:scale(1.25);box-shadow:0 0 0 0 rgba(244,103,68,.6)}60%{transform:scale(1);box-shadow:0 0 0 14px rgba(244,103,68,0)}95%{opacity:1}100%{opacity:0}}
+@keyframes lo-rf-a1{0%,50%{opacity:0;transform:translateX(24px)}57%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes lo-rf-a2{0%,60%{opacity:0;transform:translateX(24px)}67%,95%{opacity:1;transform:none}100%{opacity:0}}
+.mxp .lo-wh-stage{display:flex;align-items:center;gap:16px;flex:1 1 auto}
+.mxp .lo-wh-house{flex:none;width:92px;height:92px;border-radius:22px;background:rgba(127,220,236,.08);border:1px solid rgba(127,220,236,.25);display:flex;align-items:center;justify-content:center}
+.mxp .lo-wh-house svg{width:64px;height:64px}
+.mxp .lo-wh-draw{stroke:#7FDCEC;stroke-width:3.2;stroke-dasharray:1;stroke-dashoffset:1;animation:lo-wh-draw 6s ease infinite}
+.mxp .lo-wh-roof{fill:#1C97AE;opacity:0;animation:lo-wh-fill 6s ease infinite}
+.mxp .lo-wh-door{fill:#F46744;opacity:0;transform-origin:32px 54px;animation:lo-wh-door 6s ease infinite}
+.mxp .lo-wh-docs{position:relative;flex:1 1 auto;min-width:0;display:grid;gap:6px}
+.mxp .lo-wh-doc{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:10px;background:#fff;color:#0E2A47;font-size:14px;font-weight:700;box-shadow:0 8px 18px rgba(2,2,21,.3);opacity:0;animation:6s cubic-bezier(.2,.9,.25,1.15) infinite}
+.mxp .lo-wh-doc i{flex:none;width:12px;height:15px;border-radius:2px;border:2px solid #1C97AE;box-sizing:border-box;position:relative}
+.mxp .lo-wh-doc:nth-child(1){animation-name:lo-wh-d1;--r:-2deg}.mxp .lo-wh-doc:nth-child(2){animation-name:lo-wh-d2;--r:1.5deg}.mxp .lo-wh-doc:nth-child(3){animation-name:lo-wh-d3;--r:-1deg}.mxp .lo-wh-doc:nth-child(4){animation-name:lo-wh-d4;--r:2deg}
+@keyframes lo-wh-draw{0%{stroke-dashoffset:1}25%,95%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:.4}}
+@keyframes lo-wh-fill{0%,22%{opacity:0}32%,95%{opacity:.55}100%{opacity:0}}
+@keyframes lo-wh-door{0%,26%{opacity:0;transform:scaleY(0)}34%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes lo-wh-d1{0%,30%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}38%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
+@keyframes lo-wh-d2{0%,38%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}46%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
+@keyframes lo-wh-d3{0%,46%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}54%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
+@keyframes lo-wh-d4{0%,54%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}62%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
+@media (max-width:420px){.mxp .lo-wh-house{width:68px;height:68px;border-radius:16px}.mxp .lo-wh-house svg{width:48px;height:48px}.mxp .lo-wh-stage{gap:12px}.mxp .lo-wh-doc,.mxp .lo-rf-a{font-size:13px}}
 .mxp .lo-rov-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
 .mxp .lo-rov-bar i{display:block;height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,#1C97AE,#7FDCEC);transform-origin:left;animation:lo-rov-fill 6s cubic-bezier(.4,0,.2,1) infinite}
 .mxp .lo-rov-steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
@@ -517,7 +585,7 @@ BENTO_CSS = r"""
 @keyframes lo-rov-c3{0%,44%{opacity:0}48%,95%{opacity:1}100%{opacity:0}}
 @keyframes lo-rov-c4{0%,61%{opacity:0}65%,95%{opacity:1}100%{opacity:0}}
 @keyframes lo-rov-done{0%,70%{opacity:0;transform:translateY(8px)}76%,95%{opacity:1;transform:none}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-rov *,.mxp .lo-rov::after,.mxp .lo-rov *::after{animation:none !important}.mxp.mxp .lo-rov-steps>li,.mxp .lo-rov-done{opacity:1;transform:none}.mxp .lo-rov-ic{background:#7FDCEC}.mxp .lo-rov-ic::after{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-rov *,.mxp .lo-rov::after,.mxp .lo-rov *::after{animation:none !important}.mxp.mxp .lo-rov-steps>li,.mxp .lo-rov-done,.mxp .lo-rf-a,.mxp .lo-rf-dot,.mxp .lo-wh-doc,.mxp .lo-wh-door{opacity:1;transform:none}.mxp .lo-wh-roof{opacity:.55}.mxp .lo-rf-ln,.mxp .lo-wh-draw{stroke-dashoffset:0}.mxp .lo-rov-ic{background:#7FDCEC}.mxp .lo-rov-ic::after{opacity:1}}
 
 .mxp .lo-bar-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#B8C7D3}
 .mxp .lo-bar-row i{display:block;height:14px;border-radius:999px;background:rgba(255,255,255,.22);width:var(--w);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .2s}
@@ -816,6 +884,25 @@ s += '''
     var h = document.getElementById('mx-header'); var off = (h && getComputedStyle(h).position === 'fixed' ? h.getBoundingClientRect().bottom : 0) + 80;
     window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
   });
+})();
+
+// ---- tools bento: rotate the client-tool demos (ROVai, refi alerts, welcome home)
+(function () {
+  var box = root.querySelector('.lo-rov'); if (!box) return;
+  var tabs = [].slice.call(box.querySelectorAll('.lo-dtabs span')), sl = [].slice.call(box.querySelectorAll('.lo-sl')); if (sl.length < 2) return;
+  var cur = 0, timer = null, still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i) {
+    cur = (i + sl.length) % sl.length;
+    sl.forEach(function (s, k) { s.classList.remove('on'); if (tabs[k]) tabs[k].classList.remove('on'); });
+    void box.offsetWidth;
+    sl[cur].classList.add('on'); if (tabs[cur]) tabs[cur].classList.add('on');
+  }
+  function play() { clearInterval(timer); if (!still) timer = setInterval(function () { show(cur + 1); }, 6500); }
+  tabs.forEach(function (t, k) { t.addEventListener('click', function () { show(k); play(); }); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { show(cur); play(); } else clearInterval(timer); }); }, { threshold: 0.3 });
+    io.observe(box);
+  } else play();
 })();
 
 // ---- tools bento: grow the bars and drop in the client updates when visible
