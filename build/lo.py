@@ -165,7 +165,7 @@ prog_cards = '<div class="lo-pg">' + ''.join(
     f'<div class="lo-pc-top"><span class="lo-pc-ic" aria-hidden="true"><span>{ICON[ic]}</span></span>'
     f'<div style="min-width: 0"><h3>{title}</h3><p class="lo-pc-hi">{hi}</p></div>'
     f'<span class="lo-pc-n">{len(items)}</span></div>'
-    '<ul class="lo-plist">' + ''.join(f'<li style="--j: {k}">{x}</li>' for k, x in enumerate(items)) + '</ul></article>'
+    '<div class="lo-pl-wrap"><ul class="lo-plist">' + ''.join(f'<li style="--j: {k}"><span class="lo-ck" aria-hidden="true"></span><span>{x}</span></li>' for k, x in enumerate(items)) + '</ul></div></article>'
     for n, (ic, title, hi, items) in enumerate(PROGRAM_GROUPS)) + '</div>'
 PROG_CSS = r"""
 .mxp .lo-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:44px}
@@ -181,10 +181,11 @@ PROG_CSS = r"""
 .mxp .lo-pc-top h3{margin:0;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B8E6EF}
 .mxp .lo-pc-hi{margin:2px 0 0;font-size:clamp(22px,2.2vw,26px);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff}
 .mxp .lo-pc-n{margin-left:auto;flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:#F46744;color:#0E2A47;font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
-.mxp .lo-plist{list-style:none;padding:22px 24px 26px;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.mxp .lo-pl-wrap{padding:22px 24px 26px}
+.mxp .lo-plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
 .mxp.mxp .lo-plist>li{display:flex !important;gap:10px;margin:0 !important;padding:0 !important;font-size:15.5px;line-height:1.4;color:#0E2A47;font-weight:500;list-style:none}
-.mxp.mxp .lo-plist>li::before{content:"" !important;flex:none;width:6px;height:11px;border:solid #1C97AE;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);margin:3px 3px 0 2px;background:none !important;position:static !important}
-@media (max-width:420px){.mxp .lo-plist{grid-template-columns:1fr}.mxp .lo-pc-top{padding:20px}}
+.mxp .lo-ck{flex:none;width:6px;height:11px;border:solid #1C97AE;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);margin:3px 3px 0 2px}
+@media (max-width:420px){.mxp .lo-plist{grid-template-columns:1fr}.mxp .lo-pc-top{padding:20px}.mxp .lo-pl-wrap{padding:18px 20px 22px}}
 /* reveal: only when JS has armed it, so content never stays hidden */
 .mxp .lo-pg.arm .lo-pc{opacity:0;transform:translateY(28px) scale(.98)}
 .mxp .lo-pg.arm .lo-plist>li{opacity:0;transform:translateX(-8px)}
