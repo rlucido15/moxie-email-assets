@@ -746,6 +746,11 @@ s += '''
   };
   var raf = 0; var onScroll = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; update(); }); };
   window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
+  // the site header switches to fixed on its own scroll handler; re-measure whenever it changes
+  var hdrEl = document.getElementById('mx-header');
+  if (hdrEl && 'MutationObserver' in window) new MutationObserver(onScroll).observe(hdrEl, { attributes: true, attributeFilter: ['class', 'style'] });
+  var hw = document.getElementById('mx-header-wrap');
+  if (hw && hw !== hdrEl && 'MutationObserver' in window) new MutationObserver(onScroll).observe(hw, { attributes: true, attributeFilter: ['class', 'style'] });
   var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
   var go = function (id) {
     var el = root.querySelector('#' + id); if (!el) return;
