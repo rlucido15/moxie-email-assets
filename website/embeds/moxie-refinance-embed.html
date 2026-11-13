@@ -466,24 +466,36 @@ var root = document.getElementById('mx-refi');
 MX.fullBleed(root);
 MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@9ecc819/website/es/mx-refi.json');
 
-// ---- move Moxie's existing "How much could you be saving" widget (its own Lofty block) into the hero.
-// If it isn't on the page, the facade stays and its button links to the application.
-function mountWidget() {
+// ---- Refinance Review widget in the hero. The compact hosted version (moxie-refi-widget.html block, marked data-mx-host) is moved in
+// as-is. If the page instead has the older full-size widget block, that block is hidden and the hosted version is loaded here.
+var WIDGET_JS = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@9a43f72/website/widgets/refi-widget.js';
+function heroOn(slot) { slot.classList.add('has-widget'); var hero = root.querySelector('.mx-hero'); if (hero) hero.classList.add('mx-hero-w'); }
+function mountWidget(final) {
   var slot = document.getElementById('mx-refi-slot'); if (!slot || slot.classList.contains('has-widget')) return true;
-  var blocks = document.querySelectorAll('.custom-code-html-content');
+  var blocks = document.querySelectorAll('.custom-code-html-content'), legacy = null;
   for (var i = 0; i < blocks.length; i++) {
     var b = blocks[i];
     if (root.contains(b) || b.contains(root)) continue;
-    if (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || '')) {
+    if (b.querySelector('[data-mx-host]')) {
       var block = b.closest('.md-custom-code') || b.parentElement;
-      slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget'); var hero = root.querySelector('.mx-hero'); if (hero) hero.classList.add('mx-hero-w');
+      slot.textContent = ''; slot.appendChild(b); heroOn(slot);
       if (block && !block.contains(root)) block.style.display = 'none';
       return true;
     }
+    if (!legacy && (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || ''))) legacy = b;
   }
-  return false;
+  if (!legacy || !final) return false;
+  var lb = legacy.closest('.md-custom-code') || legacy; lb.style.display = 'none';
+  var old = legacy.querySelector('#moxie-refinance-root'); if (old) old.remove();
+  var host = document.createElement('div'); host.id = 'moxie-refinance-root'; host.setAttribute('data-mx-host', '1'); host.style.cssText = 'width:100%;min-height:360px';
+  slot.textContent = ''; slot.appendChild(host); heroOn(slot);
+  var sc = document.createElement('script'); sc.src = WIDGET_JS; sc.defer = true; document.body.appendChild(sc);
+  return true;
 }
-if (!mountWidget()) document.addEventListener('DOMContentLoaded', function () { if (!mountWidget()) window.addEventListener('load', mountWidget); });
+if (!mountWidget(false)) {
+  var go = function () { if (!mountWidget(true)) window.addEventListener('load', function () { mountWidget(true); }); };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+}
 
 // ---- dynamic hero (returning + Hawaii), same rules and storage as the homepage hero
 var V = MX.visitor();
