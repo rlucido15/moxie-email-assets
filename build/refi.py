@@ -15,6 +15,7 @@ EXTRA_CSS = r"""
 .mx-hero.mx-hero-w .mx-wrap{max-width:1360px;align-items:flex-start;gap:40px}
 .mx-hero-w .mx-hero-copy{flex:1 1 380px;padding-top:64px}
 .mx-hero-w .mx-hero-media{flex:1.6 1 600px}
+.mx-hero-w .mx-hero-media>.mx-fine{display:none}
 @media (max-width:1060px){.mx-hero-w .mx-hero-copy{padding-top:16px}}
 .mx-facade{background:radial-gradient(120% 90% at 85% 0%,#145A75 0%,#0E2A47 55%,#0B2340 100%);border-radius:24px;padding:40px;color:#fff;box-shadow:0 30px 60px rgba(14,42,71,.28)}
 .mx-facade .mx-eyebrow{color:#1C97AE}
