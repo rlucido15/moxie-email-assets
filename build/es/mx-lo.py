@@ -312,3 +312,4 @@ T.update({
         "Moxie ha invertido de forma importante para darle a su equipo tecnología de vanguardia, incluidas herramientas exclusivas disponibles solo para los miembros del equipo de Moxie. Nuestros sistemas están integrados, automatizados e impulsados por IA, para maximizar tu efectividad y minimizar el tiempo perdido. Eso incluye Arive para originar préstamos, Lofty para CRM y seguimiento, y las herramientas exclusivas de Moxie para clientes, como una hoja de consolidación de deudas con importación de crédito MISMO 3.4, comparaciones de ARM vs. tasa fija y de buydowns, y una calculadora de tasa efectiva.",
     "Proprietary Moxie tools, integrated, automated and powered by AI": "Herramientas exclusivas de Moxie, integradas, automatizadas e impulsadas por IA",
 })
+T.update({"Tools that close business and build repeat business.": "Herramientas que cierran negocios y generan clientes recurrentes."})

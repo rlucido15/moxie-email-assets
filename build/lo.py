@@ -221,7 +221,7 @@ TOOLS = [
 tools = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article class="mxa-card" style="{CARD}"><h3 style="margin: 0; font-size: 20px; display: flex; gap: 10px; align-items: center"><span style="color: #127C8F; flex: none; display: inline-flex">{ICON["check22"]}</span>{t}</h3>'
     f'<p style="margin: 8px 0 0; color: #4A5868; font-size: 16px">{d}</p></article>' for t, d in TOOLS) + '</div>'
-tools_sec = section('lo-tools', 'Tools and technology', 'Proprietary tools you won’t get anywhere else.', tools,
+tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close business and build repeat business.', tools,
                     lede='Moxie has invested significantly to give its team cutting-edge technology, including proprietary tools available only to Moxie team members. Our systems are integrated, automated and powered by AI, maximizing your effectiveness and minimizing wasted time.')
 
 # ---------------- MARKETING (reuse AD cards and images)
