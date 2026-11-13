@@ -749,7 +749,7 @@ s += '''
   // the site header switches to fixed on its own scroll handler; re-measure whenever it changes
   var hdrEl = document.getElementById('mx-header');
   if (hdrEl && 'MutationObserver' in window) new MutationObserver(function () { onScroll(); setTimeout(onScroll, 180); setTimeout(onScroll, 400); }).observe(hdrEl, { attributes: true, attributeFilter: ['class', 'style'] });
-  if (hdrEl) hdrEl.addEventListener('transitionend', onScroll);
+  if (hdrEl) { hdrEl.addEventListener('transitionend', onScroll); hdrEl.addEventListener('animationend', onScroll); }
   var hw = document.getElementById('mx-header-wrap');
   if (hw && hw !== hdrEl && 'MutationObserver' in window) new MutationObserver(onScroll).observe(hw, { attributes: true, attributeFilter: ['class', 'style'] });
   var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
