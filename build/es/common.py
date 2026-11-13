@@ -49,8 +49,8 @@ T = {
     "Terms of Service": "Términos del servicio",
     "and": "y",
     "Privacy Policy": "Política de privacidad",
-    ". Consent is not required to make a purchase; call (480) 660-2518 for direct assistance.":
-        ". El consentimiento no es un requisito para realizar una compra; llama al (480) 660-2518 para recibir ayuda directa.",
+    ". Consent is not required to make a purchase; call 480.660.2518 for direct assistance.":
+        ". El consentimiento no es un requisito para realizar una compra; llama al 480.660.2518 para recibir ayuda directa.",
     "Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender": "Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · Prestamista con igualdad de oportunidades de vivienda",
     "Equal Housing Lender": "Prestamista con igualdad de oportunidades de vivienda",
     "Equal Housing Opportunity": "Igualdad de oportunidades de vivienda",

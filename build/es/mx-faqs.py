@@ -99,7 +99,7 @@ T = {
     "How can I apply for a mortgage?": "¿Cómo puedo solicitar una hipoteca?",
     "There are several ways to apply with Moxie Mortgage.": "Hay varias formas de solicitar con Moxie Mortgage.",
     "You can apply entirely online in 10 minutes or less at apply.moxiemortgage.com": "Puedes solicitar totalmente en línea en 10 minutos o menos en apply.moxiemortgage.com",
-    "You can apply over the phone by calling (480) 660-2518": "Puedes solicitar por teléfono llamando al (480) 660-2518",
+    "You can apply over the phone by calling 480.660.2518": "Puedes solicitar por teléfono llamando al 480.660.2518",
     "You can schedule a time to submit your application in-person or via Zoom depending on your location": "Puedes programar una cita para enviar tu solicitud en persona o por Zoom, según dónde estés",
     "How long does it take to apply for a mortgage?": "¿Cuánto tiempo toma solicitar una hipoteca?",
     "For most borrowers, applying for a mortgage takes 10 minutes or less. You can apply entirely online through our secure portal. Visit apply.moxiemortgage.com to apply and get your preapproval decision today.": "Para la mayoría de los prestatarios, solicitar una hipoteca toma 10 minutos o menos. Puedes solicitar totalmente en línea en nuestro portal seguro. Visita apply.moxiemortgage.com para solicitar y recibir hoy tu decisión de preaprobación.",

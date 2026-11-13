@@ -111,8 +111,8 @@ T = {
     "Takes about a minute. We’ll reach out to book your 20-minute onboarding call.": "Toma alrededor de un minuto. Te contactaremos para agendar tu llamada de incorporación de 20 minutos.",
     "Thanks! We’ll review it and reach out to book your onboarding call.": "¡Gracias! La revisaremos y te contactaremos para agendar tu llamada de incorporación.",
     "Please select the states you operate in.": "Selecciona los estados donde trabajas.",
-    "Applications aren’t connected yet. Please call (480) 660-2518.": "Las solicitudes aún no están conectadas. Llama al (480) 660-2518.",
-    "Something went wrong sending your application. Please try again or call (480) 660-2518.": "Hubo un problema al enviar tu solicitud. Inténtalo de nuevo o llama al (480) 660-2518.",
+    "Applications aren’t connected yet. Please call 480.660.2518.": "Las solicitudes aún no están conectadas. Llama al 480.660.2518.",
+    "Something went wrong sending your application. Please try again or call 480.660.2518.": "Hubo un problema al enviar tu solicitud. Inténtalo de nuevo o llama al 480.660.2518.",
 }
 R = [
     [r"^Year (\d+)$", r"Año $1"],
