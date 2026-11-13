@@ -642,6 +642,7 @@ PARTNER_CSS = r"""
 .mxp .lo-pr-ic{width:52px;height:52px;border-radius:16px;background:#0E2A47;color:#7FDCEC;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-pr-ic>span{width:26px;height:26px;display:block}
 .mxp .lo-pr-tag{font-size:13px;font-weight:700;letter-spacing:.04em;color:#127C8F;background:#E3F5F9;border-radius:999px;padding:6px 12px;white-space:nowrap}
+@media (max-width:420px){.mxp .lo-pr-tag{white-space:normal;text-align:center;text-wrap:balance;font-size:12px;min-width:0}}
 .mxp .lo-pr h3{margin:8px 0 0;font-size:22px;line-height:1.2}
 .mxp .lo-pr p{margin:0;font-size:16px;color:#4A5868}
 """
