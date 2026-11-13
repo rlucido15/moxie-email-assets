@@ -558,7 +558,7 @@ BENTO_CSS = r"""
 @keyframes lo-wh-d2{0%,38%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}46%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
 @keyframes lo-wh-d3{0%,46%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}54%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
 @keyframes lo-wh-d4{0%,54%{opacity:0;transform:translate(-40px,30px) rotate(-14deg) scale(.8)}62%,95%{opacity:1;transform:rotate(var(--r))}100%{opacity:0}}
-@media (max-width:420px){.mxp .lo-wh-house{width:52px;height:52px;border-radius:14px}.mxp .lo-wh-house svg{width:38px;height:38px}.mxp .lo-wh-stage{gap:10px}.mxp .lo-wh-doc{font-size:13px;padding:7px 10px;gap:8px}.mxp .lo-rf-a{font-size:13px;gap:8px;padding:8px 10px}.mxp .lo-rov-done{font-size:13px;padding:8px 12px}}
+@media (max-width:420px){.mxp .lo-wh-house{width:52px;height:52px;border-radius:14px}.mxp .lo-wh-house svg{width:38px;height:38px}.mxp .lo-wh-stage{gap:10px}.mxp .lo-wh-doc{font-size:13px;padding:7px 10px;gap:8px}.mxp .lo-rf-a{font-size:13px;gap:2px 8px;padding:8px 12px;flex-wrap:wrap}.mxp .lo-rf-bell{display:none}.mxp .lo-rf-a b{white-space:nowrap}.mxp .lo-rf-a small{letter-spacing:.06em}.mxp .lo-rov-done{font-size:13px;padding:8px 12px}}
 .mxp .lo-rov-done,.mxp .lo-wh-doc,.mxp .lo-rf-a b{text-wrap:balance}
 .mxp .lo-rov-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
 .mxp .lo-rov-bar i{display:block;height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,#1C97AE,#7FDCEC);transform-origin:left;animation:lo-rov-fill 6s cubic-bezier(.4,0,.2,1) infinite}
