@@ -1,3 +1,4 @@
+import re
 import os
 """Shared pieces for the Moxie Lofty embeds."""
 import json
@@ -79,7 +80,7 @@ CSS = r"""
 .mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
 .mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
 .mx-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:16px 48px;margin-top:36px !important}
-@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,auto);gap:16px 32px}}
+@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}.mxp .mx-stats li>span{white-space:normal}}
 
 .mx-stats strong{display:block;font-size:28px;line-height:1.1;font-weight:800}
 .mx-stats li>span{display:block;margin-top:4px;font-size:14px;color:var(--muted);white-space:nowrap}
@@ -258,7 +259,44 @@ def es_url(root_id):
     return f"https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@{open(pin).read().strip()}/website/es/{root_id}.json"
 
 
+
+# ---------- comparison tables: on phones each row becomes a card, and every cell shows its column name (no sideways scrolling)
+STACK_CSS = (".mxp .mx-tl{display:none}"
+  "@media (max-width:700px){"
+  ".mxp .mx-stk-box{overflow:visible !important}"
+  ".mxp table.mx-stk{display:block;min-width:0 !important;width:100% !important}"
+  ".mxp .mx-stk caption{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}"
+  ".mxp .mx-stk thead{display:none}"
+  ".mxp .mx-stk tbody,.mxp .mx-stk tr,.mxp .mx-stk th,.mxp .mx-stk td{display:block;width:auto !important;text-align:left}"
+  ".mxp .mx-stk tr{padding:18px 18px 16px !important;border-top:1px solid #DCE6EB}"
+  ".mxp .mx-stk tbody tr:first-child{border-top:0}"
+  ".mxp .mx-stk th[scope=row]{padding:0 0 6px !important;font-size:18px;font-weight:700;color:#0E2A47;background:none !important}"
+  ".mxp .mx-stk td{padding:10px 12px !important;margin-top:6px;border-radius:10px;overflow-wrap:anywhere}"
+  ".mxp .mx-tl{display:block;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A5868;margin-bottom:2px}"
+  "}")
+
+def stack_tables(html):
+    if '<table' not in html: return html
+    def one(m):
+        t = m.group(0)
+        heads = re.findall(r'<th scope="col"[^>]*>(.*?)</th>', t, re.S)
+        heads = [re.sub(r'<span style="position: absolute[^"]*">.*?</span>', '', h, flags=re.S).strip() for h in heads]
+        def row(r):
+            cells = re.split(r'(<td\b[^>]*>)', r.group(0)); out = cells[0]; col = 1
+            for i in range(1, len(cells), 2):
+                lab = heads[col] if col < len(heads) else ''
+                out += cells[i] + (f'<span class="mx-tl">{lab}</span>' if lab else '') + cells[i + 1]; col += 1
+            return out
+        t = re.sub(r'<tr\b.*?</tr>', row, t, flags=re.S)
+        return t.replace('<table', '<table class="mx-stk"', 1) if 'class=' not in t.split('>', 1)[0] else t.replace('<table class="', '<table class="mx-stk ', 1)
+    html = re.sub(r'<table\b.*?</table>', one, html, flags=re.S)
+    # the scroll wrapper right before each table
+    html = re.sub(r'<div style="([^"]*overflow-x: auto[^"]*)">(\s*<table class="mx-stk)', r'<div class="mx-stk-box" style="\1">\2', html)
+    html = html.replace('<div class="mx-tbl-box"', '<div class="mx-tbl-box mx-stk-box"')
+    return '<style>' + STACK_CSS + '</style>\n' + html
+
 def wrap(root_id, body, script, schema, title_comment):
+    body = stack_tables(body)
     from i18n import I18N_JS
     es = es_url(root_id)
     es_js = (I18N_JS.strip() + '\n') if es else ''

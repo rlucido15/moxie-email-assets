@@ -62,7 +62,7 @@
 .mx-badge{position:absolute;left:-18px;bottom:34px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(14,42,71,.18);display:flex;gap:12px;align-items:center}
 .mx-badge-i{width:40px;height:40px;border-radius:50%;background:#E3F5F9;color:var(--bt);display:inline-flex;align-items:center;justify-content:center;flex:none}
 .mx-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:16px 48px;margin-top:36px !important}
-@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,auto);gap:16px 32px}}
+@media (max-width:520px){.mx-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px}.mxp .mx-stats li>span{white-space:normal}}
 
 .mx-stats strong{display:block;font-size:28px;line-height:1.1;font-weight:800}
 .mx-stats li>span{display:block;margin-top:4px;font-size:14px;color:var(--muted);white-space:nowrap}
@@ -91,6 +91,7 @@
 @media (max-width:640px){.mx-sec{padding:64px 0}.mx-cta{padding:36px 24px}.mx-badge{left:8px;bottom:16px}.mx-hero{padding:32px 0 48px}}
 @media (prefers-reduced-motion:reduce){.mxp *,.mxp *::before,.mxp *::after{animation:none !important;transition:none !important}}.mx-es-wait{visibility:hidden}</style>
 <div class="mxp" id="mx-products">
+<style>.mxp .mx-tl{display:none}@media (max-width:700px){.mxp .mx-stk-box{overflow:visible !important}.mxp table.mx-stk{display:block;min-width:0 !important;width:100% !important}.mxp .mx-stk caption{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.mxp .mx-stk thead{display:none}.mxp .mx-stk tbody,.mxp .mx-stk tr,.mxp .mx-stk th,.mxp .mx-stk td{display:block;width:auto !important;text-align:left}.mxp .mx-stk tr{padding:18px 18px 16px !important;border-top:1px solid #DCE6EB}.mxp .mx-stk tbody tr:first-child{border-top:0}.mxp .mx-stk th[scope=row]{padding:0 0 6px !important;font-size:18px;font-weight:700;color:#0E2A47;background:none !important}.mxp .mx-stk td{padding:10px 12px !important;margin-top:6px;border-radius:10px;overflow-wrap:anywhere}.mxp .mx-tl{display:block;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A5868;margin-bottom:2px}}</style>
 
 <style>.mx-help{flex:0 1 300px;background:var(--navy);color:#fff;border-radius:20px;padding:26px}
 .mx-help p{color:#C9D6DF;font-size:15px;margin:4px 0 18px !important}
@@ -136,17 +137,17 @@
   <div class="mx-wrap">
     <h2 id="mxp-glance" class="mx-h2" style="font-size:clamp(28px,3vw,36px)">Popular home loans at a glance</h2>
     <p class="mx-muted" style="margin:8px 0 22px">Typical minimums. Your Moxie loan officer will confirm what you qualify for.</p>
-    <div class="mx-tbl-box" role="region" aria-labelledby="mxp-glance" tabindex="0">
-      <table>
+    <div class="mx-tbl-box mx-stk-box" role="region" aria-labelledby="mxp-glance" tabindex="0">
+      <table class="mx-stk">
         <caption style="position:absolute;left:-9999px">Comparison of popular Moxie Mortgage home loan types</caption>
         <thead><tr><th scope="col">Loan type</th><th scope="col">Best for</th><th scope="col">Down payment</th><th scope="col">Credit score</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><a href="#conventional-30">Conventional</a></th><td>Buyers with steady credit and income</td><td>As low as 3%</td><td>620+</td></tr>
-          <tr><th scope="row"><a href="#fha">FHA</a></th><td>First-time buyers, lower credit or savings</td><td>3.5%</td><td>580+ (as low as 500 with Moxie)</td></tr>
-          <tr><th scope="row"><a href="#va">VA</a></th><td>Eligible veterans and service members</td><td>0%</td><td>Set by lender</td></tr>
-          <tr><th scope="row"><a href="#usda">USDA</a></th><td>Buyers in USDA-designated rural areas</td><td>0%</td><td>640+</td></tr>
-          <tr><th scope="row"><a href="#jumbo">Jumbo</a></th><td>Loans above $832,750 (2026 limit, most areas)</td><td>Often 10%–20%</td><td>Varies by program</td></tr>
-          <tr><th scope="row"><a href="#bank-statement-loan">Non-QM</a></th><td>Self-employed and investors</td><td>10%–25%</td><td>620+</td></tr>
+          <tr><th scope="row"><a href="#conventional-30">Conventional</a></th><td><span class="mx-tl">Best for</span>Buyers with steady credit and income</td><td><span class="mx-tl">Down payment</span>As low as 3%</td><td><span class="mx-tl">Credit score</span>620+</td></tr>
+          <tr><th scope="row"><a href="#fha">FHA</a></th><td><span class="mx-tl">Best for</span>First-time buyers, lower credit or savings</td><td><span class="mx-tl">Down payment</span>3.5%</td><td><span class="mx-tl">Credit score</span>580+ (as low as 500 with Moxie)</td></tr>
+          <tr><th scope="row"><a href="#va">VA</a></th><td><span class="mx-tl">Best for</span>Eligible veterans and service members</td><td><span class="mx-tl">Down payment</span>0%</td><td><span class="mx-tl">Credit score</span>Set by lender</td></tr>
+          <tr><th scope="row"><a href="#usda">USDA</a></th><td><span class="mx-tl">Best for</span>Buyers in USDA-designated rural areas</td><td><span class="mx-tl">Down payment</span>0%</td><td><span class="mx-tl">Credit score</span>640+</td></tr>
+          <tr><th scope="row"><a href="#jumbo">Jumbo</a></th><td><span class="mx-tl">Best for</span>Loans above $832,750 (2026 limit, most areas)</td><td><span class="mx-tl">Down payment</span>Often 10%–20%</td><td><span class="mx-tl">Credit score</span>Varies by program</td></tr>
+          <tr><th scope="row"><a href="#bank-statement-loan">Non-QM</a></th><td><span class="mx-tl">Best for</span>Self-employed and investors</td><td><span class="mx-tl">Down payment</span>10%–25%</td><td><span class="mx-tl">Credit score</span>620+</td></tr>
         </tbody>
       </table>
     </div>
@@ -414,7 +415,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-products');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@b0a1067/website/es/mx-products.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@e8a52d1/website/es/mx-products.json');
 
 var chips = [].slice.call(root.querySelectorAll('.mx-chip'));
 var cards = [].slice.call(root.querySelectorAll('.mx-prod'));
