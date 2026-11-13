@@ -406,6 +406,10 @@ founder_sec = f'''
         <p style="margin: 14px 0 0; font-size: 18px; color: #4A5868; max-width: 640px">Your intro call is with Robert Lucido Jr, Moxie’s founder. Ask him anything: compensation, where the deals come from, and what your first 90 days look like. The conversation is confidential.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px"><a href="#apply" class="mxa-btn-p" style="{BTN_P}">Book a confidential call</a></div>
       </div>
+      <figure class="lo-sg" style="flex: none; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+        <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.webp" alt="Scotsman Guide Top Originators badge" width="120" height="120" loading="lazy" decoding="async" style="width: 120px; height: 120px">
+        <figcaption style="font-size: 13px; font-weight: 700; color: #0E2A47; line-height: 1.3; max-width: 150px">Scotsman Guide Top Originator</figcaption>
+      </figure>
     </div>
   </section>'''
 
@@ -443,14 +447,22 @@ TOOLS = [
 ]
 T = dict(TOOLS)
 CHK = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>'
-viz_tools = ('<div class="lo-viz-bars" aria-hidden="true">'
+viz_chart = ('<div class="lo-viz-chart" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="none">'
+             '<defs><linearGradient id="loArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FDCEC" stop-opacity=".35"/><stop offset="1" stop-color="#7FDCEC" stop-opacity="0"/></linearGradient></defs>'
+             '<path class="lo-ch-grid" d="M0 30H320M0 60H320M0 90H320"/>'
+             '<path class="lo-ch-old" d="M0 26 C60 28 110 30 160 34 S260 40 320 44"/>'
+             '<path class="lo-ch-area" d="M0 26 C50 34 90 62 140 72 S240 86 320 92 V120 H0 Z" fill="url(#loArea)"/>'
+             '<path class="lo-ch-new" d="M0 26 C50 34 90 62 140 72 S240 86 320 92"/>'
+             '<circle class="lo-ch-dot" cx="320" cy="92" r="6"/></svg>'
+             '<span class="lo-ch-tag">Clear in minutes</span></div>')
+viz_tools = (viz_chart + '<div class="lo-viz-bars" aria-hidden="true">'
              '<div class="lo-bar-row"><span>Today</span><i style="--w: 92%"></i></div>'
              '<div class="lo-bar-row lo-bar-new"><span>With Moxie</span><i style="--w: 58%"></i></div></div>'
              '<div class="lo-tchips"><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
-viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>Application</span><b>→</b><span>Closed</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
+viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span><b>→</b><span>Funded</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
 viz_uni = '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
 viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
-            + ''.join(f'<div class="lo-toast" style="--k: {k}"><span class="lo-toast-ic">{CHK}</span>{t}</div>' for k, t in enumerate(['Application received', 'Appraisal ordered', 'Clear to close']))
+            + ''.join(f'<div class="lo-toast" style="--k: {k}"><span class="lo-toast-ic">{CHK}</span>{t}</div>' for k, t in enumerate(['Title work received', 'Appraisal ordered', 'Clear to close']))
             + '</div>')
 def bcard(cls, title, viz):
     return f'<article class="lo-b {cls}"><h3>{title}</h3><p>{T[title]}</p>{viz}</article>'
@@ -470,7 +482,20 @@ BENTO_CSS = r"""
 .mxp .lo-b h3{position:relative;margin:0;font-size:22px;line-height:1.2;color:#fff}
 .mxp .lo-b-big h3{font-size:clamp(26px,2.6vw,32px)}
 .mxp .lo-b p{position:relative;margin:0;font-size:16px;color:#C9D7E2;max-width:44ch}
-.mxp .lo-viz-bars{margin-top:auto;padding-top:28px;display:grid;gap:14px}
+.mxp .lo-viz-bars{margin-top:auto;padding-top:20px;display:grid;gap:14px}
+.mxp .lo-viz-chart{position:relative;flex:1 1 auto;min-height:150px;margin-top:22px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:18px 16px 10px}
+.mxp .lo-viz-chart svg{display:block;width:100%;height:100%;min-height:120px;overflow:visible}
+.mxp .lo-ch-grid{stroke:rgba(255,255,255,.08);stroke-width:1;fill:none}
+.mxp .lo-ch-old{fill:none;stroke:rgba(255,255,255,.35);stroke-width:2.5;stroke-dasharray:6 6}
+.mxp .lo-ch-new{fill:none;stroke:#7FDCEC;stroke-width:4;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;filter:drop-shadow(0 0 6px rgba(127,220,236,.7));animation:lo-draw 4.5s cubic-bezier(.4,0,.2,1) infinite}
+.mxp .lo-ch-area{opacity:0;animation:lo-fade 4.5s ease infinite}
+.mxp .lo-ch-dot{fill:#F46744;opacity:0;transform-box:fill-box;transform-origin:center;animation:lo-dot 4.5s ease infinite}
+.mxp .lo-ch-tag{position:absolute;right:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0E2A47;background:#7FDCEC;border-radius:999px;padding:5px 10px;animation:lo-float 3s ease-in-out infinite}
+@keyframes lo-draw{0%{stroke-dashoffset:400}45%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes lo-fade{0%,25%{opacity:0}50%,85%{opacity:1}100%{opacity:0}}
+@keyframes lo-dot{0%,42%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.25)}58%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
+@keyframes lo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-ch-new{animation:none;stroke-dashoffset:0}.mxp .lo-ch-area,.mxp .lo-ch-dot{animation:none;opacity:1}.mxp .lo-ch-tag{animation:none}}
 .mxp .lo-bar-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#B8C7D3}
 .mxp .lo-bar-row i{display:block;height:14px;border-radius:999px;background:rgba(255,255,255,.22);width:var(--w);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .2s}
 .mxp .lo-bar-new{color:#7FDCEC}
@@ -503,7 +528,7 @@ tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close busine
 # ---------------- PARTNER RELATIONSHIPS
 PARTNERS = [
     ('shield', 'Insurance network', 'Faster clear to close',
-     'Our insurance network finds clients the best price on homeowners insurance, so they’re fully protected while keeping their monthly payment as low as possible, with no work required from them.'),
+     'Our insurance network helps clients get the best price on homeowners insurance, so they’re fully protected while keeping their monthly payment as low as possible, with no work required from them.'),
     ('home', 'Home services', 'No cost to the borrower',
      'Help with the move and getting the new home set up, at no cost to the borrower, so there’s less stress and the house feels like home sooner.'),
     ('clock', 'AMC relationships', 'Faster appraisals',
