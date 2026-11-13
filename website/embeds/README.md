@@ -136,3 +136,13 @@ File: `moxie-area-director-embed.html` (~74 KB)
 SEO (page settings › SEO):
 - Title: `Area Director | Earn Mortgage Income in Your Area | Moxie Mortgage`
 - Meta description: `Join Moxie Mortgage as an Area Director: a W-2 business development role paid 0.25% of the loan amount on closed Moxie loans in your area. No mortgage license or loan work required.`
+
+## Spanish (EN / ES toggle)
+Every page embed, the header, the footer and the three calculators switch to Spanish when a visitor clicks **ES** in the header.
+
+- **Install:** paste the latest version of each embed (header first on every page, then the page embed, then the footer). No other setup. Pages that still carry an older embed upgrade themselves when a newer one is on the page.
+- **How it works:** the header's toggle sets `?lang=es` and remembers the choice; every internal link carries it. Each page fetches its Spanish dictionary from this repo (`website/es/<page>.json`) only when Spanish is on, so English visitors download nothing extra. Text is swapped in place, so forms, sliders, filters, the FAQ search and lead posting work unchanged.
+- **Calculators:** the calculator pages pass the language to the calculator apps (GitHub Pages) and keep them in sync when the toggle changes.
+- **Stays English:** customer reviews (left in the reviewer's own words), Lofty blog posts and city pages, apply.moxiemortgage.com, the PDF reports and the emails Moxie receives.
+- **Editing Spanish:** strings live in `build/es/*.py`. Run `build/publish_es.sh` (rebuilds dictionaries, publishes them, rebuilds embeds) and `build/app_i18n.py` for the calculators, then commit the three calculator repos.
+- **New client stories:** add the new story's title and summary to `build/es/mx-stories.py` when running Client Stories Update, or they show in English on the Spanish page.
