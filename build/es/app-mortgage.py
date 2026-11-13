@@ -184,6 +184,7 @@ T = {
     "Estimated private mortgage insurance. Your actual premium depends on credit score, down payment, occupancy and the mortgage insurer.": "Seguro hipotecario privado estimado. Tu prima real depende del puntaje de crédito, el pago inicial, el uso de la propiedad y la aseguradora hipotecaria.",
 }
 R = [
+    [r"^e\.g\. (\d+)$", r"p. ej. $1"],
     [r"^\$([\d,]+) down$", r"$$$1 de pago inicial"],
     [r"^Estimated monthly payment (\$[\d,]+)\.$", r"Pago mensual estimado de $1."],
     [r"^Payment breakdown: (.*)$", r"Desglose del pago: $1"],

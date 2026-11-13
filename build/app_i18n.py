@@ -10,6 +10,8 @@ for path, name in APPS.items():
     block = f'''<!--mx-i18n-->
 <style>.mx-es-wait{{visibility:hidden}}</style>
 <script>
+// the calculator follows only the page it sits in: ?lang=es from the page, or a message when the toggle changes
+try {{ if (!/[?&]lang=es(&|$)/.test(location.search)) localStorage.removeItem('mx_lang'); }} catch (e) {{}}
 {I18N_JS.strip()}
 (function () {{
   // Spanish: opens in ?lang=es, follows the parent page's EN/ES toggle, translates text in place so the calculator keeps working

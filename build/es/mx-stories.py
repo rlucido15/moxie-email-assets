@@ -90,6 +90,8 @@ T = {
     "Let’s write your success story.": "Escribamos tu historia de éxito.",
     "Moxie client": "Cliente de Moxie",
     "New story": "Historia nueva",
+    "Semi-retired and moving states? Here is how Nicholas made it happen": "¿Semijubilado y mudándote de estado? Así lo logró Nicholas",
+    "Traditional lending said no. Here is how Nicholas made his homecoming happen.": "Los préstamos tradicionales le dijeron que no. Así logró Nicholas volver a casa.",
 }
 R = [
     [r"^(\d+) stories$", r"$1 historias"],

@@ -111,6 +111,7 @@ T = {
     "Washington": "Washington", "Alaska": "Alaska",
 }
 R = [
+    [r"^e\.g\. (\d+)$", r"p. ej. $1"],
     [r"^(\d+)-yr fixed · ([\d.]+)% tax · (\$[\d,]+) insurance$", r"Fijo a $1 años · $2% de impuesto · $3 de seguro"],
     [r"^(\d+)-yr (\d-\d) ARM · ([\d.]+)% tax · (\$[\d,]+) insurance$", r"ARM $2 a $1 años · $3% de impuesto · $4 de seguro"],
     [r"^Review (\d+) of (\d+)$", r"Reseña $1 de $2"],
