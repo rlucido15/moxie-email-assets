@@ -46,7 +46,7 @@ hero = f'''
       <div style="flex: 1 1 560px; min-width: 0">
         <p style="margin: 0 0 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px; color: #7FDCEC">Loan officer careers</p>
         <h1 id="lo-h1" class="mx-speak" style="margin: 0; font-size: clamp(40px, 5.2vw, 64px); line-height: 1.03; font-weight: 800; letter-spacing: -0.02em; text-wrap: balance">Close more loans, faster and easier.</h1>
-        <p class="mx-speak" style="margin: 22px 0 0; font-size: 19px; line-height: 1.5; color: #D3E3EC; max-width: 600px; text-wrap: pretty">Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers.</p>
+        <p class="mx-speak" style="margin: 22px 0 0; font-size: 19px; line-height: 1.5; color: #D3E3EC; max-width: 600px; text-wrap: pretty">Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers who want to excel.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px">
           <a href="#apply" class="mxa-btn-p" style="{BTN_P}">Apply to join Moxie</a>
           <a href="#founder" class="mxa-btn-w" style="{BTN_W}">Talk with our founder</a>
@@ -148,16 +148,16 @@ dealstats = ('<div style="display: grid; grid-template-columns: repeat(auto-fit,
 flow = section('lo-flow', 'Where your deals come from', 'Most of the business comes to you.',
                dealstats + value_stack +
                '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
-               lede='Moxie invests in the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.', sec_id='deals')
+               lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.', sec_id='deals')
 
 
 # ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)
 PROGRAM_GROUPS = [
     ('home', 'Agency and government', 'FICO from 500', ['Conventional', 'FHA', 'VA', 'USDA', 'Jumbo and super jumbo', 'Down payment assistance', 'Doctor loans']),
-    ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'ITIN', 'Foreign national', 'DACA']),
-    ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Fix and flip', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
+    ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'No doc loans', 'Foreign national']),
+    ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
     ('cash', 'Home equity', 'Keep the low first rate', ['HELOC', 'Home equity loans', 'Second mortgages', 'Reverse mortgages']),
-    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction and one-time close']),
+    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction and one-time close', 'Fix and flip']),
     ('grid', 'Unique properties', 'Hard-to-finance properties', ['Non-warrantable condos', 'Condotels', 'Manufactured homes']),
     ('pct', 'Rate and payment options', 'Payments that fit', ['ARMs', 'Interest-only', 'Temporary buydowns']),
 ]
@@ -224,7 +224,7 @@ db_sec = section('lo-db', 'Your past clients', 'Your database is your next pipel
 PAIN = [
     ('You’re chasing your own leads.', '82% of our business is company-generated', 'Warm introductions from key enterprise accounts, Area Directors and agent partners, and 86% of it is purchase.<sup>3</sup>'),
     ('You’re losing deals on rate.', 'Wholesale pricing that wins', 'Moxie rates averaged 0.559% lower than the largest retail lender.<sup>1</sup>'),
-    ('You’re turning away good borrowers.', 'A huge product array', 'FICO scores from 500, self-employed bank statement loans, DSCR up to 25 units, non-QM, HELOCs and thousands more programs across 300+ wholesale investors.'),
+    ('You’re turning away good borrowers.', 'Huge loan selection', 'Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.'),
     ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors across product types.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
     ('You wait weeks to get paid.', 'Everyday payday', 'Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.'),
@@ -246,12 +246,12 @@ STACK = [
 ]
 stack_rows = ''.join(
     f'<li><div class="lo-st-row"><span aria-hidden="true" class="lo-st-n">{i}</span><div style="min-width: 0"><h3>{t}</h3><p>{d}</p></div></div></li>' for i, (t, d) in enumerate(STACK, 1))
-deals_sec = section('lo-deals', 'Where your deals come from', 'Most of the business comes to you.',
+deals_sec = section('lo-deals', 'Where your deals come from', 'We drive the business opportunities that fuel your growth.',
     f'<div class="lo-st"><ul style="list-style: none; padding: 0; margin: 0">{stack_rows}</ul>'
     '<p class="lo-st-sum"><b>= 82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
     '<p style="margin: 16px 0 0; font-size: 13px; color: #B8C7D3">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
     bg='#0E2A47', dark=True, sec_id='deals',
-    lede='Moxie invests in the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
+    lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
 
 # ---------------- PAY + SUPPORT (dark)
 PAY = [

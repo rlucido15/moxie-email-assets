@@ -451,3 +451,14 @@ T.update({
         "Recibe capacitación completa en todo, incluidas tus relaciones con prestamistas y cada herramienta a tu disposición.",
 })
 T.update({"Construction and renovation": "Construcción y remodelación", "Unique properties": "Propiedades únicas", "Hard-to-finance properties": "Propiedades difíciles de financiar"})
+T.update({
+    "Huge loan selection": "Enorme variedad de préstamos",
+    "Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.":
+        "Puntajes de crédito desde 500, préstamos para trabajadores independientes, DSCR hasta 25 unidades, préstamos sin documentación de ingresos, HELOC y mucho más.",
+    "We drive the business opportunities that fuel your growth.": "Generamos las oportunidades de negocio que impulsan tu crecimiento.",
+    "Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.":
+        "Moxie construye las cuentas empresariales y las relaciones que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos.",
+    "No doc loans": "Préstamos sin documentación de ingresos",
+    "Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers who want to excel.":
+        "Préstamos de compra calificados, precios mayoristas, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia que quieren destacar.",
+})
