@@ -484,10 +484,17 @@ home_slide = ('<div class="lo-sl lo-sl-wh">'
               '<rect class="lo-wh-door" x="27" y="39" width="10" height="15" rx="1.5"/></svg></div>'
               '<div class="lo-wh-docs">' + ''.join(f'<div class="lo-wh-doc"><i></i>{t}</div>' for t in WH_DOCS) + '</div></div>'
               + DONE('Their new neighborhood, all in one guide') + '</div>')
-DEMOS = ['ROVai', 'Refi alerts', 'Welcome home']
+DC_ROWS = [('Current mortgage', '$1,980/mo', 100, 'm'), ('Credit cards', '$720/mo', 46, ''), ('Auto loan', '$540/mo', 36, ''), ('Personal loan', '$380/mo', 26, '')]
+dc_slide = ('<div class="lo-sl lo-sl-dc">'
+            '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Debt consolidation engine</b></span></div>'
+            '<div class="lo-dc"><div class="lo-dc-rows">'
+            + ''.join(f'<div class="lo-dc-r{" m" if m else ""}" style="--d:{k * .25:.2f}s"><span>{a}</span><b>{b}</b><i style="width:{w}%"></i></div>' for k, (a, b, w, m) in enumerate(DC_ROWS))
+            + '</div><div class="lo-dc-one"><span>One new payment</span><b>$2,410/mo</b><s>$3,620/mo today</s></div></div>'
+            + DONE('$1,210/mo back in their budget') + '</div>')
+DEMOS = ['ROVai', 'Refi alerts', 'Debt consolidation', 'Welcome home']
 viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
              + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
-             + '</div><div class="lo-demo">' + rov_slide + refi_slide + home_slide + '</div></div>'
+             + '</div><div class="lo-demo">' + rov_slide + refi_slide + dc_slide + home_slide + '</div></div>'
              )
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span>'
             '<b class="v">↑</b><i></i><b class="v">↓</b>'
@@ -548,6 +555,20 @@ BENTO_CSS = r"""
 @keyframes lo-rf-dot{0%,40%{opacity:0;transform:scale(.3)}45%{opacity:1;transform:scale(1.25);box-shadow:0 0 0 0 rgba(244,103,68,.6)}60%{transform:scale(1);box-shadow:0 0 0 14px rgba(244,103,68,0)}95%{opacity:1}100%{opacity:0}}
 @keyframes lo-rf-a1{0%,50%{opacity:0;transform:translateX(24px)}57%,95%{opacity:1;transform:none}100%{opacity:0}}
 @keyframes lo-rf-a2{0%,60%{opacity:0;transform:translateX(24px)}67%,95%{opacity:1;transform:none}100%{opacity:0}}
+.mxp .lo-dc{display:grid;flex:1 1 auto}
+.mxp .lo-dc-rows,.mxp .lo-dc-one{grid-area:1/1}
+.mxp .lo-dc-rows{display:grid;gap:9px;align-content:start}
+.mxp .lo-dc-r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;font-size:14px;font-weight:700;color:#D3E3EC;opacity:0;animation:lo-dc-r 6s ease var(--d) infinite}
+.mxp .lo-dc-r b{color:#fff;font-weight:800}
+.mxp .lo-dc-r i{grid-column:1/-1;height:7px;border-radius:999px;background:#F46744;transform-origin:left;animation:lo-dc-bar 6s cubic-bezier(.3,.8,.2,1) var(--d) infinite}
+.mxp .lo-dc-r.m i{background:#7FDCEC}
+.mxp .lo-dc-one{align-self:center;justify-self:center;width:min(100%,280px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px 18px;border-radius:16px;background:#fff;color:#0E2A47;box-shadow:0 0 0 6px rgba(127,220,236,.18),0 18px 30px rgba(2,2,21,.35);opacity:0;animation:lo-dc-one 6s cubic-bezier(.2,.9,.25,1.2) infinite}
+.mxp .lo-dc-one span{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#127C8F;text-align:center}
+.mxp .lo-dc-one b{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.mxp .lo-dc-one s{font-size:13px;font-weight:600;color:#7A8A99}
+@keyframes lo-dc-r{0%{opacity:0;transform:translateX(-14px)}7%,36%{opacity:1;transform:none}46%,100%{opacity:0;transform:translateY(24px) scale(.9)}}
+@keyframes lo-dc-bar{0%,3%{transform:scaleX(0)}14%,100%{transform:scaleX(1)}}
+@keyframes lo-dc-one{0%,50%{opacity:0;transform:scale(.8)}58%,95%{opacity:1;transform:none}100%{opacity:0}}
 .mxp .lo-wh-stage{display:flex;align-items:center;gap:16px;flex:1 1 auto}
 .mxp .lo-wh-house{flex:none;width:92px;height:92px;border-radius:22px;background:rgba(127,220,236,.08);border:1px solid rgba(127,220,236,.25);display:flex;align-items:center;justify-content:center}
 .mxp .lo-wh-house svg{width:64px;height:64px}
@@ -594,7 +615,7 @@ BENTO_CSS = r"""
 @keyframes lo-rov-c3{0%,44%{opacity:0}48%,95%{opacity:1}100%{opacity:0}}
 @keyframes lo-rov-c4{0%,61%{opacity:0}65%,95%{opacity:1}100%{opacity:0}}
 @keyframes lo-rov-done{0%,70%{opacity:0;transform:translateY(8px)}76%,95%{opacity:1;transform:none}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-rov *,.mxp .lo-rov::after,.mxp .lo-rov *::after{animation:none !important}.mxp.mxp .lo-rov-steps>li,.mxp .lo-rov-done,.mxp .lo-rf-a,.mxp .lo-rf-dot,.mxp .lo-wh-doc,.mxp .lo-wh-door{opacity:1;transform:none}.mxp .lo-wh-roof{opacity:.55}.mxp .lo-rf-ln,.mxp .lo-wh-draw{stroke-dashoffset:0}.mxp .lo-rov-ic{background:#7FDCEC}.mxp .lo-rov-ic::after{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-rov *,.mxp .lo-rov::after,.mxp .lo-rov *::after{animation:none !important}.mxp.mxp .lo-rov-steps>li,.mxp .lo-rov-done,.mxp .lo-dc-one,.mxp .lo-rf-a,.mxp .lo-rf-dot,.mxp .lo-wh-doc,.mxp .lo-wh-door{opacity:1;transform:none}.mxp .lo-wh-roof{opacity:.55}.mxp .lo-rf-ln,.mxp .lo-wh-draw{stroke-dashoffset:0}.mxp .lo-rov-ic{background:#7FDCEC}.mxp .lo-rov-ic::after{opacity:1}}
 
 .mxp .lo-bar-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#B8C7D3}
 .mxp .lo-bar-row i{display:block;height:14px;border-radius:999px;background:rgba(255,255,255,.22);width:var(--w);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .2s}
