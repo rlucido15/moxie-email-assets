@@ -57,10 +57,10 @@ header.md-header,.md-header{display:none !important}
 .mxh-lang{display:inline-flex;border:1.5px solid #C9D8DF;border-radius:999px;padding:2px;background:#fff}
 .mxh-lang button{appearance:none;border:0;background:transparent;font:700 13px/1 MoxieBarlow,Barlow,system-ui,sans-serif;letter-spacing:.08em;color:#4A5868;padding:7px 12px;border-radius:999px;cursor:pointer;min-height:30px}
 .mxh-lang button[aria-pressed=true]{background:#1C97AE;color:#fff}
-.mxh-main{max-width:none;margin:0;padding:14px 34px;display:flex;align-items:center;gap:52px;min-height:88px}
-.mxh-logo{flex:none;display:block}
+.mxh-main{max-width:none;margin:0;padding:14px 34px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;min-height:88px}
+.mxh-logo{flex:none;display:block;justify-self:start}
 .mxh-logo img{display:block;width:208px;height:auto}
-.mxh-nav{flex:1;display:flex;justify-content:flex-start}
+.mxh-nav{display:flex;justify-content:center}
 .mxh-nav>ul{display:flex;align-items:center;gap:6px}
 .mxh-nav>ul>li>a,.mxh-dd>button{position:relative;display:inline-flex;align-items:center;gap:7px;padding:12px 13px;font-weight:700;font-size:17px;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:none;border:0;cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.2}
 .mxh-nav>ul>li>a::after,.mxh-dd>button::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2.5px;border-radius:2px;background:var(--sky);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
@@ -77,7 +77,7 @@ header.md-header,.md-header{display:none !important}
 .mxh-menu a:hover,.mxh-menu a[aria-current=page]{background:#E3F5F9;color:var(--teal)}
 .mxh-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:12px;border:2px solid var(--navy);background:#fff;color:var(--navy) !important;font-weight:800;font-size:15px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;transition:background .15s,color .15s}
 .mxh-cta:hover{background:var(--navy);color:#fff !important}
-.mxh-main>.mxh-cta{margin-left:auto}
+.mxh-main>.mxh-cta{justify-self:end}
 .mxh-burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:12px;border:1.5px solid #C9D8DF;background:#fff;cursor:pointer;align-items:center;justify-content:center;color:var(--navy)}
 .mxh-burger svg{width:22px;height:22px}
 .mxh-panel{display:none}
@@ -85,7 +85,7 @@ header.md-header,.md-header{display:none !important}
 @media (max-width:1100px){
   .mxh-nav,.mxh-main>.mxh-cta{display:none}
   .mxh-burger{display:inline-flex}
-  .mxh-main{min-height:72px;gap:12px}
+  .mxh-main{display:flex;min-height:72px;gap:12px}
   .mxh-logo img{width:170px}
   .mxh.open .mxh-panel{display:block;border-top:1px solid var(--line);padding:8px 24px 24px;max-height:calc(100vh - 110px);overflow:auto}
   .mxh-panel a{display:block;padding:13px 4px;font-weight:700;font-size:17px;border-bottom:1px solid #EEF3F6}
