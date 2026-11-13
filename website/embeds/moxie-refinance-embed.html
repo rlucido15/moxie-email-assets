@@ -472,7 +472,7 @@ var WIDGET_JS = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@9a43f7
 function heroOn(slot) { slot.classList.add('has-widget'); var hero = root.querySelector('.mx-hero'); if (hero) hero.classList.add('mx-hero-w'); }
 function mountWidget(final) {
   var slot = document.getElementById('mx-refi-slot'); if (!slot || slot.classList.contains('has-widget')) return true;
-  var blocks = document.querySelectorAll('.custom-code-html-content'), legacy = null;
+  var blocks = document.querySelectorAll('.custom-code-html-content'), legacy = null, legacyAll = [];
   for (var i = 0; i < blocks.length; i++) {
     var b = blocks[i];
     if (root.contains(b) || b.contains(root)) continue;
@@ -482,11 +482,10 @@ function mountWidget(final) {
       if (block && !block.contains(root)) block.style.display = 'none';
       return true;
     }
-    if (!legacy && (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || ''))) legacy = b;
+    if (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || '')) { legacyAll.push(b); if (!legacy) legacy = b; }
   }
   if (!legacy || !final) return false;
-  var lb = legacy.closest('.md-custom-code') || legacy; lb.style.display = 'none';
-  var old = legacy.querySelector('#moxie-refinance-root'); if (old) old.remove();
+  legacyAll.forEach(function (l) { (l.closest('.md-custom-code') || l).style.display = 'none'; var o = l.querySelector('#moxie-refinance-root'); if (o) o.remove(); });
   var host = document.createElement('div'); host.id = 'moxie-refinance-root'; host.setAttribute('data-mx-host', '1'); host.style.cssText = 'width:100%;min-height:360px';
   slot.textContent = ''; slot.appendChild(host); heroOn(slot);
   var sc = document.createElement('script'); sc.src = WIDGET_JS; sc.defer = true; document.body.appendChild(sc);
