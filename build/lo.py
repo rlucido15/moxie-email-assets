@@ -319,8 +319,8 @@ JUMP = [('pain', 'Why Moxie'), ('deals', 'Deal flow'), ('marketing', 'Marketing'
 jump_nav = ('\n  <nav class="lo-jump" aria-label="Page sections"><div class="lo-jump-in">'
             + ''.join(f'<a href="#{i}" data-jump="{i}">{t}</a>' for i, t in JUMP) + '</div></nav>')
 JUMP_CSS = r"""
-.mxp .lo-jump{position:sticky;top:var(--lo-jt,0px);z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #DCE6EB;transition:box-shadow .2s}
-.mxp .lo-jump.stuck{box-shadow:0 8px 24px rgba(14,42,71,.08)}
+.mxp .lo-jump{position:relative;z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #DCE6EB;transition:box-shadow .2s}
+.mxp .lo-jump.pinned{position:fixed;left:0;right:0;top:var(--lo-jt,0px);box-shadow:0 8px 24px rgba(14,42,71,.08)}
 .mxp .lo-jump-in{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .mxp.mxp .lo-jump a{display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border-radius:999px;font-size:15px;font-weight:600;color:#0E2A47;text-decoration:none;white-space:nowrap;border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
 .mxp.mxp .lo-jump a:hover{background:#E3F5F9;color:#127C8F}
@@ -328,7 +328,7 @@ JUMP_CSS = r"""
 .mxp.mxp .lo-jump a[href="#apply"]{background:#F46744;color:#0E2A47;font-weight:700}
 .mxp .lo-jump a:focus-visible{outline:3px solid #1C97AE;outline-offset:2px}
 .mxp section[id]{scroll-margin-top:140px}
-@media (max-width:900px){.mxp .lo-jump{position:static;background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}.mxp .lo-jump-in{padding:14px 16px;gap:6px}.mxp.mxp .lo-jump a{min-height:34px;padding:0 12px;font-size:14px;border-color:#DCE6EB}.mxp section[id]{scroll-margin-top:90px}}
+@media (max-width:900px){.mxp .lo-jump{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}.mxp .lo-jump-in{padding:14px 16px;gap:6px}.mxp.mxp .lo-jump a{min-height:34px;padding:0 12px;font-size:14px;border-color:#DCE6EB}.mxp section[id]{scroll-margin-top:90px}}
 """
 
 # ---------------- FOUNDER (a direct line, not a recruiter)
@@ -562,24 +562,38 @@ assert "cta: 'LO Application'" in s and 'AD Application' not in s
 s = s.replace('Thanks! We’ll review it and reach out to book your onboarding call.', 'Thanks! We’ll review it and reach out to book your intro call.')
 s = s.replace('// ---- timeline:', '// ---- referral flow:')
 s += '''
-// ---- quick-jump tabs: sit under the site header, highlight the section in view
+// ---- quick-jump tabs: pin under the site header while scrolling (JS, since Lofty's body overflow breaks CSS sticky), highlight the section in view
 (function () {
   var nav = root.querySelector('.lo-jump'); if (!nav) return;
-  var hdr = document.getElementById('mx-header-wrap');
-  var setTop = function () {
-    var t = 0;
-    if (hdr) { var cs = getComputedStyle(hdr); if (cs.position === 'sticky' || cs.position === 'fixed') t = Math.max(0, hdr.getBoundingClientRect().bottom); }
-    nav.style.setProperty('--lo-jt', t + 'px');
-    nav.classList.toggle('stuck', nav.getBoundingClientRect().top <= t + 1 && window.scrollY > 0);
+  var main = root.querySelector('.mxa-main') || root;
+  var ph = document.createElement('div'); ph.className = 'lo-jump-ph'; nav.parentNode.insertBefore(ph, nav);
+  var hdrBottom = function () {
+    var h = document.getElementById('mx-header');
+    if (!h) return 0;
+    var cs = getComputedStyle(h); if (cs.position !== 'fixed' && cs.position !== 'sticky') return 0;
+    return Math.max(0, h.getBoundingClientRect().bottom);
   };
-  var raf = 0; var onScroll = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; setTop(); }); };
-  window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); setTop();
+  var desktop = function () { return window.matchMedia ? matchMedia('(min-width: 901px)').matches : true; };
+  var pinned = false;
+  var update = function () {
+    var t = hdrBottom();
+    nav.style.setProperty('--lo-jt', t + 'px');
+    var pr = ph.getBoundingClientRect(), mr = main.getBoundingClientRect();
+    var want = desktop() && pr.top <= t && mr.bottom > t + nav.offsetHeight + 40;
+    if (want !== pinned) {
+      pinned = want;
+      ph.style.height = want ? nav.offsetHeight + 'px' : '0px';
+      nav.classList.toggle('pinned', want);
+    }
+  };
+  var raf = 0; var onScroll = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; update(); }); };
+  window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
   var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
   links.forEach(function (a) {
     a.addEventListener('click', function (e) {
       var el = root.querySelector('#' + a.getAttribute('data-jump')); if (!el) return;
       e.preventDefault();
-      var off = (parseFloat(nav.style.getPropertyValue('--lo-jt')) || 0) + (getComputedStyle(nav).position === 'sticky' ? nav.offsetHeight : 0) + 12;
+      var off = hdrBottom() + (desktop() ? nav.offsetHeight : 0) + 8;
       window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
       if (history.replaceState) history.replaceState(null, '', '#' + a.getAttribute('data-jump'));
     });
