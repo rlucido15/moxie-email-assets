@@ -61,9 +61,9 @@ hero = f'''
           </div>
           <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Purchase business<sup>3</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">86%</dd></div>
           <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Avg. clear to close<sup>2</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">14 days</dd></div>
+          <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 14px; background: #F4F8FA"><dt class="lo-sr">Google rating</dt>
+            <dd style="margin: 0; display: flex; align-items: center; gap: 10px; color: #0E2A47; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="color: #F46744; font-size: 20px; letter-spacing: 2px; line-height: 1">★★★★★</span><span><b style="font-weight: 800">5.0</b> rating on Google</span></dd></div>
         </dl>
-        <p class="lo-g" style="margin: 14px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 14px; background: #F4F8FA; color: #0E2A47; font-size: 15px; font-weight: 600">
-          <span aria-hidden="true" style="color: #F46744; font-size: 20px; letter-spacing: 2px; line-height: 1">★★★★★</span><span><b style="font-weight: 800">5.0</b> rating on Google</span></p>
       </div>
     </div>
   </section>'''
@@ -234,7 +234,7 @@ PAIN = [
     ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors across product types.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
 ]
-OK_IC = f'<span aria-hidden="true" class="lo-fl-ok"><span style="width: 16px; height: 16px; display: block">{ICON["check22"]}</span></span>'
+OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
 flip_cards = ''.join(
     f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
     f'<span class="lo-fl-in">'
