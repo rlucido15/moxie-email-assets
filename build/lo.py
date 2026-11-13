@@ -458,7 +458,7 @@ TOOLS = [
 ]
 T = dict(TOOLS)
 CHK = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>'
-ROV_STEPS = ['Appraisal uploaded', 'Comparable sales pulled', 'Value gaps flagged', 'Errors flagged', 'Inconsistencies flagged', 'ROV letter drafted']
+ROV_STEPS = ['Appraisal uploaded', 'Comparable sales pulled', 'Value gaps flagged', 'Errors flagged', 'ROV letter drafted']
 DONE = lambda t: f'<div class="lo-rov-done"><span>✓</span>{t}</div>'
 rov_slide = ('<div class="lo-sl lo-sl-rov on">'
              '<div class="lo-rov-top"><span class="lo-rov-logo"><b>ROV</b>ai</span></div>'
