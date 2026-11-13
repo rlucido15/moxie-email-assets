@@ -56,7 +56,7 @@ header.md-header,.md-header{display:none !important}
 .mxh-ic svg{width:14px;height:14px}
 .mxh-lang{display:inline-flex;border:1.5px solid #C9D8DF;border-radius:999px;padding:2px;background:#fff}
 .mxh-lang button{appearance:none;border:0;background:transparent;font:700 13px/1 MoxieBarlow,Barlow,system-ui,sans-serif;letter-spacing:.08em;color:#4A5868;padding:7px 12px;border-radius:999px;cursor:pointer;min-height:30px}
-.mxh-lang button[aria-pressed=true]{background:var(--navy);color:#fff}
+.mxh-lang button[aria-pressed=true]{background:#1C97AE;color:#fff}
 .mxh-main{max-width:1440px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:52px;min-height:88px}
 .mxh-logo{flex:none;display:block}
 .mxh-logo img{display:block;width:208px;height:auto}
