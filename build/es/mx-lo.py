@@ -474,3 +474,6 @@ T.update({"Why Moxie": "Por qué Moxie", "Deal flow": "Flujo de préstamos", "Ma
 T.update({"Jump to a section": "Ir a una sección"})
 T.update({"Huge product selection": "Enorme variedad de productos", "We create the business opportunities that drive your growth.": "Creamos las oportunidades de negocio que impulsan tu crecimiento.",
           "82% company-generated, 86% purchase.": "82% generado por la empresa, 86% de compra.", "Non-QM jumbo": "Jumbo non-QM", "203(k)": "203(k)", "Short-term rentals": "Rentas a corto plazo"})
+T.update({"Today": "Hoy", "With Moxie": "Con Moxie", "ARM vs. fixed": "ARM vs. fija", "Buydowns": "Buydowns", "Effective rate": "Tasa efectiva",
+          "Lead": "Prospecto", "Application": "Solicitud", "Closed": "Cerrado", "Coming back": "Regresa", "On demand, 24/7": "Cuando quieras, 24/7",
+          "Application received": "Solicitud recibida", "Appraisal ordered": "Avalúo solicitado", "Clear to close": "Aprobación final"})

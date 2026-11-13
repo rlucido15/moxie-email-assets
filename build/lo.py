@@ -251,8 +251,8 @@ stack_rows = ''.join(
 deals_sec = section('lo-deals', 'Where your deals come from', 'We create the business opportunities that drive your growth.',
     f'<div class="lo-st"><ul style="list-style: none; padding: 0; margin: 0">{stack_rows}</ul>'
     '<p class="lo-st-sum"><b>82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
-    '<p style="margin: 16px 0 0; font-size: 13px; color: #B8C7D3">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
-    bg='#0E2A47', dark=True, sec_id='deals',
+    '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
+    bg='#F4F8FA', sec_id='deals',
     lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
 
 # ---------------- PAY + SUPPORT (dark)
@@ -294,7 +294,7 @@ STREAM_CSS = r"""
 .mxp .lo-pf-now p{margin:4px 0 0;font-size:16px;color:#4A5868}
 .mxp .lo-pf-ok{flex:none;width:28px;height:28px;border-radius:50%;background:#1C97AE;color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
 @media (max-width:760px){.mxp .lo-pf-head{display:none}.mxp .lo-pf-row{grid-template-columns:1fr;gap:0}.mxp .lo-pf-was{border-radius:18px 18px 0 0;padding:16px 20px}.mxp .lo-pf-was p{font-size:16px}.mxp .lo-pf-now{border-radius:0 0 18px 18px;padding:16px 20px}.mxp.mxp .lo-pf>li{margin-bottom:16px !important}}
-.mxp .lo-st{margin-top:40px;background:#fff;color:#0E2A47;border-radius:24px;overflow:hidden}
+.mxp .lo-st{margin-top:40px;background:#fff;color:#0E2A47;border-radius:24px;overflow:hidden;border:1px solid #DCE6EB;box-shadow:0 12px 32px rgba(14,42,71,.06)}
 .mxp.mxp .lo-st li{list-style:none;margin:0 !important}
 .mxp .lo-st-row{display:flex;gap:18px;align-items:flex-start;padding:22px 28px;border-bottom:1px solid #DCE6EB}
 .mxp .lo-st-n{flex:none;width:36px;height:36px;border-radius:50%;background:#E3F5F9;color:#127C8F;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
@@ -314,8 +314,8 @@ STREAM_CSS = r"""
 """
 
 # ---------------- QUICK-JUMP TABS
-JUMP = [('pain', 'Why Moxie'), ('deals', 'Deal flow'), ('marketing', 'Marketing'), ('products', 'Loan programs'), ('tools', 'Tools'),
-        ('partners', 'Partners'), ('pay', 'Pay and support'), ('faq', 'FAQ'), ('apply', 'Apply')]
+JUMP = [('pain', 'Why Moxie'), ('deals', 'Deal flow'), ('pay', 'Pay and support'), ('products', 'Loan programs'), ('tools', 'Tools'),
+        ('partners', 'Partners'), ('marketing', 'Marketing'), ('faq', 'FAQ'), ('apply', 'Apply')]
 jump_nav = ('\n  <nav class="lo-jump" aria-label="Page sections"><div class="lo-jump-in">'
             + ''.join(f'<a href="#{i}" data-jump="{i}">{t}</a>' for i, t in JUMP) + '</div>'
             '<label class="lo-jump-m"><span>Jump to a section</span><select data-jump-select>'
@@ -381,10 +381,63 @@ TOOLS = [
     ('Moxie University', 'On-demand courses plus short how-to videos for Moxie’s client tools.'),
     ('Automated client experience', 'Automated tools that elevate and streamline every step for your clients, from application to closing and beyond.'),
 ]
-tools = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
-    f'<article class="mxa-card" style="{CARD}"><h3 style="margin: 0; font-size: 20px; display: flex; gap: 10px; align-items: center"><span style="color: #127C8F; flex: none; display: inline-flex">{ICON["check22"]}</span>{t}</h3>'
-    f'<p style="margin: 8px 0 0; color: #4A5868; font-size: 16px">{d}</p></article>' for t, d in TOOLS) + '</div>'
-tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close business and build repeat business.', tools, bg='#F4F8FA',
+T = dict(TOOLS)
+CHK = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>'
+viz_tools = ('<div class="lo-viz-bars" aria-hidden="true">'
+             '<div class="lo-bar-row"><span>Today</span><i style="--w: 92%"></i></div>'
+             '<div class="lo-bar-row lo-bar-new"><span>With Moxie</span><i style="--w: 58%"></i></div></div>'
+             '<div class="lo-tchips"><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
+viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>Application</span><b>→</b><span>Closed</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
+viz_uni = '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
+viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
+            + ''.join(f'<div class="lo-toast" style="--k: {k}"><span class="lo-toast-ic">{CHK}</span>{t}</div>' for k, t in enumerate(['Application received', 'Appraisal ordered', 'Clear to close']))
+            + '</div>')
+def bcard(cls, title, viz):
+    return f'<article class="lo-b {cls}"><h3>{title}</h3><p>{T[title]}</p>{viz}</article>'
+tools = ('<div class="lo-bento">'
+         + bcard('lo-b-big', 'Proprietary client tools', viz_tools)
+         + bcard('lo-b-crm', 'Arive and Lofty CRM', viz_loop)
+         + bcard('lo-b-uni', 'Moxie University', viz_uni)
+         + bcard('lo-b-auto', 'Automated client experience', viz_auto)
+         + '</div>')
+BENTO_CSS = r"""
+.mxp .lo-bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-areas:"big crm uni" "big auto auto";gap:18px;margin-top:44px}
+.mxp .lo-b-big{grid-area:big}.mxp .lo-b-crm{grid-area:crm}.mxp .lo-b-uni{grid-area:uni}.mxp .lo-b-auto{grid-area:auto}
+.mxp .lo-b{position:relative;overflow:hidden;border-radius:24px;padding:28px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);color:#fff;display:flex;flex-direction:column;gap:8px;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s}
+.mxp .lo-b::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(28,151,174,.45),transparent 70%);pointer-events:none;transition:transform .5s}
+.mxp .lo-b:hover{transform:translateY(-5px);border-color:rgba(127,220,236,.55);box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.mxp .lo-b:hover::before{transform:scale(1.25)}
+.mxp .lo-b h3{position:relative;margin:0;font-size:22px;line-height:1.2;color:#fff}
+.mxp .lo-b-big h3{font-size:clamp(26px,2.6vw,32px)}
+.mxp .lo-b p{position:relative;margin:0;font-size:16px;color:#C9D7E2;max-width:44ch}
+.mxp .lo-viz-bars{margin-top:auto;padding-top:28px;display:grid;gap:14px}
+.mxp .lo-bar-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#B8C7D3}
+.mxp .lo-bar-row i{display:block;height:14px;border-radius:999px;background:rgba(255,255,255,.22);width:var(--w);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .2s}
+.mxp .lo-bar-new{color:#7FDCEC}
+.mxp .lo-bar-new i{background:linear-gradient(90deg,#1C97AE,#7FDCEC);box-shadow:0 0 18px rgba(127,220,236,.45)}
+.mxp .lo-tchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.mxp .lo-tchips span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#E3F5F9}
+.mxp .lo-viz-loop{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px;font-weight:600}
+.mxp .lo-viz-loop span{padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.08);color:#E3F5F9}
+.mxp .lo-viz-loop b{color:#7FDCEC;font-weight:700}
+.mxp .lo-viz-loop .lo-loop-back{background:#F46744;color:#0E2A47}
+.mxp .lo-viz-play{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#7FDCEC}
+.mxp .lo-play{position:relative;flex:none;width:48px;height:48px;border-radius:50%;background:#F46744;box-shadow:0 0 0 0 rgba(244,103,68,.5);animation:lo-pulse 2.4s ease-out infinite}
+.mxp .lo-play::after{content:"";position:absolute;left:19px;top:15px;border-left:14px solid #0E2A47;border-top:9px solid transparent;border-bottom:9px solid transparent}
+@keyframes lo-pulse{0%{box-shadow:0 0 0 0 rgba(244,103,68,.5)}70%{box-shadow:0 0 0 16px rgba(244,103,68,0)}100%{box-shadow:0 0 0 0 rgba(244,103,68,0)}}
+.mxp .lo-viz-toasts{margin-top:auto;padding-top:18px;display:flex;flex-wrap:wrap;gap:10px}
+.mxp .lo-toast{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:#fff;color:#0E2A47;font-size:14px;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.2);transition:opacity .5s ease calc(.3s + var(--k) * .35s),transform .5s cubic-bezier(.2,.8,.2,1) calc(.3s + var(--k) * .35s)}
+.mxp .lo-toast-ic{width:22px;height:22px;border-radius:50%;background:#1C97AE;color:#fff;display:inline-flex;align-items:center;justify-content:center}
+/* reveal (armed only by JS) */
+.mxp .lo-bento.arm .lo-bar-row i{transform:scaleX(0)}
+.mxp .lo-bento.arm .lo-toast{opacity:0;transform:translateY(12px)}
+.mxp .lo-bento.arm.in .lo-bar-row i{transform:none}
+.mxp .lo-bento.arm.in .lo-toast{opacity:1;transform:none}
+@media (max-width:980px){.mxp .lo-bento{grid-template-columns:1fr 1fr;grid-template-areas:"big big" "crm uni" "auto auto"}}
+@media (max-width:640px){.mxp .lo-bento{grid-template-columns:1fr;grid-template-areas:"big" "crm" "uni" "auto"}.mxp .lo-b{padding:24px}.mxp .lo-bar-row{grid-template-columns:84px 1fr}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-play{animation:none}.mxp .lo-bento.arm .lo-bar-row i,.mxp .lo-bento.arm .lo-toast{opacity:1 !important;transform:none !important;transition:none !important}}
+"""
+tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close business and build repeat business.', tools, bg='radial-gradient(120% 90% at 85% 0%, #145A75 0%, #0E2A47 55%, #0B2340 100%)', dark=True,
                     lede='Moxie has invested significantly to give its team cutting-edge technology, including proprietary tools available only to Moxie team members. Our systems are integrated, automated and powered by AI, maximizing your effectiveness and minimizing wasted time.')
 
 # ---------------- PARTNER RELATIONSHIPS
@@ -538,7 +591,7 @@ disclosures = '''
     <p style="margin: 0">Moxie Mortgage, a division of NEXA Mortgage, LLC · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
   </section>'''
 
-body = hero + jump_nav + pain_sec + deals_sec + mk + products_sec + tools_sec + partners_sec + pay_sec + founder_sec + rv + faq_sec + apply_sec + disclosures
+body = hero + jump_nav + pain_sec + deals_sec + pay_sec + products_sec + tools_sec + partners_sec + mk + founder_sec + rv + faq_sec + apply_sec + disclosures
 body += f'''
 <dialog class="mxa-dlg" id="mxa-dlg" aria-labelledby="mxa-dlg-h"><div>
   <button type="button" class="mxa-x" data-mxa-close aria-label="Close">×</button>
@@ -617,6 +670,17 @@ s += '''
   links.forEach(function (a) { var el = root.querySelector('#' + a.getAttribute('data-jump')); if (el) io.observe(el); });
 })();
 
+// ---- tools bento: grow the bars and drop in the client updates when visible
+(function () {
+  var bt = root.querySelector('.lo-bento'); if (!bt) return;
+  if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  if (bt.getBoundingClientRect().top < innerHeight * 0.85) return;
+  bt.classList.add('arm');
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { bt.classList.add('in'); io.disconnect(); } }); }, { threshold: 0.2 });
+  io.observe(bt);
+  setTimeout(function () { bt.classList.add('in'); }, 8000);
+})();
+
 // ---- loan program cards: staggered reveal when they scroll into view
 (function () {
   var pg = root.querySelector('.lo-pg'); if (!pg) return;
@@ -640,7 +704,7 @@ page, crumbs = webpage('/loanofficer', 'Loan Officer Careers | Join Moxie Mortga
 schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
 
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
-LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + r"""
+LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
 .mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
 .mxp.mxp .lo-chips>li::before{content:none !important}
