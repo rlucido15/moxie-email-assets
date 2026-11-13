@@ -95,7 +95,7 @@ header.md-header,.md-header{display:none !important}
   .mxh-panel .mxh-cta{display:flex;margin-top:18px}
 }
 /* trust line */
-.mxh-trust{flex:1;display:flex;justify-content:center;align-items:center;gap:10px;font-weight:600;color:#33475B;font-size:14px;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+.mxh-trust{flex:1;display:flex;justify-content:flex-end;padding-right:6px;align-items:center;gap:10px;font-weight:600;color:#33475B;font-size:14px;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
 .mxh-trust .mxh-stars{color:#F46744;letter-spacing:2px}
 .mxh-trust i{font-style:normal;color:#9FB3C2}
 .mxh-right{display:flex;align-items:center;gap:12px;position:relative}
