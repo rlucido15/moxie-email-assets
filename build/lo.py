@@ -155,12 +155,12 @@ flow = section('lo-flow', 'Where your deals come from', 'Most of the business co
 # ---------------- PRODUCTS (chip cloud; doubles as long-tail keywords)
 PROGRAM_GROUPS = [
     ('home', 'Agency and government', 'FICO from 500', ['Conventional', 'FHA', 'VA', 'USDA', 'Down payment assistance', 'Doctor loans']),
-    ('gem', 'Jumbo', 'Up to $30M', ['Jumbo', 'Jumbo max ($5M)', 'Super jumbo ($30M)']),
+    ('gem', 'Jumbo', 'Up to $30M', ['Jumbo', 'Jumbo max ($5M)', 'Super jumbo ($30M)', 'Non-QM jumbo']),
     ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'No doc', 'Foreign national']),
     ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
     ('cash', 'Home equity', 'Keep the low first rate', ['HELOC', 'HELOAN', 'Second mortgages', 'Reverse mortgages']),
-    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction', 'One-time close', 'Fix and flip']),
-    ('grid', 'Unique properties', 'Hard-to-finance properties', ['Non-warrantable condos', 'Condotels', 'Manufactured homes']),
+    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k)', 'Construction', 'One-time close', 'Fix and flip']),
+    ('grid', 'Unique properties', 'Hard-to-finance properties', ['Non-warrantable condos', 'Condotels', 'Short-term rentals']),
     ('pct', 'Rate and payment options', 'Payments that fit', ['ARMs', 'Interest-only', 'Temporary buydowns']),
 ]
 prog_cards = '<div class="lo-pg">' + ''.join(
@@ -226,10 +226,10 @@ db_sec = section('lo-db', 'Your past clients', 'Your database is your next pipel
 PAIN = [
     ('You’re chasing your own leads.', '82% of our business is company-generated', 'Warm introductions from key enterprise accounts, Area Directors and agent partners, and 86% of it is purchase.<sup>3</sup>'),
     ('You’re losing deals on rate.', 'Wholesale pricing that wins', 'Moxie rates averaged 0.559% lower than the largest retail lender.<sup>1</sup>'),
-    ('You’re turning away good borrowers.', 'Huge loan selection', 'Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.'),
+    ('You wait weeks to get paid.', 'Everyday payday', 'Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.'),
+    ('You’re turning away good borrowers.', 'Huge product selection', 'Credit scores as low as 500, self-employed loans, DSCR up to 25 units, no doc loans, HELOCs and much more.'),
     ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors across product types.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
-    ('You wait weeks to get paid.', 'Everyday payday', 'Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.'),
 ]
 X_IC = '<span aria-hidden="true" class="lo-pf-x">×</span>'
 OK_IC = f'<span aria-hidden="true" class="lo-pf-ok"><span style="width: 16px; height: 16px; display: block">{ICON["check22"]}</span></span>'
@@ -248,9 +248,9 @@ STACK = [
 ]
 stack_rows = ''.join(
     f'<li><div class="lo-st-row"><span aria-hidden="true" class="lo-st-n">{i}</span><div style="min-width: 0"><h3>{t}</h3><p>{d}</p></div></div></li>' for i, (t, d) in enumerate(STACK, 1))
-deals_sec = section('lo-deals', 'Where your deals come from', 'We drive the business opportunities that fuel your growth.',
+deals_sec = section('lo-deals', 'Where your deals come from', 'We create the business opportunities that drive your growth.',
     f'<div class="lo-st"><ul style="list-style: none; padding: 0; margin: 0">{stack_rows}</ul>'
-    '<p class="lo-st-sum"><b>= 82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
+    '<p class="lo-st-sum"><b>82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
     '<p style="margin: 16px 0 0; font-size: 13px; color: #B8C7D3">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
     bg='#0E2A47', dark=True, sec_id='deals',
     lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
