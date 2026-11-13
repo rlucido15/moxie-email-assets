@@ -480,3 +480,6 @@ T.update({"Today": "Hoy", "With Moxie": "Con Moxie", "ARM vs. fixed": "ARM vs. f
 T.update({"Tap everything that sounds like your week, and see what changes at Moxie.": "Toca todo lo que se parezca a tu semana y mira qué cambia en Moxie.",
           "That’s me": "Así me pasa", "Pick the ones that sound like you.": "Elige los que te suenen familiares.",
           "You picked": "Elegiste", "of 6, and every one is fixed at Moxie.": "de 6, y Moxie resuelve cada uno."})
+T.update({"New to Moxie?": "¿Nuevo en Moxie?", "Get the full story: who we are, how we started and what we stand for.": "Conoce la historia completa: quiénes somos, cómo empezamos y qué defendemos.",
+          "Learn more about Moxie": "Conoce más sobre Moxie", " (opens in a new tab)": " (se abre en una pestaña nueva)", "(opens in a new tab)": "(se abre en una pestaña nueva)",
+          "About Moxie Mortgage": "Sobre Moxie Mortgage"})

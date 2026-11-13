@@ -373,6 +373,26 @@ JUMP_CSS = r"""
 @media (max-width:900px){.mxp .lo-jump{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;padding:14px 20px}.mxp .lo-jump-in{display:none}.mxp .lo-jump-m{display:flex;align-items:center;gap:12px;max-width:600px;margin:0 auto}.mxp .lo-jump-m span{flex:none;font-size:14px;font-weight:700;color:#0E2A47}.mxp .lo-jump-m select{flex:1;min-width:0;font:600 16px Barlow,sans-serif;color:#0E2A47;padding:10px 36px 10px 14px;border:1.5px solid #DCE6EB;border-radius:12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230E2A47' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;-webkit-appearance:none;appearance:none}.mxp section[id]{scroll-margin-top:90px}}
 """
 
+# ---------------- ABOUT MOXIE (small band, opens /about in a new tab)
+about_band = '''
+  <section aria-label="About Moxie Mortgage" style="max-width: 1200px; margin: 0 auto; padding: 56px 24px 0">
+    <div class="lo-about">
+      <div style="min-width: 0"><p class="lo-about-k">New to Moxie?</p>
+        <p class="lo-about-t">Get the full story: who we are, how we started and what we stand for.</p></div>
+      <a href="/about" target="_blank" rel="noopener" class="lo-about-btn">Learn more about Moxie<span aria-hidden="true">↗</span><span class="lo-sr"> (opens in a new tab)</span></a>
+    </div>
+  </section>'''
+ABOUT_CSS = r"""
+.mxp .lo-about{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:26px 32px;border-radius:22px;background:#E3F5F9;border:1px solid #C9E8EF}
+.mxp .lo-about-k{margin:0;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#127C8F}
+.mxp .lo-about-t{margin:4px 0 0;font-size:19px;font-weight:600;color:#0E2A47;max-width:560px}
+.mxp.mxp .lo-about-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:12px;background:#0E2A47;color:#fff;font-weight:700;text-decoration:none;transition:background .15s,transform .15s}
+.mxp.mxp .lo-about-btn:hover{background:#1C97AE;transform:translateY(-1px)}
+.mxp .lo-about-btn span[aria-hidden]{font-size:18px;line-height:1}
+.mxp .lo-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:600px){.mxp .lo-about{padding:22px 20px}.mxp.mxp .lo-about-btn{width:100%;justify-content:center}}
+"""
+
 # ---------------- FOUNDER (a direct line, not a recruiter)
 HS = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@25d214c/website/robert-lucido-headshot-'
 founder_sec = f'''
@@ -630,7 +650,7 @@ disclosures = '''
     <p style="margin: 0">Moxie Mortgage, a division of NEXA Mortgage, LLC · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
   </section>'''
 
-body = hero + jump_nav + pain_sec + deals_sec + pay_sec + products_sec + tools_sec + partners_sec + mk + founder_sec + rv + faq_sec + apply_sec + disclosures
+body = hero + jump_nav + pain_sec + deals_sec + pay_sec + products_sec + tools_sec + partners_sec + mk + about_band + founder_sec + rv + faq_sec + apply_sec + disclosures
 body += f'''
 <dialog class="mxa-dlg" id="mxa-dlg" aria-labelledby="mxa-dlg-h"><div>
   <button type="button" class="mxa-x" data-mxa-close aria-label="Close">×</button>
@@ -771,7 +791,7 @@ page, crumbs = webpage('/loanofficer', 'Loan Officer Careers | Join Moxie Mortga
 schema = jsonld([ORG, page, crumbs, faq_schema(FAQ)])
 
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
-LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + FLIP_CSS + r"""
+LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + FLIP_CSS + ABOUT_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
 .mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
 .mxp.mxp .lo-chips>li::before{content:none !important}
