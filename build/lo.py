@@ -259,7 +259,7 @@ FLIP_CSS = r"""
 .mxp .lo-fl:hover .lo-fl-front::after{opacity:1}
 .mxp .lo-fl-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#0E2A47}
 .mxp .lo-fl:hover .lo-fl-front{box-shadow:0 1px 0 #E9F0F3,0 7px 0 #D5E1E7,0 30px 46px -12px rgba(14,42,71,.32)}
-.mxp .lo-fl-qm{display:block;height:24px;font-size:64px;line-height:.85;font-weight:800;color:#1C97AE;margin-bottom:-6px}
+.mxp .lo-fl-qm{display:block;height:26px;font-family:Georgia,"Times New Roman",serif;font-size:72px;line-height:.9;font-weight:700;color:#1C97AE;margin-bottom:-4px}
 .mxp .lo-fl-q{font-size:clamp(22px,1.9vw,26px);font-weight:800;line-height:1.18;letter-spacing:-.015em;color:#0E2A47}
 .mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#127C8F}
 .mxp .lo-fl-arrow{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #1C97AE;font-size:15px;letter-spacing:0;transition:transform .25s,background .25s,color .25s}
