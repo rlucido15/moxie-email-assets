@@ -317,7 +317,9 @@ STREAM_CSS = r"""
 JUMP = [('pain', 'Why Moxie'), ('deals', 'Deal flow'), ('marketing', 'Marketing'), ('products', 'Loan programs'), ('tools', 'Tools'),
         ('partners', 'Partners'), ('pay', 'Pay and support'), ('faq', 'FAQ'), ('apply', 'Apply')]
 jump_nav = ('\n  <nav class="lo-jump" aria-label="Page sections"><div class="lo-jump-in">'
-            + ''.join(f'<a href="#{i}" data-jump="{i}">{t}</a>' for i, t in JUMP) + '</div></nav>')
+            + ''.join(f'<a href="#{i}" data-jump="{i}">{t}</a>' for i, t in JUMP) + '</div>'
+            '<label class="lo-jump-m"><span>Jump to a section</span><select data-jump-select>'
+            + ''.join(f'<option value="{i}">{t}</option>' for i, t in JUMP) + '</select></label></nav>')
 JUMP_CSS = r"""
 .mxp .lo-jump{position:relative;z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid #DCE6EB;transition:box-shadow .2s}
 .mxp .lo-jump.pinned{position:fixed;left:0;right:0;top:var(--lo-jt,0px);box-shadow:0 8px 24px rgba(14,42,71,.08)}
@@ -328,7 +330,8 @@ JUMP_CSS = r"""
 .mxp.mxp .lo-jump a[href="#apply"]{background:#F46744;color:#0E2A47;font-weight:700}
 .mxp .lo-jump a:focus-visible{outline:3px solid #1C97AE;outline-offset:2px}
 .mxp section[id]{scroll-margin-top:140px}
-@media (max-width:900px){.mxp .lo-jump{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}.mxp .lo-jump-in{padding:14px 16px;gap:6px}.mxp.mxp .lo-jump a{min-height:34px;padding:0 12px;font-size:14px;border-color:#DCE6EB}.mxp section[id]{scroll-margin-top:90px}}
+.mxp .lo-jump-m{display:none}
+@media (max-width:900px){.mxp .lo-jump{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;padding:14px 20px}.mxp .lo-jump-in{display:none}.mxp .lo-jump-m{display:flex;align-items:center;gap:12px;max-width:600px;margin:0 auto}.mxp .lo-jump-m span{flex:none;font-size:14px;font-weight:700;color:#0E2A47}.mxp .lo-jump-m select{flex:1;min-width:0;font:600 16px Barlow,sans-serif;color:#0E2A47;padding:10px 36px 10px 14px;border:1.5px solid #DCE6EB;border-radius:12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230E2A47' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;-webkit-appearance:none;appearance:none}.mxp section[id]{scroll-margin-top:90px}}
 """
 
 # ---------------- FOUNDER (a direct line, not a recruiter)
@@ -589,6 +592,13 @@ s += '''
   var raf = 0; var onScroll = function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; update(); }); };
   window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
   var links = [].slice.call(nav.querySelectorAll('a[data-jump]'));
+  var go = function (id) {
+    var el = root.querySelector('#' + id); if (!el) return;
+    var off = hdrBottom() + (desktop() ? nav.offsetHeight : 0) + 8;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+  };
+  var sel = nav.querySelector('[data-jump-select]');
+  if (sel) { sel.selectedIndex = -1; sel.addEventListener('change', function () { go(sel.value); }); }
   links.forEach(function (a) {
     a.addEventListener('click', function (e) {
       var el = root.querySelector('#' + a.getAttribute('data-jump')); if (!el) return;

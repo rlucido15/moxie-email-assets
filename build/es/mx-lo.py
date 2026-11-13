@@ -471,3 +471,4 @@ T.update({
 })
 T.update({"Why Moxie": "Por qué Moxie", "Deal flow": "Flujo de préstamos", "Marketing": "Marketing", "Loan programs": "Programas", "Tools": "Herramientas",
           "Partners": "Socios", "Pay and support": "Pago y soporte", "FAQ": "Preguntas", "Apply": "Solicitar", "Page sections": "Secciones de la página"})
+T.update({"Jump to a section": "Ir a una sección"})
