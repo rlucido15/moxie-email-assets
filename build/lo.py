@@ -62,6 +62,8 @@ hero = f'''
           <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Purchase business<sup>3</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">86%</dd></div>
           <div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">Avg. clear to close<sup>2</sup></dt><dd style="margin: 2px 0 0; font-size: 30px; font-weight: 800; line-height: 1.1">14 days</dd></div>
         </dl>
+        <p class="lo-g" style="margin: 14px 0 0; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; border-radius: 14px; background: #F4F8FA; color: #0E2A47; font-size: 15px; font-weight: 600">
+          <span aria-hidden="true" style="color: #F46744; font-size: 20px; letter-spacing: 2px; line-height: 1">★★★★★</span><span><b style="font-weight: 800">5.0</b> rating on Google</span></p>
       </div>
     </div>
   </section>'''
