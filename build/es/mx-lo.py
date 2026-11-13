@@ -493,3 +493,9 @@ T.update({"Google rating": "Calificación en Google"})
 T.update({"Tap if that’s you": "Tócalo si eres tú"})
 T.update({"You’re turning away opportunities.": "Estás dejando ir oportunidades.",
           "In-house processing, plus priority underwriting and account support with key investors.": "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave."})
+T.update({
+    "Proven tools that help you win more deals and get them to the closing table easier.": "Herramientas probadas que te ayudan a ganar más préstamos y llevarlos al cierre con más facilidad.",
+    "Reconsideration of value, automated": "Reconsideración de valor, automatizada",
+    "Appraisal uploaded": "Avalúo cargado", "Comparable sales pulled": "Ventas comparables obtenidas", "Value gaps flagged": "Diferencias de valor detectadas",
+    "ROV letter drafted": "Carta de ROV redactada", "ROV ready to submit in minutes": "ROV listo para enviar en minutos", "ROVai": "ROVai",
+})

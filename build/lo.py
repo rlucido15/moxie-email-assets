@@ -238,7 +238,7 @@ OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" widt
 flip_cards = ''.join(
     f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
     f'<span class="lo-fl-in">'
-    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-flip" aria-hidden="true">↻</span><span class="lo-fl-x" aria-hidden="true">×</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you</span></span>'
+    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-num" aria-hidden="true">0{n + 1}</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
     f'<span class="lo-fl-face lo-fl-back">{OK_IC}<span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
     f'</span></button>' for n, (a, b, c) in enumerate(PAIN))
 pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back by the wrong company.',
@@ -249,34 +249,34 @@ pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back
     f'<div class="lo-fl-cta"><a href="#founder" class="mxa-btn-p" data-jump-link="founder" style="{BTN_P}">Talk with our founder</a><a href="#apply" class="lo-fl-apply">Apply to join Moxie</a></div></div>',
     lede='Tap everything that sounds like your week, and see what changes at Moxie.')
 FLIP_CSS = r"""
-.mxp .lo-fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;perspective:1400px}
-.mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:22px;-webkit-tap-highlight-color:transparent}
-.mxp .lo-fl:focus-visible{outline:3px solid #1C97AE;outline-offset:4px}
+.mxp .lo-fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;perspective:1600px}
+.mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:20px;-webkit-tap-highlight-color:transparent}
+.mxp .lo-fl:focus-visible{outline:3px solid #F46744;outline-offset:4px}
 .mxp .lo-fl-in{display:grid;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .mxp .lo-fl[aria-pressed="true"] .lo-fl-in{transform:rotateY(180deg)}
-.mxp .lo-fl-face{grid-area:1/1;display:flex;flex-direction:column;gap:10px;min-height:200px;padding:26px;border-radius:22px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif}
-.mxp .lo-fl-front{position:relative;background:#fff;border:1.5px solid #DCE6EB;box-shadow:0 10px 24px rgba(14,42,71,.08);transition:border-color .2s,box-shadow .2s}
-.mxp .lo-fl:hover .lo-fl-front{border-color:#1C97AE;box-shadow:0 18px 36px rgba(14,42,71,.16)}
-.mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-6deg)}
+.mxp .lo-fl-face{grid-area:1/1;position:relative;display:flex;flex-direction:column;gap:14px;min-height:220px;padding:28px 28px 24px;border-radius:20px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif;overflow:hidden}
+.mxp .lo-fl-front{background:#0E2A47;color:#fff;box-shadow:0 18px 40px rgba(14,42,71,.22);transition:box-shadow .25s}
+.mxp .lo-fl-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#F46744}
+.mxp .lo-fl:hover .lo-fl-front{box-shadow:0 26px 54px rgba(14,42,71,.32)}
+.mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-5deg)}
 .mxp .lo-fl[aria-pressed="true"]:hover .lo-fl-in{transform:rotateY(180deg)}
-.mxp .lo-fl-flip{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:#E3F5F9;color:#127C8F;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;transition:transform .4s}
-.mxp .lo-fl:hover .lo-fl-flip{transform:rotate(180deg)}
-.mxp .lo-fl-x{width:34px;height:34px;border-radius:50%;background:#FDE7E1;color:#C2482A;font-weight:800;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
-.mxp .lo-fl-q{font-size:21px;font-weight:700;line-height:1.3;color:#0E2A47}
-.mxp .lo-fl-hint{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:9px 16px 9px 12px;border-radius:999px;background:#E3F5F9;border:1.5px solid #1C97AE;font-size:14px;font-weight:700;color:#0E2A47;transition:background .2s,color .2s}
-.mxp .lo-fl-hint::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid #1C97AE;background:#fff;box-sizing:border-box}
-.mxp .lo-fl:hover .lo-fl-hint{background:#1C97AE;color:#fff}
-.mxp .lo-fl:hover .lo-fl-hint::before{border-color:#fff}
-.mxp .lo-fl-grid:not(.picked) .lo-fl-hint{animation:lo-glow 2.2s ease-in-out infinite}
-@keyframes lo-glow{0%,100%{box-shadow:0 0 0 0 rgba(28,151,174,0)}50%{box-shadow:0 0 0 6px rgba(28,151,174,.18)}}
+.mxp .lo-fl-num{font-size:15px;font-weight:800;letter-spacing:.14em;color:#F46744}
+.mxp .lo-fl-q{font-size:clamp(22px,1.9vw,26px);font-weight:800;line-height:1.18;letter-spacing:-.015em;color:#fff}
+.mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#7FDCEC}
+.mxp .lo-fl-arrow{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #7FDCEC;font-size:15px;letter-spacing:0;transition:transform .25s,background .25s,color .25s}
+.mxp .lo-fl:hover .lo-fl-arrow{transform:translateX(4px);background:#7FDCEC;color:#0E2A47}
+.mxp .lo-fl-back{transform:rotateY(180deg);background:#fff;color:#0E2A47;border:2px solid #1C97AE;box-shadow:0 18px 40px rgba(14,42,71,.14)}
+.mxp .lo-fl-back::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#1C97AE}
+.mxp .lo-fl-ok{width:34px;height:34px;border-radius:10px;background:#1C97AE;color:#fff;display:inline-flex;align-items:center;justify-content:center}
+.mxp .lo-fl-t{font-size:clamp(21px,1.8vw,24px);font-weight:800;line-height:1.2;letter-spacing:-.01em}
+.mxp .lo-fl-d{font-size:15.5px;line-height:1.45;color:#4A5868}
+.mxp .lo-fl-back sup{color:#4A5868}
+.mxp .lo-fl-grid:not(.picked) .lo-fl-arrow{animation:lo-glow 2.2s ease-in-out infinite}
+@keyframes lo-glow{0%,100%{box-shadow:0 0 0 0 rgba(127,220,236,0)}50%{box-shadow:0 0 0 6px rgba(127,220,236,.22)}}
 .mxp .lo-fl-grid.nudge .lo-fl:not([aria-pressed="true"]) .lo-fl-in{animation:lo-nudge 1.1s ease calc(var(--i) * .12s) 1}
 @keyframes lo-nudge{0%,100%{transform:none}35%{transform:rotateY(-22deg)}70%{transform:rotateY(6deg)}}
-.mxp .lo-fl-back{transform:rotateY(180deg);background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 55%,#0E2A47 100%);color:#fff;box-shadow:0 16px 34px rgba(14,42,71,.22)}
-.mxp .lo-fl-ok{width:34px;height:34px;border-radius:50%;background:#fff;color:#127C8F;display:inline-flex;align-items:center;justify-content:center}
-.mxp .lo-fl-t{font-size:21px;font-weight:800;line-height:1.25}
-.mxp .lo-fl-d{font-size:15.5px;line-height:1.45;color:#D3E3EC}
-.mxp .lo-fl-sum{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:22px 28px;border-radius:22px;background:#0E2A47;color:#fff;transition:background .3s}
-.mxp .lo-fl-msg{margin:0;font-size:20px;font-weight:700}
+.mxp .lo-fl-sum{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding:22px 28px;border-radius:20px;background:#F4F8FA;border:1px solid #DCE6EB;color:#0E2A47}
+.mxp .lo-fl-msg{margin:0;font-size:20px;font-weight:800}
 .mxp .lo-fl-msg1{display:none}
 .mxp .lo-fl-sum.on .lo-fl-msg0{display:none}
 .mxp .lo-fl-sum.on .lo-fl-msg1{display:block}
@@ -284,11 +284,11 @@ FLIP_CSS = r"""
 .mxp .lo-fl-n.lo-bump{animation:lo-pop .35s ease}
 @keyframes lo-pop{50%{transform:scale(1.35)}}
 .mxp .lo-fl-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px}
-.mxp.mxp .lo-fl-apply{color:#7FDCEC;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.mxp.mxp .lo-fl-apply{color:#127C8F;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .mxp .lo-fl-sum:not(.on) .lo-fl-cta{opacity:.55}
 @media (max-width:980px){.mxp .lo-fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:19px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-fl-grid .lo-fl-hint,.mxp .lo-fl-grid.nudge .lo-fl .lo-fl-in{animation:none !important}.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
+@media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px 22px 20px 26px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:21px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-fl-grid .lo-fl-arrow,.mxp .lo-fl-grid.nudge .lo-fl .lo-fl-in{animation:none !important}.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
 """
 
 # ---------------- WHERE YOUR DEALS COME FROM (value stack, dark)
@@ -322,7 +322,7 @@ SUPPORT = [
 pay_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 40px">' + ''.join(
     f'<article style="background: #ffffff; color: #0E2A47; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 8px">'
     f'<span style="width: 44px; height: 44px; border-radius: 12px; background: #FDE7E1; color: #C2482A; display: inline-flex; align-items: center; justify-content: center"><span style="width: 22px; height: 22px; display: block">{ICON[ic]}</span></span>'
-    f'<h3 style="margin: 6px 0 0; font-size: 21px">{t}</h3><p style="margin: 0; color: #4A5868; font-size: 16px">{d}</p></article>' for ic, t, d in PAY) + '</div>'
+    f'<h3 style="margin: 6px 0 0; font-size: clamp(16px, 1.55vw, 20px); white-space: nowrap">{t}</h3><p style="margin: 0; color: #4A5868; font-size: 16px">{d}</p></article>' for ic, t, d in PAY) + '</div>'
 sup_list = ('<h3 style="margin: 56px 0 0; font-size: 24px; color: #ffffff">Support behind every file</h3>'
             '<ul class="lo-sup" style="list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 32px">'
             + ''.join(f'<li><div class="lo-sup-i"><h4>{t}</h4><p>{d}</p></div></li>' for t, d in SUPPORT) + '</ul>')
@@ -451,25 +451,20 @@ compare = section('lo-compare', 'Retail vs. Moxie', 'More ways to say yes, at a 
 
 # ---------------- TOOLS
 TOOLS = [
-    ('Proprietary client tools', 'Proven tools that turn your complex details into a clear understanding in minutes.'),
+    ('Proprietary client tools', 'Proven tools that help you win more deals and get them to the closing table easier.'),
     ('Arive and Lofty CRM', 'Originate in Arive and keep every lead and past client moving forward and coming back in Lofty.'),
     ('Moxie University', 'On-demand courses plus short how-to videos for Moxie’s client tools.'),
     ('Automated client experience', 'Automated tools that elevate and streamline every step for your clients, from application to closing and beyond.'),
 ]
 T = dict(TOOLS)
 CHK = '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5"/></svg>'
-viz_chart = ('<div class="lo-viz-chart" aria-hidden="true"><svg viewBox="0 0 320 120" preserveAspectRatio="none">'
-             '<defs><linearGradient id="loArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FDCEC" stop-opacity=".35"/><stop offset="1" stop-color="#7FDCEC" stop-opacity="0"/></linearGradient></defs>'
-             '<path class="lo-ch-grid" d="M0 30H320M0 60H320M0 90H320"/>'
-             '<path class="lo-ch-old" d="M0 26 C60 28 110 30 160 34 S260 40 320 44"/>'
-             '<path class="lo-ch-area" d="M0 26 C50 34 90 62 140 72 S240 86 320 92 V120 H0 Z" fill="url(#loArea)"/>'
-             '<path class="lo-ch-new" d="M0 26 C50 34 90 62 140 72 S240 86 320 92"/>'
-             '<circle class="lo-ch-dot" cx="320" cy="92" r="6"/></svg>'
-             '<span class="lo-ch-tag">Clear in minutes</span></div>')
-viz_tools = (viz_chart + '<div class="lo-viz-bars" aria-hidden="true">'
-             '<div class="lo-bar-row"><span>Today</span><i style="--w: 92%"></i></div>'
-             '<div class="lo-bar-row lo-bar-new"><span>With Moxie</span><i style="--w: 58%"></i></div></div>'
-             '<div class="lo-tchips"><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
+ROV_STEPS = ['Appraisal uploaded', 'Comparable sales pulled', 'Value gaps flagged', 'ROV letter drafted']
+viz_tools = ('<div class="lo-rov" aria-hidden="true">'
+             '<div class="lo-rov-top"><span class="lo-rov-logo"><b>ROV</b>ai</span><span class="lo-rov-sub">Reconsideration of value, automated</span></div>'
+             '<div class="lo-rov-bar"><i></i></div>'
+             '<ul class="lo-rov-steps">' + ''.join(f'<li><span class="lo-rov-ic"></span>{t}</li>' for t in ROV_STEPS) + '</ul>'
+             '<div class="lo-rov-done"><span>✓</span>ROV ready to submit in minutes</div></div>'
+             '<div class="lo-tchips"><span>ROVai</span><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span><b>→</b><span>Funded</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
 viz_uni = '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
 viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
@@ -494,19 +489,41 @@ BENTO_CSS = r"""
 .mxp .lo-b-big h3{font-size:clamp(26px,2.6vw,32px)}
 .mxp .lo-b p{position:relative;margin:0;font-size:16px;color:#C9D7E2;max-width:44ch}
 .mxp .lo-viz-bars{margin-top:auto;padding-top:20px;display:grid;gap:14px}
-.mxp .lo-viz-chart{position:relative;flex:1 1 auto;min-height:150px;margin-top:22px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:18px 16px 10px}
-.mxp .lo-viz-chart svg{display:block;width:100%;height:100%;min-height:120px;overflow:visible}
-.mxp .lo-ch-grid{stroke:rgba(255,255,255,.08);stroke-width:1;fill:none}
-.mxp .lo-ch-old{fill:none;stroke:rgba(255,255,255,.35);stroke-width:2.5;stroke-dasharray:6 6}
-.mxp .lo-ch-new{fill:none;stroke:#7FDCEC;stroke-width:4;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;filter:drop-shadow(0 0 6px rgba(127,220,236,.7));animation:lo-draw 4.5s cubic-bezier(.4,0,.2,1) infinite}
-.mxp .lo-ch-area{opacity:0;animation:lo-fade 4.5s ease infinite}
-.mxp .lo-ch-dot{fill:#F46744;opacity:0;transform-box:fill-box;transform-origin:center;animation:lo-dot 4.5s ease infinite}
-.mxp .lo-ch-tag{position:absolute;right:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0E2A47;background:#7FDCEC;border-radius:999px;padding:5px 10px;animation:lo-float 3s ease-in-out infinite}
-@keyframes lo-draw{0%{stroke-dashoffset:400}45%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
-@keyframes lo-fade{0%,25%{opacity:0}50%,85%{opacity:1}100%{opacity:0}}
-@keyframes lo-dot{0%,42%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.25)}58%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
-@keyframes lo-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-ch-new{animation:none;stroke-dashoffset:0}.mxp .lo-ch-area,.mxp .lo-ch-dot{animation:none;opacity:1}.mxp .lo-ch-tag{animation:none}}
+.mxp .lo-rov{position:relative;flex:1 1 auto;margin-top:22px;border-radius:18px;background:rgba(2,2,21,.35);border:1px solid rgba(255,255,255,.12);padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.mxp .lo-rov::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(127,220,236,.10) 50%,transparent 70%);transform:translateX(-100%);animation:lo-scan 6s ease-in-out infinite;pointer-events:none}
+.mxp .lo-rov-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px}
+.mxp .lo-rov-logo{font-size:20px;font-weight:800;letter-spacing:-.01em;color:#7FDCEC}
+.mxp .lo-rov-logo b{color:#fff;font-weight:800}
+.mxp .lo-rov-sub{font-size:12.5px;color:#B8C7D3;font-weight:600}
+.mxp .lo-rov-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.mxp .lo-rov-bar i{display:block;height:100%;width:100%;border-radius:999px;background:linear-gradient(90deg,#1C97AE,#7FDCEC);transform-origin:left;animation:lo-rov-fill 6s cubic-bezier(.4,0,.2,1) infinite}
+.mxp .lo-rov-steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.mxp.mxp .lo-rov-steps>li{display:flex !important;align-items:center;gap:10px;margin:0 !important;padding:0 !important;font-size:14.5px;font-weight:600;color:#E3F5F9;opacity:.35;animation:6s ease infinite}
+.mxp.mxp .lo-rov-steps>li::before{content:none !important}
+.mxp .lo-rov-ic{position:relative;flex:none;width:18px;height:18px;border-radius:50%;border:2px solid rgba(127,220,236,.5);box-sizing:border-box;animation:6s ease infinite}
+.mxp .lo-rov-ic::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #0E2A47;border-width:0 2px 2px 0;transform:rotate(45deg);opacity:0;animation:6s ease infinite}
+.mxp.mxp .lo-rov-steps>li:nth-child(1){animation-name:lo-rov-s1}.mxp.mxp .lo-rov-steps>li:nth-child(2){animation-name:lo-rov-s2}.mxp.mxp .lo-rov-steps>li:nth-child(3){animation-name:lo-rov-s3}.mxp.mxp .lo-rov-steps>li:nth-child(4){animation-name:lo-rov-s4}
+.mxp .lo-rov-steps>li:nth-child(1) .lo-rov-ic{animation-name:lo-rov-i1}.mxp .lo-rov-steps>li:nth-child(2) .lo-rov-ic{animation-name:lo-rov-i2}.mxp .lo-rov-steps>li:nth-child(3) .lo-rov-ic{animation-name:lo-rov-i3}.mxp .lo-rov-steps>li:nth-child(4) .lo-rov-ic{animation-name:lo-rov-i4}
+.mxp .lo-rov-steps>li:nth-child(1) .lo-rov-ic::after{animation-name:lo-rov-c1}.mxp .lo-rov-steps>li:nth-child(2) .lo-rov-ic::after{animation-name:lo-rov-c2}.mxp .lo-rov-steps>li:nth-child(3) .lo-rov-ic::after{animation-name:lo-rov-c3}.mxp .lo-rov-steps>li:nth-child(4) .lo-rov-ic::after{animation-name:lo-rov-c4}
+.mxp .lo-rov-done{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#F46744;color:#0E2A47;font-size:14px;font-weight:800;opacity:0;transform:translateY(8px);animation:lo-rov-done 6s ease infinite}
+.mxp .lo-rov-done span{width:18px;height:18px;border-radius:50%;background:#0E2A47;color:#fff;font-size:11px;display:inline-flex;align-items:center;justify-content:center}
+@keyframes lo-scan{0%,20%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@keyframes lo-rov-fill{0%{transform:scaleX(0)}70%,95%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:.4}}
+@keyframes lo-rov-s1{0%,5%{opacity:.35}12%,95%{opacity:1}100%{opacity:.35}}
+@keyframes lo-rov-s2{0%,22%{opacity:.35}29%,95%{opacity:1}100%{opacity:.35}}
+@keyframes lo-rov-s3{0%,39%{opacity:.35}46%,95%{opacity:1}100%{opacity:.35}}
+@keyframes lo-rov-s4{0%,56%{opacity:.35}63%,95%{opacity:1}100%{opacity:.35}}
+@keyframes lo-rov-i1{0%,8%{background:transparent;border-color:rgba(127,220,236,.5)}14%,95%{background:#7FDCEC;border-color:#7FDCEC}100%{background:transparent}}
+@keyframes lo-rov-i2{0%,25%{background:transparent;border-color:rgba(127,220,236,.5)}31%,95%{background:#7FDCEC;border-color:#7FDCEC}100%{background:transparent}}
+@keyframes lo-rov-i3{0%,42%{background:transparent;border-color:rgba(127,220,236,.5)}48%,95%{background:#7FDCEC;border-color:#7FDCEC}100%{background:transparent}}
+@keyframes lo-rov-i4{0%,59%{background:transparent;border-color:rgba(127,220,236,.5)}65%,95%{background:#7FDCEC;border-color:#7FDCEC}100%{background:transparent}}
+@keyframes lo-rov-c1{0%,10%{opacity:0}14%,95%{opacity:1}100%{opacity:0}}
+@keyframes lo-rov-c2{0%,27%{opacity:0}31%,95%{opacity:1}100%{opacity:0}}
+@keyframes lo-rov-c3{0%,44%{opacity:0}48%,95%{opacity:1}100%{opacity:0}}
+@keyframes lo-rov-c4{0%,61%{opacity:0}65%,95%{opacity:1}100%{opacity:0}}
+@keyframes lo-rov-done{0%,70%{opacity:0;transform:translateY(8px)}76%,95%{opacity:1;transform:none}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-rov *,.mxp .lo-rov::after,.mxp .lo-rov *::after{animation:none !important}.mxp.mxp .lo-rov-steps>li,.mxp .lo-rov-done{opacity:1;transform:none}.mxp .lo-rov-ic{background:#7FDCEC}.mxp .lo-rov-ic::after{opacity:1}}
+
 .mxp .lo-bar-row{display:grid;grid-template-columns:96px 1fr;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#B8C7D3}
 .mxp .lo-bar-row i{display:block;height:14px;border-radius:999px;background:rgba(255,255,255,.22);width:var(--w);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) .2s}
 .mxp .lo-bar-new{color:#7FDCEC}
