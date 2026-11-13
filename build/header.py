@@ -39,43 +39,49 @@ CALC = [
 
 CSS = r"""
 header.md-header,.md-header{display:none !important}
-.mxh{--navy:#0E2A47;--teal:#127C8F;--line:#DCE6EB;font-family:MoxieBarlow,Barlow,system-ui,sans-serif;color:var(--navy);background:#fff;box-sizing:border-box;width:100%;position:relative;z-index:1000;text-align:left;line-height:1.4}
+.mxh{--navy:#0E2A47;--teal:#127C8F;--sky:#1C97AE;--line:#DCE6EB;font-family:MoxieBarlow,Barlow,system-ui,sans-serif;color:var(--navy);background:#fff;box-sizing:border-box;width:100%;position:relative;z-index:1000;text-align:left;line-height:1.4;border-bottom:1px solid var(--line)}
 .mxh *{box-sizing:border-box}
 .mxh a{text-decoration:none;color:inherit}
 .mxh ul{list-style:none !important;margin:0 !important;padding:0 !important}
 .mxh.mxh li{list-style:none !important;margin:0 !important;padding:0 !important}
 .mxh li::before{content:none !important}
-.mxh a:focus-visible,.mxh button:focus-visible{outline:3px solid #1C97AE;outline-offset:2px;border-radius:6px}
+.mxh a:focus-visible,.mxh button:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:6px}
 .mxh-top{background:#F4F8FA;font-size:14px}
-.mxh-top>div{max-width:1280px;margin:0 auto;padding:6px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.mxh-contact{display:flex;gap:22px;flex-wrap:wrap}
-.mxh-contact a{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:#33475B}
+.mxh-top>div{max-width:1440px;margin:0 auto;padding:7px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.mxh-contact{display:flex;gap:28px;flex-wrap:wrap}
+.mxh-contact a{display:inline-flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.04em;color:var(--navy)}
 .mxh-contact a:hover{color:var(--teal)}
-.mxh-contact svg{width:15px;height:15px;color:var(--teal)}
+.mxh-ic{width:30px;height:30px;border-radius:50%;background:#DFE8ED;color:var(--navy);display:inline-flex;align-items:center;justify-content:center;flex:none;transition:background .15s,color .15s}
+.mxh-contact a:hover .mxh-ic{background:var(--teal);color:#fff}
+.mxh-ic svg{width:14px;height:14px}
 .mxh-lang{display:inline-flex;border:1.5px solid #C9D8DF;border-radius:999px;padding:2px;background:#fff}
-.mxh-lang button{appearance:none;border:0;background:transparent;font:700 13px/1 MoxieBarlow,Barlow,system-ui,sans-serif;letter-spacing:.06em;color:#4A5868;padding:7px 12px;border-radius:999px;cursor:pointer;min-height:30px}
+.mxh-lang button{appearance:none;border:0;background:transparent;font:700 13px/1 MoxieBarlow,Barlow,system-ui,sans-serif;letter-spacing:.08em;color:#4A5868;padding:7px 12px;border-radius:999px;cursor:pointer;min-height:30px}
 .mxh-lang button[aria-pressed=true]{background:var(--navy);color:#fff}
-.mxh-main{max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:28px;min-height:84px}
+.mxh-main{max-width:1440px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:52px;min-height:88px}
 .mxh-logo{flex:none;display:block}
-.mxh-logo img{display:block;width:200px;height:auto}
-.mxh-nav{flex:1;display:flex;justify-content:flex-end}
-.mxh-nav>ul{display:flex;align-items:center;gap:4px}
-.mxh-nav>ul>li>a,.mxh-dd>button{display:inline-flex;align-items:center;gap:6px;padding:10px 12px;border-radius:8px;font-weight:700;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);background:none;border:0;cursor:pointer;font-family:inherit;white-space:nowrap}
-.mxh-nav>ul>li>a:hover,.mxh-dd>button:hover,.mxh-dd.open>button{color:var(--teal);background:#F4F8FA}
+.mxh-logo img{display:block;width:208px;height:auto}
+.mxh-nav{flex:1;display:flex;justify-content:flex-start}
+.mxh-nav>ul{display:flex;align-items:center;gap:6px}
+.mxh-nav>ul>li>a,.mxh-dd>button{position:relative;display:inline-flex;align-items:center;gap:7px;padding:12px 13px;font-weight:700;font-size:17px;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:none;border:0;cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.2}
+.mxh-nav>ul>li>a::after,.mxh-dd>button::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2.5px;border-radius:2px;background:var(--sky);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.mxh-nav>ul>li>a:hover::after,.mxh-dd>button:hover::after,.mxh-dd.open>button::after,.mxh-nav a[aria-current=page]::after,.mxh-dd>button[aria-current=page]::after{transform:scaleX(1)}
+.mxh-nav>ul>li>a:hover,.mxh-dd>button:hover,.mxh-dd.open>button,.mxh-nav a[aria-current=page],.mxh-dd>button[aria-current=page]{color:var(--teal)}
+.mxh-nav>ul>li>a.mxh-start{color:var(--sky)}
 .mxh-dd{position:relative}
 .mxh-dd>button svg{width:12px;height:12px;transition:transform .2s}
 .mxh-dd.open>button svg{transform:rotate(180deg)}
-.mxh-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:300px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px rgba(14,42,71,.18);padding:14px;display:none;grid-template-columns:1fr 1fr;gap:4px 18px}
+.mxh-menu{position:absolute;left:0;top:calc(100% + 10px);min-width:480px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px rgba(14,42,71,.18);padding:18px;display:none;grid-template-columns:1fr 1.25fr;gap:4px 20px}
 .mxh-dd.open .mxh-menu{display:grid}
-.mxh-menu h3{margin:4px 10px 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B7F8E;font-weight:700}
-.mxh-menu a{display:block;padding:9px 10px;border-radius:8px;font-weight:600;font-size:15px;white-space:nowrap}
-.mxh-menu a:hover{background:#E3F5F9;color:var(--teal)}
-.mxh-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 20px;border-radius:12px;background:#F46744;color:#0E2A47 !important;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-.mxh-cta:hover{background:#ff7a59}
-.mxh-burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:10px;border:1.5px solid #C9D8DF;background:#fff;cursor:pointer;align-items:center;justify-content:center;color:var(--navy)}
+.mxh-menu h3{margin:4px 12px 8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.mxh-menu a{display:block;padding:10px 12px;border-radius:10px;font-weight:600;font-size:16px;white-space:nowrap}
+.mxh-menu a:hover,.mxh-menu a[aria-current=page]{background:#E3F5F9;color:var(--teal)}
+.mxh-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:12px;border:2px solid var(--navy);background:#fff;color:var(--navy) !important;font-weight:800;font-size:15px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;transition:background .15s,color .15s}
+.mxh-cta:hover{background:var(--navy);color:#fff !important}
+.mxh-main>.mxh-cta{margin-left:auto}
+.mxh-burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:12px;border:1.5px solid #C9D8DF;background:#fff;cursor:pointer;align-items:center;justify-content:center;color:var(--navy)}
 .mxh-burger svg{width:22px;height:22px}
 .mxh-panel{display:none}
-@media (max-width:1320px){.mxh-nav>ul>li>a,.mxh-dd>button{padding:10px 8px;font-size:15px;letter-spacing:.02em}.mxh-main{gap:18px}.mxh-cta{padding:12px 16px;font-size:14px}}
+@media (max-width:1380px){.mxh-main{gap:28px;padding:14px 24px}.mxh-top>div{padding:7px 24px}.mxh-nav>ul{gap:0}.mxh-nav>ul>li>a,.mxh-dd>button{padding:12px 10px;font-size:15px;letter-spacing:.06em}.mxh-nav>ul>li>a::after,.mxh-dd>button::after{left:10px;right:10px}.mxh-logo img{width:184px}.mxh-cta{padding:12px 16px;font-size:14px;letter-spacing:.06em}}
 @media (max-width:1100px){
   .mxh-nav,.mxh-main>.mxh-cta{display:none}
   .mxh-burger{display:inline-flex}
@@ -83,10 +89,12 @@ header.md-header,.md-header{display:none !important}
   .mxh-logo img{width:170px}
   .mxh.open .mxh-panel{display:block;border-top:1px solid var(--line);padding:8px 24px 24px;max-height:calc(100vh - 110px);overflow:auto}
   .mxh-panel a{display:block;padding:13px 4px;font-weight:700;font-size:17px;border-bottom:1px solid #EEF3F6}
-  .mxh-panel h3{margin:18px 4px 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6B7F8E}
-  .mxh-panel .mxh-cta{display:flex;margin-top:18px;border-bottom:0}
+  .mxh-panel a.mxh-start{color:var(--sky)}
+  .mxh-panel a[aria-current=page]{color:var(--teal)}
+  .mxh-panel h3{margin:18px 4px 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .mxh-panel .mxh-cta{display:flex;margin-top:18px}
 }
-@media (max-width:560px){.mxh-contact a span.mxh-hide{display:none}.mxh-contact{gap:14px}.mxh-top>div{padding:6px 16px}.mxh-main{padding:10px 16px}}
+@media (max-width:560px){.mxh-contact .mxh-hide{display:none}.mxh-contact{gap:12px}.mxh-top>div{padding:6px 16px}.mxh-main{padding:10px 16px}}
 """
 
 ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'
@@ -95,10 +103,10 @@ CHEV = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width=
 BURGER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>'
 
 apply_cta = f'<a href="{APPLY}" class="mxh-cta" data-mx-nolang><span data-es="Obtén tu aprobación">Get approved now</span></a>'
-nav_items = f'<li>{a(APPLY, "Start Approval", "Aprobación", extra=" data-mx-nolang")}</li>' + ''.join(f'<li>{a(h, en, es)}</li>' for h, en, es in NAV)
+nav_items = f'<li>{a(APPLY, "Start Approval", "Aprobación", cls="mxh-start", extra=" data-mx-nolang")}</li>' + ''.join(f'<li>{a(h, en, es)}</li>' for h, en, es in NAV)
 menu = ('<div><h3 data-es="Recursos">Resources</h3>' + ''.join(a(h, en, es) for h, en, es in RES) + '</div>'
         '<div><h3 data-es="Calculadoras">Calculators</h3>' + ''.join(a(h, en, es) for h, en, es in CALC) + '</div>')
-panel = (f'{a(APPLY, "Start Approval", "Solicitar aprobación", extra=" data-mx-nolang")}' + ''.join(a(h, en, es) for h, en, es in NAV)
+panel = (f'{a(APPLY, "Start Approval", "Solicitar aprobación", cls="mxh-start", extra=" data-mx-nolang")}' + ''.join(a(h, en, es) for h, en, es in NAV)
          + '<h3 data-es="Recursos">Resources</h3>' + ''.join(a(h, en, es) for h, en, es in RES)
          + '<h3 data-es="Calculadoras">Calculators</h3>' + ''.join(a(h, en, es) for h, en, es in CALC) + apply_cta)
 
@@ -112,8 +120,8 @@ html = f"""<!--
 <header class="mxh" id="mx-header">
   <div class="mxh-top"><div>
     <div class="mxh-contact">
-      <a href="tel:{PHONE_TEL}">{ICON_PHONE}<span>480.660.2518</span></a>
-      <a href="mailto:hello@moxiemortgage.com">{ICON_MAIL}<span class="mxh-hide">hello@moxiemortgage.com</span></a>
+      <a href="tel:{PHONE_TEL}"><span class="mxh-ic">{ICON_PHONE}</span><span>480.660.2518</span></a>
+      <a href="mailto:hello@moxiemortgage.com" aria-label="Email hello@moxiemortgage.com"><span class="mxh-ic">{ICON_MAIL}</span><span class="mxh-hide">hello@moxiemortgage.com</span></a>
     </div>
     <div class="mxh-lang" role="group" aria-label="Language" data-es-aria="Idioma">
       <button type="button" data-mx-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
@@ -146,6 +154,12 @@ html = f"""<!--
     h.style.width = document.documentElement.clientWidth + 'px'; h.style.marginLeft = (-left) + 'px';
   }}
   fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+  // highlight the current page
+  var here = location.pathname.replace(/[/]+$/, '') || '/';
+  h.querySelectorAll('.mxh-nav a, .mxh-panel a').forEach(function (l) {{
+    try {{ var p = new URL(l.href, location.href); if (p.origin === location.origin && (p.pathname.replace(/[/]+$/, '') || '/') === here && here !== '/') l.setAttribute('aria-current', 'page'); }} catch (e) {{}}
+  }});
+  if (h.querySelector('.mxh-menu a[aria-current]')) h.querySelector('.mxh-dd>button').setAttribute('aria-current', 'page');
   // language toggle
   var btns = h.querySelectorAll('[data-mx-lang]');
   function paint() {{ btns.forEach(function (b) {{ b.setAttribute('aria-pressed', b.getAttribute('data-mx-lang') === MX.i18n.lang ? 'true' : 'false'); }}); }}
