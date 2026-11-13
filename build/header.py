@@ -10,7 +10,9 @@ from i18n import I18N_JS
 from optimize import optimize
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LOGO = 'https://cdn.lofty.com/image/fs/844775624682466/website/78760/cmsbuild/h200_2026117_2a0da67830f846bb-png.webp'
+_svg = open('/home/claude/moxie-email-assets/website/moxie-logo-color.svg').read()
+# vector traced from Desktop/Moxie/Horizontal/MoxieMortgage_Logo_MASTER-04 copy.png (7767px master); inline so it is razor sharp and needs no request
+LOGO_SVG = _svg.replace('<svg ', '<svg class="mxh-logo-svg" role="img" aria-label="Moxie Mortgage" focusable="false" ', 1).replace(' width="2400" height="641"', '').replace('<title>Moxie Mortgage</title>', '')
 APPLY = 'https://apply.moxiemortgage.com'
 
 
@@ -59,7 +61,7 @@ header.md-header,.md-header{display:none !important}
 .mxh-lang button[aria-pressed=true]{background:#1C97AE;color:#fff}
 .mxh-main{max-width:none;margin:0;padding:14px 34px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px;min-height:88px}
 .mxh-logo{flex:none;display:block;justify-self:start}
-.mxh-logo img{display:block;width:208px;height:auto}
+.mxh-logo svg{display:block;width:208px;height:auto;aspect-ratio:2400/641}
 .mxh-nav{display:flex;justify-content:center}
 .mxh-nav>ul{display:flex;align-items:center;gap:6px}
 .mxh-nav>ul>li>a,.mxh-dd>button{position:relative;display:inline-flex;align-items:center;gap:7px;padding:12px 13px;font-weight:700;font-size:17px;letter-spacing:.09em;text-transform:uppercase;color:var(--navy);background:none;border:0;cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.2}
@@ -81,12 +83,12 @@ header.md-header,.md-header{display:none !important}
 .mxh-burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:12px;border:1.5px solid #C9D8DF;background:#fff;cursor:pointer;align-items:center;justify-content:center;color:var(--navy)}
 .mxh-burger svg{width:22px;height:22px}
 .mxh-panel{display:none}
-@media (max-width:1380px){.mxh-main{gap:28px;padding:14px 24px}.mxh-top>div{padding:7px 24px}.mxh-nav>ul{gap:0}.mxh-nav>ul>li>a,.mxh-dd>button{padding:12px 10px;font-size:15px;letter-spacing:.06em}.mxh-nav>ul>li>a::after,.mxh-dd>button::after{left:10px;right:10px}.mxh-logo img{width:184px}.mxh-cta{padding:12px 16px;font-size:14px;letter-spacing:.06em}}
+@media (max-width:1380px){.mxh-main{gap:28px;padding:14px 24px}.mxh-top>div{padding:7px 24px}.mxh-nav>ul{gap:0}.mxh-nav>ul>li>a,.mxh-dd>button{padding:12px 10px;font-size:15px;letter-spacing:.06em}.mxh-nav>ul>li>a::after,.mxh-dd>button::after{left:10px;right:10px}.mxh-logo svg{width:184px}.mxh-cta{padding:12px 16px;font-size:14px;letter-spacing:.06em}}
 @media (max-width:1100px){
   .mxh-nav,.mxh-main>.mxh-cta{display:none}
   .mxh-burger{display:inline-flex}
   .mxh-main{display:flex;min-height:72px;gap:12px}
-  .mxh-logo img{width:170px}
+  .mxh-logo svg{width:170px}
   .mxh.open .mxh-panel{display:block;border-top:1px solid var(--line);padding:8px 24px 24px;max-height:calc(100vh - 110px);overflow:auto}
   .mxh-panel a{display:block;padding:13px 4px;font-weight:700;font-size:17px;border-bottom:1px solid #EEF3F6}
   .mxh-panel a.mxh-start{color:var(--sky)}
@@ -112,8 +114,8 @@ header.md-header,.md-header{display:none !important}
 .mxh.mxh-stuck{position:fixed !important;top:0;left:0 !important;right:0;margin-left:0 !important;width:100% !important;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);box-shadow:0 8px 30px rgba(14,42,71,.12);border-bottom-color:rgba(220,230,235,.7);animation:mxhDrop .28s ease-out}
 .mxh.mxh-stuck .mxh-top{display:none}
 .mxh.mxh-stuck .mxh-main{min-height:66px;padding-top:8px;padding-bottom:8px}
-.mxh.mxh-stuck .mxh-logo img{width:164px}
-.mxh-logo img,.mxh-main{transition:width .2s ease,min-height .2s ease,padding .2s ease}
+.mxh.mxh-stuck .mxh-logo svg{width:164px}
+.mxh-logo svg,.mxh-main{transition:width .2s ease,min-height .2s ease,padding .2s ease}
 @keyframes mxhDrop{from{transform:translateY(-100%)}to{transform:none}}
 /* phone action bar */
 .mxh-bar{display:none;--navy:#0E2A47;--line:#DCE6EB}
@@ -148,7 +150,6 @@ html = f"""<!--
   Paste into a Lofty "Custom Code / Embed" block as the FIRST block on each page. It hides Lofty's built-in
   header (md-header) on that page and adds the language toggle that the footer and page embeds follow.
 -->
-<link rel="preload" href="{LOGO}" as="image">
 <style>{FONT_CSS}{CSS.strip()}</style>
 <div class="mxh-wrap" id="mx-header-wrap"><header class="mxh" id="mx-header">
   <div class="mxh-top"><div>
@@ -166,7 +167,7 @@ html = f"""<!--
     </div>
   </div></div>
   <div class="mxh-main">
-    <a href="/" class="mxh-logo" aria-label="Moxie Mortgage home" data-es-aria="Moxie Mortgage, inicio"><img src="{LOGO}" alt="Moxie Mortgage" width="212" height="59" fetchpriority="high"></a>
+    <a href="/" class="mxh-logo" aria-label="Moxie Mortgage home" data-es-aria="Moxie Mortgage, inicio">{LOGO_SVG}</a>
     <nav class="mxh-nav" aria-label="Main" data-es-aria="Principal"><ul>
       {nav_items}
       <li class="mxh-dd"><button type="button" aria-expanded="false" aria-controls="mxh-res"><span data-es="Recursos">Resources</span>{CHEV}</button>
