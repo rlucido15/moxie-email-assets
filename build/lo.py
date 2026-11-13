@@ -213,7 +213,7 @@ STACK = [
     ('Past-client follow-up in Lofty', 'Every closed client stays in follow-up for referrals, equity options and refinances when the numbers work.'),
 ]
 stack_rows = ''.join(
-    f'<li class="lo-st-row"><span aria-hidden="true" class="lo-st-n">{i}</span><div style="min-width: 0"><h3>{t}</h3><p>{d}</p></div></li>' for i, (t, d) in enumerate(STACK, 1))
+    f'<li><div class="lo-st-row"><span aria-hidden="true" class="lo-st-n">{i}</span><div style="min-width: 0"><h3>{t}</h3><p>{d}</p></div></div></li>' for i, (t, d) in enumerate(STACK, 1))
 deals_sec = section('lo-deals', 'Where your deals come from', 'Most of the business comes to you.',
     f'<div class="lo-st"><ul style="list-style: none; padding: 0; margin: 0">{stack_rows}</ul>'
     '<p class="lo-st-sum"><b>= 82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
@@ -236,7 +236,7 @@ REPEAT = [
 def tcol(title, items):
     return (f'<div class="mxa-card" style="{CARD}"><h3 style="margin: 0 0 6px; font-size: 22px">{title}</h3>'
             '<ul class="lo-tl" style="list-style: none; padding: 0; margin: 0">'
-            + ''.join(f'<li><h4>{t}</h4><p>{d}</p></li>' for t, d in items) + '</ul></div>')
+            + ''.join(f'<li><div class="lo-tl-i"><h4>{t}</h4><p>{d}</p></div></li>' for t, d in items) + '</ul></div>')
 tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close business and build repeat business.',
     '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 40px">'
     + tcol('Close more business', CLOSE) + tcol('Build repeat business', REPEAT) + '</div>', bg='#F4F8FA',
@@ -261,7 +261,7 @@ pay_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, 
     f'<h3 style="margin: 6px 0 0; font-size: 21px">{t}</h3><p style="margin: 0; color: #4A5868; font-size: 16px">{d}</p></article>' for ic, t, d in PAY) + '</div>'
 sup_list = ('<h3 style="margin: 56px 0 0; font-size: 24px; color: #ffffff">Support behind every file</h3>'
             '<ul class="lo-sup" style="list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 32px">'
-            + ''.join(f'<li><h4>{t}</h4><p>{d}</p></li>' for t, d in SUPPORT) + '</ul>')
+            + ''.join(f'<li><div class="lo-sup-i"><h4>{t}</h4><p>{d}</p></div></li>' for t, d in SUPPORT) + '</ul>')
 pay_sec = section('lo-pay', 'Pay, benefits and support', 'Get paid well. Never work alone.',
     pay_cards + sup_list + '<p style="margin: 28px 0 0; font-size: 13px; color: #B8C7D3">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. W-2 and 1099 options are available. We walk through the full plan on your intro call.</p>',
     bg='#0E2A47', dark=True)
@@ -282,19 +282,19 @@ STREAM_CSS = r"""
 @media (max-width:760px){.mxp .lo-pf-head{display:none}.mxp .lo-pf-row{grid-template-columns:1fr;gap:0}.mxp .lo-pf-was{border-radius:18px 18px 0 0;padding:16px 20px}.mxp .lo-pf-was p{font-size:16px}.mxp .lo-pf-now{border-radius:0 0 18px 18px;padding:16px 20px}.mxp.mxp .lo-pf>li{margin-bottom:16px !important}}
 .mxp .lo-st{margin-top:40px;background:#fff;color:#0E2A47;border-radius:24px;overflow:hidden}
 .mxp.mxp .lo-st li{list-style:none;margin:0 !important}
-.mxp .lo-st-row{display:flex;gap:18px;align-items:flex-start;padding:22px 28px !important;border-bottom:1px solid #DCE6EB}
+.mxp .lo-st-row{display:flex;gap:18px;align-items:flex-start;padding:22px 28px;border-bottom:1px solid #DCE6EB}
 .mxp .lo-st-n{flex:none;width:36px;height:36px;border-radius:50%;background:#E3F5F9;color:#127C8F;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-st-row h3{margin:0;font-size:20px;line-height:1.3}
 .mxp .lo-st-row p{margin:4px 0 0;font-size:16px;color:#4A5868}
 .mxp .lo-st-sum{margin:0;padding:24px 28px;background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 60%,#0E2A47 100%);color:#fff;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
 .mxp .lo-st-sum b{font-size:clamp(22px,2.4vw,28px);font-weight:800;letter-spacing:-.01em}
 .mxp .lo-st-sum span{font-size:16px;color:#D3E3EC}
-@media (max-width:600px){.mxp .lo-st-row{padding:18px 20px !important;gap:14px}.mxp .lo-st-sum{padding:20px}}
-.mxp.mxp .lo-tl>li{list-style:none;margin:0 !important;padding:16px 0 0 !important;border-top:1px solid #DCE6EB;margin-top:16px !important}
-.mxp.mxp .lo-tl>li:first-child{border-top:0;margin-top:0 !important;padding-top:8px !important}
+@media (max-width:600px){.mxp .lo-st-row{padding:18px 20px;gap:14px}.mxp .lo-st-sum{padding:20px}}
+.mxp .lo-tl-i{padding:16px 0 0;margin-top:16px;border-top:1px solid #DCE6EB}
+.mxp .lo-tl>li:first-child .lo-tl-i{border-top:0;margin-top:0;padding-top:8px}
 .mxp .lo-tl h4{margin:0;font-size:18px;color:#0E2A47}
 .mxp .lo-tl p{margin:4px 0 0;font-size:16px;color:#4A5868}
-.mxp.mxp .lo-sup>li{list-style:none;margin:0 !important;padding:0 0 0 18px !important;border-left:3px solid #1C97AE}
+.mxp .lo-sup-i{padding:2px 0 2px 18px;border-left:3px solid #1C97AE}
 .mxp .lo-sup h4{margin:0;font-size:18px;color:#fff}
 .mxp .lo-sup p{margin:4px 0 0;font-size:15px;color:#D3E3EC}
 """
