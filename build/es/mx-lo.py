@@ -313,3 +313,88 @@ T.update({
     "Proprietary Moxie tools, integrated, automated and powered by AI": "Herramientas exclusivas de Moxie, integradas, automatizadas e impulsadas por IA",
 })
 T.update({"Tools that close business and build repeat business.": "Herramientas que cierran negocios y generan clientes recurrentes."})
+T.update({
+    "Close more loans, faster and easier.": "Cierra más préstamos, más rápido y más fácil.",
+    "Everything working to send you deals": "Todo trabajando para enviarte préstamos",
+    "Key enterprise accounts": "Cuentas empresariales clave",
+    "Relationships Moxie builds with key enterprise accounts in its markets, which send warm opportunities to Moxie loan officers.":
+        "Relaciones que Moxie construye con cuentas empresariales clave en sus mercados, que envían oportunidades calificadas a los oficiales de préstamos de Moxie.",
+    "Area Directors in your market": "Directores de Área en tu mercado",
+    "Local Area Directors build and maintain agent relationships so buyers get introduced to you.":
+        "Los Directores de Área locales construyen y mantienen relaciones con agentes para que te presenten compradores.",
+    "Agent partner introductions": "Presentaciones de agentes aliados",
+    "Agents introduce their buyers to you by group text or a quick call.": "Los agentes te presentan a sus compradores por mensaje de grupo o con una llamada rápida.",
+    "Moxie marketing, done for you": "Marketing de Moxie, hecho por ti",
+    "Listing flyers, social posts and the Moxie Minute market report, designed and sent with your name on them.":
+        "Volantes de propiedades, publicaciones para redes sociales y el reporte de mercado Moxie Minute, diseñados y enviados con tu nombre.",
+    "The Moxie Realtor Portal": "El Portal para Agentes de Moxie",
+    "Agents track every loan in the portal, so they keep sending the next buyer.": "Los agentes dan seguimiento a cada préstamo en el portal, así que te siguen enviando al siguiente comprador.",
+    "Past-client follow-up in Lofty": "Seguimiento a clientes anteriores en Lofty",
+    "Every closed client stays in follow-up for referrals, equity options and refinances when the numbers work.":
+        "Cada cliente que cierra se queda en seguimiento para referidos, opciones con el valor de su casa y refinanciamientos cuando los números convienen.",
+    "= A purchase pipeline that doesn’t depend on cold calls": "= Una cartera de compras que no depende de llamadas en frío",
+    "In-house processing, priority underwriting and account support with key investors, and live support 6 AM–6 PM AZT for payroll, marketing, IT, compliance, licensing, training and HR.":
+        "Procesamiento interno, suscripción prioritaria y soporte de cuenta con inversionistas clave, y soporte en vivo de 6 AM a 6 PM (hora de Arizona) para nómina, marketing, TI, cumplimiento, licencias, capacitación y recursos humanos.",
+    "Agency and government": "Agencias y gobierno",
+    "Self-employed and non-QM": "Trabajadores independientes y non-QM",
+    "Up to 25 units": "Hasta 25 unidades",
+    "Property and construction": "Propiedades y construcción",
+    "Rate and payment options": "Opciones de tasa y pago",
+    "Proprietary client tools": "Herramientas exclusivas para clientes",
+    "Debt consolidation, ARM vs. fixed, buydown and effective rate tools that turn your numbers into a clear story, with MISMO 3.4 credit import and nothing saved after the session.":
+        "Herramientas de consolidación de deudas, ARM vs. tasa fija, buydowns y tasa efectiva que convierten tus números en una historia clara, con importación de crédito MISMO 3.4 y sin guardar nada después de la sesión.",
+    "Live back-office support": "Soporte administrativo en vivo",
+    "Live support 6 AM–6 PM AZT for payroll, marketing, IT, compliance, licensing, training and HR, plus legal and accounting handled for you.":
+        "Soporte en vivo de 6 AM a 6 PM (hora de Arizona) para nómina, marketing, TI, cumplimiento, licencias, capacitación y recursos humanos, además de asuntos legales y contabilidad resueltos por ti.",
+})
+# ---- streamlined layout
+T.update({
+    "Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers.":
+        "Préstamos de compra calificados, precios mayoristas, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia.",
+    "Great loan officers, held back by the wrong company.": "Grandes oficiales de préstamos, frenados por la empresa equivocada.",
+    "What you’re dealing with now": "Lo que enfrentas hoy",
+    "What you get at Moxie": "Lo que obtienes en Moxie",
+    "You’re chasing your own leads.": "Persigues tus propios prospectos.",
+    "82% of our business is company-generated": "El 82% de nuestro negocio lo genera la empresa",
+    "Warm introductions from key enterprise accounts, Area Directors and agent partners, and 86% of it is purchase.":
+        "Presentaciones calificadas de cuentas empresariales clave, Directores de Área y agentes aliados, y el 86% es de compra.",
+    "You’re losing deals on rate.": "Pierdes préstamos por la tasa.",
+    "Wholesale pricing that wins": "Precios mayoristas que ganan",
+    "Moxie rates averaged 0.559% lower than the largest retail lender.": "Las tasas de Moxie fueron en promedio 0.559% más bajas que las del prestamista minorista más grande.",
+    "You’re turning away good borrowers.": "Rechazas a buenos prestatarios.",
+    "300+ wholesale investors": "Más de 300 inversionistas mayoristas",
+    "Self-employed, investors, non-QM, HELOCs and thousands more programs.": "Trabajadores independientes, inversionistas, non-QM, HELOC y miles de programas más.",
+    "Your files sit in a slow queue.": "Tus expedientes esperan en una fila lenta.",
+    "In-house processing, priority underwriting": "Procesamiento interno, suscripción prioritaria",
+    "Account support with key investors across product types, and a 14-day average clear to close.":
+        "Soporte de cuenta con inversionistas clave en todos los tipos de producto, y un promedio de 14 días para la aprobación final.",
+    "You can’t see how your loans are priced.": "No puedes ver cómo se cotizan tus préstamos.",
+    "See the pricing and the investor purchase advice on every loan.": "Ve los precios y el aviso de compra del inversionista en cada préstamo.",
+    "You wait weeks to get paid.": "Esperas semanas para cobrar.",
+    "Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.":
+        "Compensación generosa pagada a medida que cierran tus préstamos, con seguro médico completo y un 401(k) para los empleados elegibles.",
+    "= 82% company-generated, 86% purchase.": "= 82% generado por la empresa, 86% de compra.",
+    "A pipeline that doesn’t depend on cold calls or waiting for rates to drop.": "Una cartera que no depende de llamadas en frío ni de esperar a que bajen las tasas.",
+    "Pay, benefits and support": "Pago, beneficios y soporte",
+    "Get paid well. Never work alone.": "Gana bien. Nunca trabajes solo.",
+    "Packages built to reward production, set out in a written agreement.": "Paquetes diseñados para premiar la producción, establecidos en un acuerdo por escrito.",
+    "Retirement savings and pre-tax health dollars for eligible employees.": "Ahorro para el retiro y dinero antes de impuestos para gastos médicos, para los empleados elegibles.",
+    "Support behind every file": "Soporte detrás de cada expediente",
+    "Live support, 6 AM–6 PM AZT": "Soporte en vivo, 6 AM–6 PM (hora de Arizona)",
+    "Payroll, marketing, IT, compliance, licensing, training and HR.": "Nómina, marketing, TI, cumplimiento, licencias, capacitación y recursos humanos.",
+    "Deal strategy, accountability and direction when a file gets complicated.": "Estrategia, seguimiento y dirección cuando un expediente se complica.",
+    "Moxie University and an annual conference": "Moxie University y una conferencia anual",
+    "Training on demand, plus a yearly event with top producers and lenders.": "Capacitación cuando la necesites, más un evento anual con los mejores originadores y prestamistas.",
+    "Compensation and benefit eligibility depend on employment type and are set out in your written agreement. W-2 and 1099 options are available. We walk through the full plan on your intro call.":
+        "La compensación y la elegibilidad para beneficios dependen del tipo de empleo y se establecen en tu acuerdo por escrito. Hay opciones W-2 y 1099. Revisamos el plan completo en tu llamada inicial.",
+    "Close more business": "Cierra más negocios",
+    "Build repeat business": "Genera clientes recurrentes",
+    "Arive, integrated": "Arive, integrado",
+    "Originate and track every file in one connected system.": "Origina y da seguimiento a cada expediente en un sistema conectado.",
+    "On-demand courses plus short how-to videos for every Moxie tool.": "Cursos a tu ritmo y videos cortos de cómo usar cada herramienta de Moxie.",
+    "Lofty CRM follow-up": "Seguimiento con Lofty CRM",
+    "Every lead and past client stays in automated follow-up, so you’re first in line for the next deal.": "Cada prospecto y cliente anterior se queda en seguimiento automatizado, para que seas el primero en el siguiente préstamo.",
+    "Help past clients tap their equity while they keep their low first-mortgage rate.": "Ayuda a tus clientes anteriores a usar el valor de su casa sin perder la tasa baja de su primera hipoteca.",
+    "Past buyers become move-up buyers and investors, with DSCR and non-QM options ready.": "Los compradores anteriores se convierten en compradores de una casa más grande e inversionistas, con opciones DSCR y non-QM listas.",
+    "Debt consolidation and rate-and-term refinances for clients you already closed.": "Consolidación de deudas y refinanciamientos de tasa y plazo para clientes con los que ya cerraste.",
+})
