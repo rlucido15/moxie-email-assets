@@ -233,7 +233,7 @@ PAIN = [
 FL_STATS = ['82%', '0.559%', 'Daily', '300+', '14 days', 'Every loan']
 OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
 flip_cards = ''.join(
-    f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
+    f'<button type="button" class="lo-fl" aria-pressed="false" data-pick="{a}" style="--i: {n}">'
     f'<span class="lo-fl-in">'
     f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-qm" aria-hidden="true">“</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
     f'<span class="lo-fl-face lo-fl-back"><span class="lo-fl-stat">{FL_STATS[n]}</span><span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
@@ -818,16 +818,17 @@ s = s.replace("MX.track('ad_apply_open'", "MX.track('lo_apply_open'").replace("M
 s = s.replace("var req = ['name', 'phone', 'email', 'units', 'volume', 'states'];", "var req = ['name', 'phone', 'email', 'nmls', 'years', 'units', 'volume', 'states'];")
 s = s.replace("Please select the states you operate in.", "Please select the states you’re licensed in.")
 old_payload = s[s.index('    var payload = {'):s.index('    btn.disabled = true;')]
-new_payload = """    var payload = { name: v('name'), phone: v('phone'), email: v('email'), cta: 'LO Applicant', leadTypes: [7], tags: v('states').split(', ').filter(Boolean), source: 'MoxieMortgage.com — Loan Officer page',
+new_payload = """    var picks = [].slice.call(document.querySelectorAll('.lo-fl[aria-pressed="true"]')).map(function (b) { return b.getAttribute('data-pick'); }).join('; ') || 'None selected';
+    var payload = { name: v('name'), phone: v('phone'), email: v('email'), cta: 'LO Applicant', leadTypes: [7], tags: v('states').split(', ').filter(Boolean), source: 'MoxieMortgage.com — Loan Officer page',
       consent: true, secret: SECRET, message: v('message'), pageUrl: location.href.split('#')[0], submittedAt: new Date().toISOString(),
       fields: { 'Application': 'Loan Officer', 'NMLS #': v('nmls'), 'Years originating': v('years'), 'Loans closed, last 12 months': v('units'),
-        'Volume, last 12 months': v('volume'), 'Licensed states': v('states'), 'Current company': v('company'), 'Consent text': consentText },
+        'Volume, last 12 months': v('volume'), 'Licensed states': v('states'), 'Current company': v('company'), 'Sound familiar? picks': picks, 'Consent text': consentText },
       sheet: 'lo-applications',
       sheetRow: { 'Timestamp': '', 'Name': v('name'), 'Email': v('email'), 'Phone Number': v('phone'),
         'What was your total loan volume over the previous 12 months?': v('volume'),
         'What was your total loan units over the previous 12 months?': v('units'),
         'NMLS #': v('nmls'), 'Years originating': v('years'), 'Licensed states': v('states'), 'Current company': v('company'),
-        'Anything else we should know?': v('message'), 'Application source': 'Website: moxiemortgage.com/loanofficer' } };
+        'Anything else we should know?': v('message'), 'Application source': 'Website: moxiemortgage.com/loanofficer', 'Sound familiar? picks': picks } };
 """
 s = s.replace(old_payload, new_payload).replace('tags the lead "CTA: AD Application"', 'tags the lead "CTA: LO Applicant" (Agent lead type) and logs the application to the Loan Officer Application (Responses) sheet')
 assert "cta: 'LO Applicant'" in s and 'AD Application' not in s
