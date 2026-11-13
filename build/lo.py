@@ -238,7 +238,7 @@ OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" widt
 flip_cards = ''.join(
     f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
     f'<span class="lo-fl-in">'
-    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-x" aria-hidden="true">×</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">That’s me</span></span>'
+    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-flip" aria-hidden="true">↻</span><span class="lo-fl-x" aria-hidden="true">×</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you</span></span>'
     f'<span class="lo-fl-face lo-fl-back">{OK_IC}<span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
     f'</span></button>' for n, (a, b, c) in enumerate(PAIN))
 pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back by the wrong company.',
@@ -255,13 +255,22 @@ FLIP_CSS = r"""
 .mxp .lo-fl-in{display:grid;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .mxp .lo-fl[aria-pressed="true"] .lo-fl-in{transform:rotateY(180deg)}
 .mxp .lo-fl-face{grid-area:1/1;display:flex;flex-direction:column;gap:10px;min-height:200px;padding:26px;border-radius:22px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif}
-.mxp .lo-fl-front{background:#F4F8FA;border:1.5px solid #DCE6EB;transition:border-color .2s,box-shadow .2s,transform .2s}
-.mxp .lo-fl:hover .lo-fl-front{border-color:#1C97AE;box-shadow:0 14px 30px rgba(14,42,71,.10)}
+.mxp .lo-fl-front{position:relative;background:#fff;border:1.5px solid #DCE6EB;box-shadow:0 10px 24px rgba(14,42,71,.08);transition:border-color .2s,box-shadow .2s}
+.mxp .lo-fl:hover .lo-fl-front{border-color:#1C97AE;box-shadow:0 18px 36px rgba(14,42,71,.16)}
+.mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-6deg)}
+.mxp .lo-fl[aria-pressed="true"]:hover .lo-fl-in{transform:rotateY(180deg)}
+.mxp .lo-fl-flip{position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;background:#E3F5F9;color:#127C8F;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;transition:transform .4s}
+.mxp .lo-fl:hover .lo-fl-flip{transform:rotate(180deg)}
 .mxp .lo-fl-x{width:34px;height:34px;border-radius:50%;background:#FDE7E1;color:#C2482A;font-weight:800;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-fl-q{font-size:21px;font-weight:700;line-height:1.3;color:#0E2A47}
-.mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#127C8F}
-.mxp .lo-fl-hint::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid #1C97AE;box-sizing:border-box}
-.mxp .lo-fl:hover .lo-fl-hint::before{background:#E3F5F9}
+.mxp .lo-fl-hint{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:9px 16px 9px 12px;border-radius:999px;background:#E3F5F9;border:1.5px solid #1C97AE;font-size:14px;font-weight:700;color:#0E2A47;transition:background .2s,color .2s}
+.mxp .lo-fl-hint::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid #1C97AE;background:#fff;box-sizing:border-box}
+.mxp .lo-fl:hover .lo-fl-hint{background:#1C97AE;color:#fff}
+.mxp .lo-fl:hover .lo-fl-hint::before{border-color:#fff}
+.mxp .lo-fl-grid:not(.picked) .lo-fl-hint{animation:lo-glow 2.2s ease-in-out infinite}
+@keyframes lo-glow{0%,100%{box-shadow:0 0 0 0 rgba(28,151,174,0)}50%{box-shadow:0 0 0 6px rgba(28,151,174,.18)}}
+.mxp .lo-fl-grid.nudge .lo-fl:not([aria-pressed="true"]) .lo-fl-in{animation:lo-nudge 1.1s ease calc(var(--i) * .12s) 1}
+@keyframes lo-nudge{0%,100%{transform:none}35%{transform:rotateY(-22deg)}70%{transform:rotateY(6deg)}}
 .mxp .lo-fl-back{transform:rotateY(180deg);background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 55%,#0E2A47 100%);color:#fff;box-shadow:0 16px 34px rgba(14,42,71,.22)}
 .mxp .lo-fl-ok{width:34px;height:34px;border-radius:50%;background:#fff;color:#127C8F;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-fl-t{font-size:21px;font-weight:800;line-height:1.25}
@@ -279,7 +288,7 @@ FLIP_CSS = r"""
 .mxp .lo-fl-sum:not(.on) .lo-fl-cta{opacity:.55}
 @media (max-width:980px){.mxp .lo-fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:19px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-fl-grid .lo-fl-hint,.mxp .lo-fl-grid.nudge .lo-fl .lo-fl-in{animation:none !important}.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
 """
 
 # ---------------- WHERE YOUR DEALS COME FROM (value stack, dark)
@@ -766,13 +775,19 @@ s += '''
 // ---- "Sound familiar?" pick-your-frustrations cards
 (function () {
   var cards = [].slice.call(root.querySelectorAll('.lo-fl')); if (!cards.length) return;
-  var sum = root.querySelector('.lo-fl-sum'), n = root.querySelector('.lo-fl-n');
+  var sum = root.querySelector('.lo-fl-sum'), n = root.querySelector('.lo-fl-n'), grid = root.querySelector('.lo-fl-grid');
+  // a quick "flip me" nudge the first time the cards scroll into view
+  if (grid && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var nio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { if (!grid.classList.contains('picked')) grid.classList.add('nudge'); }, 500); nio.disconnect(); } }); }, { threshold: 0.4 });
+    nio.observe(grid);
+  }
   cards.forEach(function (c) {
     c.addEventListener('click', function () {
       c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
       var k = cards.filter(function (x) { return x.getAttribute('aria-pressed') === 'true'; }).length;
       if (n) { n.textContent = k; n.classList.remove('lo-bump'); void n.offsetWidth; n.classList.add('lo-bump'); }
       if (sum) sum.classList.toggle('on', k > 0);
+      if (grid) grid.classList.add('picked');
       if (window.MX && MX.track && k === 1) MX.track('lo_pain_pick');
     });
   });

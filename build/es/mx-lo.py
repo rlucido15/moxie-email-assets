@@ -490,3 +490,4 @@ T.update({"App": "Solicitud", "Funded": "Fondeado", "Title work received": "Tít
           "Nuestra red de seguros ayuda a los clientes a obtener el mejor precio en su seguro de vivienda, para que estén totalmente protegidos y su pago mensual sea lo más bajo posible, sin que tengan que hacer nada."})
 T.update({"rating on Google": "de calificación en Google"})
 T.update({"Google rating": "Calificación en Google"})
+T.update({"Tap if that’s you": "Tócalo si eres tú"})
