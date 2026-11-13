@@ -401,8 +401,8 @@ tools = ('<div class="lo-bento">'
          + bcard('lo-b-auto', 'Automated client experience', viz_auto)
          + '</div>')
 BENTO_CSS = r"""
-.mxp .lo-bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-areas:"big crm uni" "big auto auto";gap:18px;margin-top:44px}
-.mxp .lo-b-big{grid-area:big}.mxp .lo-b-crm{grid-area:crm}.mxp .lo-b-uni{grid-area:uni}.mxp .lo-b-auto{grid-area:auto}
+.mxp .lo-bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-areas:"big crm uni" "big aut aut";gap:18px;margin-top:44px}
+.mxp .lo-b-big{grid-area:big}.mxp .lo-b-crm{grid-area:crm}.mxp .lo-b-uni{grid-area:uni}.mxp .lo-b-auto{grid-area:aut}
 .mxp .lo-b{position:relative;overflow:hidden;border-radius:24px;padding:28px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.14);color:#fff;display:flex;flex-direction:column;gap:8px;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s}
 .mxp .lo-b::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(28,151,174,.45),transparent 70%);pointer-events:none;transition:transform .5s}
 .mxp .lo-b:hover{transform:translateY(-5px);border-color:rgba(127,220,236,.55);box-shadow:0 24px 48px rgba(0,0,0,.25)}
@@ -433,8 +433,8 @@ BENTO_CSS = r"""
 .mxp .lo-bento.arm .lo-toast{opacity:0;transform:translateY(12px)}
 .mxp .lo-bento.arm.in .lo-bar-row i{transform:none}
 .mxp .lo-bento.arm.in .lo-toast{opacity:1;transform:none}
-@media (max-width:980px){.mxp .lo-bento{grid-template-columns:1fr 1fr;grid-template-areas:"big big" "crm uni" "auto auto"}}
-@media (max-width:640px){.mxp .lo-bento{grid-template-columns:1fr;grid-template-areas:"big" "crm" "uni" "auto"}.mxp .lo-b{padding:24px}.mxp .lo-bar-row{grid-template-columns:84px 1fr}}
+@media (max-width:980px){.mxp .lo-bento{grid-template-columns:1fr 1fr;grid-template-areas:"big big" "crm uni" "aut aut"}}
+@media (max-width:640px){.mxp .lo-bento{grid-template-columns:1fr;grid-template-areas:"big" "crm" "uni" "aut"}.mxp .lo-b{padding:24px}.mxp .lo-bar-row{grid-template-columns:84px 1fr}}
 @media (prefers-reduced-motion:reduce){.mxp .lo-play{animation:none}.mxp .lo-bento.arm .lo-bar-row i,.mxp .lo-bento.arm .lo-toast{opacity:1 !important;transform:none !important;transition:none !important}}
 """
 tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close business and build repeat business.', tools, bg='radial-gradient(120% 90% at 85% 0%, #145A75 0%, #0E2A47 55%, #0B2340 100%)', dark=True,
