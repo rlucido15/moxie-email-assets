@@ -299,3 +299,8 @@ T.update({
 })
 T.update({"Moxie invests in the enterprise accounts and agent relationships that send buyers your way, so more of your week goes to structuring and closing loans.":
     "Moxie invierte en las cuentas empresariales y las relaciones con agentes que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos."})
+T.update({
+    "Moxie loan officers have access to more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, construction, renovation and reverse mortgages, and cross-collateralized options.":
+        "Los oficiales de préstamos de Moxie tienen acceso a más de 300 inversionistas mayoristas y miles de programas: préstamos convencionales, FHA, VA, USDA y jumbo, HELOC y segundas hipotecas, préstamos con estados de cuenta bancarios y otros non-QM, préstamos DSCR y de compra-remodelación-venta para inversionistas, préstamos de construcción, de remodelación e hipotecas inversas, y opciones con garantía cruzada.",
+    "Cross-collateralized loans": "Préstamos con garantía cruzada",
+})

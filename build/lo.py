@@ -149,7 +149,7 @@ flow = section('lo-flow', 'Where your deals come from', 'Most of the business co
 PRODUCTS = ['Conventional', 'FHA', 'VA', 'USDA', 'Jumbo and super jumbo', 'HELOC', 'Home equity loans', 'Second mortgages', 'Bank statement',
             'P&amp;L only', 'Asset depletion', 'DSCR', 'Non-QM', 'ITIN', 'Foreign national', 'DACA', 'Doctor loans', 'Down payment assistance',
             '203(k) and renovation', 'Construction and one-time close', 'Fix and flip', 'Bridge loans', 'Interest-only', 'Manufactured homes',
-            'Non-warrantable condos', 'Condotels', 'Up to 8 units', 'Mixed use', 'Close in an LLC', 'Reverse mortgages', 'Temporary buydowns', 'ARMs']
+            'Non-warrantable condos', 'Condotels', 'Up to 8 units', 'Mixed use', 'Close in an LLC', 'Reverse mortgages', 'Temporary buydowns', 'ARMs', 'Cross-collateralized loans']
 chips = '<ul class="lo-chips" style="list-style: none; padding: 0; margin: 36px 0 0; display: flex; flex-wrap: wrap; gap: 10px">' + ''.join(
     f'<li style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 15px">{x}</li>' for x in PRODUCTS) + '</ul>'
 products_sec = section('lo-products', 'Loan programs', 'Thousands of programs, so you can say yes more often.',
@@ -279,7 +279,7 @@ FAQ = [
     ('How are Moxie loan officers paid?',
      'Moxie offers generous compensation packages, paid on closed loans under a written agreement, and commission is paid as each loan closes. W-2 and 1099 options are available, and eligible employees get full health insurance (medical, dental and vision), a 401(k) and an HSA. We walk through the full plan, including splits and any costs you’re responsible for, on your intro call. As federal rules require, loan officer pay is never based on a loan’s rate or terms.'),
     ('Which lenders and loan programs can I offer?',
-     'Through NEXA, Moxie loan officers can shop more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, ITIN and foreign national loans, construction, renovation and reverse mortgages.'),
+     'Moxie loan officers have access to more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, construction, renovation and reverse mortgages, and cross-collateralized options.'),
     ('Who processes and underwrites my loans?',
      'Moxie processes loans in-house, and Moxie loan officers get priority underwriting and account support with key investors across product types. You also get full transparency on pricing and the investor purchase advice on every loan.'),
     ('What technology do Moxie loan officers use?',
