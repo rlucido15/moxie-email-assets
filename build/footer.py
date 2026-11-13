@@ -1,4 +1,5 @@
 from common import *
+from i18n import I18N_JS
 
 FCSS = r"""
 .mxf{--navy:#0E2A47;font-family:MoxieBarlow,Barlow,system-ui,sans-serif;background:var(--navy);color:#C9D6DF;font-size:15px;line-height:1.6;box-sizing:border-box;text-align:left;width:100%}
@@ -26,25 +27,26 @@ html = f"""<!--
   <div class="mxf-top">
     <div style="display:flex;flex-direction:column;gap:14px">
       <img src="{CDN}moxie-wordmark-white-640.png" alt="Moxie Mortgage" width="150" height="33" loading="lazy" style="width:150px;height:auto">
-      <p>Empowered by NEXA Lending</p>
+      <p data-es="Respaldado por NEXA Lending">Empowered by NEXA Lending</p>
       <address>5559 S Sossaman Rd, Bldg 1 Ste 101<br>Mesa, AZ 85212</address>
     </div>
-    <nav aria-label="Loans"><h2>Loans</h2><ul>
-      <li><a href="/buy">Buy a home</a></li><li><a href="/refinance">Refinance</a></li><li><a href="/heloc">HELOC</a></li><li><a href="/products">All loan options</a></li></ul></nav>
-    <nav aria-label="Resources"><h2>Resources</h2><ul>
-      <li><a href="/faqs">Mortgage FAQs</a></li><li><a href="/calculators">Calculators</a></li><li><a href="/blog?categoryId=45795">Market reports</a></li><li><a href="/blog?categoryId=60326">Client success</a></li></ul></nav>
-    <div><h2>Contact</h2><ul>
+    <nav aria-label="Loans" data-es-aria="Préstamos"><h2 data-es="Préstamos">Loans</h2><ul>
+      <li><a href="/buy" data-es="Comprar una casa">Buy a home</a></li><li><a href="/refinance" data-es="Refinanciar">Refinance</a></li><li><a href="/heloc">HELOC</a></li><li><a href="/products" data-es="Todas las opciones de préstamo">All loan options</a></li></ul></nav>
+    <nav aria-label="Resources" data-es-aria="Recursos"><h2 data-es="Recursos">Resources</h2><ul>
+      <li><a href="/faqs" data-es="Preguntas frecuentes">Mortgage FAQs</a></li><li><a href="/calculators" data-es="Calculadoras">Calculators</a></li><li><a href="/blog?categoryId=45795" data-es="Reportes del mercado">Market reports</a></li><li><a href="/blog?categoryId=60326" data-es="Historias de clientes">Client success</a></li></ul></nav>
+    <div><h2 data-es="Contacto">Contact</h2><ul>
       <li><a href="tel:{PHONE_TEL}">480.660.2518</a></li>
       <li><a href="mailto:hello@moxiemortgage.com">hello@moxiemortgage.com</a></li>
-      <li>Hawaii: <a href="tel:{HI_TEL}">{HI_PHONE}</a></li>
+      <li><span data-es="Hawái:">Hawaii:</span> <a href="tel:{HI_TEL}">{HI_PHONE}</a></li>
       <li><a href="mailto:aloha@moxiemortgage.com">aloha@moxiemortgage.com</a></li></ul></div>
   </div>
   <div class="mxf-bot"><div>
-    <span>Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/1660690" rel="noopener">NMLS Consumer Access</a> · Equal Housing Opportunity</span>
-    <span><a href="/site/privacy-terms">Privacy &amp; terms</a> · <a href="/accessibility">Accessibility</a> · <a href="/sitemap">Sitemap</a></span>
+    <span>Moxie Mortgage · NMLS #1660690 · AZMB 0944059 · <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/1660690" rel="noopener">NMLS Consumer Access</a> · <span data-es="Igualdad de oportunidades de vivienda">Equal Housing Opportunity</span></span>
+    <span><a href="/site/privacy-terms" data-es="Privacidad y términos">Privacy &amp; terms</a> · <a href="/accessibility" data-es="Accesibilidad">Accessibility</a> · <a href="/sitemap" data-es="Mapa del sitio">Sitemap</a></span>
   </div></div>
 </footer>
 <script>
+{I18N_JS.strip()}
 (function () {{
   var f = document.getElementById('mx-footer');
   function fit() {{
@@ -56,6 +58,7 @@ html = f"""<!--
     f.style.width = document.documentElement.clientWidth + 'px'; f.style.marginLeft = (-left) + 'px';
   }}
   fit(); window.addEventListener('resize', fit); window.addEventListener('load', fit);
+  MX.i18n.apply(f);
 }})();
 </script>
 """
