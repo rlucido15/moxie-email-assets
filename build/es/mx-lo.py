@@ -450,3 +450,4 @@ T.update({
     "Get fully trained on everything, including your lender relationships and every tool at your disposal.":
         "Recibe capacitación completa en todo, incluidas tus relaciones con prestamistas y cada herramienta a tu disposición.",
 })
+T.update({"Construction and renovation": "Construcción y remodelación", "Unique properties": "Propiedades únicas", "Hard-to-finance properties": "Propiedades difíciles de financiar"})

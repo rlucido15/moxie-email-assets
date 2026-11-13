@@ -157,7 +157,8 @@ PROGRAM_GROUPS = [
     ('brief', 'Self-employed and non-QM', 'No tax returns needed', ['Bank statement', 'P&amp;L only', 'Asset depletion', 'Non-QM', 'ITIN', 'Foreign national', 'DACA']),
     ('trend', 'Real estate investors', 'DSCR up to 25 units', ['DSCR', 'Fix and flip', 'Bridge loans', 'Up to 25 units', 'Mixed use', 'Close in an LLC', 'Cross-collateralized loans']),
     ('cash', 'Home equity', 'Keep the low first rate', ['HELOC', 'Home equity loans', 'Second mortgages', 'Reverse mortgages']),
-    ('tool', 'Property and construction', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction and one-time close', 'Manufactured homes', 'Non-warrantable condos', 'Condotels']),
+    ('tool', 'Construction and renovation', 'Build, renovate, rehab', ['203(k) and renovation', 'Construction and one-time close']),
+    ('grid', 'Unique properties', 'Hard-to-finance properties', ['Non-warrantable condos', 'Condotels', 'Manufactured homes']),
     ('pct', 'Rate and payment options', 'Payments that fit', ['ARMs', 'Interest-only', 'Temporary buydowns']),
 ]
 prog_cards = '<div class="lo-pg">' + ''.join(
@@ -168,7 +169,11 @@ prog_cards = '<div class="lo-pg">' + ''.join(
     '<div class="lo-pl-wrap"><ul class="lo-plist">' + ''.join(f'<li style="--j: {k}"><span class="lo-ck" aria-hidden="true"></span><span>{x}</span></li>' for k, x in enumerate(items)) + '</ul></div></article>'
     for n, (ic, title, hi, items) in enumerate(PROGRAM_GROUPS)) + '</div>'
 PROG_CSS = r"""
-.mxp .lo-pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:44px}
+.mxp .lo-pg{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:44px}
+.mxp .lo-pg>.lo-pc{flex:1 1 250px;max-width:calc((100% - 60px) / 4)}
+@media (max-width:1100px){.mxp .lo-pg>.lo-pc{max-width:calc((100% - 40px) / 3)}}
+@media (max-width:860px){.mxp .lo-pg>.lo-pc{max-width:calc((100% - 20px) / 2)}}
+@media (max-width:580px){.mxp .lo-pg>.lo-pc{max-width:100%}}
 .mxp .lo-pc{position:relative;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 0 #DCE6EB,0 12px 32px rgba(14,42,71,.08);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .mxp .lo-pc::after{content:"";position:absolute;inset:0;border-radius:24px;border:1.5px solid transparent;pointer-events:none;transition:border-color .3s}
 .mxp .lo-pc:hover{transform:translateY(-6px);box-shadow:0 1px 0 #DCE6EB,0 22px 44px rgba(14,42,71,.16)}
@@ -182,10 +187,10 @@ PROG_CSS = r"""
 .mxp .lo-pc-hi{margin:2px 0 0;font-size:clamp(22px,2.2vw,26px);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff}
 .mxp .lo-pc-n{margin-left:auto;flex:none;min-width:34px;height:34px;padding:0 10px;border-radius:999px;background:#F46744;color:#0E2A47;font-weight:800;font-size:15px;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-pl-wrap{padding:22px 24px 26px}
-.mxp .lo-plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.mxp .lo-plist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:10px}
 .mxp.mxp .lo-plist>li{display:flex !important;gap:10px;margin:0 !important;padding:0 !important;font-size:15.5px;line-height:1.4;color:#0E2A47;font-weight:500;list-style:none}
 .mxp .lo-ck{flex:none;width:6px;height:11px;border:solid #1C97AE;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);margin:3px 3px 0 2px}
-@media (max-width:420px){.mxp .lo-plist{grid-template-columns:1fr}.mxp .lo-pc-top{padding:20px}.mxp .lo-pl-wrap{padding:18px 20px 22px}}
+@media (max-width:420px){.mxp .lo-pc-top{padding:20px}.mxp .lo-pl-wrap{padding:18px 20px 22px}}
 /* reveal: only when JS has armed it, so content never stays hidden */
 .mxp .lo-pg.arm .lo-pc{opacity:0;transform:translateY(28px) scale(.98)}
 .mxp .lo-pg.arm .lo-plist>li{opacity:0;transform:translateX(-8px)}
