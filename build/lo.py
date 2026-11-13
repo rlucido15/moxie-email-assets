@@ -230,12 +230,13 @@ PAIN = [
     ('Your files sit in a slow queue.', '14-day average clear to close<sup>2</sup>', 'In-house processing, plus priority underwriting and account support with key investors.'),
     ('You can’t see how your loans are priced.', 'Full transparency', 'See the pricing and the investor purchase advice on every loan.'),
 ]
+FL_STATS = ['82%', '0.559%', 'Daily', '300+', '14 days', 'Every loan']
 OK_IC = '<span aria-hidden="true" class="lo-fl-ok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="display: block"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>'
 flip_cards = ''.join(
     f'<button type="button" class="lo-fl" aria-pressed="false" style="--i: {n}">'
     f'<span class="lo-fl-in">'
-    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
-    f'<span class="lo-fl-face lo-fl-back">{OK_IC}<span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
+    f'<span class="lo-fl-face lo-fl-front"><span class="lo-fl-qm" aria-hidden="true">“</span><span class="lo-fl-q">{a}</span><span class="lo-fl-hint">Tap if that’s you<span class="lo-fl-arrow" aria-hidden="true">→</span></span></span>'
+    f'<span class="lo-fl-face lo-fl-back"><span class="lo-fl-stat">{FL_STATS[n]}</span><span class="lo-fl-t">{b}</span><span class="lo-fl-d">{c}</span></span>'
     f'</span></button>' for n, (a, b, c) in enumerate(PAIN))
 pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back by the wrong company.',
     f'<div class="lo-fl-grid">{flip_cards}</div>'
@@ -246,21 +247,25 @@ pain_sec = section('lo-pain', 'Sound familiar?', 'Great loan officers, held back
     lede='Tap everything that sounds like your week, and see what changes at Moxie.')
 FLIP_CSS = r"""
 .mxp .lo-fl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;perspective:1600px}
-.mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:20px;-webkit-tap-highlight-color:transparent}
+.mxp.mxp button.lo-fl{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border-radius:20px;-webkit-tap-highlight-color:transparent;transform-style:preserve-3d;transform:perspective(1000px) translateY(var(--lift,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.mxp.mxp button.lo-fl.tilt{transition:transform .08s linear}
+.mxp .lo-fl:hover{--lift:-6px}
 .mxp .lo-fl:focus-visible{outline:3px solid #0E2A47;outline-offset:4px}
 .mxp .lo-fl-in{display:grid;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .mxp .lo-fl[aria-pressed="true"] .lo-fl-in{transform:rotateY(180deg)}
 .mxp .lo-fl-face{grid-area:1/1;position:relative;display:flex;flex-direction:column;gap:14px;min-height:220px;padding:28px 28px 24px;border-radius:20px;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-sizing:border-box;text-align:left;font-family:Barlow,system-ui,sans-serif;overflow:hidden}
-.mxp .lo-fl-front{background:#fff;color:#0E2A47;border:2px solid #0E2A47;box-shadow:0 14px 32px rgba(14,42,71,.12);transition:box-shadow .25s}
+.mxp .lo-fl-front{background:linear-gradient(160deg,#fff 55%,#F3F8FA);color:#0E2A47;border:1px solid #DCE6EB;box-shadow:0 1px 0 #E9F0F3,0 5px 0 #D5E1E7,0 20px 34px -10px rgba(14,42,71,.26);transition:box-shadow .3s}
+.mxp .lo-fl-front::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.9),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .3s;pointer-events:none;mix-blend-mode:soft-light}
+.mxp .lo-fl:hover .lo-fl-front::after{opacity:1}
 .mxp .lo-fl-front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#0E2A47}
-.mxp .lo-fl:hover .lo-fl-front{box-shadow:0 24px 48px rgba(14,42,71,.22)}
-.mxp .lo-fl:hover .lo-fl-in{transform:translateY(-4px) rotateY(-5deg)}
-.mxp .lo-fl[aria-pressed="true"]:hover .lo-fl-in{transform:rotateY(180deg)}
+.mxp .lo-fl:hover .lo-fl-front{box-shadow:0 1px 0 #E9F0F3,0 7px 0 #D5E1E7,0 30px 46px -12px rgba(14,42,71,.32)}
+.mxp .lo-fl-qm{display:block;height:24px;font-size:64px;line-height:.85;font-weight:800;color:#1C97AE;margin-bottom:-6px}
 .mxp .lo-fl-q{font-size:clamp(22px,1.9vw,26px);font-weight:800;line-height:1.18;letter-spacing:-.015em;color:#0E2A47}
 .mxp .lo-fl-hint{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#127C8F}
 .mxp .lo-fl-arrow{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #1C97AE;font-size:15px;letter-spacing:0;transition:transform .25s,background .25s,color .25s}
 .mxp .lo-fl:hover .lo-fl-arrow{transform:translateX(4px);background:#1C97AE;color:#fff}
-.mxp .lo-fl-back{transform:rotateY(180deg);background:#0E2A47;color:#fff;box-shadow:0 18px 40px rgba(14,42,71,.28)}
+.mxp .lo-fl-back{transform:rotateY(180deg);background:linear-gradient(160deg,#123657,#0E2A47 60%);color:#fff;box-shadow:0 1px 0 #1A3E60,0 5px 0 #071A2E,0 20px 34px -10px rgba(14,42,71,.4)}
+.mxp .lo-fl-stat{font-size:clamp(40px,3.4vw,50px);font-weight:800;line-height:1;letter-spacing:-.025em;color:#7FDCEC;margin-bottom:-4px}
 .mxp .lo-fl-back::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#1C97AE}
 .mxp .lo-fl-ok{width:34px;height:34px;border-radius:10px;background:#1C97AE;color:#fff;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-fl-t{font-size:clamp(21px,1.8vw,24px);font-weight:800;line-height:1.2;letter-spacing:-.01em}
@@ -282,8 +287,8 @@ FLIP_CSS = r"""
 .mxp.mxp .lo-fl-apply{color:#127C8F;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .mxp .lo-fl-sum:not(.on) .lo-fl-cta{opacity:.55}
 @media (max-width:980px){.mxp .lo-fl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:12px}.mxp .lo-fl-face{min-height:0;padding:22px 22px 20px 26px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:21px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
-@media (prefers-reduced-motion:reduce){.mxp .lo-fl-grid .lo-fl-arrow,.mxp .lo-fl-grid.nudge .lo-fl .lo-fl-in{animation:none !important}.mxp .lo-fl-in{transition:none}.mxp .lo-fl-n.lo-bump{animation:none}}
+@media (max-width:600px){.mxp .lo-fl-grid{grid-template-columns:1fr;gap:16px}.mxp .lo-fl-stat{font-size:40px}.mxp .lo-fl-face{min-height:0;padding:22px 22px 20px 26px}.mxp .lo-fl-q,.mxp .lo-fl-t{font-size:21px}.mxp .lo-fl-sum{padding:20px}.mxp .lo-fl-msg{font-size:18px}}
+@media (prefers-reduced-motion:reduce){.mxp .lo-fl-grid .lo-fl-arrow,.mxp .lo-fl-grid.nudge .lo-fl .lo-fl-in{animation:none !important}.mxp .lo-fl-in,.mxp.mxp button.lo-fl{transition:none}.mxp.mxp button.lo-fl{transform:none}.mxp .lo-fl-n.lo-bump{animation:none}}
 """
 
 # ---------------- WHERE YOUR DEALS COME FROM (value stack, dark)
@@ -483,7 +488,7 @@ DEMOS = ['ROVai', 'Refi alerts', 'Welcome home']
 viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
              + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
              + '</div><div class="lo-demo">' + rov_slide + refi_slide + home_slide + '</div></div>'
-             '<div class="lo-tchips"><span>ROVai</span><span>Refi alert engine</span><span>Welcome home packet</span><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
+             )
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span>'
             '<b class="v">↑</b><i></i><b class="v">↓</b>'
             '<span class="lo-loop-back">Coming back</span><b>←</b><span>Funded</span></div>')
@@ -875,6 +880,18 @@ s += '''
     var nio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { if (!grid.classList.contains('picked')) grid.classList.add('nudge'); }, 500); nio.disconnect(); } }); }, { threshold: 0.4 });
     nio.observe(grid);
   }
+  var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (fine) cards.forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      var flip = c.getAttribute('aria-pressed') === 'true' ? -1 : 1;
+      c.classList.add('tilt');
+      c.style.setProperty('--ry', ((x - 0.5) * 12 * flip).toFixed(2) + 'deg');
+      c.style.setProperty('--rx', ((0.5 - y) * 10).toFixed(2) + 'deg');
+      c.style.setProperty('--mx', (x * 100).toFixed(0) + '%'); c.style.setProperty('--my', (y * 100).toFixed(0) + '%');
+    });
+    c.addEventListener('pointerleave', function () { c.classList.remove('tilt'); c.style.removeProperty('--rx'); c.style.removeProperty('--ry'); });
+  });
   cards.forEach(function (c) {
     c.addEventListener('click', function () {
       c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
