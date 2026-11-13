@@ -146,7 +146,7 @@ dealstats = ('<div style="display: grid; grid-template-columns: repeat(auto-fit,
              + '</div>')
 flow = section('lo-flow', 'Where your deals come from', 'Most of the business comes to you.',
                dealstats + value_stack +
-               '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
+               '',
                lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.', sec_id='deals')
 
 
@@ -203,7 +203,7 @@ PROG_CSS = r"""
 @media (prefers-reduced-motion:reduce){.mxp .lo-pg.arm .lo-pc,.mxp .lo-pg.arm .lo-plist>li{opacity:1 !important;transform:none !important;transition:none !important}.mxp .lo-pc-top::before{display:none}}
 """
 products_sec = section('lo-products', 'Loan programs', 'Thousands of programs, so you can say yes more often.',
-    prog_cards + '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Program availability varies by state, investor and borrower qualification.</p>',
+    prog_cards + '',
     lede='Through NEXA’s wholesale investors, Moxie loan officers can match nearly any borrower to a program, from first-time buyers to self-employed borrowers and investors.')
 
 # ---------------- YOUR DATABASE IS YOUR PIPELINE
@@ -297,7 +297,7 @@ stack_rows = ''.join(
 deals_sec = section('lo-deals', 'Where your deals come from', 'We create the business opportunities that drive your growth.',
     f'<div class="lo-st"><ul style="list-style: none; padding: 0; margin: 0">{stack_rows}</ul>'
     '<p class="lo-st-sum"><b>82% company-generated, 86% purchase.</b><span>A pipeline that doesn’t depend on cold calls or waiting for rates to drop.<sup>3</sup></span></p></div>'
-    '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.</p>',
+    '',
     bg='#F4F8FA', sec_id='deals',
     lede='Moxie builds the enterprise accounts and relationships that send buyers your way, so more of your week goes to structuring and closing loans.')
 
@@ -322,7 +322,7 @@ sup_list = ('<h3 style="margin: 56px 0 0; font-size: 24px; color: #ffffff">Suppo
             '<ul class="lo-sup" style="list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 32px">'
             + ''.join(f'<li><div class="lo-sup-i"><h4>{t}</h4><p>{d}</p></div></li>' for t, d in SUPPORT) + '</ul>')
 pay_sec = section('lo-pay', 'Pay, benefits and support', 'Get paid well. Work anywhere, but never work alone.',
-    pay_cards + sup_list + '<p style="margin: 28px 0 0; font-size: 13px; color: #B8C7D3">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. W-2 and 1099 options are available. We walk through the full plan on your intro call.</p>',
+    pay_cards + sup_list + '',
     bg='#0E2A47', dark=True)
 
 STREAM_CSS = r"""
@@ -484,7 +484,9 @@ viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
              + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
              + '</div><div class="lo-demo">' + rov_slide + refi_slide + home_slide + '</div></div>'
              '<div class="lo-tchips"><span>ROVai</span><span>Refi alert engine</span><span>Welcome home packet</span><span>Debt consolidation</span><span>ARM vs. fixed</span><span>Buydowns</span><span>Effective rate</span></div>')
-viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span><b>→</b><span>Funded</span><b>→</b><span class="lo-loop-back">Coming back</span></div>')
+viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span>'
+            '<b class="v">↑</b><i></i><b class="v">↓</b>'
+            '<span class="lo-loop-back">Coming back</span><b>←</b><span>Funded</span></div>')
 viz_uni = '<div class="lo-viz-play" aria-hidden="true"><span class="lo-play"></span><span>On demand, 24/7</span></div>'
 viz_auto = ('<div class="lo-viz-toasts" aria-hidden="true">'
             + ''.join(f'<div class="lo-toast" style="--k: {k}"><span class="lo-toast-ic">{CHK}</span>{t}</div>' for k, t in enumerate(['Title work received', 'Appraisal ordered', 'Clear to close']))
@@ -595,8 +597,9 @@ BENTO_CSS = r"""
 .mxp .lo-bar-new i{background:linear-gradient(90deg,#1C97AE,#7FDCEC);box-shadow:0 0 18px rgba(127,220,236,.45)}
 .mxp .lo-tchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .mxp .lo-tchips span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#E3F5F9}
-.mxp .lo-viz-loop{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:13px;font-weight:600}
-.mxp .lo-viz-loop span{padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.08);color:#E3F5F9}
+.mxp .lo-viz-loop{margin-top:auto;padding-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:4px 8px;font-size:13px;font-weight:600;max-width:340px}
+.mxp .lo-viz-loop span{padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.08);color:#E3F5F9;text-align:center;white-space:nowrap}
+.mxp .lo-viz-loop b.v{justify-self:center;line-height:1}
 .mxp .lo-viz-loop b{color:#7FDCEC;font-weight:700}
 .mxp .lo-viz-loop .lo-loop-back{background:#F46744;color:#0E2A47}
 .mxp .lo-viz-play{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:#7FDCEC}
@@ -622,10 +625,10 @@ tools_sec = section('lo-tools', 'Tools and technology', 'Tools that close busine
 PARTNERS = [
     ('shield', 'Insurance network', 'Faster clear to close',
      'Our insurance network helps clients get the best price on homeowners insurance, so they’re fully protected while keeping their monthly payment as low as possible, with no work required from them.'),
-    ('home', 'Home services', 'No cost to the borrower',
-     'Help with the move and getting the new home set up, at no cost to the borrower, so there’s less stress and the house feels like home sooner.'),
     ('clock', 'AMC relationships', 'Faster appraisals',
      'Appraisal management relationships with local market experts speed up appraisal turnaround times.'),
+    ('home', 'Home services', 'No cost to the borrower',
+     'Help with the move and getting the new home set up, at no cost to the borrower, so there’s less stress and the house feels like home sooner.'),
 ]
 partner_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 44px">' + ''.join(
     f'<article class="lo-pr"><div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">'
@@ -683,7 +686,7 @@ ben_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, 
     f'<span style="width: 48px; height: 48px; border-radius: 14px; background: #FDE7E1; color: #C2482A; display: inline-flex; align-items: center; justify-content: center"><span style="width: 24px; height: 24px; display: block">{ICON[ic]}</span></span>'
     f'<h3 style="margin: 6px 0 0; font-size: 21px">{t}</h3><p style="margin: 0; color: #4A5868; font-size: 16px">{d}</p></article>' for ic, t, d in BENEFITS) + '</div>'
 ben_sec = section('lo-pay', 'Pay and benefits', 'Generous compensation, with full benefits.', lede='Packages built to reward production, paid as your loans close, with full health insurance and a 401(k) for eligible employees.', inner=
-    ben_cards + '<p style="margin: 16px 0 0; font-size: 13px; color: #4A5868">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. We walk through the full plan on your intro call.</p>')
+    ben_cards + '')
 
 # ---------------- REVIEWS (reuse AD track)
 rv = re.search(r'\s*<!-- AGENT REVIEWS -->.*?</section>', ad.body, re.S)
@@ -766,6 +769,8 @@ disclosures = '''
   <section aria-label="Disclosures" style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 56px; font-size: 13px; line-height: 1.55; color: #4A5868">
     <p style="margin: 0 0 8px">Loan officers are compensated on closed loans under a written agreement that complies with federal loan originator compensation rules and state law; compensation is never based on a loan’s rate or terms. Referral volume varies by market and is not guaranteed. Consumers are always free to choose their lender and settlement service providers.</p>
     <p style="margin: 0 0 8px"><sup>1</sup> Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Rate and savings vary and depend on borrower’s qualification, property specifics, and market conditions. <sup>2</sup> Moxie average clear-to-close time; the industry average was 38 days (ICE Mortgage Technology, May 2026). Not a commitment to lend; all loans are subject to credit approval. <sup>3</sup> Share of Moxie Mortgage’s business from inception through November 2026: company-generated versus loan officer–sourced, and purchase versus refinance. Past results don’t guarantee future referral volume.</p>
+    <p style="margin: 0 0 8px">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. W-2 and 1099 options are available. We walk through the full plan on your intro call.</p>
+    <p style="margin: 0 0 8px">Program availability varies by state, investor and borrower qualification.</p>
     <p style="margin: 0">Moxie Mortgage, a division of NEXA Mortgage, LLC · NMLS #1660690 · AZMB 0944059 · Equal Housing Lender</p>
   </section>'''
 
