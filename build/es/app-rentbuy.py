@@ -249,3 +249,51 @@ R = [
     [r"^Equity (\$[\d,.KkMm]+)$", r"Valor $1"],
     [r"^Renting (\$[\d,.KkMm]+)$", r"Rentar $1"],
 ]
+
+T.update({
+    "versus": "contra",
+    ", added to the buyer's up-front cash.": ", sumados al efectivo inicial del comprador.",
+    "Figures are per month, averaged over year one. This is true cost only — interest, taxes, insurance, upkeep, and closing. It excludes both your down payment and the principal portion of your payment, because that money isn't spent — it builds equity you keep. It's a fair, apples-to-apples comparison against rent.":
+        "Las cifras son al mes, en promedio durante el primer año. Esto es solo el costo real: intereses, impuestos, seguro, mantenimiento y cierre. No incluye tu pago inicial ni la parte de capital de tu pago, porque ese dinero no se gasta: crea valor que conservas. Es una comparación justa y equivalente contra la renta.",
+    "Figures are for year one, including closing costs (and a rent deposit). This is true cost only — interest, taxes, insurance, upkeep, and closing. It excludes both your down payment and the principal portion of your payment, because that money isn't spent — it builds equity you keep. It's a fair, apples-to-apples comparison against rent.":
+        "Las cifras son del primer año, con costos de cierre (y un depósito de renta). Esto es solo el costo real: intereses, impuestos, seguro, mantenimiento y cierre. No incluye tu pago inicial ni la parte de capital de tu pago, porque ese dinero no se gasta: crea valor que conservas. Es una comparación justa y equivalente contra la renta.",
+})
+_TRUE = r" This is true cost only — interest, taxes, insurance, upkeep, and closing\. It excludes both your down payment and the principal portion of your payment, because that money isn't spent — it builds equity you keep\. It's a fair, apples-to-apples comparison against rent\.$"
+_TRUE_ES = " Esto es solo el costo real: intereses, impuestos, seguro, mantenimiento y cierre. No incluye tu pago inicial ni la parte de capital de tu pago, porque ese dinero no se gasta: crea valor que conservas. Es una comparación justa y equivalente contra la renta."
+M = r"(\$[\d,]+)"
+R += [
+    [r"^Over (\d+) years, buying builds about " + M + r" more wealth than renting\.$", r"En $1 años, comprar crea alrededor de $2 más patrimonio que rentar."],
+    [r"^Over (\d+) years?, renting keeps you about " + M + r" ahead\.$", r"En $1 años, rentar te deja alrededor de $2 adelante."],
+    [r"^Home " + M + r" · ([\d.]+)% down · ([\d.]+)% rate · " + M + r"/mo rent · (.*?) · Prepared (.+)$", r"Casa $1 · $2% de pago inicial · $3% de tasa · $4/mes de renta · $5 · Preparado el $6"],
+    [r"^more wealth over (\d+) years\.$", r"más patrimonio en $1 años."],
+    [r"^Renting may be cheaper month to month at first, but every mortgage payment builds equity you keep\. By year (\d+) the equity and tax savings from owning put you ahead — and the gap widens the longer you stay\.$",
+     r"Rentar puede ser más barato mes a mes al principio, pero cada pago de la hipoteca crea valor que conservas. Para el año $1, el valor líquido y los ahorros fiscales de ser dueño te ponen adelante, y la diferencia crece entre más tiempo te quedes."],
+    [r"^Yr (\d+)$", r"Año $1"],
+    [r"^Renting costs " + M + r" less$", r"Rentar cuesta $1 menos"],
+    [r"^(?:Buying|Owning) costs " + M + r" less$", r"Comprar cuesta $1 menos"],
+    [r"^Figures are over (\d+) years, including closing costs\." + _TRUE, r"Las cifras son de $1 años, con costos de cierre." + _TRUE_ES],
+    [r"^" + M + r"/mo$", r"$1/mes"],
+    [r"^" + M + r"/yr$", r"$1/año"],
+    [r"^\. Over (\d+) years that builds$", r". En $1 años eso crea"],
+    [r"^over (\d+) years — a benefit renters simply can’t claim\.$", r"en $1 años, un beneficio que los inquilinos simplemente no pueden reclamar."],
+    [r"^more wealth than renting over (\d+) years\. Renting’s low monthly cost is real early on, but the long-run cost of building none of this equity is massive\.$",
+     r"más patrimonio que rentar en $1 años. El costo mensual bajo de rentar es real al principio, pero el costo a largo plazo de no crear nada de este valor es enorme."],
+    [r"^([\d.]+)% down$", r"$1% de pago inicial"],
+    [r"^instead of ([\d.]+)%, buying's advantage grows to$", r"en lugar de $1%, la ventaja de comprar sube a"],
+    [r"^over (\d+) years\.$", r"en $1 años."],
+    [r"^This estimate runs a month-by-month simulation over (\d+) years and compares the net worth you'd build buying versus renting\. Your down payment is treated as equity you keep, not a cost\. It doesn't model investing the difference or other opportunity costs\.$",
+     r"Este estimado hace una simulación mes a mes durante $1 años y compara el patrimonio que crearías comprando contra rentando. Tu pago inicial se trata como valor que conservas, no como un costo. No modela invertir la diferencia ni otros costos de oportunidad."],
+    [r"^Home price " + M + r", ([\d.]+)% down \(" + M + r"\) at a ([\d.]+)% interest rate\.$", r"Precio de la casa $1, $2% de pago inicial ($3) con una tasa de interés de $4%."],
+    [r"^Home appreciation is assumed at ([\d.]+)% a year$", r"Se supone una plusvalía de $1% al año"],
+    [r"^Rent is assumed to rise ([\d.]+)% a year$", r"Se supone que la renta sube $1% al año"],
+    [r"^, starting from " + M + r"/mo\.$", r", a partir de $1/mes."],
+    [r"^Maintenance and repairs are assumed at ([\d.]+)% of the home's value a year\.$", r"Se supone que el mantenimiento y las reparaciones cuestan $1% del valor de la casa al año."],
+    [r"^at ([\d.]+)% of value per year \(national average, since we couldn’t match your ZIP\) — a state-average effective rate, not your parcel's exact bill\. Insurance " + M + r"/yr and HOA " + M + r"/mo, both inflating ([\d.]+)% a year\.$",
+     r"de $1% del valor al año (promedio nacional, porque no encontramos tu código postal): una tasa efectiva promedio del estado, no la cuenta exacta de tu propiedad. Seguro de $2/año y HOA de $3/mes, ambos con un aumento de $4% al año."],
+    [r"^at ([\d.]+)% of value per year — a state-average effective rate, not your parcel's exact bill\. Insurance " + M + r"/yr and HOA " + M + r"/mo, both inflating ([\d.]+)% a year\.$",
+     r"de $1% del valor al año: una tasa efectiva promedio del estado, no la cuenta exacta de tu propiedad. Seguro de $2/año y HOA de $3/mes, ambos con un aumento de $4% al año."],
+    [r"^Closing costs are assumed at ([\d.]+)% of the purchase price$", r"Se suponen costos de cierre de $1% del precio de compra"],
+    [r"^applies at ([\d.]+)% of the loan per year until you reach 20% equity, based on your ([\d.]+)% down payment\.$", r"se aplica a $1% del préstamo al año hasta que llegues a 20% de valor líquido, según tu pago inicial de $2%."],
+    [r"^Your " + M + r" income maps to a (\d+)% marginal rate\. We value the deduction of mortgage interest plus property tax \(capped at the " + M + r" SALT limit\) at that rate — a benefit renting doesn't offer\. Consult a tax professional for your specific situation\.$",
+     r"Tu ingreso de $1 corresponde a una tasa marginal de $2%. Valoramos la deducción de los intereses hipotecarios más el impuesto a la propiedad (con el tope SALT de $3) a esa tasa, un beneficio que rentar no ofrece. Consulta con un profesional de impuestos para tu situación específica."],
+]
