@@ -173,7 +173,7 @@ T.update({
     "You start saving right away, and you’re fully ahead of costs in about": "Empiezas a ahorrar de inmediato, y recuperas por completo los costos en unos",
     "Your savings begin the first month. Because it takes about": "Tus ahorros empiezan el primer mes. Como toma alrededor de",
     "to fully cover costs, this one makes the most sense if you plan to keep the home past then.": "cubrir por completo los costos, esta opción tiene más sentido si planeas quedarte con la casa más tiempo.",
-    "You’d keep about": "Te quedarías con unos", "more every month": "más cada mes", "— roughly": ": aproximadamente",
+    "You’d keep about": "Te quedarías con unos", "more every month": "más cada mes", "— roughly": "— aproximadamente",
     "Most borrowers roll refinance costs into the loan, so there’s often little or nothing due up front.": "La mayoría de los prestatarios incluye los costos del refinanciamiento en el préstamo, así que a menudo se paga poco o nada al inicio.",
     "(Est. costs ~": "(Costos est. ~", ", typically financed. Full breakdown below.)": ", normalmente financiados. Desglose completo abajo.)",
     "/mo less": "/mes menos", "Depends on rate": "Depende de la tasa", "Up to": "Hasta", "Payment ~": "Pago ~", "/mo at": "/mes al",
