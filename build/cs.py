@@ -48,7 +48,7 @@ CS_CSS = r"""
 .mxs-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .mxs-who{display:flex;align-items:center;gap:10px;font-weight:700}
 .mxs-av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none}
-.mxs-out{background:#E3F5F9;color:#0F5F6E;font-weight:700;font-size:13px;padding:5px 11px;border-radius:999px;white-space:nowrap}
+.mxs-out{background:#E3F5F9;color:#0F5F6E;font-weight:700;font-size:13px;padding:5px 11px;border-radius:999px;white-space:normal;min-width:0;line-height:1.3;text-align:center}
 .mxs-out.mxs-new{background:#FDE6DF;color:#9A3412}
 .mxs-card h3{margin-top:4px !important;font-size:21px;line-height:1.25;font-weight:700}
 .mxs-card p{color:var(--muted);font-size:16px}
