@@ -94,6 +94,39 @@ header.md-header,.md-header{display:none !important}
   .mxh-panel h3{margin:18px 4px 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
   .mxh-panel .mxh-cta{display:flex;margin-top:18px}
 }
+/* trust line */
+.mxh-trust{flex:1;display:flex;justify-content:center;align-items:center;gap:10px;font-weight:600;color:#33475B;font-size:14px;letter-spacing:.02em;white-space:nowrap;overflow:hidden}
+.mxh-trust .mxh-stars{color:#F46744;letter-spacing:2px}
+.mxh-trust i{font-style:normal;color:#9FB3C2}
+.mxh-right{display:flex;align-items:center;gap:12px;position:relative}
+/* language suggestion */
+.mxh-tip{position:absolute;right:0;top:calc(100% + 10px);z-index:1002;background:var(--navy);color:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 16px 40px rgba(14,42,71,.3);display:none;align-items:center;gap:10px;white-space:nowrap;font-size:14px;font-weight:600}
+.mxh-tip.show{display:flex;animation:mxhPop .25s ease-out}
+.mxh-tip::before{content:"";position:absolute;right:22px;top:-6px;width:12px;height:12px;background:var(--navy);transform:rotate(45deg)}
+.mxh-tip button{appearance:none;border:0;cursor:pointer;font:700 14px MoxieBarlow,Barlow,system-ui,sans-serif;border-radius:999px}
+.mxh-tip .mxh-tip-yes{background:#F46744;color:#0E2A47;padding:7px 12px}
+.mxh-tip .mxh-tip-x{background:transparent;color:#C9D6DF;font-size:18px;line-height:1;padding:4px 6px}
+@keyframes mxhPop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+/* follow-on-scroll (condensed, glass) */
+.mxh-wrap{position:relative;z-index:1000}
+.mxh.mxh-stuck{position:fixed !important;top:0;left:0 !important;right:0;margin-left:0 !important;width:100% !important;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);box-shadow:0 8px 30px rgba(14,42,71,.12);border-bottom-color:rgba(220,230,235,.7);animation:mxhDrop .28s ease-out}
+.mxh.mxh-stuck .mxh-top{display:none}
+.mxh.mxh-stuck .mxh-main{min-height:66px;padding-top:8px;padding-bottom:8px}
+.mxh.mxh-stuck .mxh-logo img{width:164px}
+.mxh-logo img,.mxh-main{transition:width .2s ease,min-height .2s ease,padding .2s ease}
+@keyframes mxhDrop{from{transform:translateY(-100%)}to{transform:none}}
+/* phone action bar */
+.mxh-bar{display:none}
+@media (max-width:760px){
+  .mxh-bar{position:fixed;left:0;right:0;bottom:0;z-index:1001;display:flex;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(14,42,71,.1);transform:translateY(110%);transition:transform .25s ease;font-family:MoxieBarlow,Barlow,system-ui,sans-serif}
+  .mxh-bar.show{transform:none}
+  .mxh-bar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;font-weight:800;font-size:16px;text-decoration:none;letter-spacing:.02em}
+  .mxh-bar .mxh-call{border:2px solid var(--navy);color:var(--navy);background:#fff}
+  .mxh-bar .mxh-go{background:#F46744;color:#0E2A47;flex:1.4}
+  .mxh-bar svg{width:18px;height:18px}
+}
+@media (max-width:1100px){.mxh-trust{display:none}}
+@media (prefers-reduced-motion:reduce){.mxh.mxh-stuck,.mxh-tip.show{animation:none}.mxh-bar{transition:none}}
 @media (max-width:560px){.mxh-contact .mxh-hide{display:none}.mxh-contact{gap:12px}.mxh-top>div{padding:6px 16px}.mxh-main{padding:10px 16px}}
 """
 
@@ -117,15 +150,19 @@ html = f"""<!--
 -->
 <link rel="preload" href="{LOGO}" as="image">
 <style>{FONT_CSS}{CSS.strip()}</style>
-<header class="mxh" id="mx-header">
+<div class="mxh-wrap" id="mx-header-wrap"><header class="mxh" id="mx-header">
   <div class="mxh-top"><div>
     <div class="mxh-contact">
       <a href="tel:{PHONE_TEL}"><span class="mxh-ic">{ICON_PHONE}</span><span>480.660.2518</span></a>
       <a href="mailto:hello@moxiemortgage.com" aria-label="Email hello@moxiemortgage.com"><span class="mxh-ic">{ICON_MAIL}</span><span class="mxh-hide">hello@moxiemortgage.com</span></a>
     </div>
-    <div class="mxh-lang" role="group" aria-label="Language" data-es-aria="Idioma">
+    <p class="mxh-trust" style="margin:0"><span class="mxh-stars" aria-hidden="true">★★★★★</span><span data-es="5.0 en Google">5.0 on Google</span><i aria-hidden="true">·</i><span data-es="Préstamos en 51 estados y territorios">Lending in 51 states &amp; territories</span><i aria-hidden="true">·</i><span>NMLS #1660690</span></p>
+    <div class="mxh-right">
+      <div class="mxh-lang" role="group" aria-label="Language" data-es-aria="Idioma">
       <button type="button" data-mx-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
       <button type="button" data-mx-lang="es" aria-pressed="false" lang="es" title="Español">ES</button>
+    </div>
+      <div class="mxh-tip" role="dialog" aria-live="polite" lang="es"><span>¿Prefieres español?</span><button type="button" class="mxh-tip-yes">Ver en español</button><button type="button" class="mxh-tip-x" aria-label="Cerrar">×</button></div>
     </div>
   </div></div>
   <div class="mxh-main">
@@ -139,7 +176,8 @@ html = f"""<!--
     <button type="button" class="mxh-burger" aria-expanded="false" aria-controls="mxh-panel" aria-label="Menu" data-es-aria="Menú">{BURGER}</button>
   </div>
   <nav class="mxh-panel" id="mxh-panel" aria-label="Mobile" data-es-aria="Móvil">{panel}</nav>
-</header>
+</header></div>
+<div class="mxh-bar" id="mx-actionbar" aria-label="Quick actions" data-es-aria="Acciones rápidas"><a href="tel:{PHONE_TEL}" class="mxh-call">{ICON_PHONE}<span data-es="Llamar">Call</span></a><a href="{APPLY}" class="mxh-go" data-mx-nolang><span data-es="Obtén tu aprobación">Get approved</span></a></div>
 <script>
 {I18N_JS.strip()}
 (function () {{
@@ -175,6 +213,57 @@ html = f"""<!--
   }}
   document.addEventListener('click', function (e) {{ if (!dd.contains(e.target)) setDD(false); }});
   document.addEventListener('keydown', function (e) {{ if (e.key === 'Escape') {{ setDD(false); setPanel(false); }} }});
+  var wrap = document.getElementById('mx-header-wrap');
+  // follow on scroll: once the visitor scrolls past the full header, pin a slim glass version to the top
+  var stuck = false, ticking = false;
+  function onScroll() {{
+    ticking = false;
+    var full = wrap.offsetHeight, y = window.pageYOffset || document.documentElement.scrollTop;
+    var want = y > full + 40;
+    if (want === stuck) return;
+    stuck = want;
+    if (stuck) {{ wrap.style.height = full + 'px'; h.classList.add('mxh-stuck'); setDD(false); }}
+    else {{ h.classList.remove('mxh-stuck'); wrap.style.height = ''; fit(); }}
+  }}
+  window.addEventListener('scroll', function () {{ if (!ticking) {{ ticking = true; requestAnimationFrame(onScroll); }} }}, {{ passive: true }});
+  onScroll();
+  // phone action bar: slides up after the first screen, hides near the footer so it never covers it
+  var bar = document.getElementById('mx-actionbar');
+  if (bar) {{
+    document.body.appendChild(bar);
+    var barOn = false;
+    function onBar() {{
+      var y = window.pageYOffset, max = document.documentElement.scrollHeight - innerHeight;
+      var show = y > 320 && y < max - 160;
+      if (show !== barOn) {{ barOn = show; bar.classList.toggle('show', show); }}
+    }}
+    window.addEventListener('scroll', onBar, {{ passive: true }}); onBar();
+    bar.querySelectorAll('a').forEach(function (l) {{ l.addEventListener('click', function () {{ MX.track && MX.track('actionbar_click', {{ action: l.className }}); }}); }});
+  }}
+  // returning applicants: anyone who clicked an apply link before sees "Continue my approval"
+  var APPLY_RE = /apply\.moxiemortgage\.com/;
+  document.addEventListener('click', function (e) {{
+    var l = e.target.closest && e.target.closest('a[href]');
+    if (l && APPLY_RE.test(l.href)) {{ try {{ localStorage.setItem('mx_applied', String(Date.now())); }} catch (x) {{}} }}
+  }}, true);
+  var applied = null; try {{ applied = localStorage.getItem('mx_applied'); }} catch (x) {{}}
+  if (applied && Date.now() - (+applied) < 1000 * 60 * 60 * 24 * 90) {{
+    document.querySelectorAll('#mx-header .mxh-cta > span, #mx-actionbar .mxh-go > span').forEach(function (sp) {{
+      sp.setAttribute('data-en', 'Continue my approval'); sp.setAttribute('data-es', 'Continúa tu aprobación');
+    }});
+    MX.i18n.apply(h); MX.i18n.apply(bar);
+  }}
+  // Spanish suggestion: once, for visitors whose browser prefers Spanish and who haven't picked a language
+  var tip = h.querySelector('.mxh-tip');
+  var picked = null, seen = null; try {{ picked = localStorage.getItem('mx_lang'); seen = localStorage.getItem('mx_lang_tip'); }} catch (x) {{}}
+  var prefersEs = (navigator.languages || [navigator.language || '']).slice(0, 2).some(function (l) {{ return /^es\b/i.test(l || ''); }});
+  function hideTip() {{ tip.classList.remove('show'); try {{ localStorage.setItem('mx_lang_tip', '1'); }} catch (x) {{}} }}
+  if (prefersEs && !picked && !seen && MX.i18n.lang === 'en') {{
+    setTimeout(function () {{ if (!stuck) {{ tip.classList.add('show'); MX.track && MX.track('language_tip_shown', {{}}); }} }}, 1200);
+  }}
+  tip.querySelector('.mxh-tip-yes').addEventListener('click', function () {{ hideTip(); MX.i18n.set('es'); }});
+  tip.querySelector('.mxh-tip-x').addEventListener('click', hideTip);
+  document.addEventListener('mx:lang', hideTip);
   // mobile panel
   var bg = h.querySelector('.mxh-burger');
   function setPanel(o) {{ h.classList.toggle('open', o); bg.setAttribute('aria-expanded', o ? 'true' : 'false'); }}
