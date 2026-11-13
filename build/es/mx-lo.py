@@ -464,3 +464,8 @@ T.update({
 })
 T.update({"Jumbo": "Jumbo", "Up to $30M": "Hasta $30M", "Jumbo max ($5M)": "Jumbo máximo ($5M)", "Super jumbo ($30M)": "Super jumbo ($30M)",
           "No doc": "Sin documentación de ingresos", "HELOAN": "HELOAN", "Construction": "Construcción", "One-time close": "Cierre único"})
+T.update({
+    "Help with the move and getting the new home set up, at no cost to the borrower, so there’s less stress and the house feels like home sooner.":
+        "Ayuda con la mudanza y con la instalación en la casa nueva, sin costo para el prestatario, para que haya menos estrés y la casa se sienta como un hogar más pronto.",
+    "Get paid well. Work anywhere, but never work alone.": "Gana bien. Trabaja desde donde sea, pero nunca solo.",
+})

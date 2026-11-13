@@ -274,7 +274,7 @@ pay_cards = '<div style="display: grid; grid-template-columns: repeat(auto-fit, 
 sup_list = ('<h3 style="margin: 56px 0 0; font-size: 24px; color: #ffffff">Support behind every file</h3>'
             '<ul class="lo-sup" style="list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 32px">'
             + ''.join(f'<li><div class="lo-sup-i"><h4>{t}</h4><p>{d}</p></div></li>' for t, d in SUPPORT) + '</ul>')
-pay_sec = section('lo-pay', 'Pay, benefits and support', 'Get paid well. Never work alone.',
+pay_sec = section('lo-pay', 'Pay, benefits and support', 'Get paid well. Work anywhere, but never work alone.',
     pay_cards + sup_list + '<p style="margin: 28px 0 0; font-size: 13px; color: #B8C7D3">Compensation and benefit eligibility depend on employment type and are set out in your written agreement. W-2 and 1099 options are available. We walk through the full plan on your intro call.</p>',
     bg='#0E2A47', dark=True)
 
@@ -370,7 +370,7 @@ PARTNERS = [
     ('shield', 'Insurance network', 'Faster clear to close',
      'Our insurance network finds clients the best price on homeowners insurance, so they’re fully protected while keeping their monthly payment as low as possible, with no work required from them.'),
     ('home', 'Home services', 'No cost to the borrower',
-     'Help with the move and getting the new home set up, at no cost to the borrower.'),
+     'Help with the move and getting the new home set up, at no cost to the borrower, so there’s less stress and the house feels like home sooner.'),
     ('clock', 'AMC relationships', 'Faster appraisals',
      'Appraisal management relationships with local market experts speed up appraisal turnaround times.'),
 ]
