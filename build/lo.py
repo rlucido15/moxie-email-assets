@@ -136,7 +136,7 @@ def bigstat(val, label, note):
             f'<span style="font-size: clamp(64px, 7vw, 92px); line-height: .95; font-weight: 800; letter-spacing: -0.03em">{val}</span>'
             f'<span style="font-size: 21px; font-weight: 700; line-height: 1.25">{label}</span><span style="font-size: 16px; color: #D3E3EC">{note}</span></div>')
 dealstats = ('<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px">'
-             + bigstat('82%', 'Company-generated business<sup>3</sup>', 'Since day one, most Moxie loans have started with an introduction from our Area Directors, agent partners or Moxie marketing, not a loan officer’s own prospecting.')
+             + bigstat('82%', 'Company-generated business<sup>3</sup>', 'Since day one, most Moxie loans have started with a warm introduction from our key enterprise accounts, Area Directors, agent partners or Moxie marketing, not a loan officer’s own prospecting.')
              + bigstat('86%', 'Purchase business<sup>3</sup>', 'Buyers keep buying when refinances dry up. A purchase-heavy pipeline keeps your production steady when rates don’t cooperate.')
              + '</div>')
 flow = section('lo-flow', 'Where your deals come from', 'Most of the business comes to you.',
@@ -273,7 +273,7 @@ assert 'lo-reviews' in rv
 # ---------------- FAQ (visible + FAQPage schema)
 FAQ = [
     ('Does Moxie provide leads or referrals?',
-     'Yes. Since Moxie’s inception, 82% of its business has been company-generated through Moxie Area Directors, agent partners and Moxie marketing, and 86% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.'),
+     'Yes. Moxie builds relationships with key enterprise accounts in its markets, which generate warm opportunities for Moxie loan officers, alongside introductions from Moxie Area Directors and agent partners. Since Moxie’s inception, 82% of its business has been company-generated and 86% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.'),
     ('What is it like to be a loan officer at Moxie Mortgage?',
      'Moxie Mortgage is a wholesale mortgage brokerage and a division of NEXA Mortgage. Moxie loan officers price loans across 300+ wholesale investors, get introductions from Moxie Area Directors and agent partners, use Moxie’s client tools and CRM, and work with a mentor and a team that meets twice a week.'),
     ('How are Moxie loan officers paid?',
