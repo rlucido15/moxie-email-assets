@@ -156,7 +156,7 @@ html = f"""<!--
       <a href="tel:{PHONE_TEL}"><span class="mxh-ic">{ICON_PHONE}</span><span>480.660.2518</span></a>
       <a href="mailto:hello@moxiemortgage.com" aria-label="Email hello@moxiemortgage.com"><span class="mxh-ic">{ICON_MAIL}</span><span class="mxh-hide">hello@moxiemortgage.com</span></a>
     </div>
-    <p class="mxh-trust" style="margin:0"><span class="mxh-stars" aria-hidden="true">★★★★★</span><span data-es="5.0 en Google">5.0 on Google</span><i aria-hidden="true">·</i><span data-es="Préstamos en 51 estados y territorios">Lending in 51 states &amp; territories</span><i aria-hidden="true">·</i><span>NMLS #1660690</span></p>
+    <p class="mxh-trust" style="margin:0"><span class="mxh-stars" aria-hidden="true">★★★★★</span><span data-es="5.0 en Google">5.0 on Google</span></p>
     <div class="mxh-right">
       <div class="mxh-lang" role="group" aria-label="Language" data-es-aria="Idioma">
       <button type="button" data-mx-lang="en" aria-pressed="true" lang="en" title="English">EN</button>
