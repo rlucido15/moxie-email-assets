@@ -29,6 +29,13 @@ IMG = {
 src = open(SRC, encoding='utf-8').read()
 design_css = re.search(r'<style>(.*?)</style>', src, re.S).group(1)
 main = re.search(r'<main>(.*?)</main>', src, re.S).group(1)
+# stat tiles: one-line labels, values on one line and level across the two tiles
+_tile_old = '<div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px"><dt style="font-size: 14px; color: #4A5868">'
+_tile_new = '<div style="background: #E3F5F9; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 4px"><dt style="font-size: 14px; color: #4A5868">'
+assert main.count(_tile_old) == 2
+main = main.replace(_tile_old, _tile_new).replace('>Onboarding call</dt>', '>Onboarding</dt>')
+main = main.replace('font-size: 30px; font-weight: 800; line-height: 1.1">$0</dd>', 'font-size: 30px; font-weight: 800; line-height: 1.1; white-space: nowrap">$0</dd>')
+main = main.replace('font-size: 30px; font-weight: 800; line-height: 1.1">20 min</dd>', 'font-size: 30px; font-weight: 800; line-height: 1.1; white-space: nowrap">20 min</dd>')
 
 # ---------- design CSS: keep the page-specific rules, drop globals the shared reset already covers
 drop = ('body{', 'h1,h2,h3{', 'p{text-wrap', 'a{color', '@keyframes mxRise', '.mx-rise{', '@media (prefers-reduced-motion')

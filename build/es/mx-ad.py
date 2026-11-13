@@ -8,6 +8,7 @@ T = {
     "of the loan amount": "del monto del préstamo",
     "Upfront cost": "Costo inicial",
     "Onboarding call": "Llamada de incorporación",
+    "Onboarding": "Bienvenida",
     "20 min": "20 min",
     "How compensation works": "Cómo funciona la compensación",
     "Adjust the numbers to see what your income could look like.": "Ajusta los números para ver cómo podrían ser tus ingresos.",
