@@ -241,7 +241,7 @@ html = f"""<!--
     bar.querySelectorAll('a').forEach(function (l) {{ l.addEventListener('click', function () {{ MX.track && MX.track('actionbar_click', {{ action: l.className }}); }}); }});
   }}
   // returning applicants: anyone who clicked an apply link before sees "Continue my approval"
-  var APPLY_RE = /apply\.moxiemortgage\.com/;
+  var APPLY_RE = /apply[.]moxiemortgage[.]com/;
   document.addEventListener('click', function (e) {{
     var l = e.target.closest && e.target.closest('a[href]');
     if (l && APPLY_RE.test(l.href)) {{ try {{ localStorage.setItem('mx_applied', String(Date.now())); }} catch (x) {{}} }}
