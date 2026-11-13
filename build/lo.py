@@ -461,14 +461,14 @@ rov_slide = ('<div class="lo-sl lo-sl-rov on">'
              '<ul class="lo-rov-steps">' + ''.join(f'<li><span class="lo-rov-ic"></span>{t}</li>' for t in ROV_STEPS) + '</ul>'
              + DONE('ROV ready to submit in minutes') + '</div>')
 BELL = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>'
-RF_ALERTS = [('Past client, Phoenix', 'Save $384/mo'), ('Past client, Tampa', 'Save $291/mo')]
+RF_ALERTS = [('Phoenix, AZ', 'Save $384/mo'), ('Tampa, FL', 'Save $291/mo')]
 refi_slide = ('<div class="lo-sl lo-sl-rf">'
               '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Refi alert engine</b></span></div>'
               '<div class="lo-rf-chart"><svg viewBox="0 0 300 100" preserveAspectRatio="none">'
               '<line class="lo-rf-tg" x1="0" y1="62" x2="300" y2="62"/>'
               '<path class="lo-rf-ln" pathLength="1" d="M0,22 C30,16 45,32 70,28 S110,42 135,36 S170,52 195,58 S240,76 300,84"/></svg>'
               '<span class="lo-rf-lbl">Client’s target rate</span><span class="lo-rf-dot"></span></div>'
-              '<div class="lo-rf-al">' + ''.join(f'<div class="lo-rf-a"><span class="lo-rf-bell">{BELL}</span><b>{a}</b><em>{b}</em></div>' for a, b in RF_ALERTS) + '</div>'
+              '<div class="lo-rf-al">' + ''.join(f'<div class="lo-rf-a"><span class="lo-rf-bell">{BELL}</span><b><small>Past client</small>{a}</b><em>{b}</em></div>' for a, b in RF_ALERTS) + '</div>'
               + DONE('Clients alerted the moment rates drop') + '</div>')
 WH_DOCS = ['Closing summary', 'Home care guide', 'Utility setup', '1-year check-in']
 home_slide = ('<div class="lo-sl lo-sl-wh">'
@@ -534,7 +534,8 @@ BENTO_CSS = r"""
 .mxp .lo-rf-a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:#fff;color:#0E2A47;font-size:14px;opacity:0;transform:translateX(24px);animation:6s cubic-bezier(.2,.8,.2,1) infinite}
 .mxp .lo-rf-a:nth-child(1){animation-name:lo-rf-a1}.mxp .lo-rf-a:nth-child(2){animation-name:lo-rf-a2}
 .mxp .lo-rf-bell{flex:none;width:26px;height:26px;border-radius:8px;background:#0E2A47;color:#7FDCEC;display:inline-flex;align-items:center;justify-content:center}
-.mxp .lo-rf-a b{font-weight:700;min-width:0}
+.mxp .lo-rf-a b{font-weight:700;min-width:0;display:flex;flex-direction:column;line-height:1.2}
+.mxp .lo-rf-a small{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5E7A8C}
 .mxp .lo-rf-a em{margin-left:auto;font-style:normal;font-weight:800;color:#127C8F;white-space:nowrap}
 @keyframes lo-rf-draw{0%{stroke-dashoffset:1}55%,95%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:.4}}
 @keyframes lo-rf-dot{0%,40%{opacity:0;transform:scale(.3)}45%{opacity:1;transform:scale(1.25);box-shadow:0 0 0 0 rgba(244,103,68,.6)}60%{transform:scale(1);box-shadow:0 0 0 14px rgba(244,103,68,0)}95%{opacity:1}100%{opacity:0}}
