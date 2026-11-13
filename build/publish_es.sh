@@ -4,7 +4,7 @@ set -e
 cd /home/claude/build
 python3 es/build.py
 R=/home/claude/moxie-email-assets
-mkdir -p $R/website/es && cp es/mx-*.json es/app-*.json $R/website/es/
+mkdir -p $R/website/es && cp es/mx-*.json es/app-*.json es/heloc.json $R/website/es/
 cd $R && git add website/es && (git commit -qm "Spanish dictionaries for page embeds
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

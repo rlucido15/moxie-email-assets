@@ -8,7 +8,7 @@ PAGES = {  # page root id -> (extracted source json, page file whose keys are al
     'mx-calc-mortgage': ('moxie-calc-mortgage-embed', 'calc-pages'), 'mx-calc-afford': ('moxie-calc-affordability-embed', 'calc-pages'),
     'mx-calc-rentbuy': ('moxie-calc-rentvsbuy-embed', 'calc-pages'), 'mx-ad': ('moxie-area-director-embed', 'mx-ad'), 'mx-lo': ('moxie-loan-officer-embed', 'mx-lo'),
     # calculator apps (inside the calculator pages' frames): their own file is used whole
-    'app-afford': ('app-afford', 'app-afford'), 'app-rentbuy': ('app-rentbuy', 'app-rentbuy'), 'app-mortgage': (None, 'app-mortgage'),
+    'app-afford': ('app-afford', 'app-afford'), 'app-rentbuy': ('app-rentbuy', 'app-rentbuy'), 'app-mortgage': (None, 'app-mortgage'), 'heloc': (None, 'heloc'),
 }
 norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(name):
@@ -20,7 +20,7 @@ for k in ['common'] + sorted(x for x in FILES if x != 'common'):
 def page_dict(root):
     src, own = PAGES[root]
     strings = [norm(s) for s in json.load(open(os.path.join(HERE, f'_src_{src}.json'), encoding='utf-8'))] if src else []
-    t = {} if root.startswith('app-') else {s: GT[s] for s in strings if s in GT}
+    t = {} if (root.startswith('app-') or root == 'heloc') else {s: GT[s] for s in strings if s in GT}
     for k, v in FILES['common'][0].items():
         if k in strings: t[k] = v
     t.update(FILES[own][0])   # the page's own wording wins
