@@ -20,8 +20,10 @@ for k in ['common'] + sorted(x for x in FILES if x != 'common'):
 def page_dict(root):
     src, own = PAGES[root]
     strings = [norm(s) for s in json.load(open(os.path.join(HERE, f'_src_{src}.json'), encoding='utf-8'))] if src else []
-    t = dict(FILES[own][0])
-    if not root.startswith('app-'): t.update({s: GT[s] for s in strings if s in GT})
+    t = {} if root.startswith('app-') else {s: GT[s] for s in strings if s in GT}
+    for k, v in FILES['common'][0].items():
+        if k in strings: t[k] = v
+    t.update(FILES[own][0])   # the page's own wording wins
     rx = FILES['common'][1] + [r for r in FILES[own][1] if r not in FILES['common'][1]]
     missing = [s for s in strings if s not in t and not any(re.search(p, s) for p, _ in GR)]
     return {'t': t, 'r': rx}, missing
