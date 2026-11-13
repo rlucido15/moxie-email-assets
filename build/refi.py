@@ -155,7 +155,7 @@ function mountWidget() {{
   for (var i = 0; i < blocks.length; i++) {{
     var b = blocks[i];
     if (root.contains(b) || b.contains(root)) continue;
-    if (/How much could you be saving/i.test(b.textContent || '')) {{
+    if (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || '')) {{
       var block = b.closest('.md-custom-code') || b.parentElement;
       slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget');
       if (block && !block.contains(root)) block.style.display = 'none';

@@ -17,7 +17,7 @@ T = {
     "Low Rates": "Tasas bajas",
     "Guarantee": "con garantía",
     "Don't pay for a lender's office and overhead. Moxie is direct to wholesale and passes the savings on to you.": "No pagues las oficinas y los gastos de un prestamista. Moxie trabaja directamente con mayoristas y te pasa los ahorros.",
-    "Buyer Rate Protection": "Protección de tasa para compradores",
+    "Buyer Rate Protection": "Protección de tasa",
     "If you aren't happy with your mortgage, we'll cover your lender fees on any refinance to help.": "Si no estás contento con tu hipoteca, cubrimos las comisiones del prestamista en cualquier refinanciamiento para ayudarte.",
     "Best Product": "El mejor producto",
     "With access to 1,000s of products, we'll help you find the best product for your needs.": "Con acceso a miles de productos, te ayudamos a encontrar el mejor producto para tus necesidades.",

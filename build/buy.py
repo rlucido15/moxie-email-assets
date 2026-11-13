@@ -39,7 +39,7 @@ SAV_M, SAV_L, SAV_5, SAV_1, SAV_10 = usd(_sv), usd(_sv * 360), usd(_sv * 60), us
 
 EXTRA_CSS = r"""
 .mx-uba h3{font-size:20px !important;letter-spacing:-.005em !important}
-.mx-uba h3 .mx-line1{white-space:nowrap}
+.mx-uba h3 .mx-line1{white-space:nowrap}html[lang=es] .mx-uba h3 .mx-line1,.mx-uba h3 .mx-line1[lang=es]{white-space:normal}
 .mx-time ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:24px !important}
 .mxp.mxp .mx-time li{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:28px 28px 30px !important;display:flex;flex-direction:column;gap:10px}
 .mx-time h3{margin:0 !important}

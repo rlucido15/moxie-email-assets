@@ -458,7 +458,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-refi');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@d8adaff/website/es/mx-refi.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@da8c5fc/website/es/mx-refi.json');
 
 // ---- move Moxie's existing "How much could you be saving" widget (its own Lofty block) into the hero.
 // If it isn't on the page, the facade stays and its button links to the application.
@@ -468,7 +468,7 @@ function mountWidget() {
   for (var i = 0; i < blocks.length; i++) {
     var b = blocks[i];
     if (root.contains(b) || b.contains(root)) continue;
-    if (/How much could you be saving/i.test(b.textContent || '')) {
+    if (b.querySelector('#moxie-refinance-root') || /How much could you be saving/i.test(b.textContent || '')) {
       var block = b.closest('.md-custom-code') || b.parentElement;
       slot.textContent = ''; slot.appendChild(b); slot.classList.add('has-widget');
       if (block && !block.contains(root)) block.style.display = 'none';
