@@ -316,7 +316,7 @@ a.mx-card.mx-card-dark{color:#fff}
 <script>
 (function () {
   var MX = window.MX || (window.MX = {});
-  if (MX.i18n) return;
+  if (MX.i18n && MX.i18n.v >= 3) return;   // an older embed's engine is replaced by this newer one
   var KEY = 'mx_lang', ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
   function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(l) { try { localStorage.setItem(KEY, l); } catch (e) {} }
@@ -466,6 +466,7 @@ a.mx-card.mx-card-dark{color:#fff}
     } catch (e) {}
   }
   MX.i18n = {
+    v: 3,
     get lang() { return lang; },
     t: function (en, es) { return lang === 'es' ? es : en; },
     apply: apply, swap: swap, links: links, dict: dict, load: load,
@@ -550,7 +551,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-buy');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@e94f5d2/website/es/mx-buy.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@61f4488/website/es/mx-buy.json');
 
 // ---- dynamic hero: default is in the HTML (what search engines index); swaps for returning + Hawaii visitors
 var V = MX.visitor();

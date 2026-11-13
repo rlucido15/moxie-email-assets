@@ -14,7 +14,7 @@ Defined once per page no matter how many embeds include it.
 I18N_JS = r"""
 (function () {
   var MX = window.MX || (window.MX = {});
-  if (MX.i18n) return;
+  if (MX.i18n && MX.i18n.v >= 3) return;   // an older embed's engine is replaced by this newer one
   var KEY = 'mx_lang', ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
   function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(l) { try { localStorage.setItem(KEY, l); } catch (e) {} }
@@ -164,6 +164,7 @@ I18N_JS = r"""
     } catch (e) {}
   }
   MX.i18n = {
+    v: 3,
     get lang() { return lang; },
     t: function (en, es) { return lang === 'es' ? es : en; },
     apply: apply, swap: swap, links: links, dict: dict, load: load,

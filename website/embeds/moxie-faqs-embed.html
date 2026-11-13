@@ -150,7 +150,7 @@ mark.mx-hl{background:#FFE3D9;color:inherit;padding:0 2px;border-radius:3px}</st
 <script>
 (function () {
   var MX = window.MX || (window.MX = {});
-  if (MX.i18n) return;
+  if (MX.i18n && MX.i18n.v >= 3) return;   // an older embed's engine is replaced by this newer one
   var KEY = 'mx_lang', ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
   function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(l) { try { localStorage.setItem(KEY, l); } catch (e) {} }
@@ -300,6 +300,7 @@ mark.mx-hl{background:#FFE3D9;color:inherit;padding:0 2px;border-radius:3px}</st
     } catch (e) {}
   }
   MX.i18n = {
+    v: 3,
     get lang() { return lang; },
     t: function (en, es) { return lang === 'es' ? es : en; },
     apply: apply, swap: swap, links: links, dict: dict, load: load,
@@ -384,7 +385,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-faqs');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@e94f5d2/website/es/mx-faqs.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@61f4488/website/es/mx-faqs.json');
 
 var q = root.querySelector('#mxf-q'), sum = root.querySelector('#mxf-sum'), clr = root.querySelector('#mxf-clear'), empty = root.querySelector('#mxf-empty');
 var groups = [].slice.call(root.querySelectorAll('.mx-cgroup'));

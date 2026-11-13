@@ -223,7 +223,7 @@
 <script>
 (function () {
   var MX = window.MX || (window.MX = {});
-  if (MX.i18n) return;
+  if (MX.i18n && MX.i18n.v >= 3) return;   // an older embed's engine is replaced by this newer one
   var KEY = 'mx_lang', ATTRS = ['aria-label', 'title', 'placeholder', 'alt'];
   function saved() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
   function save(l) { try { localStorage.setItem(KEY, l); } catch (e) {} }
@@ -373,6 +373,7 @@
     } catch (e) {}
   }
   MX.i18n = {
+    v: 3,
     get lang() { return lang; },
     t: function (en, es) { return lang === 'es' ? es : en; },
     apply: apply, swap: swap, links: links, dict: dict, load: load,
@@ -457,7 +458,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-refi');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@e94f5d2/website/es/mx-refi.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@61f4488/website/es/mx-refi.json');
 
 // ---- move Moxie's existing "How much could you be saving" widget (its own Lofty block) into the hero.
 // If it isn't on the page, the facade stays and its button links to the application.
