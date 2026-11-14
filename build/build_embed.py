@@ -59,7 +59,27 @@ base = (".mxrb{background:#F4F8FA;padding:48px 16px;font-family:Barlow,'Barlow F
         ".mxrb .page{margin:0 auto}"
         ".mxrb .page>.head{padding-top:40px}"
         "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:28px}.mxrb .exhead{flex-direction:column;align-items:flex-start;gap:2px}.mxrb .exhead h3{text-wrap:balance}}")
-css = base + css
+web = (".mxrb{padding:64px 20px}"
+       ".mxrb .page>.head{padding-top:56px}"
+       ".mxrb .wrap{padding-left:64px;padding-right:64px}"
+       ".mxrb .lede{margin-top:14px;font-size:17px;line-height:1.55}"
+       ".mxrb .hero{margin-top:32px;padding:36px 40px;gap:32px}"
+       ".mxrb .hero h2{margin-top:14px}.mxrb .hero p{margin-top:12px;font-size:15px;line-height:1.55}"
+       ".mxrb .ex{margin-top:48px}.mxrb .exgrid{margin-top:16px;gap:20px}"
+       ".mxrb .chart{padding:24px 22px 18px}"
+       ".mxrb .sum ul{padding:16px 22px 8px}.mxrb.mxrb .sum ul>li{padding:10px 0 !important}"
+       ".mxrb .sum .tot{padding:16px 22px}"
+       ".mxrb .proof{margin-top:28px;gap:20px}"
+       ".mxrb.mxrb figure.quote{padding:20px 24px !important}.mxrb .quote p{margin-top:8px;font-size:14px;line-height:1.55}.mxrb .quote .by{margin-top:10px}"
+       ".mxrb .stat{padding:20px 24px}"
+       ".mxrb.mxrb .cta{margin-top:48px !important;padding:36px 64px}"
+       ".mxrb .cta p{margin-top:8px}.mxrb .chips{margin-top:14px;gap:8px 18px}.mxrb .acts{gap:10px}"
+       ".mxrb .faq{padding:48px 64px 16px}.mxrb .faq dl{margin-top:18px;gap:22px 40px}.mxrb .faq dd{margin-top:6px}"
+       ".mxrb .disc{padding:24px 64px 40px;font-size:11px;line-height:1.5}.mxrb .disc li{margin-bottom:6px}.mxrb .disc .legal{margin-top:12px;padding-top:12px}"
+       "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:32px}.mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:22px;padding-right:22px}"
+       ".mxrb .hero{padding:28px 22px;gap:24px}.mxrb .ex{margin-top:36px}.mxrb .exgrid{gap:16px}.mxrb .proof{gap:16px}"
+       ".mxrb.mxrb .cta{margin-top:36px !important;padding:30px 22px}.mxrb .faq{padding-top:36px}.mxrb .disc{padding-bottom:32px}}")
+css = base + css + web
 html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty custom HTML block. -->\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap">\n'
