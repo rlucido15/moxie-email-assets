@@ -47,7 +47,7 @@ body{{font-family:Barlow,'Barlow Fallback',Arial,sans-serif;color:var(--navy);ba
 .head{{padding-top:18px}}
 h1{{font-size:35px;font-weight:900;line-height:1.02;letter-spacing:-.025em;color:var(--navy);text-wrap:balance}}
 h1 .hl{{background:linear-gradient(transparent 62%,rgba(127,220,236,.55) 62%);padding:0 2px}}
-h1 sup,.sup{{font-size:.38em;font-weight:800;color:var(--teal);vertical-align:super;line-height:0}}
+h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-spacing:0;color:var(--teal);vertical-align:super;line-height:0;margin-left:1px}}
 .lede{{margin-top:8px;font-size:15px;line-height:1.42;color:var(--slate);max-width:6.1in}}
 
 /* hero */
@@ -55,6 +55,7 @@ h1 sup,.sup{{font-size:.38em;font-weight:800;color:var(--teal);vertical-align:su
 .hero::after{{content:"";position:absolute;right:-60px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(127,220,236,.35),rgba(127,220,236,0) 70%)}}
 .eyebrow{{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);background:var(--aqua);border-radius:999px;padding:5px 11px}}
 .hero h2{{margin-top:10px;font-size:23px;font-weight:800;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}}
+.hero .sup{{color:var(--aqua)}}
 .hero p{{margin-top:8px;font-size:13.5px;line-height:1.45;color:#D3E3EC;max-width:4.6in}}
 .badge{{position:relative;z-index:1;width:124px;height:124px;border-radius:50%;background:#fff;color:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px rgba(255,255,255,.14),0 14px 30px rgba(2,2,21,.35)}}
 .badge b{{font-size:44px;font-weight:900;line-height:.9;letter-spacing:-.03em;color:var(--orange)}}
@@ -176,18 +177,18 @@ h1 sup,.sup{{font-size:.38em;font-weight:800;color:var(--teal);vertical-align:su
     </div>
 
     <div class="ex">
-      <div class="exhead"><h3>Rates drop twice? You save <em>twice.</em></h3><span>Hypothetical example<span class="sup">2</span></span></div>
+      <div class="exhead"><h3>Rates drop twice? You save <em>four times.</em></h3><span>Hypothetical example<span class="sup">2</span></span></div>
       <div class="exgrid">
         <div class="chart">
-          <svg viewBox="0 0 420 172" role="img" aria-label="Chart: monthly payment steps down 300 dollars at the first refinance and another 300 dollars at the second refinance two years later.">
+          <svg viewBox="0 0 420 172" role="img" aria-label="Chart: Moxie covers 2,300 dollars in lender fees and the monthly payment steps down 300 dollars at the first refinance, then again at the second refinance two years later.">
             <line x1="40" y1="40" x2="410" y2="40" stroke="#9FB3C2" stroke-width="2" stroke-dasharray="5 5"/>
             <text x="410" y="30" text-anchor="end" font-size="11" font-weight="700" fill="#7A8A99">Payment without refinancing</text>
             <path class="area" d="M40 40 H410 V124 H190 V82 H40 Z" fill="rgba(28,151,174,.16)"/>
             <path class="step" pathLength="1" d="M40 82 H190 V124 H410" fill="none" stroke="#1C97AE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            <g class="mark m1"><circle cx="40" cy="60" r="13" fill="#F46744"/><text x="40" y="64.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">1</text></g>
-            <g class="mark m2"><circle cx="190" cy="103" r="13" fill="#F46744"/><text x="190" y="107.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">2</text></g>
-            <text x="115" y="72" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text>
-            <text x="300" y="114" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$600/mo</text>
+            <g class="mark m1"><rect x="9" y="17" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="40" y="30.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="40" cy="60" r="13" fill="#F46744"/><text x="40" y="64.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">1</text></g>
+            <g class="mark m2"><rect x="200" y="58" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="231" y="71.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="190" cy="103" r="13" fill="#F46744"/><text x="190" y="107.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">3</text></g>
+            <g class="mark m1"><circle cx="115" cy="53" r="11" fill="#F46744"/><text x="115" y="57" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">2</text></g><text x="115" y="76" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text>
+            <g class="mark m2"><circle cx="300" cy="88" r="11" fill="#F46744"/><text x="300" y="92" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">4</text></g><text x="300" y="114" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text>
             <line x1="40" y1="146" x2="410" y2="146" stroke="#C6D3DB" stroke-width="1.5"/>
             <g font-size="11" font-weight="700" fill="#4A5868">
               <text x="40" y="164" text-anchor="middle">Refi #1</text>
