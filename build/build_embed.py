@@ -54,6 +54,7 @@ base = (".mxrb{background:#F4F8FA;padding:48px 16px;font-family:Barlow,'Barlow F
         ".mxrb.mxrb .sum ul>li{list-style:none;padding:4px 0 !important}"
         ".mxrb strong{display:inline}.mxrb .sum li span strong{display:block}"
         ".mxrb a{text-decoration:none}"
+        ".mxrb.mxrb figure.quote{padding:12px 16px !important;margin:0 !important}"
         ".mxrb .ico{display:inline-flex}"
         ".mxrb .page{margin:0 auto}"
         ".mxrb .page>.head{padding-top:40px}"
