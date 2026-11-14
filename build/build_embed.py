@@ -42,6 +42,8 @@ def scope_rules(block):
             else: sels.append('.mxrb ' + s)
         out.append(','.join(sels) + '{' + decl + '}'); i = k + 1
     return ''.join(out)
+css = re.sub(r'(?<=[ >])b(?=[{,: >])', 'strong', css)
+css = re.sub(r'(?<=[ >])i(?=[{,: >])', '.ico', css)
 css = scope_rules(css)
 base = (".mxrb{background:#F4F8FA;padding:48px 16px;font-family:Barlow,'Barlow Fallback',Arial,sans-serif;color:#0E2A47;-webkit-font-smoothing:antialiased}"
         ".mxrb *,.mxrb *::before,.mxrb *::after{box-sizing:border-box}"
