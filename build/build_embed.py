@@ -89,7 +89,7 @@ web = (".mxrb{padding:64px 20px}"
        "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:32px}.mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:22px;padding-right:22px}"
        ".mxrb .hero{padding:28px 22px;gap:24px}.mxrb .ex{margin-top:36px}.mxrb .exgrid{gap:16px}.mxrb .proof{gap:16px}"
        ".mxrb.mxrb .cta{margin-top:36px !important;padding:30px 22px}.mxrb .faq{padding:36px 22px 32px}.mxrb .proof{margin-top:40px;margin-bottom:8px}.mxrb .disc{padding-bottom:32px}}")
-full = (".mxrb.mxrb{padding:0 !important;background:#fff;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);position:relative}"
+full = (".mxrb.mxrb{padding:0 !important;background:#fff;width:100%;position:relative;box-sizing:border-box}"
         ".mxrb .page{max-width:none !important;width:100%;border-radius:0 !important;box-shadow:none !important;overflow:visible}"
         ".mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:max(64px,calc((100% - 1200px) / 2)) !important;padding-right:max(64px,calc((100% - 1200px) / 2)) !important}"
         ".mxrb.mxrb .cta{padding-left:max(64px,calc((100% - 1200px) / 2)) !important;padding-right:max(64px,calc((100% - 1200px) / 2)) !important}"
@@ -102,6 +102,11 @@ sys.path.insert(0, '/home/claude/build')
 from i18n import I18N_JS
 PIN = open('/home/claude/build/es/_cdn.txt').read().strip()
 ES_URL = f'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@{PIN}/website/es/mx-refi-benefit.json'
+import re as _re
+from common import ENGINE as _ENGINE
+_fb = _re.search(r'MX\.fullBleed = function \(root\) \{.*?\n\};', _ENGINE, _re.S).group(0)
+bleed_js = ('<script>(function(){var MX=window.MX||(window.MX={});if(!MX.fullBleed){' + _fb + '}'
+            "var r=document.querySelector('.mxrb');if(r)MX.fullBleed(r);})();</script>")
 es_js = ('<style>.mx-es-wait{visibility:hidden}</style><script>' + I18N_JS.strip() +
          "\n(function(){function go(){var r=document.querySelector('.mxrb');if(r&&window.MX&&MX.i18n)MX.i18n.load(r,'" + ES_URL + "');}"
          "if(document.querySelector('.mxrb'))go();else document.addEventListener('DOMContentLoaded',go);})();</script>")
@@ -109,6 +114,6 @@ html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty cus
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap">\n'
         '<style>' + css + '</style>\n'
-        '<section class="mxrb" aria-label="Moxie Client Benefit">' + body.strip() + '</section>\n' + es_js + '\n' + ld + '\n')
+        '<section class="mxrb" aria-label="Moxie Client Benefit">' + body.strip() + '</section>\n' + bleed_js + '\n' + es_js + '\n' + ld + '\n')
 open('moxie-refinance-benefit-embed.html', 'w').write(html)
 print(len(html))
