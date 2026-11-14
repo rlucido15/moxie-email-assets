@@ -498,7 +498,7 @@ hr_slide = ('<div class="lo-sl lo-sl-hr">'
             '</div>' + DONE('Keeps past clients coming back to you') + '</div>')
 DEMOS = ['ROVai', 'Refi alerts', 'Homeowner report', 'Welcome home']
 viz_tools = ('<div class="lo-rov" aria-hidden="true"><div class="lo-dtabs">'
-             + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t}<i></i></span>' for k, t in enumerate(DEMOS))
+             + ''.join(f'<span data-i="{k}"{" class=\"on\"" if k == 0 else ""}>{t.replace("ROVai", "ROV<em class=\"lo-lc\">ai</em>")}<i></i></span>' for k, t in enumerate(DEMOS))
              + '</div><div class="lo-demo">' + rov_slide + refi_slide + hr_slide + home_slide + '</div></div>'
              )
 viz_loop = ('<div class="lo-viz-loop" aria-hidden="true"><span>Lead</span><b>→</b><span>App</span>'
@@ -538,6 +538,7 @@ BENTO_CSS = r"""
 .mxp .lo-dtabs{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
 .mxp .lo-dtabs span{position:relative;overflow:hidden;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center;line-height:1.2;text-wrap:balance;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B8C7D3;padding:6px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.14);transition:background .25s,color .25s}
 .mxp .lo-dtabs span:hover{color:#fff}
+.mxp .lo-dtabs .lo-lc{font-style:normal;text-transform:none;letter-spacing:.02em}
 .mxp .lo-dtabs span.on{background:rgba(127,220,236,.16);border-color:rgba(127,220,236,.5);color:#fff}
 .mxp .lo-dtabs span i{position:absolute;left:0;bottom:0;height:2px;width:100%;background:#7FDCEC;transform:scaleX(0);transform-origin:left}
 .mxp .lo-dtabs span.on i{animation:lo-dt 6.5s linear forwards}
