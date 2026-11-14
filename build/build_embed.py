@@ -97,10 +97,18 @@ full = (".mxrb.mxrb{padding:0 !important;background:#fff;width:100vw;max-width:1
         ".mxrb .lede{max-width:760px}"
         "@media (max-width:860px){.mxrb .wrap,.mxrb .faq,.mxrb .disc,.mxrb.mxrb .cta{padding-left:22px !important;padding-right:22px !important}.mxrb .page>.head{padding-top:36px}}")
 css = base + css + web + full
+import sys
+sys.path.insert(0, '/home/claude/build')
+from i18n import I18N_JS
+PIN = open('/home/claude/build/es/_cdn.txt').read().strip()
+ES_URL = f'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@{PIN}/website/es/mx-refi-benefit.json'
+es_js = ('<style>.mx-es-wait{visibility:hidden}</style><script>' + I18N_JS.strip() +
+         "\n(function(){function go(){var r=document.querySelector('.mxrb');if(r&&window.MX&&MX.i18n)MX.i18n.load(r,'" + ES_URL + "');}"
+         "if(document.querySelector('.mxrb'))go();else document.addEventListener('DOMContentLoaded',go);})();</script>")
 html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty custom HTML block. -->\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap">\n'
         '<style>' + css + '</style>\n'
-        '<section class="mxrb" aria-label="Moxie Client Benefit">' + body.strip() + '</section>\n' + ld + '\n')
+        '<section class="mxrb" aria-label="Moxie Client Benefit">' + body.strip() + '</section>\n' + es_js + '\n' + ld + '\n')
 open('moxie-refinance-benefit-embed.html', 'w').write(html)
 print(len(html))
