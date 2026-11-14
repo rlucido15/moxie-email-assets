@@ -351,10 +351,10 @@ STREAM_CSS = r"""
 .mxp .lo-st-n{flex:none;width:36px;height:36px;border-radius:50%;background:#E3F5F9;color:#127C8F;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
 .mxp .lo-st-row h3{margin:0;font-size:20px;line-height:1.3}
 .mxp .lo-st-row p{margin:4px 0 0;font-size:16px;color:#4A5868}
-.mxp .lo-st-sum{margin:0;padding:24px 28px;background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 60%,#0E2A47 100%);color:#fff;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.mxp.mxp .lo-st-sum{margin:0;padding:24px 28px !important;background:linear-gradient(315deg,#1C97AE 0%,#0D4E66 60%,#0E2A47 100%);color:#fff;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
 .mxp .lo-st-sum b{font-size:clamp(22px,2.4vw,28px);font-weight:800;letter-spacing:-.01em}
 .mxp .lo-st-sum span{font-size:16px;color:#D3E3EC}
-@media (max-width:600px){.mxp .lo-st-row{padding:18px 20px;gap:14px}.mxp .lo-st-sum{padding:20px}}
+@media (max-width:600px){.mxp .lo-st-row{padding:18px 20px;gap:14px}.mxp.mxp .lo-st-sum{padding:20px !important}}
 .mxp .lo-tl-i{padding:16px 0 0;margin-top:16px;border-top:1px solid #DCE6EB}
 .mxp .lo-tl>li:first-child .lo-tl-i{border-top:0;margin-top:0;padding-top:8px}
 .mxp .lo-tl h4{margin:0;font-size:18px;color:#0E2A47}
@@ -410,17 +410,19 @@ HS = 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@25d214c/website/r
 founder_sec = f'''
   <section id="founder" aria-labelledby="lo-founder" style="max-width: 1200px; margin: 0 auto; padding: 92px 24px">
     <div style="background: #ffffff; border: 1px solid #DCE6EB; border-radius: 28px; padding: 40px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+      <div class="lo-fd-side" style="flex: none; display: flex; flex-direction: column; align-items: center; gap: 18px">
       <img src="{HS}256.webp" srcset="{HS}128.webp 128w, {HS}256.webp 256w, {HS}400.webp 400w" sizes="140px" alt="Robert Lucido Jr, founder of Moxie Mortgage" width="140" height="140" loading="lazy" decoding="async" style="flex: none; width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid #E3F5F9">
+        <figure class="lo-sg" style="margin: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+          <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.webp" alt="Scotsman Guide Top Originators badge" width="104" height="104" loading="lazy" decoding="async" style="width: 104px; height: 104px">
+          <figcaption style="font-size: 13px; font-weight: 700; color: #0E2A47; line-height: 1.3; max-width: 150px">Scotsman Guide Top Originator</figcaption>
+        </figure>
+      </div>
       <div style="flex: 1 1 420px; min-width: 0">
         <p style="{EYEBROW}">A direct line</p>
         <h2 id="lo-founder" style="{H2}; text-wrap: balance">Talk with the founder, not a recruiter.</h2>
         <p style="margin: 14px 0 0; font-size: 18px; color: #4A5868; max-width: 640px">Your intro call is with Robert Lucido Jr, Moxie’s founder. Ask him anything: compensation, where the deals come from, and what your first 90 days look like. The conversation is confidential.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px"><a href="#apply" class="mxa-btn-p" style="{BTN_P}">Book a confidential call</a></div>
       </div>
-      <figure class="lo-sg" style="flex: none; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
-        <img src="https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8ea82e8/website/scotsman-top-originators-320.webp" alt="Scotsman Guide Top Originators badge" width="120" height="120" loading="lazy" decoding="async" style="width: 120px; height: 120px">
-        <figcaption style="font-size: 13px; font-weight: 700; color: #0E2A47; line-height: 1.3; max-width: 150px">Scotsman Guide Top Originator</figcaption>
-      </figure>
     </div>
   </section>'''
 
