@@ -1067,6 +1067,7 @@ schema = jsonld([ORG, page, crumbs, faq_schema(FAQ), JOB])
 LOFTY_KEEP = '<!-- dialog showModal close data-mxa-close data-mxa-form mxa-done aria-invalid mxa-bad mxa-ph open ad-go -->'
 LO_CSS = ad.AD_CSS + STREAM_CSS + PROG_CSS + PARTNER_CSS + JUMP_CSS + BENTO_CSS + FLIP_CSS + ABOUT_CSS + r"""
 .mxp .mxa-main section[id]{scroll-margin-top:120px}
+@media (max-width:640px){.mxp .lo-fd-side{flex:1 1 100% !important;flex-direction:row !important;justify-content:flex-start;gap:20px !important}}
 .mxp.mxp .lo-chips>li{padding:9px 16px !important;margin:0 !important;border:1px solid #DCE6EB !important;border-radius:999px !important;background:#fff !important;color:#0E2A47;line-height:1.2;list-style:none}
 .mxp.mxp .lo-chips>li::before{content:none !important}
 .mxp.mxp .lo-stack>li{margin:0 !important;list-style:none}
