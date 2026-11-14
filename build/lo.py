@@ -817,7 +817,7 @@ apply_sec = f'''
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
       <div style="flex: 1 1 440px; min-width: 0">
         <p style="{EYEBROW_L}">Get started</p>
-        <h2 id="lo-apply" style="{H2}">Four steps to joining Moxie.</h2>
+        <h2 id="lo-apply" style="{H2}">Four steps to join Moxie.</h2>
         <ol class="ad-steps" style="list-style: none; padding: 0; margin: 32px 0 0; display: flex; flex-direction: column; gap: 22px">{steps}</ol>
       </div>
       <div class="mxa-form" id="mxa-apply-card">
