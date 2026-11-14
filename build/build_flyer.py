@@ -81,12 +81,13 @@ h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-sp
 .chart svg{{display:block;width:100%;height:auto;overflow:visible}}
 .chart text{{font-family:Barlow,'Barlow Fallback',Arial,sans-serif}}
 .sum{{background:var(--navy);color:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}}
-.sum ul{{list-style:none;padding:8px 16px 2px;flex:1}}
-.sum li{{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.1)}}
+.sum ul{{list-style:none;padding:6px 16px 2px;flex:1}}
+.sum li{{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.1)}}
 .sum li:last-child{{border-bottom:0}}
+.sum li .n{{width:20px;height:20px;border-radius:50%;background:var(--orange);color:var(--navy);font-style:normal;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}}
 .sum li span{{font-size:12px;line-height:1.3;color:#B8C7D3}}
 .sum li span b{{display:block;color:#fff;font-size:13px;font-weight:700}}
-.sum li strong{{font-size:18px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}}
+.sum li strong{{font-size:17px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}}
 .sum .tot{{background:var(--teal);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}}
 .sum .tot span{{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}}
 .sum .tot strong{{font-size:30px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}}
@@ -135,12 +136,24 @@ h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-sp
 /* motion (screen only) */
 @media screen and (prefers-reduced-motion:no-preference){{
   .badge{{animation:pop .7s cubic-bezier(.2,.9,.3,1.3) .2s both}}
-  .step{{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease .5s forwards}}
-  .area{{opacity:0;animation:fade .8s ease 1.6s forwards}}
-  .mark{{opacity:0;transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,.9,.3,1.3) forwards}}
-  .mark.m1{{animation-delay:.7s}}.mark.m2{{animation-delay:1.4s}}
-  .btn.p{{animation:pulse 2.6s ease-in-out 2.4s infinite}}
+  .btn.p{{animation:pulse 2.6s ease-in-out 6s infinite}}
 }}
+.ex.anim [data-s],.ex.anim .seg{{opacity:0}}
+.ex.anim .seg{{stroke-dasharray:1;stroke-dashoffset:1;opacity:1}}
+.ex.anim .mark{{transform-box:fill-box;transform-origin:center}}
+.ex.play .m1{{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) .3s forwards}}
+.ex.play .seg-a{{animation:draw .7s ease 1.2s forwards}}
+.ex.play .a1{{animation:fade .6s ease 1.6s forwards}}
+.ex.play .m2{{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) 1.9s forwards}}
+.ex.play .m3{{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) 2.9s forwards}}
+.ex.play .seg-b{{animation:draw 1s ease 3.6s forwards}}
+.ex.play .a2{{animation:fade .6s ease 4.2s forwards}}
+.ex.play .m4{{animation:pop .55s cubic-bezier(.2,.9,.3,1.3) 4.6s forwards}}
+.ex.play .sum li{{animation:rise .5s ease forwards}}
+.ex.play .sum li[data-s="1"]{{animation-delay:.3s}}.ex.play .sum li[data-s="2"]{{animation-delay:1.9s}}.ex.play .sum li[data-s="3"]{{animation-delay:2.9s}}.ex.play .sum li[data-s="4"]{{animation-delay:4.6s}}
+.ex .tot-n.bump{{animation:bump .45s ease}}
+@keyframes bump{{40%{{transform:scale(1.08)}}}}
+@keyframes rise{{from{{opacity:0;transform:translateX(16px)}}to{{opacity:1;transform:none}}}}
 @keyframes pop{{from{{opacity:0;transform:scale(.6)}}to{{opacity:1;transform:none}}}}
 @keyframes draw{{to{{stroke-dashoffset:0}}}}
 @keyframes fade{{to{{opacity:1}}}}
@@ -154,7 +167,7 @@ h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-sp
   .acts{{min-width:0}} .faq{{padding-left:20px;padding-right:20px}} .faq dl{{grid-template-columns:1fr}}
 }}
 @page{{size:letter;margin:0}}
-@media print{{.faq{{display:none}} body{{background:#fff;padding:0}} .page{{border-radius:0;box-shadow:none;width:8.5in;height:11in}} *{{-webkit-print-color-adjust:exact;print-color-adjust:exact}}}}
+@media print{{.ex.anim [data-s]{{opacity:1 !important;animation:none !important;transform:none !important}} .ex.anim .seg{{stroke-dashoffset:0 !important;animation:none !important}} .faq{{display:none}} body{{background:#fff;padding:0}} .page{{border-radius:0;box-shadow:none;width:8.5in;height:11in}} *{{-webkit-print-color-adjust:exact;print-color-adjust:exact}}}}
 </style>
 <script type="application/ld+json">{{"@context": "https://schema.org", "@graph": [{{"@type": "Organization", "@id": "https://www.moxiemortgage.com/#org", "name": "Moxie Mortgage", "url": "https://www.moxiemortgage.com/", "telephone": "+1-480-660-2518", "email": "hello@moxiemortgage.com", "parentOrganization": {{"@type": "Organization", "name": "NEXA Mortgage, LLC", "identifier": "NMLS 1660690"}}}}, {{"@type": "WebPage", "@id": "https://www.moxiemortgage.com/refinance-benefit#webpage", "url": "https://www.moxiemortgage.com/refinance-benefit", "name": "Moxie Client Benefit: No Lender Fees When You Refinance", "inLanguage": "en-US", "description": "Moxie Mortgage clients pay no Moxie lender fees to refinance, every time rates drop, after 6 on-time payments.", "publisher": {{"@id": "https://www.moxiemortgage.com/#org"}}, "about": {{"@id": "https://www.moxiemortgage.com/refinance-benefit#benefit"}}}}, {{"@type": "LoanOrCredit", "@id": "https://www.moxiemortgage.com/refinance-benefit#benefit", "name": "Moxie Client Benefit refinance", "loanType": "Mortgage refinance", "provider": {{"@id": "https://www.moxiemortgage.com/#org"}}, "description": "Moxie covers its origination, processing and underwriting fees each time an eligible client refinances with Moxie after at least 6 consecutive on-time payments. Subject to credit approval and terms.", "areaServed": {{"@type": "Country", "name": "US"}}}}, {{"@type": "FAQPage", "@id": "https://www.moxiemortgage.com/refinance-benefit#faq", "mainEntity": [{{"@type": "Question", "name": "What is the Moxie Client Benefit?", "acceptedAnswer": {{"@type": "Answer", "text": "Clients whose current mortgage closed with Moxie Mortgage pay no Moxie lender fees (origination, processing and underwriting) when they refinance that home with Moxie. Terms apply; see disclosure 1."}}}}, {{"@type": "Question", "name": "Which fees does Moxie cover?", "acceptedAnswer": {{"@type": "Answer", "text": "Moxie covers its own origination, processing and underwriting fees. Third-party and government fees, such as appraisal, credit report, title, settlement, recording fees and transfer taxes, plus prepaid interest, escrow deposits and any discount points you choose, are not covered."}}}}, {{"@type": "Question", "name": "How often can I use the benefit?", "acceptedAnswer": {{"@type": "Answer", "text": "You can use it every time rates drop, after making at least 6 consecutive on-time payments on your current Moxie loan, for as long as you own the home. The benefit may change or end at any time, but changes won't affect a loan already locked."}}}}, {{"@type": "Question", "name": "How do I see if I can lower my payment?", "acceptedAnswer": {{"@type": "Answer", "text": "Call 480.660.2518 or email hello@moxiemortgage.com. Because Moxie already has your file, we'll review your options within one business day, at no cost and with no obligation."}}}}]}}]}}</script>
 </head>
@@ -176,34 +189,20 @@ h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-sp
       <div class="badge" aria-label="Zero dollars in lender fees"><b>$0</b><span>Lender<br>fees<span class="sup">1</span></span></div>
     </div>
 
-    <div class="ex">
+    <div class="ex" data-anim>
       <div class="exhead"><h3>Rates drop twice? You save <em>four times.</em></h3><span>Hypothetical example<span class="sup">2</span></span></div>
       <div class="exgrid">
         <div class="chart">
-          <svg viewBox="0 0 420 172" role="img" aria-label="Chart: Moxie covers 2,300 dollars in lender fees and the monthly payment steps down 300 dollars at the first refinance, then again at the second refinance two years later.">
-            <line x1="40" y1="40" x2="410" y2="40" stroke="#9FB3C2" stroke-width="2" stroke-dasharray="5 5"/>
-            <text x="410" y="30" text-anchor="end" font-size="11" font-weight="700" fill="#7A8A99">Payment without refinancing</text>
-            <path class="area" d="M40 40 H410 V124 H190 V82 H40 Z" fill="rgba(28,151,174,.16)"/>
-            <path class="step" pathLength="1" d="M40 82 H190 V124 H410" fill="none" stroke="#1C97AE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            <g class="mark m1"><rect x="9" y="17" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="40" y="30.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="40" cy="60" r="13" fill="#F46744"/><text x="40" y="64.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">1</text></g>
-            <g class="mark m2"><rect x="200" y="58" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="231" y="71.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="190" cy="103" r="13" fill="#F46744"/><text x="190" y="107.5" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">3</text></g>
-            <g class="mark m1"><circle cx="115" cy="53" r="11" fill="#F46744"/><text x="115" y="57" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">2</text></g><text x="115" y="76" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text>
-            <g class="mark m2"><circle cx="300" cy="88" r="11" fill="#F46744"/><text x="300" y="92" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">4</text></g><text x="300" y="114" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text>
-            <line x1="40" y1="146" x2="410" y2="146" stroke="#C6D3DB" stroke-width="1.5"/>
-            <g font-size="11" font-weight="700" fill="#4A5868">
-              <text x="40" y="164" text-anchor="middle">Refi #1</text>
-              <text x="190" y="164" text-anchor="middle">Refi #2 · Year 2</text>
-              <text x="410" y="164" text-anchor="end">Year 5</text>
-            </g>
-          </svg>
+          <svg viewBox="0 0 420 172" role="img" aria-label="Chart: Moxie covers 2,300 dollars in lender fees and the monthly payment drops 300 dollars at the first refinance, then both happen again at the second refinance two years later."><line x1="40" y1="40" x2="410" y2="40" stroke="#9FB3C2" stroke-width="2" stroke-dasharray="5 5"/><text x="410" y="30" text-anchor="end" font-size="11" font-weight="700" fill="#7A8A99">Payment without refinancing</text><path class="area a1" data-s="2" d="M40 40 H190 V82 H40 Z" fill="rgba(28,151,174,.16)"/><path class="area a2" data-s="4" d="M190 40 H410 V124 H190 Z" fill="rgba(28,151,174,.16)"/><path class="seg seg-a" pathLength="1" d="M40 82 H190" fill="none" stroke="#1C97AE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="seg seg-b" pathLength="1" d="M190 82 V124 H410" fill="none" stroke="#1C97AE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><g class="mark m1" data-s="1"><rect x="9" y="17" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="40" y="30.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="40" cy="60" r="13" fill="#F46744"/><text x="40" y="64.4" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">1</text></g><g class="mark m2" data-s="2"><circle cx="115" cy="53" r="11" fill="#F46744"/><text x="115" y="57.1" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">2</text><text x="115" y="76" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text></g><g class="mark m3" data-s="3"><rect x="200" y="58" width="62" height="19" rx="9.5" fill="#FFE5DC"/><text x="231" y="71.5" text-anchor="middle" font-size="12" font-weight="800" fill="#C2421F">−$2,300</text><circle cx="190" cy="103" r="13" fill="#F46744"/><text x="190" y="107.4" text-anchor="middle" font-size="12" font-weight="900" fill="#0E2A47">3</text></g><g class="mark m4" data-s="4"><circle cx="300" cy="88" r="11" fill="#F46744"/><text x="300" y="92.1" text-anchor="middle" font-size="11" font-weight="900" fill="#0E2A47">4</text><text x="300" y="114" text-anchor="middle" font-size="15" font-weight="800" fill="#0E2A47">−$300/mo</text></g><line x1="40" y1="146" x2="410" y2="146" stroke="#C6D3DB" stroke-width="1.5"/><g font-size="11" font-weight="700" fill="#4A5868"><text x="40" y="164" text-anchor="middle">Refi #1</text><text x="190" y="164" text-anchor="middle">Refi #2 · Year 2</text><text x="410" y="164" text-anchor="end">Year 5</text></g></svg>
         </div>
         <div class="sum">
           <ul>
-            <li><span><b>First payment drop</b>$300 × 60 months</span><strong>$18,000</strong></li>
-            <li><span><b>Second payment drop</b>$300 × 36 months</span><strong>$10,800</strong></li>
-            <li><span><b>Lender fees covered</b>$2,300 × 2 refinances</span><strong>$4,600</strong></li>
+            <li data-s="1"><em class="n">1</em><span><b>Lender fees covered</b>Refi #1</span><strong>$2,300</strong></li>
+            <li data-s="2"><em class="n">2</em><span><b>First payment drop</b>$300 × 60 months</span><strong>$18,000</strong></li>
+            <li data-s="3"><em class="n">3</em><span><b>Lender fees covered</b>Refi #2</span><strong>$2,300</strong></li>
+            <li data-s="4"><em class="n">4</em><span><b>Second payment drop</b>$300 × 36 months</span><strong>$10,800</strong></li>
           </ul>
-          <div class="tot"><span>Total over<br>5 years<span class="sup" style="color:#fff">2</span></span><strong>$33,400</strong></div>
+          <div class="tot"><span>Total over<br>5 years<span class="sup" style="color:#fff">2</span></span><strong class="tot-n" data-total="33400">$33,400</strong></div>
         </div>
       </div>
     </div>
@@ -248,6 +247,17 @@ h1 sup,.sup{{font-size:clamp(8px,.3em,12px);font-weight:400 !important;letter-sp
     </ol>
     <div class="legal">{EHO}<p>Moxie Mortgage is a division of NEXA Mortgage, LLC · NMLS #1660690 (nmlsconsumeraccess.org) · AZMB 0944059. Equal Housing Opportunity. This is not a commitment to lend or an offer to extend credit. Rates, terms, programs and availability are subject to change without notice and are not available in all states. Moxie Mortgage is not affiliated with or acting on behalf of any government agency. © 2026 Moxie Mortgage.</p></div>
   </footer>
+<script>(function(){{var ex=document.querySelector('.ex[data-anim]');if(!ex)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var t=ex.querySelector('.tot-n'),f=function(n){{return '$'+Math.round(n).toLocaleString('en-US')}};
+ex.classList.add('anim');t.textContent='$0';
+var steps=[[300,2300],[1900,20300],[2900,22600],[4600,33400]],cur=0;
+function count(to){{var from=cur,st=null;cur=to;t.classList.remove('bump');void t.offsetWidth;t.classList.add('bump');
+requestAnimationFrame(function k(ts){{if(!st)st=ts;var p=Math.min(1,(ts-st)/500);t.textContent=f(from+(to-from)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(k)}})}}
+function play(){{ex.classList.add('play');steps.forEach(function(s){{setTimeout(function(){{count(s[1])}},s[0])}})}}
+window.addEventListener('beforeprint',function(){{t.textContent=f(33400)}});
+if('IntersectionObserver' in window){{var io=new IntersectionObserver(function(es){{if(es[0].isIntersecting){{io.disconnect();play()}}}},{{threshold:.35}});io.observe(ex)}}else play();
+}})();</script>
 </main>
 </body>
 </html>'''
