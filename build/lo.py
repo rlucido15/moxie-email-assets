@@ -476,7 +476,7 @@ refi_slide = ('<div class="lo-sl lo-sl-rf">'
               '<path class="lo-rf-ln" pathLength="1" d="M0,22 C30,16 45,32 70,28 S110,42 135,36 S170,52 195,58 S240,76 300,84"/></svg>'
               '<span class="lo-rf-lbl">Client’s target rate</span><span class="lo-rf-dot"></span></div>'
               '<div class="lo-rf-al">' + ''.join(f'<div class="lo-rf-a"><span class="lo-rf-bell">{BELL}</span><b><small>Past client</small>{a}</b><em>{b}</em></div>' for a, b in RF_ALERTS) + '</div>'
-              + DONE('Clients alerted the moment rates drop') + '</div>')
+              + DONE('LOs alerted the moment a client is in range to refi') + '</div>')
 WH_DOCS = ['Local attractions', 'Parks and trails', 'Restaurants', 'Hospitals and urgent care']
 home_slide = ('<div class="lo-sl lo-sl-wh">'
               '<div class="lo-rov-top"><span class="lo-rov-logo"><b>Welcome home packet</b></span></div>'
