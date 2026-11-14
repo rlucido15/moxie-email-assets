@@ -89,7 +89,14 @@ web = (".mxrb{padding:64px 20px}"
        "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:32px}.mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:22px;padding-right:22px}"
        ".mxrb .hero{padding:28px 22px;gap:24px}.mxrb .ex{margin-top:36px}.mxrb .exgrid{gap:16px}.mxrb .proof{gap:16px}"
        ".mxrb.mxrb .cta{margin-top:36px !important;padding:30px 22px}.mxrb .faq{padding:36px 22px 32px}.mxrb .proof{margin-top:40px;margin-bottom:8px}.mxrb .disc{padding-bottom:32px}}")
-css = base + css + web
+full = (".mxrb.mxrb{padding:0 !important;background:#fff;width:100%}"
+        ".mxrb .page{max-width:none !important;width:100%;border-radius:0 !important;box-shadow:none !important;overflow:visible}"
+        ".mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:max(64px,calc((100% - 1200px) / 2)) !important;padding-right:max(64px,calc((100% - 1200px) / 2)) !important}"
+        ".mxrb.mxrb .cta{padding-left:max(64px,calc((100% - 1200px) / 2)) !important;padding-right:max(64px,calc((100% - 1200px) / 2)) !important}"
+        ".mxrb .page>.head{padding-top:72px}"
+        ".mxrb .lede{max-width:760px}"
+        "@media (max-width:860px){.mxrb .wrap,.mxrb .faq,.mxrb .disc,.mxrb.mxrb .cta{padding-left:22px !important;padding-right:22px !important}.mxrb .page>.head{padding-top:36px}}")
+css = base + css + web + full
 html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty custom HTML block. -->\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap">\n'
