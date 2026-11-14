@@ -7,6 +7,7 @@ ld = re.search(r'(<script type="application/ld\+json">.*?</script>)', src, re.S)
 # ---- markup: avoid tags Lofty restyles
 body = re.sub(r'<b>', '<strong>', body); body = body.replace('</b>', '</strong>')
 body = re.sub(r'<i>', '<span class="ico">', body); body = body.replace('</i>', '</span>')
+body = re.sub(r'<header class="top">.*?</header>', '', body, flags=re.S)
 body = body.replace('<main class="page">', '<div class="page">').replace('</main>', '</div>')
 
 # ---- css: drop page-shell / print rules, then scope everything under .mxrb
@@ -55,7 +56,8 @@ base = (".mxrb{background:#F4F8FA;padding:48px 16px;font-family:Barlow,'Barlow F
         ".mxrb a{text-decoration:none}"
         ".mxrb .ico{display:inline-flex}"
         ".mxrb .page{margin:0 auto}"
-        "@media (max-width:860px){.mxrb{padding:0}}")
+        ".mxrb .page>.head{padding-top:40px}"
+        "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:28px}.mxrb .exhead{flex-direction:column;align-items:flex-start;gap:2px}.mxrb .exhead h3{text-wrap:balance}}")
 css = base + css
 html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty custom HTML block. -->\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
