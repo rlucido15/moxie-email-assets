@@ -8,6 +8,9 @@ ld = re.search(r'(<script type="application/ld\+json">.*?</script>)', src, re.S)
 body = re.sub(r'<b>', '<strong>', body); body = body.replace('</b>', '</strong>')
 body = re.sub(r'<i>', '<span class="ico">', body); body = body.replace('</i>', '</span>')
 body = re.sub(r'<header class="top">.*?</header>', '', body, flags=re.S)
+body = body.replace('You save <em>twice.</em>', 'You save <em>four times.</em>')
+body = re.sub(r'<div class="legal">.*?</div>', '', body, flags=re.S)
+body = body.replace('<footer class="disc">', '<footer class="disc"><h2 class="disc-h">Disclosures</h2>')
 body = body.replace('<main class="page">', '<div class="page">').replace('</main>', '</div>')
 
 # ---- css: drop page-shell / print rules, then scope everything under .mxrb
@@ -72,13 +75,20 @@ web = (".mxrb{padding:64px 20px}"
        ".mxrb .proof{margin-top:28px;gap:20px}"
        ".mxrb.mxrb figure.quote{padding:20px 24px !important}.mxrb .quote p{margin-top:8px;font-size:14px;line-height:1.55}.mxrb .quote .by{margin-top:10px}"
        ".mxrb .stat{padding:20px 24px}"
-       ".mxrb.mxrb .cta{margin-top:48px !important;padding:36px 64px}"
+       ".mxrb.mxrb .cta{margin-top:56px !important;padding:36px 64px}"
        ".mxrb .cta p{margin-top:8px}.mxrb .chips{margin-top:14px;gap:8px 18px}.mxrb .acts{gap:10px}"
        ".mxrb .faq{padding:48px 64px 16px}.mxrb .faq dl{margin-top:18px;gap:22px 40px}.mxrb .faq dd{margin-top:6px}"
        ".mxrb .disc{padding:24px 64px 40px;font-size:11px;line-height:1.5}.mxrb .disc li{margin-bottom:6px}.mxrb .disc .legal{margin-top:12px;padding-top:12px}"
+       ".mxrb .exhead h3{font-size:clamp(26px,3vw,32px);line-height:1.1;letter-spacing:-.02em}"
+       ".mxrb .proof{margin-top:56px;margin-bottom:24px}"
+       ".mxrb .faq{background:#F4F8FA;margin:0;padding:56px 64px 48px;border-top:1px solid #DCE6EB}"
+       ".mxrb .faq h2{font-size:clamp(24px,2.6vw,28px)}"
+       ".mxrb .faq dl>div{background:#fff;border:1px solid #DCE6EB;border-radius:14px;padding:18px 20px}"
+       ".mxrb .disc{border-top:1px solid #DCE6EB;padding-top:28px}"
+       ".mxrb .disc-h{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7A8A99;margin:0 0 12px}"
        "@media (max-width:860px){.mxrb{padding:0}.mxrb .page>.head{padding-top:32px}.mxrb .wrap,.mxrb .faq,.mxrb .disc{padding-left:22px;padding-right:22px}"
        ".mxrb .hero{padding:28px 22px;gap:24px}.mxrb .ex{margin-top:36px}.mxrb .exgrid{gap:16px}.mxrb .proof{gap:16px}"
-       ".mxrb.mxrb .cta{margin-top:36px !important;padding:30px 22px}.mxrb .faq{padding-top:36px}.mxrb .disc{padding-bottom:32px}}")
+       ".mxrb.mxrb .cta{margin-top:36px !important;padding:30px 22px}.mxrb .faq{padding:36px 22px 32px}.mxrb .proof{margin-top:40px;margin-bottom:8px}.mxrb .disc{padding-bottom:32px}}")
 css = base + css + web
 html = ('<!-- Moxie Client Benefit: refinance page block. Paste into a Lofty custom HTML block. -->\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
