@@ -1,6 +1,6 @@
 T = {
     "Home purchase loans": "Préstamos para comprar casa",
-    "Moxie is direct to wholesale, so you skip the retail overhead. Get approved the same day and close in 21 days or less.": "Moxie trabaja directamente con mayoristas, así evitas los gastos minoristas. Obtén tu aprobación el mismo día y cierra en 21 días o menos.",
+    "Moxie is direct to wholesale, so you skip the retail overhead. Get approved the same day and close in 21 days or less.": "Moxie trabaja directamente con bancos al por mayor, así evitas los gastos al por menor. Obtén tu aprobación el mismo día y cierra en 21 días o menos.",
     "Get approved today": "Obtén tu aprobación hoy",
     "Explore loan options": "Explorar opciones de préstamo",
     "24 hrs": "24 h",
@@ -16,7 +16,7 @@ T = {
     "Every Moxie purchase loan comes with protections most lenders don't offer, before and after you close.": "Cada préstamo de compra de Moxie incluye protecciones que la mayoría de los prestamistas no ofrecen, antes y después del cierre.",
     "Low Rates": "Tasas bajas",
     "Guarantee": "con garantía",
-    "Don't pay for a lender's office and overhead. Moxie is direct to wholesale and passes the savings on to you.": "No pagues las oficinas y los gastos de un prestamista. Moxie trabaja directamente con mayoristas y te pasa los ahorros.",
+    "Don't pay for a lender's office and overhead. Moxie is direct to wholesale and passes the savings on to you.": "No pagues las oficinas y los gastos de un prestamista. Moxie trabaja directamente con bancos al por mayor y te pasa los ahorros.",
     "Buyer Rate Protection": "Protección de tasa",
     "If you aren't happy with your mortgage, we'll cover your lender fees on any refinance to help.": "Si no estás contento con tu hipoteca, cubrimos las comisiones del prestamista en cualquier refinanciamiento para ayudarte.",
     "Best Product": "El mejor producto",

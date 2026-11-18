@@ -8,6 +8,7 @@ T = {
     "of the loan amount": "del monto del préstamo",
     "Upfront cost": "Costo inicial",
     "Onboarding call": "Llamada de incorporación",
+    "Onboarding": "Bienvenida",
     "20 min": "20 min",
     "How compensation works": "Cómo funciona la compensación",
     "Adjust the numbers to see what your income could look like.": "Ajusta los números para ver cómo podrían ser tus ingresos.",
@@ -80,11 +81,11 @@ T = {
     "Better for homebuyers": "Mejor para los compradores",
     "And your clients get": "Y tus clientes obtienen",
     "a better deal.": "un mejor trato.",
-    "Moxie is direct to wholesale, so buyers skip the retail overhead. Buyers are always free to choose their own lender.": "Moxie trabaja directamente con mayoristas, así los compradores evitan los gastos minoristas. Los compradores siempre son libres de elegir a su prestamista.",
-    "Lower rates than the largest retail lender, on average": "Tasas más bajas que el prestamista minorista más grande, en promedio",
+    "Moxie is direct to wholesale, so buyers skip the retail overhead. Buyers are always free to choose their own lender.": "Moxie trabaja directamente con bancos al por mayor, así los compradores evitan los gastos al por menor. Los compradores siempre son libres de elegir a su prestamista.",
+    "Lower rates than the largest retail lender, on average": "Tasas más bajas que el prestamista al por menor más grande, en promedio",
     "Average clear to close": "Promedio para la aprobación final para el cierre",
     "14 days": "14 días",
-    "Wholesale investors": "Inversionistas mayoristas",
+    "Wholesale investors": "Inversionistas al por mayor",
     "From agents who work with us": "De agentes que trabajan con nosotros",
     "Top agents say their clients are in great hands.": "Los mejores agentes dicen que sus clientes están en buenas manos.",
     "5.0 on Google": "5.0 en Google",
@@ -111,9 +112,44 @@ T = {
     "Takes about a minute. We’ll reach out to book your 20-minute onboarding call.": "Toma alrededor de un minuto. Te contactaremos para agendar tu llamada de incorporación de 20 minutos.",
     "Thanks! We’ll review it and reach out to book your onboarding call.": "¡Gracias! La revisaremos y te contactaremos para agendar tu llamada de incorporación.",
     "Please select the states you operate in.": "Selecciona los estados donde trabajas.",
-    "Applications aren’t connected yet. Please call (480) 660-2518.": "Las solicitudes aún no están conectadas. Llama al (480) 660-2518.",
-    "Something went wrong sending your application. Please try again or call (480) 660-2518.": "Hubo un problema al enviar tu solicitud. Inténtalo de nuevo o llama al (480) 660-2518.",
+    "Applications aren’t connected yet. Please call 480.660.2518.": "Las solicitudes aún no están conectadas. Llama al 480.660.2518.",
+    "Something went wrong sending your application. Please try again or call 480.660.2518.": "Hubo un problema al enviar tu solicitud. Inténtalo de nuevo o llama al 480.660.2518.",
 }
 R = [
     [r"^Year (\d+)$", r"Año $1"],
 ]
+# Agent reviews (also shown on the loan officer page)
+T.update({
+    "“The team at Moxie are hands down the best I have worked with in 20 years in this industry. Not only are their products, pricing, and investor options unmatched, but also their knowledge, strategy, and overall approach consistently serves our clients at the highest level and makes living their dreams of homeownership possible.”":
+        "“El equipo de Moxie es, sin duda, el mejor con el que he trabajado en 20 años en esta industria. No solo sus productos, precios y opciones de inversionistas son inigualables, sino que su conocimiento, estrategia y enfoque atienden constantemente a nuestros clientes al más alto nivel y hacen posible que vivan su sueño de tener casa propia.”",
+    "“Calvin is always quick to respond, available whenever my clients need him — even on weekends… Having a lender I can fully trust makes a huge difference in my business.”":
+        "“Calvin siempre responde rápido y está disponible cuando mis clientes lo necesitan, incluso los fines de semana… Tener un prestamista en quien puedo confiar plenamente hace una enorme diferencia en mi negocio.”",
+    "“Moxie is great to work with! We threw them a loop and needed to close 30 days early. They were able to pull it off, all while providing great communication + great rates. It was a mini miracle! Highly recommend Moxie!”":
+        "“¡Es genial trabajar con Moxie! Los sorprendimos al necesitar cerrar 30 días antes y lo lograron, con excelente comunicación y excelentes tasas. ¡Fue un pequeño milagro! ¡Recomiendo ampliamente a Moxie!”",
+    "“Working with Robert and Moxie Mortgage was an absolute game-changer. They are relentless, insanely smart, and incredibly knowledgeable — no challenge is too big; they always find a solution. From getting the best rates to providing hands-down top-tier service and communication, Moxie goes above and beyond every step of the way.”":
+        "“Trabajar con Robert y Moxie Mortgage cambió todo. Son incansables, increíblemente inteligentes y tienen muchísimo conocimiento: ningún reto es demasiado grande; siempre encuentran una solución. Desde conseguir las mejores tasas hasta brindar un servicio y una comunicación de primer nivel, Moxie hace más de lo esperado en cada paso.”",
+    "“They went above and beyond for my client and secured an absolutely unparalleled VA interest rate… Even at the last minute, Robert was able to reduce my clients’ costs by an additional $700.”":
+        "“Hicieron más de lo esperado por mi cliente y consiguieron una tasa de interés VA verdaderamente inigualable… Incluso en el último momento, Robert logró reducir los costos de mis clientes en $700 adicionales.”",
+    "“Moxie is incredible to work with! They truly go above and beyond for every client. They’re true solution finders — ALWAYS responsive, proactive, and committed to making the process as smooth as possible. I have full trust in them and look forward to making more clients’ dreams come true together!”":
+        "“¡Es increíble trabajar con Moxie! De verdad hacen más de lo esperado por cada cliente. Siempre encuentran soluciones: SIEMPRE responden, son proactivos y están comprometidos a hacer el proceso lo más fácil posible. Confío plenamente en ellos y espero seguir haciendo realidad los sueños de más clientes juntos.”",
+    "“Robert and his skilled team really are the best I have met in over 25 years! No hidden fees, no hidden costs… Just great service!”":
+        "“¡Robert y su talentoso equipo son, de verdad, los mejores que he conocido en más de 25 años! Sin comisiones ocultas, sin costos ocultos… ¡Solo un gran servicio!”",
+    "“Working with Moxie Mortgage was truly an outstanding experience. From start to finish, their team provided unmatched service — it’s rare to find a lender who combines deep expertise with genuine care for their clients. I highly recommend Robert & Moxie Mortgage to anyone looking for top-tier service and a seamless lending experience!”":
+        "“Trabajar con Moxie Mortgage fue una experiencia realmente sobresaliente. De principio a fin, su equipo brindó un servicio inigualable: es raro encontrar un prestamista que combine tanta experiencia con un interés genuino por sus clientes. ¡Recomiendo ampliamente a Robert y a Moxie Mortgage a cualquiera que busque un servicio de primer nivel y una experiencia de préstamo sin complicaciones!”",
+    "“Despite the 6-hour time difference between the Big Island of Hawaii and Florida, he consistently stays responsive and keeps every transaction moving smoothly all the way to the finish line.”":
+        "“A pesar de las 6 horas de diferencia entre la Isla Grande de Hawái y Florida, siempre responde rápido y mantiene cada transacción avanzando sin problemas hasta la meta.”",
+    "“Moxie Mortgage is fantastic to work with. They’re incredibly knowledgeable, think outside the box to get the deal done, and have excellent communication with agents + clients. Highly recommend!”":
+        "“Es fantástico trabajar con Moxie Mortgage. Tienen muchísimo conocimiento, buscan soluciones creativas para cerrar el trato y tienen una excelente comunicación con agentes y clientes. ¡Muy recomendados!”",
+    "“They were extremely responsive, supportive, and helped navigate several hurdles along the way… they were able to get the loan closed in about 15 days, which was incredibly impressive.”":
+        "“Respondieron rapidísimo, nos apoyaron y ayudaron a superar varios obstáculos en el camino… lograron cerrar el préstamo en unos 15 días, lo cual fue increíblemente impresionante.”",
+    "“Robert at Moxie Mortgage was incredible! He went above and beyond, pulling out all the stops to make sure our deal got done. He was responsive, solution-oriented, and truly fought for us every step of the way. We couldn’t recommend Robert and Moxie Mortgage more highly!”":
+        "“¡Robert de Moxie Mortgage fue increíble! Hizo más de lo esperado y no escatimó esfuerzos para asegurar que nuestro trato se cerrara. Respondió rápido, se enfocó en soluciones y realmente luchó por nosotros en cada paso. ¡No podríamos recomendar más a Robert y a Moxie Mortgage!”",
+    "“Working with Moxie mortgage and Robert Lucido made my clients’ sale and purchase of their new home a smooth transaction. Moxie and Robert did an amazing job making sure we were updated regularly regarding their VA loan which got us to the closing table as quickly as possible!”":
+        "“Trabajar con Moxie Mortgage y Robert Lucido hizo que la venta y la compra de la nueva casa de mis clientes fuera una transacción sin contratiempos. ¡Moxie y Robert hicieron un trabajo increíble manteniéndonos al día sobre su préstamo VA, lo que nos llevó a la mesa de cierre lo más rápido posible!”",
+    "“Shout out to Robert Lucido with Moxie Mortgage, who went above and beyond what I thought was possible, for my client!! Robert’s knowledge and professionalism demonstrated 5-STAR customer service that was unbelievable!”":
+        "“¡¡Un reconocimiento a Robert Lucido de Moxie Mortgage, que hizo más de lo que yo creía posible por mi cliente!! ¡El conocimiento y el profesionalismo de Robert demostraron un servicio al cliente de 5 ESTRELLAS increíble!”",
+    "“Robert and Moxie did a great job getting my first time buyers loan closed in 19 days. We had a small glitch just before closing and Robert went above and beyond to be sure we closed on our contract close date. Thanks for your hard work and professionalism!”":
+        "“Robert y Moxie hicieron un gran trabajo cerrando el préstamo de mis compradores primerizos en 19 días. Tuvimos un pequeño contratiempo justo antes del cierre y Robert hizo más de lo esperado para asegurar que cerráramos en la fecha del contrato. ¡Gracias por su arduo trabajo y profesionalismo!”",
+    "“I had a client who was looking to move to Hawai‘i island. Looking for a VA loan and needed to close in 30 days. Robert and his team were able to work with me and now our clients to make it happen. We closed in the 30 days and our clients are smiling ear to ear.”":
+        "“Tenía un cliente que buscaba mudarse a la isla de Hawái. Necesitaba un préstamo VA y cerrar en 30 días. Robert y su equipo pudieron trabajar conmigo y con nuestros clientes para lograrlo. Cerramos en los 30 días y nuestros clientes están felices.”",
+})

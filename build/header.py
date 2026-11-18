@@ -24,7 +24,7 @@ def a(href, en, es, cls='', extra=''):
 NAV = [
     ('/buy', 'Buy', 'Comprar'),
     ('/refinance', 'Refinance', 'Refinanciar'),
-    ('/heloc', 'HELOC', 'HELOC'),
+    ('/heloc', 'HELOC', 'Línea de Crédito'),
     ('/loanoptions', 'Loan Options', 'Préstamos'),
 ]
 RES = [

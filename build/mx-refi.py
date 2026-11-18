@@ -1,7 +1,7 @@
 T = {
     "It's your equity. Use it.": "Es el valor de tu casa. Úsalo.",
-    "Refinance your mortgage at wholesale pricing": "Refinancia tu hipoteca a precios mayoristas",
-    "Lower your payment without the retail markup. See what you could save in a few minutes, and it won’t affect your credit to start.": "Baja tu pago sin el sobreprecio minorista. Mira cuánto podrías ahorrar en unos minutos, y no afecta tu crédito para empezar.",
+    "Refinance your mortgage at wholesale pricing": "Refinancia tu hipoteca a precios al por mayor",
+    "Lower your payment without the retail markup. See what you could save in a few minutes, and it won’t affect your credit to start.": "Baja tu pago sin el sobreprecio al por menor. Mira cuánto podrías ahorrar en unos minutos, y no afecta tu crédito para empezar.",
     "No junk fees or unnecessary lender fees": "Sin cargos basura ni comisiones innecesarias del prestamista",
     "No-cost refinance for qualifying Moxie purchase clients": "Refinanciamiento sin costo para clientes de compra de Moxie que califican",
     "FHA Streamline and VA IRRRL, usually no appraisal": "FHA Streamline y VA IRRRL, normalmente sin avalúo",
@@ -30,11 +30,11 @@ T = {
     "See your numbers": "Ve tus números",
     "Use the savings tool above or talk to a loan expert. No credit check to see your estimate.": "Usa la herramienta de ahorros de arriba o habla con un experto en préstamos. Ver tu estimado no requiere revisión de crédito.",
     "Apply in about 10 minutes": "Solicita en unos 10 minutos",
-    "Apply securely online. We compare wholesale lenders and lay out your best options side by side.": "Solicita en línea de forma segura. Comparamos prestamistas mayoristas y te mostramos tus mejores opciones lado a lado.",
+    "Apply securely online. We compare wholesale lenders and lay out your best options side by side.": "Solicita en línea de forma segura. Comparamos prestamistas al por mayor y te mostramos tus mejores opciones lado a lado.",
     "Lock and close": "Asegura y cierra",
     "Lock your rate, sign your disclosures, and close. Closing costs can often be rolled into the new loan.": "Asegura tu tasa, firma tus divulgaciones y cierra. Los costos de cierre a menudo se pueden incluir en el nuevo préstamo.",
     "Keep your current rate": "Conserva tu tasa actual",
-    "Home Equity Line of Credit: cash in minutes, not weeks": "Línea de crédito sobre el valor de la vivienda: efectivo en minutos, no en semanas",
+    "Home Equity Line of Credit: cash in minutes, not weeks": "Línea de crédito sobre el valor de la vivienda: efectivo en días, no en semanas",
     "Love your first-mortgage rate? A HELOC lets you tap equity without touching it, and you only pay interest on what you use.": "¿Te encanta la tasa de tu primera hipoteca? Un HELOC te permite usar el valor de tu casa sin tocarla, y solo pagas intereses sobre lo que usas.",
     "Get my money now": "Obtener mi dinero ahora",
     "5 min": "5 min",
@@ -70,8 +70,8 @@ T = {
     "Your savings are still waiting. See your new payment in 60 seconds, then lock it in with a Moxie loan expert.": "Tus ahorros te siguen esperando. Ve tu nuevo pago en 60 segundos y luego asegúralo con un experto en préstamos de Moxie.",
     "Call our Hawaii team at 808.818.5618.": "Llama a nuestro equipo de Hawái al 808.818.5618.",
     "Serving Hawaii homeowners": "Al servicio de propietarios en Hawái",
-    "Refinance your Hawaii home at wholesale pricing": "Refinancia tu casa en Hawái a precios mayoristas",
-    "Lower your payment without the retail markup. See what you could save in a few minutes. Questions? Call our Hawaii team at 808.818.5618.": "Baja tu pago sin el sobreprecio minorista. Mira cuánto podrías ahorrar en unos minutos. ¿Preguntas? Llama a nuestro equipo de Hawái al 808.818.5618.",
+    "Refinance your Hawaii home at wholesale pricing": "Refinancia tu casa en Hawái a precios al por mayor",
+    "Lower your payment without the retail markup. See what you could save in a few minutes. Questions? Call our Hawaii team at 808.818.5618.": "Baja tu pago sin el sobreprecio al por menor. Mira cuánto podrías ahorrar en unos minutos. ¿Preguntas? Llama a nuestro equipo de Hawái al 808.818.5618.",
 }
 R = []
 
@@ -173,7 +173,7 @@ T.update({
     "You start saving right away, and you’re fully ahead of costs in about": "Empiezas a ahorrar de inmediato, y recuperas por completo los costos en unos",
     "Your savings begin the first month. Because it takes about": "Tus ahorros empiezan el primer mes. Como toma alrededor de",
     "to fully cover costs, this one makes the most sense if you plan to keep the home past then.": "cubrir por completo los costos, esta opción tiene más sentido si planeas quedarte con la casa más tiempo.",
-    "You’d keep about": "Te quedarías con unos", "more every month": "más cada mes", "— roughly": ": aproximadamente",
+    "You’d keep about": "Te quedarías con unos", "more every month": "más cada mes", "— roughly": "— aproximadamente",
     "Most borrowers roll refinance costs into the loan, so there’s often little or nothing due up front.": "La mayoría de los prestatarios incluye los costos del refinanciamiento en el préstamo, así que a menudo se paga poco o nada al inicio.",
     "(Est. costs ~": "(Costos est. ~", ", typically financed. Full breakdown below.)": ", normalmente financiados. Desglose completo abajo.)",
     "/mo less": "/mes menos", "Depends on rate": "Depende de la tasa", "Up to": "Hasta", "Payment ~": "Pago ~", "/mo at": "/mes al",
@@ -193,4 +193,39 @@ T.update({
 R += [
     [r"^(\d+) months?$", r"$1 meses"],
     [r"^(\d+) years?$", r"$1 años"],
+]
+
+T.update({
+    "quoted": "cotizada", "comparison": "comparación", "/mo": "/mes", "60 seconds": "60 segundos", "pay it off sooner": "liquidarla antes",
+    "Sending…": "Enviando…", "at this rate.": "con esta tasa.", "a year": "al año", "back in your budget.": "de vuelta en tu presupuesto.",
+    "30-year fixed at": "Fija a 30 años al", "20-year fixed at": "Fija a 20 años al", "interest saved": "de intereses ahorrados",
+    "5 yrs": "5 años", "months": "meses", "month": "mes", "1 field is worth double-checking.": "Vale la pena revisar 1 campo.",
+    "Because escrows look required here (FHA, VA, or USDA, or loan-to-value above 80%), we included an estimate for funding a new escrow account up front; your existing escrow balance is typically refunded separately after closing.":
+        "Como aquí parece que el escrow es obligatorio (FHA, VA o USDA, o una relación préstamo-valor mayor a 80%), incluimos un estimado para fondear una nueva cuenta escrow al inicio; el saldo de tu escrow actual normalmente se reembolsa por separado después del cierre.",
+    "Costs are assumed rolled into the loan; cash-out assumes lending up to 80% of your home’s value.": "Suponemos que los costos se incluyen en el préstamo; el retiro de efectivo supone un préstamo de hasta 80% del valor de tu casa.",
+    "Your actual rate depends on credit, loan-to-value, property type, income, and market conditions, and may differ from the rate you entered. Actual closing costs, escrow setup, and prepaid interest vary by lender and closing date. Nothing here is a rate lock, offer, or approval; a Moxie advisor confirms real numbers for your situation.":
+        "Tu tasa real depende del crédito, la relación préstamo-valor, el tipo de propiedad, los ingresos y las condiciones del mercado, y puede ser distinta de la tasa que ingresaste. Los costos de cierre reales, la apertura del escrow y los intereses prepagados varían según el prestamista y la fecha de cierre. Nada de esto es un bloqueo de tasa, una oferta ni una aprobación; un asesor de Moxie confirma los números reales para tu situación.",
+    "That matches your current rate.": "Es igual a tu tasa actual.",
+    "That's above your current rate — we'll show you what that looks like too.": "Está por encima de tu tasa actual; también te mostraremos cómo se ve eso.",
+})
+R += [
+    [r"^That's ([\d.]+) points below your current rate — let's see the impact\.$", r"Son $1 puntos por debajo de tu tasa actual; veamos el impacto."],
+    [r"^That's ([\d.]+) points below your current rate\.$", r"Son $1 puntos por debajo de tu tasa actual."],
+    [r"^(\d+) fields are worth double-checking\.$", r"Vale la pena revisar $1 campos."],
+    [r"^(\d+)-year fixed at (.+)$", r"Fija a $1 años al $2"],
+    [r"^Payment at (.+)$", r"Pago al $1"],
+    [r"^Payment ~(\S+)/mo at (.+)$", r"Pago ~$1/mes al $2"],
+    [r"^~(\S+) interest saved$", r"~$1 de intereses ahorrados"],
+    [r"^Up to (\S+)$", r"Hasta $1"],
+    [r"^(\S+)/mo less$", r"$1/mes menos"],
+    [r"^(\S+)/mo more$", r"$1/mes más"],
+    [r"^(\d+) yrs$", r"$1 años"],
+    [r"^At (\S+) on a 30-year term, your estimated payment drops by about (\S+)/month, with an estimated break-even near (\S+) months\. This is a calculation at the rate you entered, not a rate offer\.$",
+     r"Con $1 a un plazo de 30 años, tu pago estimado baja alrededor de $2/mes, con un punto de equilibrio estimado cerca de $3 meses. Este es un cálculo con la tasa que ingresaste, no una oferta de tasa."],
+    [r"^At (\S+) on a 20-year term, you could save roughly (\S+) in total interest versus staying your current course, and be mortgage-free sooner\.$",
+     r"Con $1 a un plazo de 20 años, podrías ahorrar aproximadamente $2 en intereses totales en comparación con seguir como vas, y quedar libre de hipoteca antes."],
+    [r"^At (\S+), the numbers here are close to a wash — modest monthly change and a long break-even\. Rather than guess, get an actual rate from a Moxie advisor and see if there's a better one worth acting on\.$",
+     r"Con $1, los números quedan casi iguales: un cambio mensual modesto y un punto de equilibrio lejano. En lugar de adivinar, pide una tasa real a un asesor de Moxie y ve si hay una mejor que valga la pena."],
+    [r"^Based on your equity, you could access up to about (\S+)\. The figures use the (\S+) comparison rate you entered — a Moxie advisor would confirm your actual rate\.$",
+     r"Según tu valor líquido, podrías acceder a hasta unos $1. Las cifras usan la tasa de comparación de $2 que ingresaste; un asesor de Moxie confirmaría tu tasa real."],
 ]

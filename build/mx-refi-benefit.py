@@ -1,4 +1,4 @@
-# Spanish for the Moxie Client Benefit refinance page block (.mxrb). The Google review quote stays in English on purpose.
+# Spanish for the Moxie Client Benefit refinance page block (.mxrb).
 T = {
     "Moxie Client Benefit": "Beneficio para clientes de Moxie",
     "Your payment should drop": "Tu pago debería bajar",
@@ -29,7 +29,7 @@ T = {
     "Total over": "Total en",
     "5 years": "5 años",
     "5 out of 5 stars": "5 de 5 estrellas",
-    "· New Jersey · Google review": "· Nueva Jersey · Reseña de Google (en inglés)",
+    "· New Jersey · Google review": "· Nueva Jersey · Reseña de Google",
     "/mo": "/mes",
     "Justin’s combined monthly": "Ahorro mensual combinado de Justin",
     "savings on two refinances": "en dos refinanciamientos",
@@ -60,4 +60,8 @@ T = {
     "Client review posted on Google. Savings reflect this client’s combined monthly payment reduction across two refinances and are not typical or guaranteed; individual results vary.":
         "Reseña de un cliente publicada en Google. El ahorro refleja la reducción combinada del pago mensual de este cliente en dos refinanciamientos y no es típico ni está garantizado; los resultados individuales varían.",
 }
+T.update({
+    "“I refinanced two properties at the same time with Moxie, and the whole experience was outstanding from start to finish. If you want a team that truly knows what they’re doing and makes the process as seamless as possible, they are the people to call.”":
+        "“Refinancié dos propiedades al mismo tiempo con Moxie, y toda la experiencia fue sobresaliente de principio a fin. Si quieres un equipo que de verdad sabe lo que hace y que hace el proceso lo más fácil posible, son las personas a quienes llamar.”",
+})
 R = []

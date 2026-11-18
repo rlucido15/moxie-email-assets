@@ -336,6 +336,17 @@ function swapLogos() {{
   var t = new Image(); t.onload = function () {{ glogoOk = true; go(); }}; t.onerror = function () {{ glogoOk = false; }}; t.src = GLOGO;
 }}
 swapLogos();
+// Reviews carry English and Spanish text (text / text_es in reviews.json); the header's EN | ES toggle swaps them in place.
+function rvEs() {{ return !!(window.MX && MX.i18n && MX.i18n.lang === 'es'); }}
+function rvClip(t) {{ t = String(t); return '“' + (t.length > 260 ? t.slice(0, 257).replace(/\\s+\\S*$/, '') + '…' : t) + '”'; }}
+if (!window.__mxRvLang) {{
+  window.__mxRvLang = true;
+  document.addEventListener('mx:lang', function (e) {{
+    var es = e && e.detail && e.detail.lang === 'es';
+    document.querySelectorAll('blockquote[data-rv-en]').forEach(function (b) {{ b.textContent = (es && b.getAttribute('data-rv-es')) || b.getAttribute('data-rv-en'); }});
+    document.querySelectorAll('.mx-stars[data-rv-n]').forEach(function (st) {{ var n = st.getAttribute('data-rv-n'); st.setAttribute('aria-label', n + (es ? ' de 5 estrellas' : ' out of 5 stars')); }});
+  }});
+}}
 function loadReviews(hi) {{
   fetch(window.MX_REVIEWS_URL || '{CDN_MAIN}reviews.json').then(function (r) {{ return r.json(); }}).then(function (d) {{
     var sec = root.querySelector('#mxb-reviews');
@@ -358,9 +369,10 @@ function loadReviews(hi) {{
       var f = document.createElement('figure'); f.className = 'mx-rev';
       f.innerHTML = '<div class="mx-rev-top"><span class="mx-stars" role="img"></span><span class="mx-rev-src"></span></div><blockquote></blockquote><figcaption><span class="mx-av" aria-hidden="true"></span><span></span></figcaption>';
       var r = Math.max(1, Math.min(5, Math.round(x.rating || 5)));
-      f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('aria-label', r + ' out of 5 stars');
+      f.querySelector('.mx-stars').textContent = '★★★★★'.slice(0, r); f.querySelector('.mx-stars').setAttribute('data-rv-n', r); f.querySelector('.mx-stars').setAttribute('aria-label', r + (rvEs() ? ' de 5 estrellas' : ' out of 5 stars'));
       f.querySelector('.mx-rev-src').textContent = x.source || 'Google'; f.querySelector('.mx-rev-src').setAttribute('data-glogo', '');
-      var t = String(x.text); f.querySelector('blockquote').textContent = '“' + (t.length > 260 ? t.slice(0, 257).replace(/\\s+\\S*$/, '') + '…' : t) + '”';
+      var bq = f.querySelector('blockquote'); bq.setAttribute('data-rv-en', rvClip(x.text)); if (x.text_es) bq.setAttribute('data-rv-es', rvClip(x.text_es));
+      bq.textContent = (rvEs() && x.text_es) ? rvClip(x.text_es) : rvClip(x.text);
       var a = String(x.author || 'Google user'), av = f.querySelector('.mx-av'); av.textContent = a.charAt(0); f.querySelector('figcaption span:last-child').textContent = a;
       if (x.photo && /^https:\\/\\/lh3\\.googleusercontent\\.com\\//.test(x.photo)) {{
         var im = new Image(); im.alt = ''; im.width = 40; im.height = 40; im.decoding = 'async'; im.referrerPolicy = 'no-referrer';

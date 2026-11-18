@@ -1,16 +1,16 @@
 T = {
     "Loan officer careers": "Carreras para oficiales de préstamos",
-    "Win more loans with wholesale pricing and a referral pipeline.": "Gana más préstamos con precios mayoristas y un flujo de referidos.",
+    "Win more loans with wholesale pricing and a referral pipeline.": "Gana más préstamos con precios al por mayor y un flujo de referidos.",
     "Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers. You get 300+ wholesale investors, introductions from our Area Directors and agent partners, purpose-built sales tools, and a mentor on your deals.":
-        "Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia. Tendrás más de 300 inversionistas mayoristas, presentaciones de clientes de nuestros Directores de Área y agentes aliados, herramientas de venta hechas a la medida y un mentor en tus operaciones.",
+        "Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia. Tendrás más de 300 inversionistas al por mayor, presentaciones de clientes de nuestros Directores de Área y agentes aliados, herramientas de venta hechas a la medida y un mentor en tus operaciones.",
     "See what you get": "Mira lo que obtienes",
     "Moxie at a glance": "Moxie de un vistazo",
-    "Wholesale investors to price every file": "Inversionistas mayoristas para cotizar cada expediente",
+    "Wholesale investors to price every file": "Inversionistas al por mayor para cotizar cada expediente",
     "Avg. clear to close": "Prom. para la aprobación final",
     "Sound familiar?": "¿Te suena conocido?",
     "Stop saying no to good borrowers.": "Deja de decirles que no a buenos prestatarios.",
     "Stop losing deals on rate": "Deja de perder operaciones por la tasa",
-    "Price every file across 300+ wholesale investors instead of one rate sheet.": "Cotiza cada expediente con más de 300 inversionistas mayoristas en lugar de una sola hoja de tasas.",
+    "Price every file across 300+ wholesale investors instead of one rate sheet.": "Cotiza cada expediente con más de 300 inversionistas al por mayor en lugar de una sola hoja de tasas.",
     "Stop turning away self-employed borrowers": "Deja de rechazar a trabajadores independientes",
     "Bank statement, P&L and asset depletion loans when tax returns don’t tell the story.": "Préstamos con estados de cuenta bancarios, estado de pérdidas y ganancias o agotamiento de activos cuando las declaraciones de impuestos no cuentan toda la historia.",
     "Stop saying no to lower credit scores": "Deja de decirles que no a puntajes de crédito más bajos",
@@ -24,7 +24,7 @@ T = {
     "Why loan officers move to Moxie": "Por qué los oficiales de préstamos se cambian a Moxie",
     "Everything you need to close more loans, under one roof.": "Todo lo que necesitas para cerrar más préstamos, en un solo lugar.",
     "Lender access and pricing": "Acceso a prestamistas y precios",
-    "Shop 300+ wholesale investors through NEXA instead of one rate sheet. Moxie rates averaged 0.559% lower than the largest retail lender.": "Compara más de 300 inversionistas mayoristas a través de NEXA en lugar de una sola hoja de tasas. Las tasas de Moxie fueron en promedio 0.559% más bajas que las del prestamista minorista más grande.",
+    "Shop 300+ wholesale investors through NEXA instead of one rate sheet. Moxie rates averaged 0.559% lower than the largest retail lender.": "Compara más de 300 inversionistas al por mayor a través de NEXA en lugar de una sola hoja de tasas. Las tasas de Moxie fueron en promedio 0.559% más bajas que las del prestamista al por menor más grande.",
     "A referral pipeline": "Un flujo de referidos",
     "Moxie Area Directors build agent relationships in their markets, and agent partners introduce their buyers to Moxie loan officers.": "Los Directores de Área de Moxie construyen relaciones con agentes en sus mercados, y los agentes aliados presentan a sus compradores con los oficiales de préstamos de Moxie.",
     "Tools that sell for you": "Herramientas que venden por ti",
@@ -33,10 +33,10 @@ T = {
     "Dedicated processors, a full back office, Moxie University, and a mentor for deal strategy.": "Procesadores dedicados, un área administrativa completa, Moxie University y un mentor para la estrategia de cada operación.",
     "Win on price and speed": "Gana por precio y rapidez",
     "Quote with confidence when buyers compare offers.": "Cotiza con confianza cuando los compradores comparan ofertas.",
-    "Wholesale pricing means your borrowers skip the retail overhead, and fast closings help their offers win.": "Los precios mayoristas significan que tus prestatarios evitan los gastos minoristas, y los cierres rápidos ayudan a que sus ofertas ganen.",
+    "Wholesale pricing means your borrowers skip the retail overhead, and fast closings help their offers win.": "Los precios al por mayor significan que tus prestatarios evitan los gastos al por menor, y los cierres rápidos ayudan a que sus ofertas ganen.",
     "Loan programs": "Programas de préstamo",
     "Thousands of programs, so you can say yes more often.": "Miles de programas, para que puedas decir que sí más seguido.",
-    "Through NEXA’s wholesale investors, Moxie loan officers can match nearly any borrower to a program, from first-time buyers to self-employed borrowers and investors.": "Con los inversionistas mayoristas de NEXA, los oficiales de préstamos de Moxie pueden encontrar un programa para casi cualquier prestatario, desde compradores de primera vez hasta trabajadores independientes e inversionistas.",
+    "Through NEXA’s wholesale investors, Moxie loan officers can match nearly any borrower to a program, from first-time buyers to self-employed borrowers and investors.": "Con los inversionistas al por mayor de NEXA, los oficiales de préstamos de Moxie pueden encontrar un programa para casi cualquier prestatario, desde compradores de primera vez hasta trabajadores independientes e inversionistas.",
     "Jumbo and super jumbo": "Jumbo y super jumbo",
     "Second mortgages": "Segundas hipotecas",
     "Bank statement": "Estados de cuenta bancarios",
@@ -72,7 +72,7 @@ T = {
     "The agent introduces the buyer by group text or a quick call.": "El agente presenta al comprador por un mensaje de grupo o una llamada rápida.",
     "Step 3": "Paso 3",
     "You run the file": "Tú llevas el expediente",
-    "Preapproval or a plan of action, priced across wholesale investors.": "Preaprobación o un plan de acción, cotizado con inversionistas mayoristas.",
+    "Preapproval or a plan of action, priced across wholesale investors.": "Preaprobación o un plan de acción, cotizado con inversionistas al por mayor.",
     "Step 4": "Paso 4",
     "Agent stays in the loop": "El agente se mantiene al tanto",
     "The agent tracks the loan in the Moxie Realtor Portal.": "El agente sigue el préstamo en el portal para agentes de Moxie.",
@@ -80,16 +80,16 @@ T = {
     "Repeat business": "Clientes recurrentes",
     "Happy agents send the next buyer, and past clients come back to refinance.": "Los agentes contentos mandan al siguiente comprador, y los clientes anteriores regresan a refinanciar.",
     "Referral volume varies by market and is not guaranteed. Buyers always choose their own lender.": "El volumen de referidos varía según el mercado y no está garantizado. Los compradores siempre eligen a su propio prestamista.",
-    "Retail vs. Moxie": "Minorista vs. Moxie",
+    "Retail vs. Moxie": "Al por menor vs. Moxie",
     "More ways to say yes, at a price your borrower can feel.": "Más formas de decir que sí, a un precio que tu prestatario nota.",
-    "A typical retail lender compared with originating at Moxie Mortgage": "Un prestamista minorista típico comparado con originar en Moxie Mortgage",
-    "Typical retail lender": "Prestamista minorista típico",
+    "A typical retail lender compared with originating at Moxie Mortgage": "Un prestamista al por menor típico comparado con originar en Moxie Mortgage",
+    "Typical retail lender": "Prestamista al por menor típico",
     "Moxie loan officer": "Oficial de préstamos de Moxie",
     "One lender’s product shelf": "Los productos de un solo prestamista",
-    "300+ wholesale investors: conventional, FHA, VA, jumbo, non-QM and HELOC": "Más de 300 inversionistas mayoristas: convencional, FHA, VA, jumbo, Non-QM y HELOC",
+    "300+ wholesale investors: conventional, FHA, VA, jumbo, non-QM and HELOC": "Más de 300 inversionistas al por mayor: convencional, FHA, VA, jumbo, Non-QM y HELOC",
     "Pricing": "Precios",
-    "Retail pricing that carries branch overhead": "Precios minoristas que cargan los gastos de sucursales",
-    "Wholesale pricing; rates averaged 0.559% lower than the largest retail lender": "Precios mayoristas; tasas en promedio 0.559% más bajas que las del prestamista minorista más grande",
+    "Retail pricing that carries branch overhead": "Precios al por menor que cargan los gastos de sucursales",
+    "Wholesale pricing; rates averaged 0.559% lower than the largest retail lender": "Precios al por mayor; tasas en promedio 0.559% más bajas que las del prestamista al por menor más grande",
     "Speed": "Rapidez",
     "38-day industry average to close": "Promedio de la industria de 38 días para cerrar",
     "14-day average clear to close": "Promedio de 14 días para la aprobación final para el cierre",
@@ -153,7 +153,7 @@ T = {
     "Loan officer FAQs.": "Preguntas frecuentes para oficiales de préstamos.",
     "What is it like to be a loan officer at Moxie Mortgage?": "¿Cómo es ser oficial de préstamos en Moxie Mortgage?",
     "Moxie Mortgage is a wholesale mortgage brokerage and a division of NEXA Mortgage. Moxie loan officers price loans across 300+ wholesale investors, get introductions from Moxie Area Directors and agent partners, use Moxie’s client tools and CRM, and work with a mentor and a team that meets twice a week.":
-        "Moxie Mortgage es una corredura hipotecaria mayorista y una división de NEXA Mortgage. Los oficiales de préstamos de Moxie cotizan con más de 300 inversionistas mayoristas, reciben presentaciones de los Directores de Área de Moxie y de agentes aliados, usan las herramientas para clientes y el CRM de Moxie, y trabajan con un mentor y un equipo que se reúne dos veces por semana.",
+        "Moxie Mortgage es una corredura hipotecaria al por mayor y una división de NEXA Mortgage. Los oficiales de préstamos de Moxie cotizan con más de 300 inversionistas al por mayor, reciben presentaciones de los Directores de Área de Moxie y de agentes aliados, usan las herramientas para clientes y el CRM de Moxie, y trabajan con un mentor y un equipo que se reúne dos veces por semana.",
     "How are Moxie loan officers paid?": "¿Cómo se les paga a los oficiales de préstamos de Moxie?",
     "Loan officers are paid on closed loans under a written compensation agreement, and commission is paid as each loan closes. W-2 and 1099 options are available, and eligible loan officers can access medical, dental and vision coverage, a 401(k) and an HSA. We walk through the full plan, including splits and any costs you’re responsible for, on your intro call. As federal rules require, loan officer pay is never based on a loan’s rate or terms.":
         "A los oficiales de préstamos se les paga por préstamos cerrados bajo un acuerdo de compensación por escrito, y la comisión se paga a medida que cierra cada préstamo. Hay opciones W-2 y 1099, y los oficiales elegibles tienen acceso a cobertura médica, dental y de la vista, un 401(k) y una HSA. En tu llamada de introducción revisamos el plan completo, incluidos los porcentajes y cualquier costo que te corresponda. Como lo exigen las reglas federales, el pago del oficial de préstamos nunca se basa en la tasa ni en los términos del préstamo.",
@@ -162,7 +162,7 @@ T = {
         "Los Directores de Área de Moxie construyen relaciones con agentes de bienes raíces en sus mercados, y los agentes aliados presentan a sus compradores con los oficiales de préstamos de Moxie. El volumen de referidos varía según el mercado y no está garantizado, así que también harás crecer tu propia red, con la ayuda del marketing compartido de Moxie.",
     "Which lenders and loan programs can I offer?": "¿Qué prestamistas y programas de préstamo puedo ofrecer?",
     "Through NEXA, Moxie loan officers can shop more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, ITIN and foreign national loans, construction, renovation and reverse mortgages.":
-        "A través de NEXA, los oficiales de préstamos de Moxie pueden comparar más de 300 inversionistas mayoristas y miles de programas: préstamos convencionales, FHA, VA, USDA y jumbo, HELOC y segundas hipotecas, préstamos con estados de cuenta bancarios y otros Non-QM, préstamos DSCR y fix-and-flip para inversionistas, préstamos ITIN y para extranjeros, construcción, remodelación e hipotecas inversas.",
+        "A través de NEXA, los oficiales de préstamos de Moxie pueden comparar más de 300 inversionistas al por mayor y miles de programas: préstamos convencionales, FHA, VA, USDA y jumbo, HELOC y segundas hipotecas, préstamos con estados de cuenta bancarios y otros Non-QM, préstamos DSCR y fix-and-flip para inversionistas, préstamos ITIN y para extranjeros, construcción, remodelación e hipotecas inversas.",
     "What technology do Moxie loan officers use?": "¿Qué tecnología usan los oficiales de préstamos de Moxie?",
     "Arive for loan origination, Lofty for CRM and follow-up, and Moxie’s client tools, including a debt consolidation worksheet with MISMO 3.4 credit import, ARM vs. fixed and buydown comparisons, and an effective rate calculator.":
         "Arive para la originación de préstamos, Lofty como CRM y para el seguimiento, y las herramientas para clientes de Moxie, como una hoja de consolidación de deudas con importación de crédito MISMO 3.4, comparaciones de ARM vs. fija y de reducción de tasa, y una calculadora de tasa efectiva.",
@@ -201,11 +201,11 @@ T = {
 }
 R = []
 
-# ---- deal-flow rework (82% company-generated, 86% purchase)
+# ---- deal-flow rework (82% company-generated, 78% purchase)
 T.update({
     "Close more loans without chasing leads.": "Cierra más préstamos sin perseguir prospectos.",
-    "Since day one, 82% of Moxie’s business has been company-generated, and 86% of it is purchase. Join Moxie Mortgage, a division of NEXA Mortgage, and work a purchase pipeline we help build, priced across 300+ wholesale investors.":
-        "Desde el primer día, el 82% del negocio de Moxie ha sido generado por la empresa, y el 86% es de compra. Únete a Moxie Mortgage, una división de NEXA Mortgage, y trabaja una cartera de compras que te ayudamos a construir, con precios de más de 300 inversionistas mayoristas.",
+    "Since day one, 82% of Moxie’s business has been company-generated, and 78% of it is purchase. Join Moxie Mortgage, a division of NEXA Mortgage, and work a purchase pipeline we help build, priced across 300+ wholesale investors.":
+        "Desde el primer día, el 82% del negocio de Moxie ha sido generado por la empresa, y el 78% es de compra. Únete a Moxie Mortgage, una división de NEXA Mortgage, y trabaja una cartera de compras que te ayudamos a construir, con precios de más de 300 inversionistas al por mayor.",
     "Talk with our founder": "Habla con nuestro fundador",
     "Company-generated business since day one": "Negocio generado por la empresa desde el primer día",
     "Purchase business": "Negocio de compra",
@@ -218,8 +218,8 @@ T.update({
         "Los compradores siguen comprando cuando los refinanciamientos se acaban. Una cartera enfocada en compras mantiene tu producción estable cuando las tasas no ayudan.",
     "How introductions reach you": "Cómo te llegan las presentaciones",
     "Company-generated deals": "Préstamos generados por la empresa",
-    "82% of Moxie’s business since day one has been company-generated by Area Directors, agent partners and Moxie marketing, and 86% is purchase.":
-        "El 82% del negocio de Moxie desde el primer día lo han generado los Directores de Área, los agentes aliados y el marketing de Moxie, y el 86% es de compra.",
+    "82% of Moxie’s business since day one has been company-generated by Area Directors, agent partners and Moxie marketing, and 78% is purchase.":
+        "El 82% del negocio de Moxie desde el primer día lo han generado los Directores de Área, los agentes aliados y el marketing de Moxie, y el 78% es de compra.",
     "Your past clients": "Tus clientes anteriores",
     "Your database is your next pipeline.": "Tu base de datos es tu próxima cartera.",
     "Most homeowners won’t give up a low first-mortgage rate. You’ll have the products and tools to help them anyway, without waiting for rates to fall.":
@@ -241,20 +241,20 @@ T.update({
     "Your intro call is with Robert Lucido Jr, Moxie’s founder. Ask him anything: compensation, where the deals come from, and what your first 90 days look like. The conversation is confidential.":
         "Tu llamada inicial es con Robert Lucido Jr, el fundador de Moxie. Pregúntale lo que quieras: la compensación, de dónde vienen los préstamos y cómo serán tus primeros 90 días. La conversación es confidencial.",
     "Book a confidential call": "Agenda una llamada confidencial",
-    "Yes. Since Moxie’s inception, 82% of its business has been company-generated through Moxie Area Directors, agent partners and Moxie marketing, and 86% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.":
-        "Sí. Desde el inicio de Moxie, el 82% de su negocio ha sido generado por la empresa a través de los Directores de Área, los agentes aliados y el marketing de Moxie, y el 86% ha sido de compra. El volumen de referidos varía según el mercado y no está garantizado, así que igual harás crecer tu propia red, con el co-marketing de Moxie como apoyo.",
+    "Yes. Since Moxie’s inception, 82% of its business has been company-generated through Moxie Area Directors, agent partners and Moxie marketing, and 78% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.":
+        "Sí. Desde el inicio de Moxie, el 82% de su negocio ha sido generado por la empresa a través de los Directores de Área, los agentes aliados y el marketing de Moxie, y el 78% ha sido de compra. El volumen de referidos varía según el mercado y no está garantizado, así que igual harás crecer tu propia red, con el co-marketing de Moxie como apoyo.",
     "Fill out the short application on this page. We’ll reach out to book a 20-minute intro call with Robert Lucido Jr, Moxie’s founder, to review compensation, the referral pipeline and next steps.":
         "Llena la solicitud corta en esta página. Te contactaremos para agendar una llamada inicial de 20 minutos con Robert Lucido Jr, el fundador de Moxie, para revisar la compensación, la cartera de referidos y los siguientes pasos.",
     "20-minute call with our founder": "Llamada de 20 minutos con nuestro fundador",
     "Robert walks you through compensation, the referral pipeline and how Moxie fits your business.": "Robert te explica la compensación, la cartera de referidos y cómo Moxie se adapta a tu negocio.",
-    "Share of Moxie Mortgage’s business from inception through November 2026: company-generated versus loan officer–sourced, and purchase versus refinance. Past results don’t guarantee future referral volume.":
-        "Proporción del negocio de Moxie Mortgage desde su inicio hasta noviembre de 2026: generado por la empresa frente a conseguido por el oficial de préstamos, y compra frente a refinanciamiento. Los resultados pasados no garantizan el volumen futuro de referidos.",
+    "Share of Moxie Mortgage’s loan volume from inception through November 2026: company-generated versus loan officer–sourced, and purchase versus refinance. Past results don’t guarantee future referral volume.":
+        "Proporción del volumen de préstamos de Moxie Mortgage desde su inicio hasta noviembre de 2026: generado por la empresa frente a conseguido por el oficial de préstamos, y compra frente a refinanciamiento. Los resultados pasados no garantizan el volumen futuro de referidos.",
 })
 
 # ---- operations, transparency and pay emphasis
 T.update({
     "Wholesale pricing means your borrowers skip the retail overhead, and fast closings help their offers win. You see the full pricing and the investor purchase advice on every loan.":
-        "Los precios mayoristas permiten que tus clientes se ahorren los costos minoristas, y los cierres rápidos ayudan a que sus ofertas ganen. Ves los precios completos y el aviso de compra del inversionista en cada préstamo.",
+        "Los precios al por mayor permiten que tus clientes se ahorren los costos al por menor, y los cierres rápidos ayudan a que sus ofertas ganen. Ves los precios completos y el aviso de compra del inversionista en cada préstamo.",
     "Built to close": "Hecho para cerrar",
     "Operations that keep your files moving.": "Operaciones que mantienen tus expedientes en movimiento.",
     "The deals only count if they close. Moxie keeps processing in-house and has priority lines into the investors you use most.":
@@ -272,7 +272,7 @@ T.update({
     "In-house operations": "Operaciones internas",
     "In-house processing, priority underwriting and account support with key investors, and a mentor for deal strategy.":
         "Procesamiento interno, suscripción prioritaria y soporte de cuenta con inversionistas clave, y un mentor para la estrategia de tus préstamos.",
-    "82% of business company-generated, 86% purchase": "82% del negocio generado por la empresa, 86% de compra",
+    "82% of business company-generated, 78% purchase": "82% del negocio generado por la empresa, 78% de compra",
     "In-house processing, plus priority underwriting and account support with key investors": "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave",
     "Transparency": "Transparencia",
     "You see your split, not the pricing": "Ves tu porcentaje, no los precios",
@@ -292,8 +292,8 @@ T.update({
         "Moxie procesa los préstamos internamente, y sus oficiales de préstamos reciben suscripción prioritaria y soporte de cuenta con inversionistas clave en todos los tipos de producto. También tienes transparencia total en los precios y el aviso de compra del inversionista en cada préstamo.",
 })
 T.update({
-    "Yes. Moxie builds relationships with key enterprise accounts in its markets, which generate warm opportunities for Moxie loan officers, alongside introductions from Moxie Area Directors and agent partners. Since Moxie’s inception, 82% of its business has been company-generated and 86% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.":
-        "Sí. Moxie construye relaciones con cuentas empresariales clave en sus mercados, que generan oportunidades calificadas para los oficiales de préstamos de Moxie, además de las presentaciones de los Directores de Área y los agentes aliados de Moxie. Desde el inicio de Moxie, el 82% de su negocio ha sido generado por la empresa y el 86% ha sido de compra. El volumen de referidos varía según el mercado y no está garantizado, así que igual harás crecer tu propia red, con el co-marketing de Moxie como apoyo.",
+    "Yes. Moxie builds relationships with key enterprise accounts in its markets, which generate warm opportunities for Moxie loan officers, alongside introductions from Moxie Area Directors and agent partners. Since Moxie’s inception, 82% of its business has been company-generated and 78% has been purchase business. Referral volume varies by market and isn’t guaranteed, so you’ll still grow your own network, with Moxie co-marketing to help.":
+        "Sí. Moxie construye relaciones con cuentas empresariales clave en sus mercados, que generan oportunidades calificadas para los oficiales de préstamos de Moxie, además de las presentaciones de los Directores de Área y los agentes aliados de Moxie. Desde el inicio de Moxie, el 82% de su negocio ha sido generado por la empresa y el 78% ha sido de compra. El volumen de referidos varía según el mercado y no está garantizado, así que igual harás crecer tu propia red, con el co-marketing de Moxie como apoyo.",
     "Since day one, most Moxie loans have started with a warm introduction from our key enterprise accounts, Area Directors, agent partners or Moxie marketing, not a loan officer’s own prospecting.":
         "Desde el primer día, la mayoría de los préstamos de Moxie han empezado con una presentación de nuestras cuentas empresariales clave, Directores de Área, agentes aliados o el marketing de Moxie, no con la prospección propia del oficial de préstamos.",
 })
@@ -301,7 +301,7 @@ T.update({"Moxie invests in the enterprise accounts and agent relationships that
     "Moxie invierte en las cuentas empresariales y las relaciones con agentes que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos."})
 T.update({
     "Moxie loan officers have access to more than 300 wholesale investors and thousands of programs: conventional, FHA, VA, USDA and jumbo loans, HELOCs and second mortgages, bank statement and other non-QM loans, DSCR and fix-and-flip loans for investors, construction, renovation and reverse mortgages, and cross-collateralized options.":
-        "Los oficiales de préstamos de Moxie tienen acceso a más de 300 inversionistas mayoristas y miles de programas: préstamos convencionales, FHA, VA, USDA y jumbo, HELOC y segundas hipotecas, préstamos con estados de cuenta bancarios y otros non-QM, préstamos DSCR y de compra-remodelación-venta para inversionistas, préstamos de construcción, de remodelación e hipotecas inversas, y opciones con garantía cruzada.",
+        "Los oficiales de préstamos de Moxie tienen acceso a más de 300 inversionistas al por mayor y miles de programas: préstamos convencionales, FHA, VA, USDA y jumbo, HELOC y segundas hipotecas, préstamos con estados de cuenta bancarios y otros non-QM, préstamos DSCR y de compra-remodelación-venta para inversionistas, préstamos de construcción, de remodelación e hipotecas inversas, y opciones con garantía cruzada.",
     "Cross-collateralized loans": "Préstamos con garantía cruzada",
 })
 T.update({
@@ -350,19 +350,19 @@ T.update({
 # ---- streamlined layout
 T.update({
     "Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers.":
-        "Préstamos de compra calificados, precios mayoristas, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia.",
+        "Préstamos de compra calificados, precios al por mayor, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia.",
     "Great loan officers, held back by the wrong company.": "Grandes oficiales de préstamos, frenados por la empresa equivocada.",
     "What you’re dealing with now": "Lo que enfrentas hoy",
     "What you get at Moxie": "Lo que obtienes en Moxie",
     "You’re chasing your own leads.": "Persigues tus propios prospectos.",
     "82% of our business is company-generated": "El 82% de nuestro negocio lo genera la empresa",
-    "Warm introductions from key enterprise accounts, Area Directors and agent partners, and 86% of it is purchase.":
-        "Presentaciones calificadas de cuentas empresariales clave, Directores de Área y agentes aliados, y el 86% es de compra.",
+    "Warm introductions from key enterprise accounts, Area Directors and agent partners, and 78% of it is purchase.":
+        "Presentaciones calificadas de cuentas empresariales clave, Directores de Área y agentes aliados, y el 78% es de compra.",
     "You’re losing deals on rate.": "Pierdes préstamos por la tasa.",
-    "Wholesale pricing that wins": "Precios mayoristas que ganan",
-    "Moxie rates averaged 0.559% lower than the largest retail lender.": "Las tasas de Moxie fueron en promedio 0.559% más bajas que las del prestamista minorista más grande.",
+    "Wholesale pricing that wins": "Precios al por mayor que ganan",
+    "Moxie rates averaged 0.559% lower than the largest retail lender.": "Las tasas de Moxie fueron en promedio 0.559% más bajas que las del prestamista al por menor más grande.",
     "You’re turning away good borrowers.": "Rechazas a buenos prestatarios.",
-    "300+ wholesale investors": "Más de 300 inversionistas mayoristas",
+    "300+ wholesale investors": "Más de 300 inversionistas al por mayor",
     "Self-employed, investors, non-QM, HELOCs and thousands more programs.": "Trabajadores independientes, inversionistas, non-QM, HELOC y miles de programas más.",
     "Your files sit in a slow queue.": "Tus expedientes esperan en una fila lenta.",
     "In-house processing, priority underwriting": "Procesamiento interno, suscripción prioritaria",
@@ -373,7 +373,7 @@ T.update({
     "You wait weeks to get paid.": "Esperas semanas para cobrar.",
     "Generous compensation paid as your loans close, with full health insurance and a 401(k) for eligible employees.":
         "Compensación generosa pagada a medida que cierran tus préstamos, con seguro médico completo y un 401(k) para los empleados elegibles.",
-    "= 82% company-generated, 86% purchase.": "= 82% generado por la empresa, 86% de compra.",
+    "= 82% company-generated, 78% purchase.": "= 82% generado por la empresa, 78% de compra.",
     "A pipeline that doesn’t depend on cold calls or waiting for rates to drop.": "Una cartera que no depende de llamadas en frío ni de esperar a que bajen las tasas.",
     "Pay, benefits and support": "Pago, beneficios y soporte",
     "Get paid well. Never work alone.": "Gana bien. Nunca trabajes solo.",
@@ -402,7 +402,7 @@ T.update({
 T.update({
     "A huge product array": "Una enorme variedad de productos",
     "FICO scores from 500, self-employed bank statement loans, DSCR up to 25 units, non-QM, HELOCs and thousands more programs across 300+ wholesale investors.":
-        "Puntajes FICO desde 500, préstamos con estados de cuenta bancarios para trabajadores independientes, DSCR hasta 25 unidades, non-QM, HELOC y miles de programas más con más de 300 inversionistas mayoristas.",
+        "Puntajes FICO desde 500, préstamos con estados de cuenta bancarios para trabajadores independientes, DSCR hasta 25 unidades, non-QM, HELOC y miles de programas más con más de 300 inversionistas al por mayor.",
     "14-day average clear to close": "Promedio de 14 días para la aprobación final",
     "In-house processing, plus priority underwriting and account support with key investors across product types.":
         "Procesamiento interno, más suscripción prioritaria y soporte de cuenta con inversionistas clave en todos los tipos de producto.",
@@ -445,7 +445,7 @@ T.update({
         "Las relaciones con compañías de gestión de avalúos y expertos del mercado local agilizan los tiempos de entrega de los avalúos.",
     "Annual conference": "Conferencia anual",
     "A yearly event with top producers and lenders.": "Un evento anual con los mejores originadores y prestamistas.",
-    "Four steps to joining Moxie.": "Cuatro pasos para unirte a Moxie.",
+    "Four steps to join Moxie.": "Cuatro pasos para unirte a Moxie.",
     "White-glove onboarding": "Incorporación personalizada",
     "Get fully trained on everything, including your lender relationships and every tool at your disposal.":
         "Recibe capacitación completa en todo, incluidas tus relaciones con prestamistas y cada herramienta a tu disposición.",
@@ -460,7 +460,7 @@ T.update({
         "Moxie construye las cuentas empresariales y las relaciones que te envían compradores, para que dediques más de tu semana a estructurar y cerrar préstamos.",
     "No doc loans": "Préstamos sin documentación de ingresos",
     "Warm purchase deals, wholesale pricing, in-house operations and a team that has your back. Moxie Mortgage, a division of NEXA Mortgage, is hiring experienced, licensed loan officers who want to excel.":
-        "Préstamos de compra calificados, precios mayoristas, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia que quieren destacar.",
+        "Préstamos de compra calificados, precios al por mayor, operaciones internas y un equipo que te respalda. Moxie Mortgage, una división de NEXA Mortgage, está contratando oficiales de préstamos con experiencia y licencia que quieren destacar.",
 })
 T.update({"Jumbo": "Jumbo", "Up to $30M": "Hasta $30M", "Jumbo max ($5M)": "Jumbo máximo ($5M)", "Super jumbo ($30M)": "Super jumbo ($30M)",
           "No doc": "Sin documentación de ingresos", "HELOAN": "HELOAN", "Construction": "Construcción", "One-time close": "Cierre único"})
@@ -473,7 +473,7 @@ T.update({"Why Moxie": "Por qué Moxie", "Deal flow": "Flujo de préstamos", "Ma
           "Partners": "Socios", "Pay and support": "Pago y soporte", "FAQ": "Preguntas", "Apply": "Solicitar", "Page sections": "Secciones de la página"})
 T.update({"Jump to a section": "Ir a una sección"})
 T.update({"Huge product selection": "Enorme variedad de productos", "We create the business opportunities that drive your growth.": "Creamos las oportunidades de negocio que impulsan tu crecimiento.",
-          "82% company-generated, 86% purchase.": "82% generado por la empresa, 86% de compra.", "Non-QM jumbo": "Jumbo non-QM", "203(k)": "203(k)", "Short-term rentals": "Rentas a corto plazo"})
+          "82% company-generated, 78% purchase.": "82% generado por la empresa, 78% de compra.", "Non-QM jumbo": "Jumbo non-QM", "203(k)": "203(k)", "Short-term rentals": "Rentas a corto plazo"})
 T.update({"Today": "Hoy", "With Moxie": "Con Moxie", "ARM vs. fixed": "ARM vs. fija", "Buydowns": "Buydowns", "Effective rate": "Tasa efectiva",
           "Lead": "Prospecto", "Application": "Solicitud", "Closed": "Cerrado", "Coming back": "Regresa", "On demand, 24/7": "Cuando quieras, 24/7",
           "Application received": "Solicitud recibida", "Appraisal ordered": "Avalúo solicitado", "Clear to close": "Aprobación final"})
@@ -504,10 +504,27 @@ T.update({
     "Refi alerts": "Alertas de refi", "Welcome home": "Bienvenida a casa",
     "Refi alert engine": "Motor de alertas de refi", "Welcome home packet": "Paquete de bienvenida",
     "Client’s target rate": "Tasa objetivo del cliente",
-    "Past client, Phoenix": "Cliente anterior, Phoenix", "Past client, Tampa": "Cliente anterior, Tampa",
+    "Past client": "Cliente anterior",
     "Save $384/mo": "Ahorra $384/mes", "Save $291/mo": "Ahorra $291/mes",
     "Clients alerted the moment rates drop": "Clientes alertados en cuanto bajan las tasas",
     "Closing summary": "Resumen de cierre", "Home care guide": "Guía de cuidado del hogar",
     "Utility setup": "Conexión de servicios", "1-year check-in": "Revisión al año",
     "Sent to every client at closing": "Enviado a cada cliente al cierre",
 })
+T.update({"Daily": "Diario", "14 days": "14 días", "Every loan": "Cada préstamo"})
+T.update({"Local attractions": "Atracciones locales", "Parks and trails": "Parques y senderos", "Restaurants": "Restaurantes",
+          "Hospitals and urgent care": "Hospitales y urgencias", "Their new neighborhood, all in one guide": "Su nuevo vecindario, en una sola guía"})
+T.update({"Debt consolidation engine": "Motor de consolidación de deudas", "Current mortgage": "Hipoteca actual", "Credit cards": "Tarjetas de crédito",
+          "Auto loan": "Préstamo de auto", "Personal loan": "Préstamo personal", "One new payment": "Un solo pago nuevo",
+          "$1,980/mo": "$1,980/mes", "$720/mo": "$720/mes", "$540/mo": "$540/mes", "$380/mo": "$380/mes", "$2,410/mo": "$2,410/mes",
+          "$3,620/mo today": "$3,620/mes hoy", "$1,210/mo back in their budget": "$1,210/mes de vuelta en su presupuesto"})
+T.update({"Refi alerts": "Alertas refi"})
+T.update({"Debt consolidation": "Consolidación"})
+T.update({"Errors flagged": "Errores detectados", "Inconsistencies flagged": "Inconsistencias detectadas",
+          "Homeowner report": "Reporte del hogar", "Estimated home value": "Valor estimado de la casa", "▲ $38K this year": "▲ $38K este año",
+          "Equity $251K": "Plusvalía $251K", "Loan balance $361K": "Saldo del préstamo $361K", "Local market": "Mercado local",
+          "Median price ▲ 4.2%": "Precio medio ▲ 4.2%", "Explore cash-out": "Ver retiro de capital", "Lower my payment": "Bajar mi pago",
+          "Keeps past clients coming back to you": "Hace que tus clientes anteriores regresen contigo",
+          "Apply to join Moxie": "Únete a Moxie"})
+T.update({"Moxie University Employee Onboarding course": "Curso de incorporación de empleados de Moxie University"})
+T.update({"LOs alerted the moment a client is in range to refi": "Alerta al LO en cuanto un cliente está en rango para refinanciar"})
