@@ -145,7 +145,7 @@ body = f"""
     <div class="mx-sav-in">
       <p class="mx-eyebrow" style="margin:0 !important">Savings estimator</p>
       <h2 id="mxh-sav" class="mx-h2">Watch your savings add up</h2>
-      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.559% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
+      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.688% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
       <div>
         <div class="mx-sav-row"><label for="mxh-amt">Loan amount</label><output id="mxh-amt-out" for="mxh-amt">$600,000</output></div>
         <input class="mx-range" id="mxh-amt" type="range" min="100000" max="1500000" step="10000" value="600000" aria-valuetext="$600,000">
@@ -226,7 +226,7 @@ body = f"""
     <div class="mxh-notes mx-fine">
       <p>† Offers made by Moxie Mortgage are available only to clients who are purchasing a home and financing with Moxie Mortgage. This is not a commitment to lend and is contingent on qualification per full underwriting guidelines. Conditions and exclusions apply.</p>
       <p>§ “In minutes” refers to the time it takes to submit an application. Time will vary based on the parameters of the applicant’s situation. A preapproval decision will be provided within 24 hours of a completed application.</p>
-      <p>‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Savings estimates compare principal and interest on a 30-year fixed loan at a {buy.SAV_BASE}% example rate with a rate {buy.SAV_GAP}% lower. Individual results vary.</p>
+      <p>‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from April 2024 to November 2026; average difference 0.688%. Savings estimates compare principal and interest on a 30-year fixed loan at a {buy.SAV_BASE}% example rate with a rate {buy.SAV_GAP}% lower. Individual results vary.</p>
     </div>
   </div>
 </section>

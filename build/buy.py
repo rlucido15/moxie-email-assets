@@ -32,7 +32,7 @@ def review(name, text):
 def _pay(L, r):
     i = r / 1200
     return L * i / (1 - (1 + i) ** -360)
-SAV_BASE, SAV_GAP, SAV_DEF = 6.75, 0.559, 600000
+SAV_BASE, SAV_GAP, SAV_DEF = 6.75, 0.688, 600000
 _sv = _pay(SAV_DEF, SAV_BASE) - _pay(SAV_DEF, SAV_BASE - SAV_GAP)
 usd = lambda n: '${:,.0f}'.format(n)
 SAV_M, SAV_L, SAV_5, SAV_1, SAV_10 = usd(_sv), usd(_sv * 360), usd(_sv * 60), usd(_sv * 12), usd(_sv * 120)
@@ -188,7 +188,7 @@ body = f"""
     <div class="mx-sav-in">
       <p class="mx-eyebrow" style="margin:0 !important">Savings estimator</p>
       <h2 id="mxb-sav" class="mx-h2">Watch your savings add up</h2>
-      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.559% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
+      <p class="mx-speak" style="font-size:19px">Our rates have averaged 0.688% lower than the nation's largest retail lender.<span class="mx-dag">‡</span> Here's what that's worth on your loan.</p>
       <div>
         <div class="mx-sav-row"><label for="mxb-amt">Loan amount</label><output id="mxb-amt-out" for="mxb-amt">$600,000</output></div>
         <input class="mx-range" id="mxb-amt" type="range" min="100000" max="1500000" step="10000" value="600000" aria-valuetext="$600,000">
@@ -257,7 +257,7 @@ body = f"""
       <div class="mx-btns"><a class="mx-btn mx-btn-p" href="{A}?src=buy_cta">Get approved today</a><a class="mx-btn mx-btn-w" data-mx-phone href="tel:{PHONE_TEL}">Call {PHONE}</a></div>
     </div>
     <p class="mx-fine" style="margin-top:40px">† Offers made by Moxie Mortgage are available only to clients who are purchasing a home and financing with Moxie Mortgage. Certain offers require a minimum purchase price of $300,000 including, but not limited to, $1,000 lender credit for closing costs. This is not a commitment to lend and is contingent on qualification per full underwriting guidelines. Offers made by Moxie Mortgage may not be redeemed for cash and are non-transferable. Offers cannot be retroactively applied to loans where the rate has been locked. Conditions and exclusions apply.</p>
-    <p class="mx-fine" style="margin-top:10px">‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Savings estimates compare principal and interest on a 30-year fixed loan at a {SAV_BASE}% example rate with a rate {SAV_GAP}% lower. Individual results vary.</p>
+    <p class="mx-fine" style="margin-top:10px">‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from April 2024 to November 2026; average difference 0.688%. Savings estimates compare principal and interest on a 30-year fixed loan at a {SAV_BASE}% example rate with a rate {SAV_GAP}% lower. Individual results vary.</p>
   </div>
 </section>
 """

@@ -36,7 +36,7 @@ T = {
         "Un prestamista corresponsal financia sus propios préstamos hipotecarios y trabaja con grandes inversionistas al por mayor que asumen el préstamo después del cierre. Así, los clientes de Moxie tienen toda la gama de opciones de préstamo en un solo lugar, con un proceso de aprobación más ágil.",
     "Savings estimator": "Calculadora de ahorros",
     "Watch your savings add up": "Mira cómo crecen tus ahorros",
-    "Our rates have averaged 0.559% lower than the nation's largest retail lender.": "Nuestras tasas han sido en promedio 0.559% más bajas que las del prestamista al por menor más grande del país.",
+    "Our rates have averaged 0.688% lower than the nation's largest retail lender.": "Nuestras tasas han sido en promedio 0.688% más bajas que las del prestamista al por menor más grande del país.",
     "Here's what that's worth on your loan.": "Esto es lo que significa para tu préstamo.",
     "$100K": "$100K",
     "$1.5M": "$1.5M",
@@ -78,8 +78,8 @@ T = {
         "† Las ofertas de Moxie Mortgage están disponibles solo para clientes que compran una casa y la financian con Moxie Mortgage. Esto no es un compromiso de préstamo y está sujeto a la calificación según todas las pautas de suscripción. Aplican condiciones y exclusiones.",
     "§ “In minutes” refers to the time it takes to submit an application. Time will vary based on the parameters of the applicant’s situation. A preapproval decision will be provided within 24 hours of a completed application.":
         "§ “En minutos” se refiere al tiempo que toma enviar una solicitud. El tiempo varía según la situación del solicitante. Se dará una decisión de preaprobación dentro de las 24 horas posteriores a recibir la solicitud completa.",
-    "‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from November 2025 to November 2026; average difference 0.559%. Savings estimates compare principal and interest on a 30-year fixed loan at a 6.75% example rate with a rate 0.559% lower. Individual results vary.":
-        "‡ Basado en la comparación equivalente que hizo Moxie Mortgage de las tasas semanales frente a Rocket Mortgage de noviembre de 2025 a noviembre de 2026; diferencia promedio de 0.559%. Los ahorros estimados comparan el capital y los intereses de un préstamo fijo a 30 años con una tasa de ejemplo de 6.75% frente a una tasa 0.559% más baja. Los resultados individuales varían.",
+    "‡ Based on Moxie Mortgage’s apples-to-apples comparison of weekly rates against Rocket Mortgage from April 2024 to November 2026; average difference 0.688%. Savings estimates compare principal and interest on a 30-year fixed loan at a 6.75% example rate with a rate 0.688% lower. Individual results vary.":
+        "‡ Basado en la comparación equivalente que hizo Moxie Mortgage de las tasas semanales frente a Rocket Mortgage de abril de 2024 a noviembre de 2026; diferencia promedio de 0.688%. Los ahorros estimados comparan el capital y los intereses de un préstamo fijo a 30 años con una tasa de ejemplo de 6.75% frente a una tasa 0.688% más baja. Los resultados individuales varían.",
     # hero variants written by the page script
     "Same home. Lower mortgage. Keep the $1,000s you’d pay a retail lender.": "La misma casa. Un pago más bajo. Quédate con los miles de dólares que le pagarías a otro prestamista.",
     "Welcome back": "Bienvenido de nuevo",
