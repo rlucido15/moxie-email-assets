@@ -332,7 +332,8 @@ MX.store = {
 MX.track = function (name, data) {
   var p = Object.assign({ event: name }, data || {});
   window.dataLayer = window.dataLayer || []; window.dataLayer.push(p);
-  if (typeof window.gtag === 'function') window.gtag('event', name, data || {});
+  /* send to Moxie's own GA4 property (G-QK728GG22P); without send_to, Lofty's gtag routes events to its own property only */
+  if (typeof window.gtag === 'function') window.gtag('event', name, Object.assign({}, data || {}, { send_to: 'G-QK728GG22P' }));
 };
 MX.fullBleed = function (root) {
   function fit() {
@@ -385,7 +386,7 @@ MX.applyHero = function (root, v) {
 };
 var root = document.getElementById('mx-faqs');
 MX.fullBleed(root);
-MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@8a4291d/website/es/mx-faqs.json');
+MX.i18n.load(root, 'https://cdn.jsdelivr.net/gh/rlucido15/moxie-email-assets@00d20fe/website/es/mx-faqs.json');
 
 var q = root.querySelector('#mxf-q'), sum = root.querySelector('#mxf-sum'), clr = root.querySelector('#mxf-clear'), empty = root.querySelector('#mxf-empty');
 var groups = [].slice.call(root.querySelectorAll('.mx-cgroup'));
