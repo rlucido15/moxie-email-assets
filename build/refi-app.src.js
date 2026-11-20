@@ -482,25 +482,80 @@
       if (!resp.ok) throw new Error("Parsing service unavailable.");
       return await resp.json();
     }
-    async function parseViaAnthropic(file) {
-      const b64 = await fileToBase64(file);
-      const isPdf = file.type === "application/pdf";
-      const mediaType = isPdf ? "application/pdf" : file.type || "image/jpeg";
-      const block = isPdf ? { type: "document", source: { type: "base64", media_type: mediaType, data: b64 } } : { type: "image", source: { type: "base64", media_type: mediaType, data: b64 } };
-      const instruction = `You are reading a mortgage statement. Extract ONLY these fields and return strict JSON, no prose, no markdown. Do NOT extract account numbers, SSNs, or any identifier we didn't ask for. Fields: {"lender": string|null, "balance": number|null (current principal balance / unpaid principal), "rate": number|null (note/interest rate as a percent, e.g. 6.875), "loanType": one of "conventional","fha","va","usda",null, "hasEscrow": boolean|null (true if the statement shows an escrow/impound balance or an escrow portion of the payment), "escrowMonthly": number|null (the monthly escrow portion of the payment if shown), "propertyAddress": string|null (the mortgaged property address), "homeValue": number|null (only if an appraised/estimated value appears; otherwise null)}. If a field is not clearly present, use null. ALSO include a "confidence" object mapping each field name above to "high", "low", or null (null when the field itself is null). Use "high" only when the value is clearly and unambiguously printed on the statement; use "low" when you inferred it, it was hard to read, or you're unsure. loanType is often not stated explicitly \u2014 mark it "low" unless the statement names the program. Return JSON only.`;
-      const resp = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-6",
-          max_tokens: 1e3,
-          messages: [{ role: "user", content: [block, { type: "text", text: instruction }] }]
-        })
-      });
-      if (!resp.ok) throw new Error("Couldn't read that statement. Try a clearer photo or PDF.");
-      const dj = await resp.json();
-      const text = (dj.content || []).map((c) => c.type === "text" ? c.text : "").join("").replace(/```json|```/g, "").trim();
-      return JSON.parse(text);
+    /* Statement reading happens entirely in the visitor's browser (pdf.js for PDFs, Tesseract OCR for photos);
+       nothing is sent to an AI service. Libraries load from jsDelivr only when someone uploads a statement. */
+    const loadScriptOnce = (src) => new Promise((res, rej) => {
+      if (document.querySelector('script[data-mx-src="' + src + '"]')) { const t0 = Date.now(); (function w() { if (window.__mxLoaded && window.__mxLoaded[src]) res(); else if (Date.now() - t0 > 30000) rej(new Error("load timeout")); else setTimeout(w, 100); })(); return; }
+      const el = document.createElement("script"); el.src = src; el.async = true; el.setAttribute("data-mx-src", src);
+      el.onload = () => { (window.__mxLoaded = window.__mxLoaded || {})[src] = 1; res(); };
+      el.onerror = () => rej(new Error("Could not load the statement reader."));
+      document.head.appendChild(el);
+    });
+    const PDFJS = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js";
+    const PDFJS_WORKER = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+    const TESS = "https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
+    async function ocr(source) {
+      await loadScriptOnce(TESS);
+      const r = await window.Tesseract.recognize(source, "eng");
+      return (r && r.data && r.data.text) || "";
+    }
+    async function pdfText(file) {
+      await loadScriptOnce(PDFJS);
+      const lib = window.pdfjsLib; lib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER;
+      const doc = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) }).promise;
+      let out = "";
+      for (let p = 1; p <= Math.min(doc.numPages, 4); p++) {
+        const pg = await doc.getPage(p); const c = await pg.getTextContent(); let lastY = null;
+        for (const it of c.items) { const y = Math.round(it.transform[5]); out += lastY !== null && Math.abs(y - lastY) > 3 ? "\n" : lastY !== null ? " " : ""; out += it.str; lastY = y; }
+        out += "\n";
+      }
+      if (out.replace(/\s/g, "").length < 60) {
+        const pg = await doc.getPage(1); const vp = pg.getViewport({ scale: 2 });
+        const cv = document.createElement("canvas"); cv.width = vp.width; cv.height = vp.height;
+        await pg.render({ canvasContext: cv.getContext("2d"), viewport: vp }).promise;
+        out = await ocr(cv);
+      }
+      return out;
+    }
+    function extractStatement(raw){
+      var t=String(raw||'').replace(/ /g,' ').replace(/[ \t]+/g,' ');
+      var L=t.split(/\n+/).map(function(s){return s.trim()}).filter(Boolean);
+      var flat=L.join('\n');
+      function money(s){var m=String(s).match(/\$?\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]{2})?|[0-9]{1,7}\.[0-9]{2}|[0-9]{4,7})(?![0-9%])/);return m?parseFloat(m[1].replace(/,/g,'')):null}
+      function near(re, pick, maxAhead){ // label on a line, value on same line or next lines
+        for(var i=0;i<L.length;i++){ if(re.test(L[i])){ for(var j=i;j<=Math.min(L.length-1,i+(maxAhead||2));j++){ var seg=j===i?L[i].replace(re,' '):L[j]; var v=pick(seg); if(v!=null) return v; } } } return null }
+      var out={lender:null,balance:null,rate:null,loanType:null,hasEscrow:null,escrowMonthly:null,propertyAddress:null,homeValue:null,confidence:{}};
+      // balance
+      var bal=near(/(unpaid|outstanding|current|remaining)?\s*principal\s*balance|outstanding principal|unpaid principal|principal balance/i, function(s){var v=money(s);return v&&v>=10000&&v<=10000000?v:null});
+      if(bal){out.balance=bal;out.confidence.balance='high'}
+      // rate
+      var rate=near(/interest\s*rate|note\s*rate/i,function(s){var m=s.replace(/\(.*?\)/g,' ').match(/([0-9]{1,2}\.[0-9]{1,4})\s*%/)||s.match(/\b([2-9]\.[0-9]{2,4})\b/);if(!m)return null;var v=parseFloat(m[1]);return v>=1&&v<=15?v:null});
+      if(rate){out.rate=rate;out.confidence.rate='high'}
+      // escrow monthly
+      var esc=near(/^(escrow(?!\s*balance)|taxes\s*(and|&)\s*insurance)/i,function(s){if(/balance|shortage|surplus|disburse/i.test(s))return null;var v=money(s.replace(/\(.*?\)/g,' '));return v&&v>0&&v<10000?v:null},1);
+      if(esc==null){ var m=flat.match(/escrow[^\n$]{0,60}\$\s*([0-9,]+\.[0-9]{2})/i); if(m&&!/balance/i.test(m[0])){var v=parseFloat(m[1].replace(/,/g,''));if(v<10000)esc=v} }
+      if(esc){out.escrowMonthly=Math.round(esc);out.hasEscrow=true;out.confidence.escrowMonthly='high';out.confidence.hasEscrow='high'}
+      else if(/no escrow|not escrowed|non-escrow/i.test(flat)){out.hasEscrow=false;out.confidence.hasEscrow='high'}
+      else if(/escrow balance|escrow account/i.test(flat)){out.hasEscrow=true;out.confidence.hasEscrow='low'}
+      // loan type
+      if(/\bFHA\b|\bMIP\b|case number/i.test(flat)){out.loanType='fha'}else if(/\bVA\b|veterans/i.test(flat)){out.loanType='va'}else if(/\bUSDA\b|rural development/i.test(flat)){out.loanType='usda'}
+      if(out.loanType)out.confidence.loanType=/loan type/i.test(flat)?'high':'low';
+      // lender (servicer)
+      var S=['Rocket Mortgage','Mr. Cooper','Nationstar','Wells Fargo','Chase','JPMorgan Chase','PennyMac','Freedom Mortgage','Lakeview Loan Servicing','LoanCare','Newrez','Shellpoint','Cenlar','Dovenmuehle','Flagstar','U.S. Bank','US Bank','Truist','PNC','Carrington','Fifth Third','Citizens','Huntington','Guild Mortgage','AmeriHome','Sun West','Planet Home Lending','Specialized Loan Servicing','RoundPoint','MidFirst','Midland Mortgage','Bank of America','Navy Federal','USAA','Loandepot','loanDepot','Crosscountry','Cardinal Financial','Select Portfolio Servicing','Ocwen','Onity','Servbank','Valon','M&T Bank','Regions','KeyBank','BMO','Citi','CitiMortgage','Union Home Mortgage','Village Capital','Home Point','Caliber','Fairway','Movement Mortgage','PHH','United Wholesale Mortgage','Arvest','Columbia Bank','Gateway Mortgage'];
+      var low=flat.toLowerCase(),best=null,bi=1e9;
+      S.forEach(function(n){var i=low.indexOf(n.toLowerCase());if(i>=0&&i<bi){bi=i;best=n}});
+      if(best){out.lender=best.replace(/^US Bank$/,'U.S. Bank').replace(/^loandepot$/i,'loanDepot');out.confidence.lender='high'}
+      // property address
+      var pa=near(/property\s*(address)?\s*:?/i,function(s){var m=s.match(/(\d{1,6}\s+[A-Za-z0-9.' ]+?(?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Ct|Court|Blvd|Way|Pl|Place|Cir|Circle|Ter|Terrace|Pkwy|Hwy)\.?(?:\s*(?:Apt|Unit|#)\s*\w+)?,?\s+[A-Za-z .]+,?\s+[A-Z]{2}\s+\d{5})/);return m?m[1].replace(/\s+/g,' ').trim():null},1);
+      if(pa){out.propertyAddress=pa;out.confidence.propertyAddress='high'}
+      return out;
+    }
+    async function parseLocally(file) {
+      const isPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name || "");
+      const text = isPdf ? await pdfText(file) : await ocr(file);
+      const raw = extractStatement(text);
+      if (raw.balance == null && raw.rate == null) throw new Error("We couldn\u2019t pick out the details from that file. You can type them in instead.");
+      return raw;
     }
     async function handleStatement(file) {
       if (!file) return;
@@ -520,7 +575,7 @@
           statementRef.current = { base64: b64, name: file.name || "statement", type: file.type || "" };
         } catch (_) {
         }
-        const raw = USE_BACKEND ? await parseViaMoxieBackend(file) : await parseViaAnthropic(file);
+        const raw = USE_BACKEND ? await parseViaMoxieBackend(file) : await parseLocally(file);
         const fields = {
           lender: raw.lender || "",
           balance: raw.balance != null ? Math.round(raw.balance).toLocaleString("en-US") : "",
